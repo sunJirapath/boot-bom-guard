@@ -242,7 +242,7 @@ python scripts/verify_maven.py --offline
 distribution and dependencies cached first. The [CI workflow](.github/workflows/ci.yml) runs the full Maven and Gradle suites
 on Ubuntu with Java 21, Maven 3.9.16 and the Gradle 8.14.3 wrapper. Pull requests run the same checks; the README
 status badge follows `main` and shows its result after the workflow is merged and runs there.
-Coverage and license badges are omitted: no coverage service or license file is configured.
+Coverage badge is omitted: no coverage service is configured. Licensed under [Apache-2.0](LICENSE).
 
 Research and bounded smaller-agent review are recorded in [DESIGN.md](DESIGN.md). Actual commands, test counts
 and remaining limitations are in [VERIFICATION.md](VERIFICATION.md).
