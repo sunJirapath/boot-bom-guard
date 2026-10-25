@@ -52,7 +52,7 @@ public final class Guard {
         int checked = 0;
         for (Resolved dependency : actual.stream().distinct()
                 .sorted(Comparator.comparing(Resolved::coordinates).thenComparing(Resolved::version)
-                        .thenComparing(Resolved::evidence)).toList()) {
+                        .thenComparing(Resolved::evidence).thenComparing(Resolved::origin)).toList()) {
             String version = expected.get(dependency.coordinates());
             if (version == null) continue;
             checked++;
