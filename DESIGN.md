@@ -12,6 +12,8 @@ Scope includes three build modules, plugin entry points/configuration, core test
 
 Use the built `MavenProject` for effective dependency management and its `InputLocation` source model IDs for selected Boot BOM provenance. Rebuild the resolved pristine BOM with `ProjectBuilder`, clearing consumer properties/profiles. Use `ProjectDependenciesResolver` for the actual graph and omit verbose conflict losers. Preserve native type/classifier distinctions through the artifact type registry. Raw parent/import/profile scanning would reimplement model merging and mistake shadowed imports for selected BOMs.
 
+For selected comparable snapshot coordinates, resolve the pristine BOM version and effective managed version with the existing Resolver session before equality comparison and origin classification. Preserve the artifact type/classifier and explicit timestamps; stripping timestamps would hide older pinned snapshots. Unresolvable expected snapshots retain the existing sanitized incomplete-analysis behavior.
+
 Primary references:
 
 - [MavenProject API](https://maven.apache.org/ref/3.9.0/apidocs/org/apache/maven/project/MavenProject.html)

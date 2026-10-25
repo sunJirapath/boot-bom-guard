@@ -3,6 +3,9 @@ import pathlib
 import shutil
 import subprocess
 import sys
+import tempfile
+import uuid
+import zipfile
 import unittest
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -92,6 +95,130 @@ class MavenIntegrationTest(unittest.TestCase):
     def test_duplicate_normalized_exception_is_rejected(self):
         self.assertIn("Invalid bootBomGuard exceptions",
                       self.run_fixture(profile="duplicate-exception", expected_failure=True))
+
+
+class MavenSnapshotIntegrationTest(unittest.TestCase):
+    """Frozen file-repository snapshots; native resolution warms the offline guard cases."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.temporary = tempfile.TemporaryDirectory(prefix="bbg-snapshots-")
+        cls.addClassCleanup(cls.temporary.cleanup)
+        cls.directory = pathlib.Path(cls.temporary.name)
+        cls.repository = cls.directory / "repository"
+        unique = uuid.uuid4().hex
+        cls.group = "guard.snapshot.fixture." + unique
+        cls.bom = "4.0.0-bbg-" + unique
+        cls.old = "1.0-20261024.010203-1"
+        cls.current = "1.0-20261025.010203-2"
+        cls.other = "2.0-20261025.010203-2"
+
+        def publish(group, name, version, resolved=None, dependencies="", packaging="jar"):
+            directory = cls.repository / group.replace(".", "/") / name / version
+            directory.mkdir(parents=True, exist_ok=True)
+            stem = name + "-" + (resolved or version)
+            (directory / (stem + ".pom")).write_text(
+                '<project xmlns="http://maven.apache.org/POM/4.0.0"><modelVersion>4.0.0</modelVersion>'
+                f'<groupId>{group}</groupId><artifactId>{name}</artifactId><version>{version}</version>'
+                f'<packaging>{packaging}</packaging>{dependencies}</project>', encoding="utf-8")
+            if packaging == "jar":
+                with zipfile.ZipFile(directory / (stem + ".jar"), "w") as jar:
+                    jar.writestr("META-INF/MANIFEST.MF", "Manifest-Version: 1.0\n")
+
+        def dependency(name, version=None):
+            return (f'<dependency><groupId>{cls.group}</groupId><artifactId>{name}</artifactId>'
+                    + (f'<version>{version}</version>' if version else "") + '</dependency>')
+
+        for name, base, current in [("direct", "1.0-SNAPSHOT", cls.current),
+                                    ("transitive", "1.0-SNAPSHOT", cls.current),
+                                    ("direct", "2.0-SNAPSHOT", cls.other)]:
+            for resolved in ([cls.old, current] if base == "1.0-SNAPSHOT" else [current]):
+                publish(cls.group, name, base, resolved)
+            directory = cls.repository / cls.group.replace(".", "/") / name / base
+            entries = ''.join(f'<snapshotVersion><extension>{ext}</extension><value>{current}</value>'
+                              '<updated>20261025010203</updated></snapshotVersion>' for ext in ["pom", "jar"])
+            (directory / "maven-metadata.xml").write_text(
+                f'<metadata><groupId>{cls.group}</groupId><artifactId>{name}</artifactId><version>{base}</version>'
+                '<versioning><snapshot><timestamp>20261025.010203</timestamp><buildNumber>2</buildNumber></snapshot>'
+                f'<lastUpdated>20261025010203</lastUpdated><snapshotVersions>{entries}</snapshotVersions></versioning></metadata>', encoding="utf-8")
+        for version in ["1.0", "2.0"]:
+            publish(cls.group, "release", version)
+        publish(cls.group, "bridge", "1.0", dependencies='<dependencies>' + dependency("transitive", "1.0-SNAPSHOT") + '</dependencies>')
+        managed = dependency("direct", "1.0-SNAPSHOT") + dependency("transitive", "1.0-SNAPSHOT") + dependency("release", "1.0")
+        publish("org.springframework.boot", "spring-boot-dependencies", cls.bom,
+                dependencies='<dependencyManagement><dependencies>' + managed + '</dependencies></dependencyManagement>', packaging="pom")
+        profiles = []
+        for name, artifact, version, management in [("older", "direct", cls.old, False),
+                                                    ("latest", "direct", cls.current, False),
+                                                    ("managed-older", "direct", cls.old, True),
+                                                    ("managed-snapshot", "direct", "2.0-SNAPSHOT", True),
+                                                    ("mixed", "release", "2.0", False)]:
+            content = '<dependencies>' + dependency(artifact, version) + '</dependencies>'
+            if management:
+                content = '<dependencyManagement>' + content + '</dependencyManagement>'
+            profiles.append(f'<profile><id>{name}</id>{content}</profile>')
+        (cls.directory / "pom.xml").write_text(
+            '<project xmlns="http://maven.apache.org/POM/4.0.0"><modelVersion>4.0.0</modelVersion>'
+            '<groupId>guard.fixture</groupId><artifactId>snapshot-consumer</artifactId><version>1</version>'
+            '<repositories><repository><id>bbg-frozen-snapshots</id>'
+            f'<url>{cls.repository.as_uri()}</url><snapshots><enabled>true</enabled></snapshots></repository></repositories>'
+            '<dependencyManagement><dependencies><dependency><groupId>org.springframework.boot</groupId>'
+            f'<artifactId>spring-boot-dependencies</artifactId><version>{cls.bom}</version><type>pom</type><scope>import</scope>'
+            '</dependency></dependencies></dependencyManagement><dependencies>'
+            + dependency("direct") + dependency("bridge", "1.0") + dependency("release") + '</dependencies>'
+            '<profiles>' + ''.join(profiles) + '</profiles></project>', encoding="utf-8")
+        # File repositories still require online Resolver mode once; no public snapshot or wall-clock metadata is used.
+        for profile in [None, "older", "latest", "managed-older", "managed-snapshot", "mixed"]:
+            native = cls.maven(["org.apache.maven.plugins:maven-dependency-plugin:3.10.0:resolve"], profile, offline=False)
+            if native.returncode:
+                raise AssertionError(native.stdout)
+
+    @classmethod
+    def maven(cls, goals, profile=None, strict=False, offline=OFFLINE):
+        args = [MAVEN, "-B", "-ntp", "-f", str(cls.directory / "pom.xml")] + goals
+        if profile:
+            args.append("-P" + profile)
+        if strict:
+            args.append("-DbootBomGuard.failOnDrift=true")
+        if offline:
+            args.append("--offline")
+        return subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+                              encoding="utf-8", errors="replace", timeout=180)
+
+    def guard(self, profile=None, strict=False, expected_exit=0):
+        run = self.maven(["io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check"], profile, strict)
+        self.assertEqual(run.returncode, expected_exit, run.stdout)
+        return run.stdout
+
+    def test_aligned_aliases_include_direct_and_transitive_artifacts(self):
+        self.assertIn("PASS checked=3 drift=0 unknown=0", self.guard(strict=True))
+
+    def test_explicit_current_timestamp_is_the_selected_alias(self):
+        self.assertIn("PASS checked=3 drift=0 unknown=0", self.guard("latest", strict=True))
+
+    def test_explicit_older_timestamp_remains_direct_drift(self):
+        out = self.guard("older")
+        self.assertIn(f"expected={self.current} resolved={self.old} classification=DIRECT_OVERRIDE", out)
+        self.assertIn("WARN checked=3 drift=1 unknown=0", out)
+        self.guard("older", strict=True, expected_exit=1)
+
+    def test_managed_older_timestamp_remains_managed_drift(self):
+        out = self.guard("managed-older")
+        self.assertIn(f"expected={self.current} resolved={self.old} classification=MANAGED_OVERRIDE", out)
+        self.assertIn("WARN checked=3 drift=1 unknown=0", out)
+        self.guard("managed-older", strict=True, expected_exit=1)
+
+    def test_managed_snapshot_override_keeps_native_origin(self):
+        out = self.guard("managed-snapshot")
+        self.assertIn(f"expected={self.current} resolved={self.other} classification=MANAGED_OVERRIDE", out)
+        self.assertIn("WARN checked=3 drift=1 unknown=0", out)
+        self.guard("managed-snapshot", strict=True, expected_exit=1)
+
+    def test_mixed_graph_reports_only_genuine_release_drift(self):
+        out = self.guard("mixed")
+        self.assertIn(f"DRIFT {self.group}:release expected=1.0 resolved=2.0 classification=DIRECT_OVERRIDE", out)
+        self.assertIn("WARN checked=3 drift=1 unknown=0", out)
+        self.guard("mixed", strict=True, expected_exit=1)
 
 
 if __name__ == "__main__":
