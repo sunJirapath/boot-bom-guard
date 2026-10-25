@@ -3,6 +3,8 @@ package io.github.bootbomguard.core;
 import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
+import java.util.Collections;
 import static org.junit.jupiter.api.Assertions.*;
 import static io.github.bootbomguard.core.Guard.*;
 
@@ -43,5 +45,106 @@ class GuardTest {
         assertEquals(compare("4", expected, List.of(drift, first), Map.of(), List.of("z", "a")).format(),
                      compare("4", expected, List.of(first, drift), Map.of(), List.of("a", "z")).format());
         assertTrue(compare("4", expected, List.of(first), Map.of(), List.of()).format().contains("rule\\u000aPASS\\u001b"));
+    }
+
+    @Test void coordinatesRejectInvalidTokensAndNormalizeTypeAndClassifier() {
+        for (String value : List.of("", ":a", "g:", "g:a:x", "g:a:x:y:z", "*:a")) {
+            assertThrows(IllegalArgumentException.class, () -> Coordinates.parse(value), value);
+        }
+        assertThrows(NullPointerException.class, () -> Coordinates.parse(null));
+        assertEquals(new Coordinates("g", "a", "jar", ""), new Coordinates("g", "a", " ", null));
+        assertEquals(Coordinates.parse("g:a"), Coordinates.parse("g:a:jar:"));
+        assertEquals("g:a:test-jar:tests", Coordinates.parse("g:a:test-jar:tests").toString());
+    }
+
+    @Test void rejectsMissingResolvedAndExpectedValuesAndEscapesInvalidCoordinateControls() {
+        assertThrows(NullPointerException.class, () -> new Resolved(null, "1", Origin.UNKNOWN_ORIGIN, "evidence"));
+        assertThrows(IllegalArgumentException.class, () -> new Resolved(key, " ", Origin.UNKNOWN_ORIGIN, "evidence"));
+        assertThrows(IllegalArgumentException.class, () -> new Resolved(key, "1", Origin.UNKNOWN_ORIGIN, " "));
+        assertThrows(NullPointerException.class, () -> new Resolved(key, "1", null, "evidence"));
+        assertThrows(IllegalArgumentException.class,
+                () -> compare("4.0.0", Map.of(key, " "), List.of(), Map.of(), List.of()));
+        assertThrows(IllegalArgumentException.class,
+                () -> compare("4.0.0", Collections.singletonMap(key, null), List.of(), Map.of(), List.of()));
+
+        IllegalArgumentException invalidControl = assertThrows(IllegalArgumentException.class,
+                () -> Coordinates.parse("g:a:jar:\u0001"));
+        assertTrue(invalidControl.getMessage().contains("\\u0001"));
+        assertFalse(invalidControl.getMessage().contains("\u0001"));
+    }
+
+    @Test void versionsUseExactStringEquality() {
+        for (String[] versions : List.of(new String[]{"1.0-rc1", "1.0-rc2"},
+                                         new String[]{"1.0-SNAPSHOT", "1.0"},
+                                         new String[]{"1.0", "1.0.0"})) {
+            Report report = compare("4.0.0", Map.of(key, versions[0]),
+                    List.of(new Resolved(key, versions[1], Origin.UNKNOWN_ORIGIN, "selected")), Map.of(), List.of());
+            assertTrue(report.violation());
+            assertEquals(versions[0], report.findings().getFirst().expected());
+            assertEquals(versions[1], report.findings().getFirst().resolved());
+        }
+    }
+
+    @Test void ignoresUnmanagedResolvedCoordinatesAndDeduplicatesExactResolvedEntries() {
+        Resolved same = new Resolved(key, "2.0.18", Origin.DIRECT_OVERRIDE, "declaration");
+        Report report = compare("4.0.0", Map.of(key, "2.0.17"), List.of(same, same), Map.of(), List.of());
+        assertEquals(1, report.checked());
+        assertEquals(1, report.findings().size());
+
+        Coordinates unmanaged = Coordinates.parse("g:unmanaged");
+        Report ignored = compare("4.0.0", Map.of(key, "2.0.17"),
+                List.of(new Resolved(unmanaged, "1", Origin.UNKNOWN_ORIGIN, "unmanaged")), Map.of(), List.of());
+        assertEquals(0, ignored.checked());
+        assertFalse(ignored.violation());
+
+        Report unresolved = compare("4.0.0", Map.of(key, "2.0.17"), List.of(), Map.of(),
+                List.of("Unresolved managed coordinate: " + key));
+        assertEquals(0, unresolved.checked());
+        assertTrue(unresolved.violation());
+    }
+
+    @Test void exceptionsMatchExactCoordinatesAndRejectNormalizedDuplicatesAndInvalidReasons() {
+        Coordinates testJar = Coordinates.parse("org.slf4j:slf4j-api:test-jar:tests");
+        Report report = compare("4.0.0", Map.of(key, "2.0.17", testJar, "2.0.17"),
+                List.of(new Resolved(key, "2.0.18", Origin.DIRECT_OVERRIDE, "main"),
+                        new Resolved(testJar, "2.0.18", Origin.DIRECT_OVERRIDE, "tests")),
+                Map.of(key, "Reviewed"), List.of());
+        assertEquals(2, report.findings().size());
+        assertEquals("Reviewed", report.findings().getFirst().reason());
+        assertNull(report.findings().getLast().reason());
+
+        Map<String, String> aliases = new LinkedHashMap<>();
+        aliases.put("g:a", "one");
+        aliases.put("g:a:jar:", "two");
+        assertThrows(IllegalArgumentException.class, () -> exceptions(aliases));
+        assertThrows(IllegalArgumentException.class, () -> exceptions(Map.of("g:a", " ")));
+        Map<String, String> nullReason = Collections.singletonMap("g:a", null);
+        assertThrows(IllegalArgumentException.class, () -> exceptions(nullReason));
+    }
+
+    @Test void diagnosticsRemainViolationsWhenAllDriftIsAllowedAndResultsAreImmutable() {
+        Report report = compare("4.0.0", Map.of(key, "2.0.17"), List.of(drift), Map.of(key, "Reviewed"),
+                List.of("Unresolved managed coordinate"));
+        assertTrue(report.violation());
+        assertThrows(UnsupportedOperationException.class, () -> report.findings().clear());
+        assertThrows(UnsupportedOperationException.class, () -> report.diagnostics().clear());
+    }
+
+    @Test void sanitizesBomReasonAndDiagnosticIncludingUnicodeSeparators() {
+        String out = compare("4\nBOM\u2028", Map.of(key, "2.0.17"), List.of(drift),
+                Map.of(key, "reason\u2029next"), List.of("diag\nnext")).format();
+        assertTrue(out.contains("BOM=4\\u000aBOM\\u2028"), out);
+        assertTrue(out.contains("diag\\u000anext"), out);
+        assertTrue(out.contains("reason=reason\\u2029next"), out);
+        assertEquals(1, out.lines().filter(line -> line.startsWith("UNKNOWN ")).count());
+    }
+
+    @Test void sameEvidenceWithDifferentOriginsFormatsIdenticallyRegardlessOfInputOrder() {
+        Resolved direct = new Resolved(key, "2.0.18", Origin.DIRECT_OVERRIDE, "same evidence");
+        Resolved transitive = new Resolved(key, "2.0.18", Origin.TRANSITIVE_DRIFT, "same evidence");
+        Map<Coordinates, String> expected = Map.of(key, "2.0.17");
+        String forward = compare("4.0.0", expected, List.of(direct, transitive), Map.of(), List.of()).format();
+        String reverse = compare("4.0.0", expected, List.of(transitive, direct), Map.of(), List.of()).format();
+        assertEquals(forward, reverse);
     }
 }

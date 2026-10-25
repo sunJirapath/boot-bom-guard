@@ -4,6 +4,14 @@ plugins {
 }
 repositories { mavenCentral() }
 def scenario = providers.gradleProperty('scenario').getOrElse('aligned')
+if (scenario == 'unresolved') {
+    repositories {
+        exclusiveContent {
+            forRepository { maven { url = uri('missing-repository') } }
+            filter { includeGroup 'guard.fixture' }
+        }
+    }
+}
 dependencies {
     if (scenario != 'missing') {
         if (scenario == 'ambiguous') {
@@ -31,6 +39,7 @@ dependencies {
     if (scenario == 'imported-bom') implementation 'org.springframework:spring-core'
     if (scenario == 'imported-override') implementation 'org.springframework:spring-core:7.0.2'
     if (scenario == 'unmanaged') implementation 'org.apache.maven:maven-artifact:3.9.16'
+    if (scenario == 'unresolved') implementation 'guard.fixture:missing:1'
 }
 if (scenario == 'forced') {
     configurations.configureEach { resolutionStrategy.force 'org.slf4j:slf4j-api:2.0.18' }
@@ -46,7 +55,14 @@ bootBomGuard {
     failOnDrift = providers.gradleProperty('failOnDrift').map { it.toBoolean() }.getOrElse(false)
     if (scenario == 'allowlist') exceptions.put('org.slf4j:slf4j-api', 'Reviewed logging upgrade')
     if (scenario == 'invalid-exception') exceptions.put('org.slf4j:slf4j-api', ' ')
+    if (scenario == 'missing-configuration') configurations = ['notThere']
+    if (scenario == 'non-resolvable') configurations = ['implementation']
+    if (scenario == 'empty-configurations') configurations = []
+    if (scenario == 'custom-configuration') configurations = ['runtimeClasspath', 'runtimeClasspath']
 }
 if (scenario == 'lazy') {
     configurations.configureEach { incoming.beforeResolve { throw new GradleException('Unexpected configuration-time resolution') } }
+}
+if (scenario == 'resolution-error') {
+    configurations.configureEach { incoming.beforeResolve { throw new GradleException('https://fixture-user:fixture-secret@invalid') } }
 }

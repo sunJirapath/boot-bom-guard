@@ -1,5 +1,6 @@
 # boot-bom-guard — Spring Boot BOM drift checks for Maven and Gradle
 
+[![CI](https://github.com/sunJirapath/boot-bom-guard/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/sunJirapath/boot-bom-guard/actions/workflows/ci.yml)
 [![Java 21](https://img.shields.io/badge/Java-21-blue)](#install)
 [![Spring Boot 4](https://img.shields.io/badge/Spring%20Boot-4-green)](#install)
 [![Maven 3.9.16+](https://img.shields.io/badge/Maven-3.9.16%2B-blue)](#maven)
@@ -227,8 +228,8 @@ python scripts/verify_maven.py
 ```
 
 The suites exercise real Spring Boot 4 dependency resolution, not mocked graphs. Gradle uses TestKit's plugin
-classpath; consumer examples use a composite build. The completed verification has 4 core tests, 13 Maven
-integration tests and 18 Gradle integration tests; see [VERIFICATION.md](VERIFICATION.md).
+classpath; consumer examples use a composite build. The completed verification has 12 core tests, 15 Maven
+integration tests and 25 Gradle integration tests; see [VERIFICATION.md](VERIFICATION.md).
 
 After the first resolution, test the cached dependencies without repository access:
 
@@ -238,7 +239,10 @@ python scripts/verify_maven.py --offline
 ```
 
 `-PtestOffline=true` also passes `--offline` to the nested TestKit builds. A new machine needs the Gradle
-distribution and dependencies cached first. GitHub Actions is not configured; the recorded results are local checks.
+distribution and dependencies cached first. The [CI workflow](.github/workflows/ci.yml) runs the full Maven and Gradle suites
+on Ubuntu with Java 21, Maven 3.9.16 and the Gradle 8.14.3 wrapper. Pull requests run the same checks; the README
+status badge follows `main` and becomes available after the workflow is merged and runs there.
+Coverage and license badges are omitted: no coverage service or license file is configured.
 
 Research and bounded smaller-agent review are recorded in [DESIGN.md](DESIGN.md). Actual commands, test counts
 and remaining limitations are in [VERIFICATION.md](VERIFICATION.md).
