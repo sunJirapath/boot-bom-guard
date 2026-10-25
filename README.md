@@ -241,7 +241,7 @@ python scripts/verify_maven.py --offline
 `-PtestOffline=true` also passes `--offline` to the nested TestKit builds. A new machine needs the Gradle
 distribution and dependencies cached first. The [CI workflow](.github/workflows/ci.yml) runs the full Maven and Gradle suites
 on Ubuntu with Java 21, Maven 3.9.16 and the Gradle 8.14.3 wrapper. Pull requests run the same checks; the README
-status badge follows `main` and becomes available after the workflow is merged and runs there.
+status badge follows `main` and shows its result after the workflow is merged and runs there.
 Coverage and license badges are omitted: no coverage service or license file is configured.
 
 Research and bounded smaller-agent review are recorded in [DESIGN.md](DESIGN.md). Actual commands, test counts
@@ -295,7 +295,7 @@ mvn boot-bom-guard:check
 ### ข้อจำกัด
 
 Gradle รองรับ native `platform` และ `enforcedPlatform` โดยแยกความหมายของทั้งสองแบบ ไม่เดาที่มาของ constraint
-เมื่อไม่มีหลักฐานเพียงพอ ยังไม่รองรับ configuration cache และ Gradle 10 ส่วน Maven 4 และ Linux/macOS ยังไม่ได้ทดสอบ
+เมื่อไม่มีหลักฐานเพียงพอ ยังไม่รองรับ configuration cache และ Gradle 10 ทดสอบแล้วบน Windows และ Ubuntu 24.04 ส่วน Maven 4 และ macOS ยังไม่ได้ทดสอบ
 การ resolve อาจดาวน์โหลดข้อมูลผ่าน repository ที่ build tool ตั้งค่าไว้ ใช้ `--offline` ได้เมื่อมี cache ครบแล้ว
 
 คำสั่งทดสอบอยู่ใน [Build and contribute](#build-and-contribute) และหลักฐานผลทดสอบอยู่ใน [VERIFICATION.md](VERIFICATION.md)
