@@ -2,7 +2,7 @@
 
 ## Campaign follow-up, 2026-10-29
 
-[Results for all 100 candidates](reports/real-world-2026-10-26/results.csv), [actual scenario coverage](reports/real-world-2026-10-26/coverage-matrix.md), and [report validation](reports/real-world-2026-10-26/report-validation.json) are now published with native oracle evidence. Fresh offline product checks on `51aa970678a1b892a81da82f65b891584bae57ae` passed 58 distinct tests (12 core, 21 Maven, 25 Gradle), zero failures/skips; [commands, counts and limits](reports/real-world-2026-10-26/evidence/final-validation-20261029.json). Historical online results below were not rerun online in this follow-up. Unsupported/blocked candidates are not successful integrations.
+The 100-candidate campaign results, scenario coverage and native oracle evidence are retained locally and excluded from Git. Fresh offline product checks on `51aa970678a1b892a81da82f65b891584bae57ae` passed 58 distinct tests (12 core, 21 Maven, 25 Gradle), zero failures/skips. Historical online results below were not rerun online in this follow-up. Unsupported/blocked candidates are not successful integrations.
 
 ## Historical verification — 2026-10-25
 
@@ -37,7 +37,7 @@ The five affected campaign repositories were rerun at the exact commits below in
 
 All **202 false findings** disappeared across 792 comparable coordinate checks. Gateway's `grpc-netty`, `grpc-protobuf` and `grpc-stub` still report expected `1.84.1`, resolved `1.85.1`. The original minimal Boot-starter reproduction also changed from four false findings / strict exit 1 to `PASS checked=21 drift=0 unknown=0` / strict exit 0. All five clone SHAs and tracked-file states remained unchanged.
 
-Raw rerun logs, commands, graph/oracle JSON and the local rerun script are retained under the fix worktree's ignored `build/bbg-001/`; the earlier campaign evidence remains separate and unchanged. These selected-leaf fix checks do not certify complete reactors. The subsequent [100-candidate follow-up](reports/real-world-2026-10-26/summary.md) revisited all 26 historical blockers: final outcomes are 30 aligned, 12 genuine drift, 57 expected unsupported and one external GeoServer artifact blocker, refreshed on 2026-10-29. It also records three complete default-reactor oracle checks and one matched reactor performance measurement; no single graph above 1,500 nodes was tested. Resolving expected snapshot identities can require additional artifacts/cache entries; a missing expected artifact produces incomplete analysis instead of an assumed match.
+Raw rerun logs, commands, graph/oracle JSON and the local rerun script are retained under the fix worktree's ignored `build/bbg-001/`; the earlier campaign evidence remains separate and unchanged. These selected-leaf fix checks do not certify complete reactors. The subsequent 100-candidate follow-up revisited all 26 historical blockers: final outcomes are 30 aligned, 12 genuine drift, 57 expected unsupported and one external GeoServer artifact blocker, refreshed on 2026-10-29. It also records three complete default-reactor oracle checks and one matched reactor performance measurement; no single graph above 1,500 nodes was tested. Resolving expected snapshot identities can require additional artifacts/cache entries; a missing expected artifact produces incomplete analysis instead of an assumed match.
 
 ## Baseline and scope
 
