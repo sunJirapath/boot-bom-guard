@@ -106,7 +106,7 @@ An execution bound to `verify` is optional; the guard does not run until invoked
 
 Maven uses effective dependency-management source locations to identify the BOM, including inherited Boot parents and active profile imports. Shadowed raw imports do not create false ambiguity. A clean, separately built effective Boot BOM supplies the baseline, so a consumer's `slf4j.version` property cannot overwrite the expected version. The selected dependency graph includes direct and transitive project dependencies across Maven scopes, preserving artifact type/classifier; build-plugin dependencies are excluded.
 
-For comparable Maven snapshots, Resolver translates BOM and effective managed versions to their native timestamped artifact identities before comparison. An alias and its selected timestamp align; an explicitly pinned older timestamp remains drift. If the expected snapshot cannot resolve, analysis reports `UNKNOWN`.
+For comparable Maven snapshots, Resolver translates BOM and effective managed versions to their native timestamped identities using metadata for the artifact extension and classifier. An alias and its selected timestamp align; an explicitly pinned older timestamp remains drift. Missing snapshot identity metadata reports `UNKNOWN` and fails strict mode.
 
 When a project effectively combines managed entries sourced from multiple Boot BOM versions, analysis reports `UNKNOWN` rather than choosing one. If effective source locations are unavailable, BOM identification is unsupported and reports unknown. Maven may itself reject an invalid effective project before any goal can execute.
 
@@ -229,8 +229,18 @@ python scripts/verify_maven.py
 ./gradlew check
 ```
 
+For a repeatable cold-cache source-install check, run:
+
+```sh
+python scripts/verify_install.py
+# Optional: repeat --gradle for other installed distributions.
+python scripts/verify_install.py --gradle /path/to/gradle-8.14.3/bin/gradle --gradle /path/to/gradle-9.8.2/bin/gradle
+```
+
+This downloads dependencies into fresh Maven/Gradle caches, copies the consumer fixtures to an OS temporary directory outside the checkout, and checks aligned, warning, strict-failure and reasoned-exception scenarios. Kotlin DSL covers a strict allowed exception; Groovy DSL and Maven cover all four policies. Logs and caches are retained under ignored `build/install-smoke-*`; the command prints the consumer directory.
+
 The suites exercise real Spring Boot 4 dependency resolution, not mocked graphs. Gradle uses TestKit's plugin
-classpath; consumer examples use a composite build. The completed verification has 12 core tests, 21 Maven
+classpath; consumer examples use a composite build. The completed verification has 12 core tests, 24 Maven
 integration tests and 25 Gradle integration tests; see [VERIFICATION.md](VERIFICATION.md).
 
 After the first resolution, test with cached remote dependencies:
@@ -244,7 +254,7 @@ The Maven snapshot regressions generate a frozen local file repository and prime
 
 `-PtestOffline=true` also passes `--offline` to the nested TestKit builds. A new machine needs the Gradle
 distribution and dependencies cached first. The [CI workflow](.github/workflows/ci.yml) runs the full Maven and Gradle suites
-on Ubuntu with Java 21, Maven 3.9.16 and the Gradle 8.14.3 wrapper. Pull requests run the same checks; the README
+on Ubuntu with Java 21, Maven 3.9.16 and a Gradle 8.14.3 / 9.8.2 matrix. Each matrix job also checks a source install with empty caches and external Maven/Groovy/Kotlin consumers. Pull requests run the same checks; the README
 status badge follows `main` and shows its result after the workflow is merged and runs there.
 Coverage and license badges are omitted: no coverage service or license file is configured.
 

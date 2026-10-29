@@ -1,18 +1,78 @@
 """Real Maven resolution checks. Run `mvn install` first; --offline reuses Maven's cache."""
+import hashlib
 import pathlib
 import shutil
 import subprocess
 import sys
 import tempfile
+import unittest
 import uuid
 import zipfile
-import unittest
+from contextlib import contextmanager
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 MAVEN = shutil.which("mvn.cmd") or shutil.which("mvn")
 OFFLINE = "--offline" in sys.argv
 if OFFLINE:
     sys.argv.remove("--offline")
+
+
+@contextmanager
+def snapshot_repository(metadata=True, local_copy=False):
+    """A file repository resolved by Maven itself; no mutable public snapshots or graph mocks."""
+    identity = uuid.uuid4().hex
+    group = "guard.fixture.snapshot." + identity
+    bom_version = "4.99.0-guard-fixture-" + identity
+    latest = "1.0-20261020.120000-2"
+    older = "1.0-20261019.120000-1"
+    tests = "1.0-20261021.120000-3"
+    with tempfile.TemporaryDirectory(prefix="guard-snapshots-") as directory:
+        repository = pathlib.Path(directory)
+
+        def publish(group_id, artifact, version, dependencies="", management=""):
+            base = "1.0-SNAPSHOT" if version.startswith("1.0-") else version
+            folder = repository / group_id.replace(".", "/") / artifact / base
+            folder.mkdir(parents=True, exist_ok=True)
+            pom = (f'<project xmlns="http://maven.apache.org/POM/4.0.0"><modelVersion>4.0.0</modelVersion>'
+                   f'<groupId>{group_id}</groupId><artifactId>{artifact}</artifactId><version>{base}</version>'
+                   f'{management}<dependencies>{dependencies}</dependencies></project>')
+            (folder / f"{artifact}-{version}.pom").write_text(pom, encoding="utf-8")
+            with zipfile.ZipFile(folder / f"{artifact}-{version}.jar", "w"):
+                pass
+            return folder
+
+        def dependency(artifact, version="1.0-SNAPSHOT", variant=""):
+            return (f'<dependency><groupId>{group}</groupId><artifactId>{artifact}</artifactId>'
+                    f'<version>{version}</version>{variant}</dependency>')
+
+        variant = '<type>test-jar</type><classifier>tests</classifier>'
+        managed = dependency("direct") + dependency("transitive") + dependency("direct", variant=variant)
+        publish("org.springframework.boot", "spring-boot-dependencies", bom_version,
+                management=f'<dependencyManagement><dependencies>{managed}</dependencies></dependencyManagement>')
+        publish(group, "carrier", "1", dependencies=dependency("transitive"))
+        for artifact in ("direct", "transitive"):
+            folder = publish(group, artifact, older)
+            publish(group, artifact, "1.0-SNAPSHOT" if local_copy else latest)
+            classifier_version = "1.0-SNAPSHOT" if local_copy else tests
+            with zipfile.ZipFile(folder / f"{artifact}-{classifier_version}-tests.jar", "w"):
+                pass
+            if metadata:
+                versions = "".join(
+                    f'<snapshotVersion>{classifier}<extension>{extension}</extension>'
+                    f'<value>{value}</value><updated>20261021120000</updated></snapshotVersion>'
+                    for extension, classifier, value in (
+                        ("pom", "", "1.0-SNAPSHOT" if local_copy else latest),
+                        ("jar", "", "1.0-SNAPSHOT" if local_copy else latest),
+                        ("jar", "<classifier>tests</classifier>", classifier_version)))
+                (folder / "maven-metadata.xml").write_text(
+                    f'<metadata><groupId>{group}</groupId><artifactId>{artifact}</artifactId><version>1.0-SNAPSHOT</version>'
+                    f'<versioning><lastUpdated>20261021120000</lastUpdated><snapshotVersions>{versions}</snapshotVersions>'
+                    f'</versioning></metadata>', encoding="utf-8")
+        for file in list(repository.rglob("*")):
+            if file.is_file():
+                file.with_name(file.name + ".sha1").write_text(hashlib.sha1(file.read_bytes()).hexdigest(), encoding="ascii")
+        yield (f"-Dsnapshot.repository={repository.as_uri()}", f"-Dsnapshot.group={group}",
+               f"-Dsnapshot.bom.version={bom_version}", "--offline", "-Daether.offline.protocols=file"), older
 
 
 class MavenIntegrationTest(unittest.TestCase):
@@ -95,6 +155,27 @@ class MavenIntegrationTest(unittest.TestCase):
     def test_duplicate_normalized_exception_is_rejected(self):
         self.assertIn("Invalid bootBomGuard exceptions",
                       self.run_fixture(profile="duplicate-exception", expected_failure=True))
+
+    def test_timestamped_snapshots_align_in_warning_and_strict_modes(self):
+        with snapshot_repository() as (flags, _):
+            for strict in (False, True):
+                out = self.run_fixture("snapshot", fail=strict, extra=flags)
+                self.assertIn("PASS checked=3 drift=0 unknown=0", out)
+
+    def test_snapshot_identity_without_metadata_is_unknown(self):
+        with snapshot_repository(metadata=False, local_copy=True) as (flags, older):
+            # Concrete requests resolve without alias metadata; the BOM alias cannot be identified.
+            flags += (f"-Dsnapshot.version={older}",)
+            for strict in (False, True):
+                out = self.run_fixture("snapshot", fail=strict, expected_failure=strict, extra=flags)
+                self.assertIn("UNKNOWN Maven model/dependency resolution failed", out)
+                self.assertNotIn("DRIFT ", out)
+                self.assertNotIn("PASS checked=", out)
+
+    def test_non_unique_snapshot_aliases_still_align(self):
+        with snapshot_repository(local_copy=True) as (flags, _):
+            out = self.run_fixture("snapshot", fail=True, extra=flags)
+            self.assertIn("PASS checked=3 drift=0 unknown=0", out)
 
 
 class MavenSnapshotIntegrationTest(unittest.TestCase):

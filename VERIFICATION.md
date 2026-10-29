@@ -1,5 +1,31 @@
 # Verification
 
+## P1-P2 readiness follow-up, 2026-10-29
+
+This follow-up builds on PR #6 at `4ba376a1212f0305ec8fa6fd19f9a6272fe4ae47`. The changes below were freshly checked on Windows with JDK 21.0.11 and Maven 3.9.16. Earlier campaign/online results in the following sections remain historical unless explicitly rerun here.
+
+- Maven now uses native **version metadata resolution**, including extension/classifier, for expected and effective managed snapshot identities. It does not fetch an additional expected snapshot JAR just to compare versions. Resolver's fallback alias with no metadata repository is incomplete analysis (`UNKNOWN`), rather than evidence of drift or alignment. Strict mode rejects that result.
+- Three additional native file-repository regressions cover separate classifier timestamps, metadata absence in warning/strict modes, and non-unique snapshot aliases. Existing regressions retain explicit current/older timestamps, managed snapshot overrides and mixed genuine release drift. All **24 Maven integration tests** passed, alongside **12 core tests**.
+- Full Gradle `check --rerun-tasks` passed separately on **8.14.3 and 9.8.2**: 12 repeated core tests, **25 TestKit tests**, and plugin validation on each. There are **61 distinct tests**, counting the shared core once; zero failures/skips.
+- `scripts/verify_install.py` starts with empty Maven and Gradle caches and places consumers outside this checkout. A run with both Gradle executables passed **15 commands**: source install, four Maven policies, four Groovy policies per Gradle version, and a Kotlin strict allowed exception per version. An additional external Maven aligned check explicitly passed strict mode. No published guard artifact or TestKit plugin injection is used by this smoke test: Maven consumes the source-installed plugin and Gradle consumes a local composite build.
+- Both supported Gradle versions now have Ubuntu/JDK 21 CI matrix jobs. Each runs the Maven/core/TestKit suites and repeats the clean-cache external-consumer smoke check. Hosted CI status belongs to the actual pull-request commit, not this local test record.
+
+Reproduction (after Maven installation):
+
+```sh
+mvn -B -ntp --offline install
+python scripts/verify_maven.py --offline
+/path/to/gradle-8.14.3/bin/gradle --no-daemon --console=plain check --rerun-tasks
+/path/to/gradle-9.8.2/bin/gradle --no-daemon --console=plain check --rerun-tasks
+python scripts/verify_install.py --gradle /path/to/gradle-8.14.3/bin/gradle --gradle /path/to/gradle-9.8.2/bin/gradle
+```
+
+Local logs live in the follow-up worktree's ignored `build/p1-p2/`; the cold-cache run is `build/install-smoke-72e4cjge/`. The installer retains both evidence and caches and prints the external consumer directory. It requires network access for an empty cache. One initial smoke invocation used a nonexistent local Gradle path; after correcting that invocation, all checks passed. The script now validates supplied executable paths before starting installation.
+
+The five pinned Spring Cloud consumers listed in the BBG-001 table below and the minimal Boot-starter reproduction were freshly replayed with the new metadata resolver. The Docker image, SHAs, read-only source mounts, resource bounds, offline network mode and native-tree oracle were preserved. A **separate copied cache** (`bbg-p1p2-m2-20261029`) received the freshly built plugin; original evidence/cache were unchanged. All 202 historical false findings remain absent across 792 comparable coordinates, all three genuine Gateway drifts remain, and repeated reports match. The minimal starter passes strict mode with 21 comparable coordinates. Raw replay scripts, logs, native trees and oracle results are retained in `build/p1-p2/`. The stable `spring-guides/gs-spring-boot` consumer at `cc0ca7c0c89513c75902de8a9afd1fc2718acf3b` (`complete/pom.xml`) also passed native-tree/oracle verification and warning/strict/repeat checks: 75 comparable coordinates, no drift/unknown, unchanged native graph and source checkout.
+
+Readiness remains limited to the documented source-install MVP: Spring Boot 4, JDK 21, Maven 3.9.16 and Gradle 8.14.3/9.8.2 native platforms. These checks establish dependency-policy behavior, not application/runtime compatibility. Gradle configuration cache/10, Maven 4, macOS, third-party dependency-management-only builds and unrestricted reactor/graph scale remain unverified or unsupported as documented. Publishing to Maven Central/Plugin Portal is outside P1-P2.
+
 ## Campaign follow-up, 2026-10-29
 
 The 100-candidate campaign results, scenario coverage and native oracle evidence are retained locally and excluded from Git. Fresh offline product checks on `51aa970678a1b892a81da82f65b891584bae57ae` passed 58 distinct tests (12 core, 21 Maven, 25 Gradle), zero failures/skips. Historical online results below were not rerun online in this follow-up. Unsupported/blocked candidates are not successful integrations.

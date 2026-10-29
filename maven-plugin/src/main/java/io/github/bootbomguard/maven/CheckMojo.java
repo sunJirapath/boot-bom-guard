@@ -21,6 +21,7 @@ import org.eclipse.aether.artifact.Artifact;
 import org.eclipse.aether.artifact.DefaultArtifact;
 import org.eclipse.aether.graph.DependencyNode;
 import org.eclipse.aether.resolution.ArtifactRequest;
+import org.eclipse.aether.resolution.VersionRequest;
 import org.eclipse.aether.util.graph.transformer.ConflictResolver;
 
 import java.util.ArrayList;
@@ -152,9 +153,13 @@ public final class CheckMojo extends AbstractMojo {
 
     private String resolvedVersion(Artifact artifact, String version) throws Exception {
         if (!version.endsWith("-SNAPSHOT")) return version;
-        return repositorySystem.resolveArtifact(session.getRepositorySession(),
-                new ArtifactRequest(artifact.setVersion(version), project.getRemoteProjectRepositories(), "project"))
-                .getArtifact().getVersion();
+        var resolved = repositorySystem.resolveVersion(session.getRepositorySession(),
+                new VersionRequest(artifact.setVersion(version), project.getRemoteProjectRepositories(), "project"));
+        // Resolver may fall back to the alias when no snapshot metadata is available.
+        if (resolved.getRepository() == null || resolved.getVersion() == null) {
+            throw new IllegalStateException("Snapshot identity is unavailable");
+        }
+        return resolved.getVersion();
     }
 
     private void collect(DependencyNode node, int depth, Map<Coordinates, String> expected,
