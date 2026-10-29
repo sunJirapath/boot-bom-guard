@@ -16,6 +16,6 @@
     <dependency><groupId>${snapshot.group}</groupId><artifactId>direct</artifactId><type>test-jar</type><classifier>tests</classifier></dependency>
   </dependencies>
   <build><plugins><plugin>
-    <groupId>io.github.sunjirapath.bootbomguard</groupId><artifactId>boot-bom-guard-maven-plugin</artifactId><version>0.1.0</version>
+    <groupId>io.github.sunjirapath.bootbomguard</groupId><artifactId>boot-bom-guard-maven-plugin</artifactId><version>0.1.1-SNAPSHOT</version>
   </plugin></plugins></build>
 </project>

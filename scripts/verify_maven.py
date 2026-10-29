@@ -296,7 +296,7 @@ class MavenSnapshotIntegrationTest(unittest.TestCase):
                               encoding="utf-8", errors="replace", timeout=180)
 
     def guard(self, profile=None, strict=False, expected_exit=0):
-        run = self.maven(["io.github.sunjirapath.bootbomguard:boot-bom-guard-maven-plugin:0.1.0:check"], profile, strict)
+        run = self.maven(["io.github.sunjirapath.bootbomguard:boot-bom-guard-maven-plugin:0.1.1-SNAPSHOT:check"], profile, strict)
         self.assertEqual(run.returncode, expected_exit, run.stdout)
         return run.stdout
 
@@ -354,7 +354,7 @@ class MavenSnapshotIntegrationTest(unittest.TestCase):
         reactor = self.directory / "reactor"
         reactor.mkdir()
         parent = "boundary-reactor-" + uuid.uuid4().hex
-        plugin = '<groupId>io.github.sunjirapath.bootbomguard</groupId><artifactId>boot-bom-guard-maven-plugin</artifactId><version>0.1.0</version>'
+        plugin = '<groupId>io.github.sunjirapath.bootbomguard</groupId><artifactId>boot-bom-guard-maven-plugin</artifactId><version>0.1.1-SNAPSHOT</version>'
         (reactor / "pom.xml").write_text(
             '<project><modelVersion>4.0.0</modelVersion><groupId>guard.fixture</groupId><artifactId>' + parent + '</artifactId><version>1</version><packaging>pom</packaging>'
             '<modules><module>aligned</module><module>drift</module><module>allowed</module></modules>'
@@ -377,7 +377,7 @@ class MavenSnapshotIntegrationTest(unittest.TestCase):
         self.assertEqual(0, native.returncode, native.stdout)
         self.assertIn(self.group + ":release:jar:1.0:compile", native.stdout)
         self.assertIn(self.group + ":release:jar:2.0:compile", native.stdout)
-        goal = "io.github.sunjirapath.bootbomguard:boot-bom-guard-maven-plugin:0.1.0:check"
+        goal = "io.github.sunjirapath.bootbomguard:boot-bom-guard-maven-plugin:0.1.1-SNAPSHOT:check"
         warning = run(goal)
         self.assertEqual(0, warning.returncode, warning.stdout)
         self.assertEqual(4, warning.stdout.count("boot-bom-guard BOM="), warning.stdout)
@@ -453,7 +453,7 @@ class MavenTransportIntegrationTest(unittest.TestCase):
                 self.assertEqual(0, native.returncode, native.stdout)
                 self.assertTrue(hits, "Native Maven did not reach authenticated mirror")
                 self.assertIn(group + ":library:jar:2:compile", native.stdout)
-                goal = "io.github.sunjirapath.bootbomguard:boot-bom-guard-maven-plugin:0.1.0:check"
+                goal = "io.github.sunjirapath.bootbomguard:boot-bom-guard-maven-plugin:0.1.1-SNAPSHOT:check"
                 for strict in [False, True]:
                     result = run(goal, strict=strict, offline=OFFLINE)
                     self.assertEqual(int(strict), result.returncode, result.stdout)
