@@ -21,8 +21,8 @@ optional CI failure · Maven, Gradle Groovy DSL and Gradle Kotlin DSL.
 
 ### Install
 
-Current version: **0.1.0-SNAPSHOT**, available from this source checkout only. Nothing has been published to
-Maven Central or the Gradle Plugin Portal.
+Current version: **0.1.0**, available from Maven Central (`io.github.sunjirapath.bootbomguard`). The Gradle
+plugin is not published yet and still builds from this source checkout only.
 
 **Supported and tested:** JDK 21, Maven 3.9.16 / 3.10.0, Gradle 8.14.3 / 9.8.2, Spring Boot 4. The wrapper pins Gradle
 8.14.3 with a distribution checksum. Maven requires 3.9.16 or newer; unlisted versions are unverified. Maven
@@ -80,7 +80,7 @@ Use a Spring Boot parent or import its BOM. Declare the guard under **build/plug
     <plugin>
       <groupId>io.github.sunjirapath.bootbomguard</groupId>
       <artifactId>boot-bom-guard-maven-plugin</artifactId>
-      <version>0.1.0-SNAPSHOT</version>
+      <version>0.1.0</version>
       <configuration>
         <failOnDrift>false</failOnDrift>
         <exceptions>
@@ -102,7 +102,7 @@ mvn --offline boot-bom-guard:check
 ```
 
 Alternatively use the full goal coordinate, without prefix lookup:
-`mvn io.github.sunjirapath.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check`.
+`mvn io.github.sunjirapath.bootbomguard:boot-bom-guard-maven-plugin:0.1.0:check`.
 An execution bound to `verify` is optional; the guard does not run until invoked/bound. Configure the exception only when you intend to accept that dependency's drift.
 
 Maven uses effective dependency-management source locations to identify the BOM, including inherited Boot parents and active profile imports. Shadowed raw imports do not create false ambiguity. A clean, separately built effective Boot BOM supplies the baseline, so a consumer's `slf4j.version` property cannot overwrite the expected version. The selected dependency graph includes direct and transitive project dependencies across Maven scopes, preserving artifact type/classifier; build-plugin dependencies are excluded.
@@ -272,7 +272,7 @@ and remaining limitations are in [VERIFICATION.md](VERIFICATION.md).
 
 ### ติดตั้ง
 
-เวอร์ชันปัจจุบัน **0.1.0-SNAPSHOT** ต้อง build จาก source ยังไม่ได้เผยแพร่บน Maven Central หรือ Gradle Plugin Portal
+เวอร์ชันปัจจุบัน **0.1.0** ใช้ได้จาก Maven Central (`io.github.sunjirapath.bootbomguard`) ส่วน Gradle plugin ยังไม่ได้เผยแพร่บน Gradle Plugin Portal และต้อง build จาก source
 ใช้ JDK 21 ทดสอบ Maven 3.9.16 / 3.10.0 และ Gradle 8.14.3 / 9.8.2 แล้ว ส่วน Maven 4.0.0-rc-7 ผ่านชุดทดสอบในฐานะ preview เท่านั้น
 
 รันจากโฟลเดอร์ repository เพื่อติดตั้ง Maven plugin และ core ลง local repository:
