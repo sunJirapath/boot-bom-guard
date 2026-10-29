@@ -110,6 +110,8 @@ For comparable Maven snapshots, Resolver translates BOM and effective managed ve
 
 When a project effectively combines managed entries sourced from multiple Boot BOM versions, analysis reports `UNKNOWN` rather than choosing one. If effective source locations are unavailable, BOM identification is unsupported and reports unknown. Maven may itself reject an invalid effective project before any goal can execute.
 
+Maven dependency relocations report `UNKNOWN` because renamed coordinates cannot be compared reliably against the original BOM entry; strict mode fails.
+
 ### Gradle — Groovy DSL
 
 With the consumer and `boot-bom-guard` checkouts in sibling directories, put this first in the consumer's
@@ -186,7 +188,7 @@ Gradle's selected Boot platform version is authoritative. Multiple requested ver
 
 The baseline is a separate Gradle configuration containing the exact selected Boot platform plus versionless, non-transitive requests for actual library modules. Gradle resolves the platform's imported constraints. Library transitive requests, source configuration forces and source constraints cannot contaminate that baseline. Versions are module-level in Gradle; Maven's type/classifier management semantics are not imposed on it.
 
-MVP boundaries: native platforms only (including a platform brought in transitively), external JVM modules and exact BOM versions/constraints. Spring's separate `io.spring.dependency-management` DSL without a native Boot platform is unsupported and reports missing BOM. Dependency substitutions report `UNKNOWN`. Arbitrary component-metadata rewriting plugins are outside the supported contract. Configuration cache and Gradle 10 are unsupported: execution-time native Project access is deprecated for removal in Gradle 10. Configuration remains lazy and no application compilation is required.
+MVP boundaries: native platforms only (including a platform brought in transitively), external JVM modules and exact BOM versions/constraints. Spring's separate `io.spring.dependency-management` DSL without a native Boot platform is unsupported and reports missing BOM. Dependency substitutions report `UNKNOWN`. The isolated baseline disables global composite-build substitutions and must resolve the selected Boot platform and its nested platforms; missing baseline metadata cannot produce an aligned pass. Arbitrary component-metadata rewriting plugins are outside the supported contract. Configuration cache and Gradle 10 are unsupported: execution-time native Project access is deprecated for removal in Gradle 10. Configuration remains lazy and no application compilation is required.
 
 ### Modules
 
@@ -240,8 +242,8 @@ python scripts/verify_install.py --gradle /path/to/gradle-8.14.3/bin/gradle --gr
 This downloads dependencies into fresh Maven/Gradle caches, copies the consumer fixtures to an OS temporary directory outside the checkout, and checks aligned, warning, strict-failure and reasoned-exception scenarios. Kotlin DSL covers a strict allowed exception; Groovy DSL and Maven cover all four policies. Logs and caches are retained under ignored `build/install-smoke-*`; the command prints the consumer directory.
 
 The suites exercise real Spring Boot 4 dependency resolution, not mocked graphs. Gradle uses TestKit's plugin
-classpath; consumer examples use a composite build. The completed verification has 12 core tests, 24 Maven
-integration tests and 25 Gradle integration tests; see [VERIFICATION.md](VERIFICATION.md).
+classpath; consumer examples use a composite build. The completed verification has 12 core tests, 29 Maven
+integration tests and 35 Gradle integration tests; see [VERIFICATION.md](VERIFICATION.md) and the [adversarial audit](ADVERSARIAL-AUDIT.md).
 
 After the first resolution, test with cached remote dependencies:
 

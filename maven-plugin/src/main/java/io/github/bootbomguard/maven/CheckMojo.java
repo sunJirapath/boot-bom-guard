@@ -78,7 +78,7 @@ public final class CheckMojo extends AbstractMojo {
                     Map<Coordinates, String> managed = management(project);
                     DependencyNode root = dependenciesResolver.resolve(
                             new DefaultDependencyResolutionRequest(project, session.getRepositorySession())).getDependencyGraph();
-                    collect(root, 0, expected, managed, actual, new HashSet<>());
+                    collect(root, 0, expected, managed, actual, new HashSet<>(), diagnostics);
                 }
             }
         } catch (Exception e) {
@@ -163,12 +163,17 @@ public final class CheckMojo extends AbstractMojo {
     }
 
     private void collect(DependencyNode node, int depth, Map<Coordinates, String> expected,
-                         Map<Coordinates, String> managed, List<Guard.Resolved> actual, Set<DependencyNode> visited) throws Exception {
+                         Map<Coordinates, String> managed, List<Guard.Resolved> actual, Set<DependencyNode> visited,
+                         List<String> diagnostics) throws Exception {
         // Verbose Resolver sessions retain losing nodes; only the selected graph is an actual dependency.
         if (node.getData().get(ConflictResolver.NODE_DATA_WINNER) != null) return;
         if (!visited.add(node)) return;
         Artifact artifact = node.getArtifact();
         if (artifact != null && depth > 0) {
+            if (!node.getRelocations().isEmpty()) {
+                diagnostics.add("Unsupported Maven dependency relocation: " + node.getRelocations()
+                        + " -> " + artifact + "; comparison is incomplete.");
+            }
             Coordinates key = new Coordinates(artifact.getGroupId(), artifact.getArtifactId(),
                     artifact.getProperty("type", artifact.getExtension()), artifact.getClassifier());
             String version = artifact.getVersion();
@@ -192,6 +197,6 @@ public final class CheckMojo extends AbstractMojo {
             }
             actual.add(new Guard.Resolved(key, version, origin, evidence + "; path=" + (depth == 1 ? "direct" : "transitive")));
         }
-        for (DependencyNode child : node.getChildren()) collect(child, depth + 1, expected, managed, actual, visited);
+        for (DependencyNode child : node.getChildren()) collect(child, depth + 1, expected, managed, actual, visited, diagnostics);
     }
 }

@@ -1,5 +1,13 @@
 # Verification
 
+## Adversarial follow-up, 2026-10-29
+
+The [adversarial audit](ADVERSARIAL-AUDIT.md) records four reproduced false-pass defects, their fixes and the remaining coverage boundaries. It adds native Maven relocation/type/classifier/system/range probes and Gradle composite, incomplete-baseline, rich-constraint, selection-rule, project-substitution and transitive-platform probes.
+
+Fresh Windows/JDK 21.0.11/Maven 3.9.16 checks passed: Maven offline install (12 core tests), **29 Maven integration tests**, and full Gradle forced-task reruns using `check --rerun-tasks -PtestOffline=true` on **8.14.3 and 9.8.2** (12 shared core + **35 TestKit tests** and plugin validation on each). That is **76 distinct tests**, zero failures/skips, with the shared core counted once. Fifteen tests are new in this audit. The previous P1-P2 and campaign sections below remain revision-specific historical evidence.
+
+Fresh empty-cache source-install/external-consumer verification passed **15 commands** across Maven and both Gradle versions, including Groovy and Kotlin DSL. Evidence is in ignored `build/adversarial/` and `build/install-smoke-fbjy_j6u/`. The final commit is submitted to the same hosted CI matrix; its persisted check status is authoritative. The earlier real-project replays were not repeated for this change.
+
 ## P1-P2 readiness follow-up, 2026-10-29
 
 This follow-up builds on PR #6 at `4ba376a1212f0305ec8fa6fd19f9a6272fe4ae47`. The changes below were freshly checked on Windows with JDK 21.0.11 and Maven 3.9.16. Earlier campaign/online results in the following sections remain historical unless explicitly rerun here.

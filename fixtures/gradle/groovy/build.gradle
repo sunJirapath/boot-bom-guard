@@ -13,7 +13,11 @@ if (scenario == 'unresolved') {
     }
 }
 dependencies {
-    if (scenario != 'missing') {
+    if (scenario == 'missing-imported-baseline') {
+        implementation platform('org.springframework.boot:spring-boot-dependencies:4.0.0-audit')
+    } else if (scenario == 'transitive-platform') {
+        implementation platform(project(':local-platform'))
+    } else if (scenario != 'missing') {
         if (scenario == 'ambiguous') {
             implementation(platform('org.springframework.boot:spring-boot-dependencies:4.0.0')) { version { strictly '4.0.0' } }
         } else {
@@ -26,12 +30,24 @@ dependencies {
     if (scenario == 'multiple-boms') {
         implementation enforcedPlatform('org.springframework.boot:spring-boot-dependencies:4.0.1')
     }
-    if (scenario == 'transitive') {
+    if (scenario in ['rich-strict', 'strict-conflict']) {
+        implementation('org.slf4j:slf4j-api') { version { strictly '2.0.18' } }
+    } else if (scenario in ['rich-reject', 'bounded-range']) {
+        implementation('org.slf4j:slf4j-api') {
+            version {
+                require '[2.0.17,2.0.18]'
+                if (scenario == 'rich-reject') reject '2.0.17'
+            }
+        }
+    } else if (scenario == 'transitive') {
         implementation 'org.slf4j:slf4j-simple:2.0.18'
-    } else if (scenario in ['direct', 'allowlist', 'enforced', 'forced', 'invalid-exception']) {
+    } else if (scenario in ['direct', 'allowlist', 'enforced', 'forced', 'invalid-exception', 'composite-baseline', 'missing-baseline', 'missing-imported-baseline']) {
         implementation 'org.slf4j:slf4j-api:2.0.18'
     } else {
         implementation 'org.slf4j:slf4j-api:2.0.17'
+    }
+    if (scenario == 'strict-conflict') {
+        constraints { implementation('org.slf4j:slf4j-api') { version { strictly '2.0.17' } } }
     }
     if (scenario == 'managed') {
         constraints { implementation 'org.slf4j:slf4j-api:2.0.18' }
@@ -65,4 +81,47 @@ if (scenario == 'lazy') {
 }
 if (scenario == 'resolution-error') {
     configurations.configureEach { incoming.beforeResolve { throw new GradleException('https://fixture-user:fixture-secret@invalid') } }
+}
+
+if (scenario == 'composite-baseline') {
+    configurations.configureEach { resolutionStrategy.useGlobalDependencySubstitutionRules = false }
+}
+if (scenario == 'missing-baseline') {
+    bootBomGuard.configurations = ['runtimeClasspath']
+    configurations.runtimeClasspath.incoming.afterResolve {
+        println 'NATIVE_SELECTED=' + it.resolutionResult.allComponents.collect { it.id.displayName }.sort()
+        repositories.clear()
+    }
+}
+
+if (scenario == 'selection-rule') {
+    configurations.configureEach {
+        resolutionStrategy.eachDependency { if (requested.group == 'org.slf4j' && requested.name == 'slf4j-api') useVersion '2.0.18' }
+    }
+}
+if (scenario == 'project-substitution') {
+    configurations.configureEach {
+        resolutionStrategy.dependencySubstitution {
+            substitute module('org.slf4j:slf4j-api') using project(':replacement')
+        }
+    }
+}
+
+if (scenario == 'missing-imported-baseline') {
+    bootBomGuard.configurations = ['runtimeClasspath']
+    configurations.runtimeClasspath.incoming.afterResolve {
+        println 'NATIVE_SELECTED=' + it.resolutionResult.allComponents.collect { it.id.displayName }.sort()
+        repositories.clear()
+        repositories.maven { url = uri('partial-baseline') }
+    }
+}
+
+if (scenario in ['rich-strict', 'rich-reject', 'bounded-range']) {
+    tasks.named('bootBomGuard') {
+        doFirst {
+            def nativeGraph = configurations.runtimeClasspath.incoming.resolutionResult
+            println 'NATIVE_SELECTED=' + nativeGraph.allComponents.collect { it.id.displayName }.sort()
+            println 'NATIVE_UNRESOLVED=' + nativeGraph.allDependencies.findAll { it instanceof org.gradle.api.artifacts.result.UnresolvedDependencyResult }.collect { it.requested.displayName }.sort()
+        }
+    }
 }

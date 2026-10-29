@@ -159,8 +159,15 @@ public abstract class BootBomGuardTask extends DefaultTask {
             requests.add(dependency);
         }
         Configuration baseline = project.getConfigurations().detachedConfiguration(requests.toArray(org.gradle.api.artifacts.Dependency[]::new));
+        // Composite builds must not replace published BOMs/modules in the isolated baseline.
+        baseline.getResolutionStrategy().getUseGlobalDependencySubstitutionRules().set(false);
         copyAttributes(source, baseline);
         var graph = baseline.getIncoming().getResolutionResult();
+        if (graph.getAllDependencies().stream().noneMatch(edge -> edge instanceof ResolvedDependencyResult resolved
+                && resolved.getSelected().getId().equals(bom) && platform(resolved))) {
+            diagnostics.add("Could not resolve selected Spring Boot BOM in isolated baseline; analysis is incomplete.");
+            return Map.of();
+        }
         Map<Coordinates, String> result = new TreeMap<>();
         Set<Coordinates> managed = new HashSet<>();
         Set<Coordinates> requestedKeys = new HashSet<>();
@@ -188,6 +195,11 @@ public abstract class BootBomGuardTask extends DefaultTask {
         }
         if (graph.getAllDependencies().stream().anyMatch(edge -> edge instanceof UnresolvedDependencyResult && edge.isConstraint())) {
             diagnostics.add("Could not resolve a Boot BOM constraint; baseline analysis is incomplete.");
+        }
+        // Root versionless requests can legitimately be unmanaged. Fail closed for missing nested platforms.
+        if (graph.getAllDependencies().stream().anyMatch(edge -> edge instanceof UnresolvedDependencyResult
+                && !edge.isConstraint() && !edge.getFrom().equals(graph.getRootComponent().get()))) {
+            diagnostics.add("Could not resolve an imported Boot BOM in isolated baseline; analysis is incomplete.");
         }
         for (Coordinates key : managed) {
             if (!result.containsKey(key)) diagnostics.add("Unresolved Boot-managed baseline for " + key);

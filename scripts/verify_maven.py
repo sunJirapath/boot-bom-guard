@@ -206,9 +206,9 @@ class MavenSnapshotIntegrationTest(unittest.TestCase):
                 with zipfile.ZipFile(directory / (stem + ".jar"), "w") as jar:
                     jar.writestr("META-INF/MANIFEST.MF", "Manifest-Version: 1.0\n")
 
-        def dependency(name, version=None):
+        def dependency(name, version=None, variant=""):
             return (f'<dependency><groupId>{cls.group}</groupId><artifactId>{name}</artifactId>'
-                    + (f'<version>{version}</version>' if version else "") + '</dependency>')
+                    + (f'<version>{version}</version>' if version else "") + variant + '</dependency>')
 
         for name, base, current in [("direct", "1.0-SNAPSHOT", cls.current),
                                     ("transitive", "1.0-SNAPSHOT", cls.current),
@@ -224,8 +224,23 @@ class MavenSnapshotIntegrationTest(unittest.TestCase):
                 f'<lastUpdated>20261025010203</lastUpdated><snapshotVersions>{entries}</snapshotVersions></versioning></metadata>', encoding="utf-8")
         for version in ["1.0", "2.0"]:
             publish(cls.group, "release", version)
+        variants = ['<type>java-source</type>', '<type>ejb-client</type>', '<type>pom</type>', '<type>zip</type>']
+        for version in ["1.0", "2.0"]:
+            publish(cls.group, "typed", version)
+            folder = cls.repository / cls.group.replace(".", "/") / "typed" / version
+            for suffix in ["-sources.jar", "-client.jar", ".zip"]:
+                with zipfile.ZipFile(folder / ("typed-" + version + suffix), "w"):
+                    pass
+        (cls.repository / cls.group.replace(".", "/") / "release" / "maven-metadata.xml").write_text(
+            '<metadata><groupId>' + cls.group + '</groupId><artifactId>release</artifactId>'
+            '<versioning><latest>2.0</latest><release>2.0</release><versions><version>1.0</version><version>2.0</version>'
+            '</versions><lastUpdated>20261025010203</lastUpdated></versioning></metadata>', encoding="utf-8")
+        publish(cls.group, "relocated", "2.0")
+        publish(cls.group, "legacy", "2.0", packaging="pom", dependencies=
+                '<distributionManagement><relocation><groupId>' + cls.group
+                + '</groupId><artifactId>relocated</artifactId><version>2.0</version></relocation></distributionManagement>')
         publish(cls.group, "bridge", "1.0", dependencies='<dependencies>' + dependency("transitive", "1.0-SNAPSHOT") + '</dependencies>')
-        managed = dependency("direct", "1.0-SNAPSHOT") + dependency("transitive", "1.0-SNAPSHOT") + dependency("release", "1.0")
+        managed = dependency("direct", "1.0-SNAPSHOT") + dependency("transitive", "1.0-SNAPSHOT") + dependency("release", "1.0") + dependency("legacy", "1.0") + "".join(dependency("typed", "1.0", variant) for variant in variants)
         publish("org.springframework.boot", "spring-boot-dependencies", cls.bom,
                 dependencies='<dependencyManagement><dependencies>' + managed + '</dependencies></dependencyManagement>', packaging="pom")
         profiles = []
@@ -233,11 +248,19 @@ class MavenSnapshotIntegrationTest(unittest.TestCase):
                                                     ("latest", "direct", cls.current, False),
                                                     ("managed-older", "direct", cls.old, True),
                                                     ("managed-snapshot", "direct", "2.0-SNAPSHOT", True),
-                                                    ("mixed", "release", "2.0", False)]:
+                                                    ("mixed", "release", "2.0", False),
+                                                    ("relocation", "legacy", "2.0", False)]:
             content = '<dependencies>' + dependency(artifact, version) + '</dependencies>'
             if management:
                 content = '<dependencyManagement>' + content + '</dependencyManagement>'
             profiles.append(f'<profile><id>{name}</id>{content}</profile>')
+        for profile, version in [("variants-aligned", "1.0"), ("variants-override", "2.0")]:
+            profiles.append('<profile><id>' + profile + '</id><dependencies>'
+                            + ''.join(dependency("typed", version, variant) for variant in variants) + '</dependencies></profile>')
+        system_jar = cls.repository / cls.group.replace(".", "/") / "release" / "2.0" / "release-2.0.jar"
+        profiles.append('<profile><id>system</id><dependencies>' + dependency("release", "2.0",
+                        '<scope>system</scope><systemPath>' + system_jar.as_posix() + '</systemPath>') + '</dependencies></profile>')
+        profiles.append('<profile><id>range</id><dependencies>' + dependency("release", "[1.0,2.0]") + '</dependencies></profile>')
         (cls.directory / "pom.xml").write_text(
             '<project xmlns="http://maven.apache.org/POM/4.0.0"><modelVersion>4.0.0</modelVersion>'
             '<groupId>guard.fixture</groupId><artifactId>snapshot-consumer</artifactId><version>1</version>'
@@ -249,7 +272,7 @@ class MavenSnapshotIntegrationTest(unittest.TestCase):
             + dependency("direct") + dependency("bridge", "1.0") + dependency("release") + '</dependencies>'
             '<profiles>' + ''.join(profiles) + '</profiles></project>', encoding="utf-8")
         # File repositories still require online Resolver mode once; no public snapshot or wall-clock metadata is used.
-        for profile in [None, "older", "latest", "managed-older", "managed-snapshot", "mixed"]:
+        for profile in [None, "older", "latest", "managed-older", "managed-snapshot", "mixed", "relocation", "variants-aligned", "variants-override", "system", "range"]:
             native = cls.maven(["org.apache.maven.plugins:maven-dependency-plugin:3.10.0:resolve"], profile, offline=False)
             if native.returncode:
                 raise AssertionError(native.stdout)
@@ -294,6 +317,32 @@ class MavenSnapshotIntegrationTest(unittest.TestCase):
         self.assertIn(f"expected={self.current} resolved={self.other} classification=MANAGED_OVERRIDE", out)
         self.assertIn("WARN checked=3 drift=1 unknown=0", out)
         self.guard("managed-snapshot", strict=True, expected_exit=1)
+
+    def test_relocation_cannot_silently_drop_a_managed_coordinate(self):
+        out = self.guard("relocation")
+        self.assertIn("UNKNOWN Unsupported Maven dependency relocation", out)
+        self.assertNotIn("PASS checked=", out)
+        self.guard("relocation", strict=True, expected_exit=1)
+
+    def test_native_types_and_implicit_classifiers_align(self):
+        self.assertIn("PASS checked=7 drift=0 unknown=0", self.guard("variants-aligned", strict=True))
+
+    def test_native_types_and_implicit_classifiers_detect_overrides(self):
+        out = self.guard("variants-override")
+        for suffix in ["java-source:sources", "ejb-client:client", "pom:", "zip:"]:
+            self.assertIn(f"DRIFT {self.group}:typed:{suffix} expected=1.0 resolved=2.0", out)
+        self.assertIn("WARN checked=7 drift=4 unknown=0", out)
+        self.guard("variants-override", strict=True, expected_exit=1)
+
+    def test_system_scope_keeps_its_declared_native_version(self):
+        out = self.guard("system")
+        self.assertIn(f"DRIFT {self.group}:release expected=1.0 resolved=2.0", out)
+        self.guard("system", strict=True, expected_exit=1)
+
+    def test_native_bounded_range_is_compared_to_exact_bom(self):
+        out = self.guard("range")
+        self.assertIn(f"DRIFT {self.group}:release expected=1.0 resolved=2.0", out)
+        self.guard("range", strict=True, expected_exit=1)
 
     def test_mixed_graph_reports_only_genuine_release_drift(self):
         out = self.guard("mixed")
