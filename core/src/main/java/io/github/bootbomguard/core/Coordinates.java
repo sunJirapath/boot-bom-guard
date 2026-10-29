@@ -1,9 +1,12 @@
 package io.github.bootbomguard.core;
 
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 public record Coordinates(String group, String artifact, String type, String classifier)
         implements Comparable<Coordinates> {
+    private static final Pattern TOKEN = Pattern.compile("[A-Za-z0-9_.+\\-]+");
+
     public Coordinates {
         group = token(group);
         artifact = token(artifact);
@@ -19,7 +22,7 @@ public record Coordinates(String group, String artifact, String type, String cla
     }
 
     private static String token(String value) {
-        if (value == null || !value.matches("[A-Za-z0-9_.+\\-]+")) {
+        if (value == null || !TOKEN.matcher(value).matches()) {
             throw new IllegalArgumentException("Invalid dependency coordinate: " + Guard.safe(value));
         }
         return value;

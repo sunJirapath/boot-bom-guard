@@ -1,0 +1,221 @@
+{
+  "note": "Bounded shared-core microbenchmarks; allocation bytes are current-thread allocation, not peak or retained heap. Raw samples remain in ignored build/performance/final-*.json.",
+  "runs": [
+    {
+      "baseline": "78ec45cea6eff504c250e0f6d55e65cd3f324007",
+      "working_head": "78ec45cea6eff504c250e0f6d55e65cd3f324007",
+      "working_source_sha256": {
+        "core\\src\\main\\java\\io\\github\\bootbomguard\\core\\Coordinates.java": "00f060cc71125ba3642d76743693198fcd261af7bcb3dc56d6180785dbf4b796",
+        "core\\src\\main\\java\\io\\github\\bootbomguard\\core\\Guard.java": "f5a069959c2e5fc9ef4f13dad5f0932a839352021392f941b197feebe73558ca"
+      },
+      "host": "Windows-11-10.0.26300-SP0",
+      "jvm_flags": [
+        "-Xms256m",
+        "-Xmx256m",
+        "-XX:+UseSerialGC"
+      ],
+      "java": "openjdk 21.0.11 2026-04-21 LTS\nOpenJDK Runtime Environment Temurin-21.0.11+10 (build 21.0.11+10-LTS)\nOpenJDK 64-Bit Server VM Temurin-21.0.11+10 (build 21.0.11+10-LTS, mixed mode, sharing)\n",
+      "size": 100,
+      "forks": 3,
+      "samples_per_fork": 15,
+      "sha256": "d338a7d1de01ad92a675454f5c76dab4e9e94476ad803356919b2c7146f8cae6",
+      "summary": {
+        "compare_all_drift": {
+          "baseline": {
+            "median_ms": 0.2393,
+            "median_allocated_bytes": 175376
+          },
+          "working": {
+            "median_ms": 0.2577,
+            "median_allocated_bytes": 101192
+          }
+        },
+        "compare_mixed": {
+          "baseline": {
+            "median_ms": 0.2558,
+            "median_allocated_bytes": 166640
+          },
+          "working": {
+            "median_ms": 0.1054,
+            "median_allocated_bytes": 20640
+          }
+        },
+        "coordinates": {
+          "baseline": {
+            "median_ms": 0.2899,
+            "median_allocated_bytes": 378760
+          },
+          "working": {
+            "median_ms": 0.0506,
+            "median_allocated_bytes": 71560
+          }
+        },
+        "format_controls": {
+          "baseline": {
+            "median_ms": 1.1176,
+            "median_allocated_bytes": 416616
+          },
+          "working": {
+            "median_ms": 0.2006,
+            "median_allocated_bytes": 103080
+          }
+        },
+        "format_plain": {
+          "baseline": {
+            "median_ms": 0.158,
+            "median_allocated_bytes": 117632
+          },
+          "working": {
+            "median_ms": 0.0823,
+            "median_allocated_bytes": 55024
+          }
+        }
+      },
+      "source_hash_normalization": "UTF-8 LF"
+    },
+    {
+      "baseline": "78ec45cea6eff504c250e0f6d55e65cd3f324007",
+      "working_head": "78ec45cea6eff504c250e0f6d55e65cd3f324007",
+      "working_source_sha256": {
+        "core\\src\\main\\java\\io\\github\\bootbomguard\\core\\Coordinates.java": "00f060cc71125ba3642d76743693198fcd261af7bcb3dc56d6180785dbf4b796",
+        "core\\src\\main\\java\\io\\github\\bootbomguard\\core\\Guard.java": "f5a069959c2e5fc9ef4f13dad5f0932a839352021392f941b197feebe73558ca"
+      },
+      "host": "Windows-11-10.0.26300-SP0",
+      "jvm_flags": [
+        "-Xms256m",
+        "-Xmx256m",
+        "-XX:+UseSerialGC"
+      ],
+      "java": "openjdk 21.0.11 2026-04-21 LTS\nOpenJDK Runtime Environment Temurin-21.0.11+10 (build 21.0.11+10-LTS)\nOpenJDK 64-Bit Server VM Temurin-21.0.11+10 (build 21.0.11+10-LTS, mixed mode, sharing)\n",
+      "size": 20000,
+      "forks": 5,
+      "samples_per_fork": 15,
+      "sha256": "d45c22727f156ec5631e9b66f3e03dad3eec5ae7e2ec45a532b622e97c8fdb19",
+      "summary": {
+        "compare_all_drift": {
+          "baseline": {
+            "median_ms": 25.035,
+            "median_allocated_bytes": 47552728
+          },
+          "working": {
+            "median_ms": 21.626701,
+            "median_allocated_bytes": 25938336
+          }
+        },
+        "compare_mixed": {
+          "baseline": {
+            "median_ms": 25.5493,
+            "median_allocated_bytes": 46361608
+          },
+          "working": {
+            "median_ms": 4.9936,
+            "median_allocated_bytes": 3189272
+          }
+        },
+        "coordinates": {
+          "baseline": {
+            "median_ms": 12.4925,
+            "median_allocated_bytes": 69039960
+          },
+          "working": {
+            "median_ms": 3.636199,
+            "median_allocated_bytes": 9519960
+          }
+        },
+        "format_controls": {
+          "baseline": {
+            "median_ms": 2.669701,
+            "median_allocated_bytes": 5965936
+          },
+          "working": {
+            "median_ms": 0.4607,
+            "median_allocated_bytes": 1572496
+          }
+        },
+        "format_plain": {
+          "baseline": {
+            "median_ms": 0.847299,
+            "median_allocated_bytes": 1791456
+          },
+          "working": {
+            "median_ms": 0.546899,
+            "median_allocated_bytes": 855248
+          }
+        }
+      },
+      "source_hash_normalization": "UTF-8 LF"
+    },
+    {
+      "baseline": "78ec45cea6eff504c250e0f6d55e65cd3f324007",
+      "working_head": "78ec45cea6eff504c250e0f6d55e65cd3f324007",
+      "working_source_sha256": {
+        "core\\src\\main\\java\\io\\github\\bootbomguard\\core\\Coordinates.java": "00f060cc71125ba3642d76743693198fcd261af7bcb3dc56d6180785dbf4b796",
+        "core\\src\\main\\java\\io\\github\\bootbomguard\\core\\Guard.java": "f5a069959c2e5fc9ef4f13dad5f0932a839352021392f941b197feebe73558ca"
+      },
+      "host": "Windows-11-10.0.26300-SP0",
+      "jvm_flags": [
+        "-Xms256m",
+        "-Xmx256m",
+        "-XX:+UseSerialGC"
+      ],
+      "java": "openjdk 21.0.11 2026-04-21 LTS\nOpenJDK Runtime Environment Temurin-21.0.11+10 (build 21.0.11+10-LTS)\nOpenJDK 64-Bit Server VM Temurin-21.0.11+10 (build 21.0.11+10-LTS, mixed mode, sharing)\n",
+      "size": 100000,
+      "forks": 3,
+      "samples_per_fork": 9,
+      "sha256": "e21c87c1b8e08358d59530ad2e1c8da1ab8b7a7df5f3e9ce5fa506645b90822a",
+      "summary": {
+        "compare_all_drift": {
+          "baseline": {
+            "median_ms": 195.6083,
+            "median_allocated_bytes": 275015400
+          },
+          "working": {
+            "median_ms": 166.223201,
+            "median_allocated_bytes": 149276880
+          }
+        },
+        "compare_mixed": {
+          "baseline": {
+            "median_ms": 188.9072,
+            "median_allocated_bytes": 269590000
+          },
+          "working": {
+            "median_ms": 30.2188,
+            "median_allocated_bytes": 16783784
+          }
+        },
+        "coordinates": {
+          "baseline": {
+            "median_ms": 60.3235,
+            "median_allocated_bytes": 345199960
+          },
+          "working": {
+            "median_ms": 29.6971,
+            "median_allocated_bytes": 47599960
+          }
+        },
+        "format_controls": {
+          "baseline": {
+            "median_ms": 3.156,
+            "median_allocated_bytes": 5966648
+          },
+          "working": {
+            "median_ms": 0.3757,
+            "median_allocated_bytes": 1573208
+          }
+        },
+        "format_plain": {
+          "baseline": {
+            "median_ms": 0.6152,
+            "median_allocated_bytes": 1792168
+          },
+          "working": {
+            "median_ms": 0.2542,
+            "median_allocated_bytes": 855960
+          }
+        }
+      },
+      "source_hash_normalization": "UTF-8 LF"
+    }
+  ]
+}

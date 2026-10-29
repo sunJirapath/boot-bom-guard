@@ -1,6 +1,14 @@
 # Verification
 
-## Coverage-gap closure, 2026-10-29
+## Performance and further stress coverage, 2026-10-29
+
+Shared-core optimizations reuse coordinate validation patterns, index expected versions by hash, sort only drift findings, and avoid formatter allocations during report escaping. Public records, exact-version equality, distinct-resolution counting, ordering, exceptions and strict policy retain their previous behavior. [PERFORMANCE.md](PERFORMANCE.md) records reproducible baseline/working-source timing and allocation measurements; native resolution/startup and peak heap are outside that benchmark.
+
+The suite now contains **95 distinct tests**: 16 shared core, 3 Maven adapter, 31 native Maven integration and 45 Gradle TestKit. Six additional regressions cover seeded differential policy checks, every UTF-16 code unit, coordinate grammar, colliding hashes, a dense native conflict graph, and separate configurations with different BOMs. Earlier corpus replays below belong to `78ec45c`; that corpus was not replayed for this core-only change.
+
+Fresh Windows/JDK 21.0.11 checks pass: source install/unit suites and all 31 native integrations separately on Maven **3.9.16 / 3.10.0 / 4.0.0-rc-7**, plus forced full `check` and plugin validation on Gradle **8.14.3 / 9.8.2**. All current suites have zero failures/errors/skips. Local logs are under ignored `build/performance/`; the fresh-cache Maven 3.9.16 install also runs all 16 core and 3 adapter unit tests. Hosted results must be checked against the actual PR head, using the [PR checks](https://github.com/sunJirapath/boot-bom-guard/pull/8/checks).
+
+## Earlier coverage-gap closure (78ec45c), 2026-10-29
 
 This follow-up fixes five additional reproduced defects: Maven adapter stack overflow and shared-node origin, Gradle local-file false passes, fully erased BOM-constraint false passes, and exact preferred-only constraints incorrectly reported as unsupported. Incoming Gradle graph edges are indexed once. See [ADVERSARIAL-AUDIT.md](ADVERSARIAL-AUDIT.md) for before/fix/regression evidence and explicit remaining contracts.
 

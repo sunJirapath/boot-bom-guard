@@ -33,7 +33,7 @@ The follow-up adds **13 distinct tests** using the existing JUnit/TestKit/Python
 | ADV-008 / P1 | A component metadata rule removes all Boot BOM constraints. Native platform resolution succeeds but the guard reports `PASS checked=0`. | Require baseline managed constraints; report `UNKNOWN`, fail strict mode. `emptiedBomMetadataCannotProduceAnAlignedPass`. Partial BOM rewrites remain outside the baseline contract below. |
 | ADV-009 / P2 | An exact published `prefers`-only constraint selects a valid expected version, but empty `required`/`strict` fields trigger a spurious `UNKNOWN`. | Fall back to native `preferredVersion` when both stronger fields are empty. Exact `1` versus actual `2` is drift with `unknown=0`; non-exact constraints remain unsupported. `exactPreferredOnlyPublishedConstraintIsComparable`. |
 
-Gradle now indexes incoming edges and library components once, replacing per-component full-edge scans. The collection/indexing stage is linear in graph size; native resolution and sorting still have their own costs. No before/after speedup claim is made.
+Gradle now indexes incoming edges and library components once, replacing per-component full-edge scans. The collection/indexing stage is linear in graph size; native resolution and sorting still have their own costs. The separate [performance follow-up](PERFORMANCE.md) measures shared-core changes only; it does not benchmark this indexing change or native resolution.
 
 | Previously documented gap | Fresh bounded evidence |
 | --- | --- |
@@ -46,6 +46,10 @@ Gradle now indexes incoming edges and library components once, replacing per-com
 | macOS | Hosted CI now includes the complete Maven/Gradle 8.14.3 suites and empty-cache external consumers on `macos-15`; use persisted PR checks for its result. Ubuntu retains both Gradle versions and adds the two Maven compatibility jobs. |
 
 The auth test deliberately permits HTTP only on loopback. Maven snapshot/file repositories bootstrap through native online Resolver mode even with `--offline`; guard invocations then honor offline mode. Gradle's loopback transport test deliberately runs online even with `-PtestOffline=true`. Tool dependencies must already be cached for other offline checks.
+
+## Performance follow-up coverage
+
+Six further regressions bring the suite to **95 distinct tests**. Four core tests compare 100 seeded shuffled mixed graphs against the previous policy, preserve all 65,536 UTF-16 code units and supplementary/unpaired surrogates during sanitization, retain the exact coordinate token grammar, and keep 256 colliding coordinate hashes distinct. Two native TestKit tests resolve a dense 128-module graph with competing transitive versions and verify separate configurations selecting different Boot BOMs, including duplicate configuration-name suppression and strict failure when only one configuration drifts. See [PERFORMANCE.md](PERFORMANCE.md) for reproducible baseline/working-tree measurements and their limits.
 
 ## Additional coverage
 
@@ -77,12 +81,12 @@ Fresh local verification on Windows and JDK 21.0.11:
 
 | Check | Result |
 | --- | --- |
-| Maven 3.9.16 / 3.10.0 / 4.0.0-rc-7 install | 12 core + 3 adapter tests on each |
+| Maven 3.9.16 / 3.10.0 / 4.0.0-rc-7 install | 16 core + 3 adapter tests on each |
 | Native Maven integration suite | 31 tests on each Maven version |
-| Gradle 8.14.3 and 9.8.2 full forced reruns | 12 shared core + 43 TestKit tests and plugin validation on each |
-| Distinct tests, shared core counted once | **89**, zero failures/skips in final runs |
+| Gradle 8.14.3 and 9.8.2 full forced reruns | 16 shared core + 45 TestKit tests and plugin validation on each |
+| Distinct tests, shared core counted once | **95**, zero failures/skips in final runs |
 | Clean-cache source install / external Maven, Groovy, Kotlin consumers | 15 checked commands across Maven 3.9.16 and both Gradle versions |
-| Pinned real-project replays | Five Spring Cloud consumers, minimal Boot starter and stable Spring guide: native graph/oracle equality, warning/strict/repeat checks |
+| Earlier pinned real-project replays (`78ec45c`) | Five Spring Cloud consumers, minimal Boot starter and stable Spring guide: native graph/oracle equality, warning/strict/repeat checks; not replayed for the core performance follow-up |
 
 The five Spring Cloud replays retain **792 comparable coordinates**, remove all **202 historical false findings**, and preserve all three genuine Gateway drifts. The minimal starter checks another 21 coordinates; the stable guide checks 75. This is seven selected consumers, not a rerun of all 100 historical candidates or every reactor module. A separate copied Docker cache receives the current plugin; historical evidence, original caches and source checkouts are unchanged. Scripts, native trees, oracle results and logs are retained under ignored `build/gaps-replay/`.
 

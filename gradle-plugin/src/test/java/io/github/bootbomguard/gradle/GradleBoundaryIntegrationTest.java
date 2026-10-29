@@ -153,4 +153,52 @@ class GradleBoundaryIntegrationTest {
             assertFalse(denied.contains("wrong-password"), denied);
         } finally { server.stop(0); }
     }
+
+    @Test void denseConflictingGraphChecksEachSelectedModuleOnce() throws Exception {
+        int width = 8, levels = 16;
+        var management = new StringBuilder();
+        for (int level = 0; level < levels; level++) {
+            for (int column = 0; column < width; column++) {
+                String name = "dense-" + level + "-" + column;
+                management.append(dependency(name, "1"));
+                var children = new StringBuilder();
+                if (level + 1 < levels) for (int next = 0; next < width; next++)
+                    children.append(dependency("dense-" + (level + 1) + "-" + next,
+                            level == levels - 2 && column % 2 == 0 && next == 0 ? "2" : "1"));
+                publish("guard.boundary", name, "1", "<dependencies>" + children + "</dependencies>");
+            }
+        }
+        publish("guard.boundary", "dense-15-0", "2", "");
+        platform(management.toString());
+        var roots = new StringBuilder();
+        for (int column = 0; column < width; column++) roots.append("implementation 'guard.boundary:dense-0-" + column + ":1';\n");
+        consumer(roots.toString(), "", "url = uri('repository')");
+        String out = run(true, false, "-Pstrict");
+        assertTrue(out.contains("NATIVE_COMPONENT_COUNT=130"), out);
+        assertTrue(out.contains("NATIVE_UNRESOLVED_COUNT=0"), out);
+        assertTrue(out.contains("DRIFT guard.boundary:dense-15-0 expected=1 resolved=2 classification=TRANSITIVE_DRIFT"), out);
+        assertTrue(out.contains("WARN checked=128 drift=1 unknown=0"), out);
+    }
+
+    @Test void separateConfigurationsKeepTheirOwnSelectedBomAndPolicy() throws Exception {
+        platform(dependency("library", "1"));
+        publish("org.springframework.boot", "spring-boot-dependencies", "4.1.0-boundary",
+                "<packaging>pom</packaging><dependencyManagement><dependencies>" + dependency("library", "2") + "</dependencies></dependencyManagement>");
+        for (String version : List.of("1", "2")) publish("guard.boundary", "library", version, "");
+        consumer("implementation 'guard.boundary:library:2'", """
+                configurations { independent { canBeResolved = true; canBeConsumed = false } }
+                dependencies {
+                    independent platform('org.springframework.boot:spring-boot-dependencies:4.1.0-boundary')
+                    independent 'guard.boundary:library:2'
+                }
+                bootBomGuard { configurations = ['runtimeClasspath', 'independent', 'independent'] }
+                """, "url = uri('repository')");
+        String out = run(true, false, "-Pstrict");
+        assertTrue(out.contains("BOM=org.springframework.boot:spring-boot-dependencies:4.1.0-boundary"), out);
+        assertTrue(out.contains("PASS checked=1 drift=0 unknown=0"), out);
+        assertTrue(out.contains("BOM=org.springframework.boot:spring-boot-dependencies:4.0.0-boundary"), out);
+        assertTrue(out.contains("WARN checked=1 drift=1 unknown=0"), out);
+        assertEquals(1, out.lines().filter(line -> line.equals("configuration=independent")).count(), out);
+        assertTrue(out.contains("policy failed"), out);
+    }
 }

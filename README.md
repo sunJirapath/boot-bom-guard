@@ -243,8 +243,8 @@ python scripts/verify_install.py --gradle /path/to/gradle-8.14.3/bin/gradle --gr
 This downloads dependencies into fresh Maven/Gradle caches, copies the consumer fixtures to an OS temporary directory outside the checkout, and checks aligned, warning, strict-failure and reasoned-exception scenarios. Kotlin DSL covers a strict allowed exception; Groovy DSL and Maven cover all four policies. Logs and caches are retained under ignored `build/install-smoke-*`; the command prints the consumer directory.
 
 The integration suites exercise real Spring Boot 4 dependency resolution and frozen synthetic metadata. A separate Maven adapter unit suite uses native Resolver node objects to test traversal limits without publishing 20,000 artifacts. Gradle uses TestKit's plugin
-classpath; consumer examples use a composite build. The completed verification has 12 core tests, 3 Maven adapter tests, 31 Maven
-integration tests and 43 Gradle integration tests (89 distinct); see [VERIFICATION.md](VERIFICATION.md) and the [adversarial audit](ADVERSARIAL-AUDIT.md).
+classpath; consumer examples use a composite build. The completed verification has 16 core tests, 3 Maven adapter tests, 31 Maven
+integration tests and 45 Gradle integration tests (95 distinct); see [VERIFICATION.md](VERIFICATION.md), the [adversarial audit](ADVERSARIAL-AUDIT.md), and [measured core performance](PERFORMANCE.md).
 
 After the first resolution, test with cached remote dependencies:
 

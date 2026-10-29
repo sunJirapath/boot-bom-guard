@@ -2,9 +2,12 @@ package io.github.bootbomguard.core;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.TreeMap;
 
 public final class Guard {
@@ -48,12 +51,13 @@ public final class Guard {
             requireText(reason, "Exception reason for " + key);
         });
         expected.forEach((key, version) -> requireText(version, "Expected version for " + key));
+        Map<Coordinates, String> versions = new HashMap<>(expected);
         List<Finding> findings = new ArrayList<>();
         int checked = 0;
-        for (Resolved dependency : actual.stream().distinct()
-                .sorted(Comparator.comparing(Resolved::coordinates).thenComparing(Resolved::version)
-                        .thenComparing(Resolved::evidence).thenComparing(Resolved::origin)).toList()) {
-            String version = expected.get(dependency.coordinates());
+        Set<Resolved> seen = new HashSet<>();
+        for (Resolved dependency : actual) {
+            if (!seen.add(dependency)) continue;
+            String version = versions.get(dependency.coordinates());
             if (version == null) continue;
             checked++;
             if (!version.equals(dependency.version())) {
@@ -61,6 +65,8 @@ public final class Guard {
                                          dependency.evidence(), exceptions.get(dependency.coordinates())));
             }
         }
+        findings.sort(Comparator.comparing(Finding::coordinates).thenComparing(Finding::resolved)
+                .thenComparing(Finding::evidence).thenComparing(Finding::origin));
         return new Report(bom, List.copyOf(findings), diagnostics.stream().distinct().sorted().toList(), checked);
     }
 
@@ -80,11 +86,15 @@ public final class Guard {
 
     public static String safe(String value) {
         if (value == null) return "unknown";
-        StringBuilder out = new StringBuilder();
-        value.codePoints().forEach(c -> {
-            if (Character.isISOControl(c) || c == 0x2028 || c == 0x2029) out.append(String.format("\\u%04x", c));
-            else out.appendCodePoint(c);
-        });
-        return out.toString();
+        StringBuilder out = null;
+        for (int i = 0; i < value.length(); i++) {
+            char c = value.charAt(i);
+            if (Character.isISOControl(c) || c == 0x2028 || c == 0x2029) {
+                if (out == null) out = new StringBuilder(value.length() + 6).append(value, 0, i);
+                out.append("\\u");
+                for (int shift = 12; shift >= 0; shift -= 4) out.append(Character.forDigit((c >>> shift) & 15, 16));
+            } else if (out != null) out.append(c);
+        }
+        return out == null ? value : out.toString();
     }
 }
