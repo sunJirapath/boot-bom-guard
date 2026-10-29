@@ -1,6 +1,43 @@
-# Verification — 2026-10-25
+# Verification
+
+## Campaign follow-up, 2026-10-29
+
+The 100-candidate campaign results, scenario coverage and native oracle evidence are retained locally and excluded from Git. Fresh offline product checks on `51aa970678a1b892a81da82f65b891584bae57ae` passed 58 distinct tests (12 core, 21 Maven, 25 Gradle), zero failures/skips. Historical online results below were not rerun online in this follow-up. Unsupported/blocked candidates are not successful integrations.
+
+## Historical verification — 2026-10-25
 
 Executed on Windows 11 with Temurin JDK 21.0.11, Maven 3.9.16, Gradle 8.14.3 and Gradle 9.8.2. Unless noted, commands below ran from `E:/boot-bom-guard`; the isolated CI installer ran in its ignored `build` directory.
+
+## BBG-001: Maven snapshot identity regression
+
+The follow-up fix starts from `0c5888db559e174ee8f70d99969730ba1e6bcef0`. The pristine BOM contains logical versions such as `4.2.0-SNAPSHOT`, while Maven's selected artifact graph exposes versions such as `4.2.0-20261023.172449-288`. Comparing those strings produced false drift and strict CI failures. Resolver now supplies the expected and effective managed artifact identities; explicit older timestamps still differ. Core equality and the Gradle adapter are unchanged.
+
+Six new integration tests use a generated, immutable file repository with two physical builds of `1.0-SNAPSHOT` and one build of `2.0-SNAPSHOT`. Native `maven-dependency-plugin:3.10.0:resolve` first verifies the actual artifacts. The assertions cover aligned direct/transitive aliases, an explicit current timestamp, explicit and managed older timestamps, another managed snapshot alias, and a mixed graph containing genuine release drift. Warning/strict exits and managed classification are asserted. All six failed against the original plugin; all pass with the fix. These are additional synthetic snapshot fixtures, not claims about public Boot snapshots. Their native file-repository bootstrap uses online Resolver mode even under the script's `--offline` flag; the subsequent guard checks honor that flag.
+
+```powershell
+mvn -B -ntp --offline install
+python scripts/verify_maven.py --offline
+# Focused portable reproduction, after installing the plugin:
+python scripts/verify_maven.py --offline MavenSnapshotIntegrationTest
+.\gradlew.bat --no-daemon --console=plain check --rerun-tasks
+.\gradlew.bat --offline --console=plain check -PtestOffline=true --rerun-tasks
+```
+
+Local verification on Windows/JDK 21.0.11/Maven 3.9.16: Maven install passed 12 core tests; the Python suite passed 21 tests online and offline; Gradle 8.14.3 passed 12 core plus 25 TestKit tests and plugin validation, online and then offline. That is **58 distinct tests**, counting the shared core once. No failures or skips remain. The first offline Gradle attempt in the new worktree failed because its TestKit dependency cache was cold; the online run populated it before the passing offline rerun. Gradle 9 and Maven 4 were not rerun for this fix.
+
+The five affected campaign repositories were rerun at the exact commits below in offline containers using Maven 3.9.16/Temurin 21.0.12.1 and a separate copy of the preserved campaign cache. The pinned container image is `maven@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320`. Each run used `--network none`, two CPUs and 3 GiB memory. Source mounts were read-only. Native effective POM, dependency tree and artifact resolution succeeded; each new tree exactly matched its original JSON graph. The independent oracle compared the native tree with the pristine Boot BOM effective management. Warning, strict and repeated guard reports were then checked, with zero unknowns and identical repeated reports.
+
+| Repository / pinned commit | Selected POM | Comparable coordinates | False findings before → after | Genuine findings retained | Warning / strict exit |
+| --- | --- | ---: | ---: | ---: | --- |
+| [spring-cloud-gateway](https://github.com/spring-cloud/spring-cloud-gateway/tree/a6e4b522dbd2cc48e1040f030556c00ea6dcda04) | `spring-cloud-gateway-server-webflux/pom.xml` | 223 | 54 → 0 | 3 | 0 / 1 |
+| [spring-cloud-stream](https://github.com/spring-cloud/spring-cloud-stream/tree/930fd07da6417a30b8a1203b0bd18b1d9cae3242) | `binders/rabbit-binder/spring-cloud-stream-binder-rabbit/pom.xml` | 161 | 40 → 0 | 0 | 0 / 0 |
+| [spring-cloud-kubernetes](https://github.com/spring-cloud/spring-cloud-kubernetes/tree/5d653390555abbef31abeb2c0e3d36d955dc2e6f) | `spring-cloud-kubernetes-examples/kubernetes-leader-election-example/pom.xml` | 103 | 25 → 0 | 0 | 0 / 0 |
+| [spring-cloud-netflix](https://github.com/spring-cloud/spring-cloud-netflix/tree/fd54279c3357d280344ff5bde42c8a0474eeb430) | `spring-cloud-netflix-eureka-client/pom.xml` | 166 | 41 → 0 | 0 | 0 / 0 |
+| [spring-cloud-commons](https://github.com/spring-cloud/spring-cloud-commons/tree/31ecfe5589fc20bdf263705904c2b202f66aaeba) | `spring-cloud-commons/pom.xml` | 139 | 42 → 0 | 0 | 0 / 0 |
+
+All **202 false findings** disappeared across 792 comparable coordinate checks. Gateway's `grpc-netty`, `grpc-protobuf` and `grpc-stub` still report expected `1.84.1`, resolved `1.85.1`. The original minimal Boot-starter reproduction also changed from four false findings / strict exit 1 to `PASS checked=21 drift=0 unknown=0` / strict exit 0. All five clone SHAs and tracked-file states remained unchanged.
+
+Raw rerun logs, commands, graph/oracle JSON and the local rerun script are retained under the fix worktree's ignored `build/bbg-001/`; the earlier campaign evidence remains separate and unchanged. These selected-leaf fix checks do not certify complete reactors. The subsequent 100-candidate follow-up revisited all 26 historical blockers: final outcomes are 30 aligned, 12 genuine drift, 57 expected unsupported and one external GeoServer artifact blocker, refreshed on 2026-10-29. It also records three complete default-reactor oracle checks and one matched reactor performance measurement; no single graph above 1,500 nodes was tested. Resolving expected snapshot identities can require additional artifacts/cache entries; a missing expected artifact produces incomplete analysis instead of an assumed match.
 
 ## Baseline and scope
 

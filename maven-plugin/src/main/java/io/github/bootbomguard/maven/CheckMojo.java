@@ -150,8 +150,15 @@ public final class CheckMojo extends AbstractMojo {
         return new Coordinates(dependency.getGroupId(), dependency.getArtifactId(), dependency.getType(), classifier);
     }
 
+    private String resolvedVersion(Artifact artifact, String version) throws Exception {
+        if (!version.endsWith("-SNAPSHOT")) return version;
+        return repositorySystem.resolveArtifact(session.getRepositorySession(),
+                new ArtifactRequest(artifact.setVersion(version), project.getRemoteProjectRepositories(), "project"))
+                .getArtifact().getVersion();
+    }
+
     private void collect(DependencyNode node, int depth, Map<Coordinates, String> expected,
-                         Map<Coordinates, String> managed, List<Guard.Resolved> actual, Set<DependencyNode> visited) {
+                         Map<Coordinates, String> managed, List<Guard.Resolved> actual, Set<DependencyNode> visited) throws Exception {
         // Verbose Resolver sessions retain losing nodes; only the selected graph is an actual dependency.
         if (node.getData().get(ConflictResolver.NODE_DATA_WINNER) != null) return;
         if (!visited.add(node)) return;
@@ -160,6 +167,11 @@ public final class CheckMojo extends AbstractMojo {
             Coordinates key = new Coordinates(artifact.getGroupId(), artifact.getArtifactId(),
                     artifact.getProperty("type", artifact.getExtension()), artifact.getClassifier());
             String version = artifact.getVersion();
+            if (expected.containsKey(key)) {
+                // Compare native snapshot identities; an explicitly older timestamp must remain drift.
+                expected.put(key, resolvedVersion(artifact, expected.get(key)));
+                if (managed.containsKey(key)) managed.put(key, resolvedVersion(artifact, managed.get(key)));
+            }
             Guard.Origin origin;
             String evidence;
             boolean managedOverride = managed.containsKey(key) && !managed.get(key).equals(expected.get(key));

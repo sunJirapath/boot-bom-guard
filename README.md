@@ -106,6 +106,8 @@ An execution bound to `verify` is optional; the guard does not run until invoked
 
 Maven uses effective dependency-management source locations to identify the BOM, including inherited Boot parents and active profile imports. Shadowed raw imports do not create false ambiguity. A clean, separately built effective Boot BOM supplies the baseline, so a consumer's `slf4j.version` property cannot overwrite the expected version. The selected dependency graph includes direct and transitive project dependencies across Maven scopes, preserving artifact type/classifier; build-plugin dependencies are excluded.
 
+For comparable Maven snapshots, Resolver translates BOM and effective managed versions to their native timestamped artifact identities before comparison. An alias and its selected timestamp align; an explicitly pinned older timestamp remains drift. If the expected snapshot cannot resolve, analysis reports `UNKNOWN`.
+
 When a project effectively combines managed entries sourced from multiple Boot BOM versions, analysis reports `UNKNOWN` rather than choosing one. If effective source locations are unavailable, BOM identification is unsupported and reports unknown. Maven may itself reject an invalid effective project before any goal can execute.
 
 ### Gradle — Groovy DSL
@@ -228,15 +230,17 @@ python scripts/verify_maven.py
 ```
 
 The suites exercise real Spring Boot 4 dependency resolution, not mocked graphs. Gradle uses TestKit's plugin
-classpath; consumer examples use a composite build. The completed verification has 12 core tests, 15 Maven
+classpath; consumer examples use a composite build. The completed verification has 12 core tests, 21 Maven
 integration tests and 25 Gradle integration tests; see [VERIFICATION.md](VERIFICATION.md).
 
-After the first resolution, test the cached dependencies without repository access:
+After the first resolution, test with cached remote dependencies:
 
 ```sh
 python scripts/verify_maven.py --offline
 ./gradlew --offline check -PtestOffline=true
 ```
+
+The Maven snapshot regressions generate a frozen local file repository and prime it through native resolution in online Resolver mode, including when `--offline` is set. The guard invocations then honor `--offline`; the dependency plugin must already be cached to run without network access. No mutable public snapshots are used by these regressions.
 
 `-PtestOffline=true` also passes `--offline` to the nested TestKit builds. A new machine needs the Gradle
 distribution and dependencies cached first. The [CI workflow](.github/workflows/ci.yml) runs the full Maven and Gradle suites
