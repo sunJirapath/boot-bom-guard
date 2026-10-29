@@ -1,5 +1,5 @@
 subprojects {
-    group = "io.github.bootbomguard"
+    group = "io.github.sunjirapath.bootbomguard"
     version = "0.1.0-SNAPSHOT"
     repositories { mavenCentral() }
     apply(plugin = "java-library")

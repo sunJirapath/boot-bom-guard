@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0">
   <modelVersion>4.0.0</modelVersion>
-  <parent><groupId>io.github.bootbomguard</groupId><artifactId>boot-bom-guard-parent</artifactId><version>0.1.0-SNAPSHOT</version></parent>
+  <parent><groupId>io.github.sunjirapath.bootbomguard</groupId><artifactId>boot-bom-guard-parent</artifactId><version>0.1.0-SNAPSHOT</version></parent>
   <artifactId>boot-bom-guard-core</artifactId>
   <dependencies><dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><scope>test</scope></dependency></dependencies>
 </project>

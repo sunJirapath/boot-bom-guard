@@ -3,7 +3,7 @@ dependencies { implementation(project(":core")) }
 gradlePlugin {
     plugins {
         create("bootBomGuard") {
-            id = "io.github.bootbomguard"
+            id = "io.github.sunjirapath.bootbomguard"
             implementationClass = "io.github.bootbomguard.gradle.BootBomGuardPlugin"
             displayName = "Boot BOM Guard"
             description = "Reports resolved dependency drift from a selected Spring Boot BOM"

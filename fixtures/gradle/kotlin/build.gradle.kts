@@ -1,6 +1,6 @@
 plugins {
     java
-    id("io.github.bootbomguard")
+    id("io.github.sunjirapath.bootbomguard")
 }
 repositories { mavenCentral() }
 dependencies {

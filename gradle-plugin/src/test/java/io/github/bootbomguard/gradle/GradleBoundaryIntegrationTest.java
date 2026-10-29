@@ -32,7 +32,7 @@ class GradleBoundaryIntegrationTest {
     private void consumer(String declarations, String extra, String repository) throws IOException {
         Files.writeString(directory.resolve("settings.gradle"), "rootProject.name = 'boundary-consumer'\n");
         Files.writeString(directory.resolve("build.gradle"), """
-                plugins { id 'java'; id 'io.github.bootbomguard' }
+                plugins { id 'java'; id 'io.github.sunjirapath.bootbomguard' }
                 repositories { maven { %s } }
                 dependencies {
                     implementation platform('org.springframework.boot:spring-boot-dependencies:4.0.0-boundary')

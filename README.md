@@ -78,7 +78,7 @@ Use a Spring Boot parent or import its BOM. Declare the guard under **build/plug
 <build>
   <plugins>
     <plugin>
-      <groupId>io.github.bootbomguard</groupId>
+      <groupId>io.github.sunjirapath.bootbomguard</groupId>
       <artifactId>boot-bom-guard-maven-plugin</artifactId>
       <version>0.1.0-SNAPSHOT</version>
       <configuration>
@@ -102,7 +102,7 @@ mvn --offline boot-bom-guard:check
 ```
 
 Alternatively use the full goal coordinate, without prefix lookup:
-`mvn io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check`.
+`mvn io.github.sunjirapath.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check`.
 An execution bound to `verify` is optional; the guard does not run until invoked/bound. Configure the exception only when you intend to accept that dependency's drift.
 
 Maven uses effective dependency-management source locations to identify the BOM, including inherited Boot parents and active profile imports. Shadowed raw imports do not create false ambiguity. A clean, separately built effective Boot BOM supplies the baseline, so a consumer's `slf4j.version` property cannot overwrite the expected version. The selected dependency graph includes direct and transitive project dependencies across Maven scopes, preserving artifact type/classifier; build-plugin dependencies are excluded.
@@ -129,7 +129,7 @@ pluginManagement {
 ```groovy
 plugins {
     id 'java'
-    id 'io.github.bootbomguard'
+    id 'io.github.sunjirapath.bootbomguard'
 }
 repositories { mavenCentral() }
 dependencies {
@@ -169,7 +169,7 @@ pluginManagement {
 ```kotlin
 plugins {
     java
-    id("io.github.bootbomguard")
+    id("io.github.sunjirapath.bootbomguard")
 }
 repositories { mavenCentral() }
 dependencies {
@@ -259,7 +259,7 @@ The Maven snapshot regressions generate a frozen local file repository and prime
 distribution and dependencies cached first. The [CI workflow](.github/workflows/ci.yml) runs the full Maven and Gradle suites
 on Ubuntu with Java 21, Maven 3.9.16 and a Gradle 8.14.3 / 9.8.2 matrix, plus macOS 15 with Gradle 8.14.3. Each of these jobs also checks a source install with empty caches and external Maven/Groovy/Kotlin consumers. Separate Ubuntu jobs run the full Maven suites with 3.10.0 and preview 4.0.0-rc-7. Pull requests run the same checks; the README
 status badge follows `main` and shows its result after the workflow is merged and runs there.
-Coverage and license badges are omitted: no coverage service or license file is configured.
+Licensed under the [MIT License](LICENSE). No coverage badge is shown because no coverage service is configured.
 
 Research and bounded smaller-agent review are recorded in [DESIGN.md](DESIGN.md). Actual commands, test counts
 and remaining limitations are in [VERIFICATION.md](VERIFICATION.md).
