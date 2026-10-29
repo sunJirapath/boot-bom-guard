@@ -21,8 +21,10 @@ import org.eclipse.aether.artifact.Artifact;
 import org.eclipse.aether.artifact.DefaultArtifact;
 import org.eclipse.aether.graph.DependencyNode;
 import org.eclipse.aether.resolution.ArtifactRequest;
+import org.eclipse.aether.resolution.VersionRequest;
 import org.eclipse.aether.util.graph.transformer.ConflictResolver;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -77,7 +79,7 @@ public final class CheckMojo extends AbstractMojo {
                     Map<Coordinates, String> managed = management(project);
                     DependencyNode root = dependenciesResolver.resolve(
                             new DefaultDependencyResolutionRequest(project, session.getRepositorySession())).getDependencyGraph();
-                    collect(root, 0, expected, managed, actual, new HashSet<>());
+                    collect(root, 0, expected, managed, actual, new HashSet<>(), diagnostics);
                 }
             }
         } catch (Exception e) {
@@ -152,41 +154,59 @@ public final class CheckMojo extends AbstractMojo {
 
     private String resolvedVersion(Artifact artifact, String version) throws Exception {
         if (!version.endsWith("-SNAPSHOT")) return version;
-        return repositorySystem.resolveArtifact(session.getRepositorySession(),
-                new ArtifactRequest(artifact.setVersion(version), project.getRemoteProjectRepositories(), "project"))
-                .getArtifact().getVersion();
+        var resolved = repositorySystem.resolveVersion(session.getRepositorySession(),
+                new VersionRequest(artifact.setVersion(version), project.getRemoteProjectRepositories(), "project"));
+        // Resolver may fall back to the alias when no snapshot metadata is available.
+        if (resolved.getRepository() == null || resolved.getVersion() == null) {
+            throw new IllegalStateException("Snapshot identity is unavailable");
+        }
+        return resolved.getVersion();
     }
 
     private void collect(DependencyNode node, int depth, Map<Coordinates, String> expected,
-                         Map<Coordinates, String> managed, List<Guard.Resolved> actual, Set<DependencyNode> visited) throws Exception {
-        // Verbose Resolver sessions retain losing nodes; only the selected graph is an actual dependency.
-        if (node.getData().get(ConflictResolver.NODE_DATA_WINNER) != null) return;
-        if (!visited.add(node)) return;
-        Artifact artifact = node.getArtifact();
-        if (artifact != null && depth > 0) {
-            Coordinates key = new Coordinates(artifact.getGroupId(), artifact.getArtifactId(),
-                    artifact.getProperty("type", artifact.getExtension()), artifact.getClassifier());
-            String version = artifact.getVersion();
-            if (expected.containsKey(key)) {
-                // Compare native snapshot identities; an explicitly older timestamp must remain drift.
-                expected.put(key, resolvedVersion(artifact, expected.get(key)));
-                if (managed.containsKey(key)) managed.put(key, resolvedVersion(artifact, managed.get(key)));
+                         Map<Coordinates, String> managed, List<Guard.Resolved> actual, Set<DependencyNode> visited,
+                         List<String> diagnostics) throws Exception {
+        record Pending(DependencyNode node, int depth) {}
+        var pending = new ArrayDeque<Pending>();
+        pending.add(new Pending(node, depth));
+        // Breadth-first traversal avoids stack growth and preserves direct paths for shared nodes.
+        while (!pending.isEmpty()) {
+            var next = pending.removeFirst();
+            node = next.node();
+            depth = next.depth();
+            // Verbose Resolver sessions retain losing nodes; only the selected graph is an actual dependency.
+            if (node.getData().get(ConflictResolver.NODE_DATA_WINNER) != null) continue;
+            if (!visited.add(node)) continue;
+            Artifact artifact = node.getArtifact();
+            if (artifact != null && depth > 0) {
+                if (!node.getRelocations().isEmpty()) {
+                    diagnostics.add("Unsupported Maven dependency relocation: " + node.getRelocations()
+                            + " -> " + artifact + "; comparison is incomplete.");
+                }
+                Coordinates key = new Coordinates(artifact.getGroupId(), artifact.getArtifactId(),
+                        artifact.getProperty("type", artifact.getExtension()), artifact.getClassifier());
+                String version = artifact.getVersion();
+                if (expected.containsKey(key)) {
+                    // Compare native snapshot identities; an explicitly older timestamp must remain drift.
+                    expected.put(key, resolvedVersion(artifact, expected.get(key)));
+                    if (managed.containsKey(key)) managed.put(key, resolvedVersion(artifact, managed.get(key)));
+                }
+                Guard.Origin origin;
+                String evidence;
+                boolean managedOverride = managed.containsKey(key) && !managed.get(key).equals(expected.get(key));
+                if (managedOverride && managed.get(key).equals(version)) {
+                    origin = Guard.Origin.MANAGED_OVERRIDE;
+                    evidence = "effective dependencyManagement=" + managed.get(key) + "; declaration source unknown";
+                } else if (depth == 1) {
+                    origin = Guard.Origin.DIRECT_OVERRIDE;
+                    evidence = "direct dependency selected by Maven; managed=" + ((node.getManagedBits() & DependencyNode.MANAGED_VERSION) != 0);
+                } else {
+                    origin = Guard.Origin.TRANSITIVE_DRIFT;
+                    evidence = "transitive dependency selected by Maven mediation; managed=" + ((node.getManagedBits() & DependencyNode.MANAGED_VERSION) != 0);
+                }
+                actual.add(new Guard.Resolved(key, version, origin, evidence + "; path=" + (depth == 1 ? "direct" : "transitive")));
             }
-            Guard.Origin origin;
-            String evidence;
-            boolean managedOverride = managed.containsKey(key) && !managed.get(key).equals(expected.get(key));
-            if (managedOverride && managed.get(key).equals(version)) {
-                origin = Guard.Origin.MANAGED_OVERRIDE;
-                evidence = "effective dependencyManagement=" + managed.get(key) + "; declaration source unknown";
-            } else if (depth == 1) {
-                origin = Guard.Origin.DIRECT_OVERRIDE;
-                evidence = "direct dependency selected by Maven; managed=" + ((node.getManagedBits() & DependencyNode.MANAGED_VERSION) != 0);
-            } else {
-                origin = Guard.Origin.TRANSITIVE_DRIFT;
-                evidence = "transitive dependency selected by Maven mediation; managed=" + ((node.getManagedBits() & DependencyNode.MANAGED_VERSION) != 0);
-            }
-            actual.add(new Guard.Resolved(key, version, origin, evidence + "; path=" + (depth == 1 ? "direct" : "transitive")));
+            for (DependencyNode child : node.getChildren()) pending.addLast(new Pending(child, depth + 1));
         }
-        for (DependencyNode child : node.getChildren()) collect(child, depth + 1, expected, managed, actual, visited);
     }
 }

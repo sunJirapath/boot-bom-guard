@@ -1,5 +1,63 @@
 # Verification
 
+## Performance and further stress coverage, 2026-10-29
+
+Shared-core optimizations reuse coordinate validation patterns, index expected versions by hash, sort only drift findings, and avoid formatter allocations during report escaping. Public records, exact-version equality, distinct-resolution counting, ordering, exceptions and strict policy retain their previous behavior. [PERFORMANCE.md](PERFORMANCE.md) records reproducible baseline/working-source timing and allocation measurements; native resolution/startup and peak heap are outside that benchmark.
+
+The suite now contains **95 distinct tests**: 16 shared core, 3 Maven adapter, 31 native Maven integration and 45 Gradle TestKit. Six additional regressions cover seeded differential policy checks, every UTF-16 code unit, coordinate grammar, colliding hashes, a dense native conflict graph, and separate configurations with different BOMs. Earlier corpus replays below belong to `78ec45c`; that corpus was not replayed for this core-only change.
+
+Fresh Windows/JDK 21.0.11 checks pass: source install/unit suites and all 31 native integrations separately on Maven **3.9.16 / 3.10.0 / 4.0.0-rc-7**, plus forced full `check` and plugin validation on Gradle **8.14.3 / 9.8.2**. All current suites have zero failures/errors/skips. Local logs are under ignored `build/performance/`; the fresh-cache Maven 3.9.16 install also runs all 16 core and 3 adapter unit tests. Hosted results must be checked against the actual PR head, using the [PR checks](https://github.com/sunJirapath/boot-bom-guard/pull/8/checks).
+
+## Earlier coverage-gap closure (78ec45c), 2026-10-29
+
+This follow-up fixes five additional reproduced defects: Maven adapter stack overflow and shared-node origin, Gradle local-file false passes, fully erased BOM-constraint false passes, and exact preferred-only constraints incorrectly reported as unsupported. Incoming Gradle graph edges are indexed once. See [ADVERSARIAL-AUDIT.md](ADVERSARIAL-AUDIT.md) for before/fix/regression evidence and explicit remaining contracts.
+
+Fresh Windows/JDK 21.0.11 verification: **89 distinct tests** (12 core, 3 Maven adapter, 31 native Maven integration, 43 Gradle TestKit). Full Maven install/unit/integration suites pass separately with **3.9.16, 3.10.0 and 4.0.0-rc-7**; Maven 4 is preview compatibility for that exact release candidate. Gradle **8.14.3 and 9.8.2** each pass full forced `check` reruns, including plugin validation. Tests have zero failures/errors/skips in final runs. New regressions account for 13 tests beyond the previous 76-test pass.
+
+Bounded probes now cover native Gradle resolution of 2,048 managed modules (2,050 components, a 128-module chain, broad fan-out and a diamond), native Maven four-module parallel execution with `-T2 --fail-at-end`, loopback Basic Auth / Maven settings mirrors, library metadata and init-script rules, and safe configuration-cache discard with strict enforcement. The separate Maven depth test constructs 20,000 real Resolver nodes and invokes only the adapter traversal; it is not a native Resolver load claim. Synthetic repository fixtures publish checksums rather than disabling Maven 4 checksum validation.
+
+Clean-cache installation with external Maven, Groovy and Kotlin consumers passes 15 checked commands using Maven 3.9.16 and both Gradle versions. Source/plugin/JUnit artifacts are consumed from fresh caches; the external Gradle consumers use composite builds, not TestKit injection. Evidence is retained under ignored `build/adversarial/` and `build/install-smoke-*`.
+
+The five pinned Spring Cloud consumers, minimal Boot starter and stable Spring guide were replayed using the current plugin in a new copied Docker volume `bbg-gaps-m2-20261029`. Native graphs match historical trees, source SHAs/tracked files are unchanged, and native-tree/BOM oracles match warning/strict/repeat reports. All 202 historical false findings remain absent across the five Cloud projects' 792 comparable coordinates, while all three real Gateway drifts remain. The starter checks 21 coordinates and the guide 75. Raw scripts/results are in ignored `build/gaps-replay/`. The full 100-candidate campaign and every enterprise reactor were not rerun.
+
+CI now has five jobs per event: Ubuntu Maven 3.9.16 with Gradle 8.14.3/9.8.2, macOS 15 with Maven 3.9.16/Gradle 8.14.3 (all including clean-cache consumers), plus separate Ubuntu Maven 3.10.0 and 4.0.0-rc-7 source-install/integration jobs. Actions and distributions are pinned, checksums verified, permissions read-only. Persisted [PR checks](https://github.com/sunJirapath/boot-bom-guard/pull/8/checks) determine hosted status for the actual head; workflow configuration alone is not success evidence.
+
+Remaining boundaries are deliberate and documented: shared project/settings BOM metadata rules can partially rewrite the baseline; configuration-cache reuse/Gradle 10, non-JVM platform targets and arbitrary local binaries are unsupported; native Basic Auth/mirrors do not establish corporate TLS/SSO/proxy compatibility; no unlimited scale or runtime/security compatibility guarantee follows from version equality. The source-install snapshot remains unpublished.
+
+## Earlier adversarial pass (067166c), 2026-10-29
+
+The [adversarial audit](ADVERSARIAL-AUDIT.md) records four reproduced false-pass defects, their fixes and the remaining coverage boundaries. It adds native Maven relocation/type/classifier/system/range probes and Gradle composite, incomplete-baseline, rich-constraint, selection-rule, project-substitution and transitive-platform probes.
+
+Fresh Windows/JDK 21.0.11/Maven 3.9.16 checks passed: Maven offline install (12 core tests), **29 Maven integration tests**, and full Gradle forced-task reruns using `check --rerun-tasks -PtestOffline=true` on **8.14.3 and 9.8.2** (12 shared core + **35 TestKit tests** and plugin validation on each). That is **76 distinct tests**, zero failures/skips, with the shared core counted once. Fifteen tests are new in this audit. The previous P1-P2 and campaign sections below remain revision-specific historical evidence.
+
+Fresh empty-cache source-install/external-consumer verification passed **15 commands** across Maven and both Gradle versions, including Groovy and Kotlin DSL. Evidence is in ignored `build/adversarial/` and `build/install-smoke-fbjy_j6u/`. The final commit is submitted to the same hosted CI matrix; its persisted check status is authoritative. The earlier real-project replays were not repeated for this change.
+
+## Historical P1-P2 readiness follow-up, 2026-10-29
+
+This follow-up builds on PR #6 at `4ba376a1212f0305ec8fa6fd19f9a6272fe4ae47`. The changes below were freshly checked on Windows with JDK 21.0.11 and Maven 3.9.16. Earlier campaign/online results in the following sections remain historical unless explicitly rerun here.
+
+- Maven now uses native **version metadata resolution**, including extension/classifier, for expected and effective managed snapshot identities. It does not fetch an additional expected snapshot JAR just to compare versions. Resolver's fallback alias with no metadata repository is incomplete analysis (`UNKNOWN`), rather than evidence of drift or alignment. Strict mode rejects that result.
+- Three additional native file-repository regressions cover separate classifier timestamps, metadata absence in warning/strict modes, and non-unique snapshot aliases. Existing regressions retain explicit current/older timestamps, managed snapshot overrides and mixed genuine release drift. All **24 Maven integration tests** passed, alongside **12 core tests**.
+- Full Gradle `check --rerun-tasks` passed separately on **8.14.3 and 9.8.2**: 12 repeated core tests, **25 TestKit tests**, and plugin validation on each. There are **61 distinct tests**, counting the shared core once; zero failures/skips.
+- `scripts/verify_install.py` starts with empty Maven and Gradle caches and places consumers outside this checkout. A run with both Gradle executables passed **15 commands**: source install, four Maven policies, four Groovy policies per Gradle version, and a Kotlin strict allowed exception per version. An additional external Maven aligned check explicitly passed strict mode. No published guard artifact or TestKit plugin injection is used by this smoke test: Maven consumes the source-installed plugin and Gradle consumes a local composite build.
+- Both supported Gradle versions now have Ubuntu/JDK 21 CI matrix jobs. Each runs the Maven/core/TestKit suites and repeats the clean-cache external-consumer smoke check. Hosted CI status belongs to the actual pull-request commit, not this local test record.
+
+Reproduction (after Maven installation):
+
+```sh
+mvn -B -ntp --offline install
+python scripts/verify_maven.py --offline
+/path/to/gradle-8.14.3/bin/gradle --no-daemon --console=plain check --rerun-tasks
+/path/to/gradle-9.8.2/bin/gradle --no-daemon --console=plain check --rerun-tasks
+python scripts/verify_install.py --gradle /path/to/gradle-8.14.3/bin/gradle --gradle /path/to/gradle-9.8.2/bin/gradle
+```
+
+Local logs live in the follow-up worktree's ignored `build/p1-p2/`; the cold-cache run is `build/install-smoke-72e4cjge/`. The installer retains both evidence and caches and prints the external consumer directory. It requires network access for an empty cache. One initial smoke invocation used a nonexistent local Gradle path; after correcting that invocation, all checks passed. The script now validates supplied executable paths before starting installation.
+
+The five pinned Spring Cloud consumers listed in the BBG-001 table below and the minimal Boot-starter reproduction were freshly replayed with the new metadata resolver. The Docker image, SHAs, read-only source mounts, resource bounds, offline network mode and native-tree oracle were preserved. A **separate copied cache** (`bbg-p1p2-m2-20261029`) received the freshly built plugin; original evidence/cache were unchanged. All 202 historical false findings remain absent across 792 comparable coordinates, all three genuine Gateway drifts remain, and repeated reports match. The minimal starter passes strict mode with 21 comparable coordinates. Raw replay scripts, logs, native trees and oracle results are retained in `build/p1-p2/`. The stable `spring-guides/gs-spring-boot` consumer at `cc0ca7c0c89513c75902de8a9afd1fc2718acf3b` (`complete/pom.xml`) also passed native-tree/oracle verification and warning/strict/repeat checks: 75 comparable coordinates, no drift/unknown, unchanged native graph and source checkout.
+
+Readiness remains limited to the documented source-install MVP: Spring Boot 4, JDK 21, Maven 3.9.16 and Gradle 8.14.3/9.8.2 native platforms. These checks establish dependency-policy behavior, not application/runtime compatibility. Gradle configuration cache/10, Maven 4, macOS, third-party dependency-management-only builds and unrestricted reactor/graph scale remain unverified or unsupported as documented. Publishing to Maven Central/Plugin Portal is outside P1-P2.
+
 ## Campaign follow-up, 2026-10-29
 
 The 100-candidate campaign results, scenario coverage and native oracle evidence are retained locally and excluded from Git. Fresh offline product checks on `51aa970678a1b892a81da82f65b891584bae57ae` passed 58 distinct tests (12 core, 21 Maven, 25 Gradle), zero failures/skips. Historical online results below were not rerun online in this follow-up. Unsupported/blocked candidates are not successful integrations.
@@ -85,7 +143,7 @@ Three bounded smaller-model agents handled repository exploration, test-gap anal
 | Cached/offline Maven and Gradle integration suites | Passed, no skipped tests; exact run scope recorded below |
 | Hosted Ubuntu 24.04 CI | Passed for both push and PR events on `8564065`; Java 21, Maven 3.9.16 and Gradle 8.14.3 |
 
-The matrix uses the real published Spring Boot 4.0.0 BOM, its imported BOMs and resolved library metadata/artifacts. BOM-selection cases also use Boot 4.0.1 and 4.1.0. No mocked dependency graphs satisfy any matrix row.
+The matrix uses the real published Spring Boot 4.0.0 BOM, its imported BOMs and resolved library metadata/artifacts. BOM-selection cases also use Boot 4.0.1 and 4.1.0. These historical integration rows use native resolution. The later traversal-only adapter unit tests are identified separately above.
 
 | Required case | Maven | Gradle |
 | --- | --- | --- |
@@ -160,7 +218,9 @@ The Maven integration suite separately asserts Maven's nonzero CI exit. Both int
 
 The last two links point to generated, ignored local artifacts and are recreated by the verification commands.
 
-## Limits and unverified cases
+## Historical PR #3 limits and unverified cases
+
+The following limits describe the PR #3 revision, not the current head. Reactor, cold-cache, additional Maven and CI coverage have since expanded as recorded above.
 
 ### CI and badges
 
