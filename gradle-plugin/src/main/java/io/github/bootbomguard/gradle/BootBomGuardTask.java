@@ -7,6 +7,8 @@ import org.gradle.api.GradleException;
 import org.gradle.api.Project;
 import org.gradle.api.artifacts.Configuration;
 import org.gradle.api.artifacts.ExternalModuleDependency;
+import org.gradle.api.artifacts.FileCollectionDependency;
+import org.gradle.api.artifacts.component.ComponentIdentifier;
 import org.gradle.api.artifacts.component.ModuleComponentIdentifier;
 import org.gradle.api.artifacts.component.ModuleComponentSelector;
 import org.gradle.api.artifacts.result.DependencyResult;
@@ -23,6 +25,7 @@ import org.gradle.work.DisableCachingByDefault;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -65,6 +68,9 @@ public abstract class BootBomGuardTask extends DefaultTask {
             diagnostics.add("Missing or non-resolvable configuration: " + name + "; configure bootBomGuard.configurations.");
             return Guard.compare("unknown", Map.of(), List.of(), exceptions, diagnostics);
         }
+        if (!configuration.getAllDependencies().withType(FileCollectionDependency.class).isEmpty()) {
+            diagnostics.add("Local file dependencies have no comparable module identity; analysis is incomplete.");
+        }
         var graph = configuration.getIncoming().getResolutionResult();
         var root = graph.getRootComponent().get();
         List<DependencyResult> edges = new ArrayList<>(graph.getAllDependencies());
@@ -72,7 +78,14 @@ public abstract class BootBomGuardTask extends DefaultTask {
         Set<ModuleComponentIdentifier> boms = new TreeSet<>(Comparator.comparing(ModuleComponentIdentifier::getDisplayName));
         Set<String> modes = new TreeSet<>();
         Set<String> requestedBoms = new TreeSet<>();
+        Map<ComponentIdentifier, List<DependencyResult>> incomingByComponent = new HashMap<>();
+        Set<ComponentIdentifier> libraryComponents = new HashSet<>();
         for (DependencyResult edge : edges) {
+            if (edge instanceof ResolvedDependencyResult resolved) {
+                var id = resolved.getSelected().getId();
+                incomingByComponent.computeIfAbsent(id, ignored -> new ArrayList<>()).add(edge);
+                if (!edge.isConstraint() && !platform(resolved)) libraryComponents.add(id);
+            }
             if (edge instanceof ResolvedDependencyResult resolved && edge.getRequested() instanceof ModuleComponentSelector selector) {
                 if (!(resolved.getSelected().getId() instanceof ModuleComponentIdentifier selected)
                         || !selector.getGroup().equals(selected.getGroup()) || !selector.getModule().equals(selected.getModule())) {
@@ -107,16 +120,14 @@ public abstract class BootBomGuardTask extends DefaultTask {
         }
         List<ResolvedComponentResult> modules = graph.getAllComponents().stream()
                 .filter(component -> component.getId() instanceof ModuleComponentIdentifier)
-                .filter(component -> edges.stream().anyMatch(edge -> edge instanceof ResolvedDependencyResult resolved
-                        && !edge.isConstraint() && resolved.getSelected().equals(component) && !platform(resolved)))
+                .filter(component -> libraryComponents.contains(component.getId()))
                 .sorted(Comparator.comparing(component -> component.getId().getDisplayName())).toList();
         Map<Coordinates, String> expected = expected(project, configuration, bom, modules, diagnostics);
         List<Guard.Resolved> actual = new ArrayList<>();
         for (ResolvedComponentResult module : modules) {
             ModuleComponentIdentifier id = (ModuleComponentIdentifier) module.getId();
             Coordinates key = new Coordinates(id.getGroup(), id.getModule(), "jar", "");
-            var incoming = edges.stream().filter(edge -> edge instanceof ResolvedDependencyResult resolved
-                    && resolved.getSelected().equals(module)).toList();
+            var incoming = incomingByComponent.getOrDefault(module.getId(), List.of());
             var reason = module.getSelectionReason();
             Guard.Origin origin = Guard.Origin.UNKNOWN_ORIGIN;
             boolean direct = matches(incoming, root, id.getVersion(), false);
@@ -159,8 +170,18 @@ public abstract class BootBomGuardTask extends DefaultTask {
             requests.add(dependency);
         }
         Configuration baseline = project.getConfigurations().detachedConfiguration(requests.toArray(org.gradle.api.artifacts.Dependency[]::new));
+        // Composite builds must not replace published BOMs/modules in the isolated baseline.
+        baseline.getResolutionStrategy().getUseGlobalDependencySubstitutionRules().set(false);
         copyAttributes(source, baseline);
         var graph = baseline.getIncoming().getResolutionResult();
+        if (graph.getAllDependencies().stream().noneMatch(edge -> edge instanceof ResolvedDependencyResult resolved
+                && resolved.getSelected().getId().equals(bom) && platform(resolved))) {
+            diagnostics.add("Could not resolve selected Spring Boot BOM in isolated baseline; analysis is incomplete.");
+            return Map.of();
+        }
+        if (graph.getAllDependencies().stream().noneMatch(DependencyResult::isConstraint)) {
+            diagnostics.add("Selected Spring Boot BOM has no comparable managed constraints; analysis is incomplete.");
+        }
         Map<Coordinates, String> result = new TreeMap<>();
         Set<Coordinates> managed = new HashSet<>();
         Set<Coordinates> requestedKeys = new HashSet<>();
@@ -175,6 +196,7 @@ public abstract class BootBomGuardTask extends DefaultTask {
                 managed.add(key);
                 var constraint = selector.getVersionConstraint();
                 String requested = constraint.getRequiredVersion().isEmpty() ? constraint.getStrictVersion() : constraint.getRequiredVersion();
+                if (requested.isEmpty()) requested = constraint.getPreferredVersion();
                 if (requested.isEmpty() || requested.matches(".*[+\\[\\](),].*") || requested.startsWith("latest.")) {
                     diagnostics.add("Unsupported non-exact BOM constraint for " + selector.getGroup() + ":" + selector.getModule());
                 }
@@ -188,6 +210,11 @@ public abstract class BootBomGuardTask extends DefaultTask {
         }
         if (graph.getAllDependencies().stream().anyMatch(edge -> edge instanceof UnresolvedDependencyResult && edge.isConstraint())) {
             diagnostics.add("Could not resolve a Boot BOM constraint; baseline analysis is incomplete.");
+        }
+        // Root versionless requests can legitimately be unmanaged. Fail closed for missing nested platforms.
+        if (graph.getAllDependencies().stream().anyMatch(edge -> edge instanceof UnresolvedDependencyResult
+                && !edge.isConstraint() && !edge.getFrom().equals(graph.getRootComponent().get()))) {
+            diagnostics.add("Could not resolve an imported Boot BOM in isolated baseline; analysis is incomplete.");
         }
         for (Coordinates key : managed) {
             if (!result.containsKey(key)) diagnostics.add("Unresolved Boot-managed baseline for " + key);

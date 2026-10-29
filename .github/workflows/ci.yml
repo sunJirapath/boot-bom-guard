@@ -9,7 +9,16 @@ permissions:
 
 jobs:
   verify:
-    runs-on: ubuntu-24.04
+    name: ${{ matrix.os }} / JDK 21 / Maven 3.9.16 / Gradle ${{ matrix.gradle }}
+    strategy:
+      fail-fast: false
+      matrix:
+        gradle: ['8.14.3', '9.8.2']
+        os: ['ubuntu-24.04']
+        include:
+          - os: macos-15
+            gradle: '8.14.3'
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -26,10 +35,55 @@ jobs:
           url="https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/${version}/${archive}"
           curl --fail --location --silent --show-error --output "$archive" "$url"
           curl --fail --location --silent --show-error --output "${archive}.sha512" "${url}.sha512"
-          printf '%s  %s\n' "$(tr -d '[:space:]' < "${archive}.sha512")" "$archive" | sha512sum --check --status
+          python3 -c 'import hashlib, pathlib, sys; p = pathlib.Path(sys.argv[1]); assert hashlib.sha512(p.read_bytes()).hexdigest() == pathlib.Path(str(p) + ".sha512").read_text().strip()' "$archive"
           tar -xzf "$archive" -C "$RUNNER_TEMP"
           echo "$RUNNER_TEMP/apache-maven-${version}/bin" >> "$GITHUB_PATH"
 
       - run: mvn -B -ntp install
       - run: python3 scripts/verify_maven.py
-      - run: ./gradlew --no-daemon check
+      - name: Install Gradle ${{ matrix.gradle }}
+        env:
+          GRADLE_VERSION: ${{ matrix.gradle }}
+        run: |
+          set -euo pipefail
+          archive="gradle-${GRADLE_VERSION}-bin.zip"
+          url="https://services.gradle.org/distributions/${archive}"
+          curl --fail --location --silent --show-error --output "$archive" "$url"
+          curl --fail --location --silent --show-error --output "${archive}.sha256" "${url}.sha256"
+          python3 -c 'import hashlib, pathlib, sys; p = pathlib.Path(sys.argv[1]); assert hashlib.sha256(p.read_bytes()).hexdigest() == pathlib.Path(str(p) + ".sha256").read_text().strip()' "$archive"
+          unzip -q "$archive" -d "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/gradle-${GRADLE_VERSION}/bin" >> "$GITHUB_PATH"
+
+      - run: gradle --no-daemon check
+
+      - name: Clean-cache source install and external consumers
+        run: python3 scripts/verify_install.py --gradle "$(command -v gradle)"
+
+  maven-compatibility:
+    name: Maven ${{ matrix.maven }} compatibility / JDK 21
+    strategy:
+      fail-fast: false
+      matrix:
+        maven: ['3.10.0', '4.0.0-rc-7']
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c # v6.0.0
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install pinned Maven
+        env:
+          MAVEN_VERSION: ${{ matrix.maven }}
+        run: |
+          set -euo pipefail
+          archive="apache-maven-${MAVEN_VERSION}-bin.tar.gz"
+          url="https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/${MAVEN_VERSION}/${archive}"
+          curl --fail --location --silent --show-error --output "$archive" "$url"
+          curl --fail --location --silent --show-error --output "${archive}.sha512" "${url}.sha512"
+          python3 -c 'import hashlib, pathlib, sys; p = pathlib.Path(sys.argv[1]); assert hashlib.sha512(p.read_bytes()).hexdigest() == pathlib.Path(str(p) + ".sha512").read_text().strip()' "$archive"
+          tar -xzf "$archive" -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/apache-maven-${MAVEN_VERSION}/bin" >> "$GITHUB_PATH"
+      - run: mvn -B -ntp install
+      - run: python3 scripts/verify_maven.py

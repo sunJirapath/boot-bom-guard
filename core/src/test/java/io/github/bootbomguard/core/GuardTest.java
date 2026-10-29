@@ -147,4 +147,86 @@ class GuardTest {
         String reverse = compare("4.0.0", expected, List.of(transitive, direct), Map.of(), List.of()).format();
         assertEquals(forward, reverse);
     }
+
+    @Test void mixedGraphsMatchThePreviousComparisonPolicyAcrossShuffledInputs() {
+        var random = new java.util.Random(729);
+        for (int round = 0; round < 100; round++) {
+            Map<Coordinates, String> expected = new java.util.TreeMap<>();
+            Map<Coordinates, String> allowed = new java.util.HashMap<>();
+            List<Resolved> actual = new java.util.ArrayList<>();
+            for (int i = 0; i < 200; i++) {
+                Coordinates coordinate = new Coordinates(i % 2 == 0 ? "g" : "g-prefix", "a" + (i % 31),
+                        i % 3 == 0 ? "test-jar" : "jar", i % 3 == 0 ? "tests" : "");
+                if (i % 4 != 0) expected.put(coordinate, "1");
+                if (i % 13 == 0) allowed.put(coordinate, "reviewed\nreason");
+                Resolved item = new Resolved(coordinate, random.nextBoolean() ? "1" : "2",
+                        Origin.values()[random.nextInt(Origin.values().length)], "evidence" + random.nextInt(3));
+                actual.add(item);
+                if (i % 5 == 0) actual.add(item);
+            }
+            Collections.shuffle(actual, random);
+            var diagnostics = List.of("z", "a\u2028next", "a\u2028next");
+            // Reference the previous policy independently: deduplicate/sort all resolutions, then filter.
+            List<Resolved> ordered = actual.stream().distinct().sorted(java.util.Comparator.comparing(Resolved::coordinates)
+                    .thenComparing(Resolved::version).thenComparing(Resolved::evidence).thenComparing(Resolved::origin)).toList();
+            List<Finding> findings = new java.util.ArrayList<>();
+            int checked = 0;
+            for (Resolved item : ordered) {
+                String version = expected.get(item.coordinates());
+                if (version == null) continue;
+                checked++;
+                if (!version.equals(item.version())) findings.add(new Finding(item.coordinates(), version, item.version(),
+                        item.origin(), item.evidence(), allowed.get(item.coordinates())));
+            }
+            Report reference = new Report("4", findings, diagnostics.stream().distinct().sorted().toList(), checked);
+            Report result = compare("4", expected, actual, allowed, diagnostics);
+            assertEquals(reference, result, "round=" + round);
+            assertEquals(reference.format(), result.format(), "round=" + round);
+            assertEquals(reference.violation(), result.violation());
+        }
+    }
+
+    @Test void sanitizationPreservesEveryUtf16CodeUnitAndSupplementaryCharacters() {
+        var input = new StringBuilder("plain\ud83d\ude80");
+        for (int c = 0; c <= Character.MAX_VALUE; c++) input.append((char) c);
+        input.append("\ud800end\udc00");
+        var reference = new StringBuilder();
+        input.toString().codePoints().forEach(c -> {
+            if (Character.isISOControl(c) || c == 0x2028 || c == 0x2029)
+                reference.append(String.format(java.util.Locale.ROOT, "\\u%04x", c));
+            else reference.appendCodePoint(c);
+        });
+        assertEquals(reference.toString(), safe(input.toString()));
+        assertEquals("unknown", safe(null));
+        assertEquals("", safe(""));
+    }
+
+    @Test void coordinateValidationKeepsTheExactAsciiTokenGrammar() {
+        for (int c = 0; c < 256; c++) {
+            String token = "a" + (char) c + "z";
+            if (token.matches("[A-Za-z0-9_.+\\-]+"))
+                assertEquals(token, new Coordinates(token, token, token, token).group());
+            else assertThrows(IllegalArgumentException.class, () -> new Coordinates(token, "a", "jar", ""));
+        }
+        for (String token : List.of("ไทย", "é", "\u2028", "\ud83d\ude80", "\ud800", "\udc00"))
+            assertThrows(IllegalArgumentException.class, () -> new Coordinates("g", token, "jar", ""));
+    }
+
+    @Test void collidingCoordinateHashesCannotMergeDifferentDependencies() {
+        Map<Coordinates, String> expected = new java.util.TreeMap<>();
+        List<Resolved> actual = new java.util.ArrayList<>();
+        for (int i = 0; i < 256; i++) {
+            var group = new StringBuilder();
+            for (int bit = 0; bit < 8; bit++) group.append((i & (1 << bit)) == 0 ? "Aa" : "BB");
+            Coordinates coordinate = new Coordinates(group.toString(), "library", "jar", "");
+            expected.put(coordinate, "1");
+            actual.add(new Resolved(coordinate, "2", Origin.DIRECT_OVERRIDE, "declared"));
+        }
+        assertEquals(1, expected.keySet().stream().map(Coordinates::hashCode).distinct().count());
+        Report result = compare("4", expected, actual, Map.of(), List.of());
+        assertEquals(256, result.checked());
+        assertEquals(List.copyOf(expected.keySet()), result.findings().stream().map(Finding::coordinates).toList());
+        Collections.reverse(actual);
+        assertEquals(result, compare("4", expected, actual, Map.of(), List.of()));
+    }
 }

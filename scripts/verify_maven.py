@@ -1,18 +1,81 @@
 """Real Maven resolution checks. Run `mvn install` first; --offline reuses Maven's cache."""
+import base64
+import hashlib
+import http.server
 import pathlib
 import shutil
 import subprocess
 import sys
 import tempfile
+import threading
+import unittest
 import uuid
 import zipfile
-import unittest
+from contextlib import contextmanager
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 MAVEN = shutil.which("mvn.cmd") or shutil.which("mvn")
 OFFLINE = "--offline" in sys.argv
 if OFFLINE:
     sys.argv.remove("--offline")
+
+
+@contextmanager
+def snapshot_repository(metadata=True, local_copy=False):
+    """A file repository resolved by Maven itself; no mutable public snapshots or graph mocks."""
+    identity = uuid.uuid4().hex
+    group = "guard.fixture.snapshot." + identity
+    bom_version = "4.99.0-guard-fixture-" + identity
+    latest = "1.0-20261020.120000-2"
+    older = "1.0-20261019.120000-1"
+    tests = "1.0-20261021.120000-3"
+    with tempfile.TemporaryDirectory(prefix="guard-snapshots-") as directory:
+        repository = pathlib.Path(directory)
+
+        def publish(group_id, artifact, version, dependencies="", management=""):
+            base = "1.0-SNAPSHOT" if version.startswith("1.0-") else version
+            folder = repository / group_id.replace(".", "/") / artifact / base
+            folder.mkdir(parents=True, exist_ok=True)
+            pom = (f'<project xmlns="http://maven.apache.org/POM/4.0.0"><modelVersion>4.0.0</modelVersion>'
+                   f'<groupId>{group_id}</groupId><artifactId>{artifact}</artifactId><version>{base}</version>'
+                   f'{management}<dependencies>{dependencies}</dependencies></project>')
+            (folder / f"{artifact}-{version}.pom").write_text(pom, encoding="utf-8")
+            with zipfile.ZipFile(folder / f"{artifact}-{version}.jar", "w"):
+                pass
+            return folder
+
+        def dependency(artifact, version="1.0-SNAPSHOT", variant=""):
+            return (f'<dependency><groupId>{group}</groupId><artifactId>{artifact}</artifactId>'
+                    f'<version>{version}</version>{variant}</dependency>')
+
+        variant = '<type>test-jar</type><classifier>tests</classifier>'
+        managed = dependency("direct") + dependency("transitive") + dependency("direct", variant=variant)
+        publish("org.springframework.boot", "spring-boot-dependencies", bom_version,
+                management=f'<dependencyManagement><dependencies>{managed}</dependencies></dependencyManagement>')
+        publish(group, "carrier", "1", dependencies=dependency("transitive"))
+        for artifact in ("direct", "transitive"):
+            folder = publish(group, artifact, older)
+            publish(group, artifact, "1.0-SNAPSHOT" if local_copy else latest)
+            classifier_version = "1.0-SNAPSHOT" if local_copy else tests
+            with zipfile.ZipFile(folder / f"{artifact}-{classifier_version}-tests.jar", "w"):
+                pass
+            if metadata:
+                versions = "".join(
+                    f'<snapshotVersion>{classifier}<extension>{extension}</extension>'
+                    f'<value>{value}</value><updated>20261021120000</updated></snapshotVersion>'
+                    for extension, classifier, value in (
+                        ("pom", "", "1.0-SNAPSHOT" if local_copy else latest),
+                        ("jar", "", "1.0-SNAPSHOT" if local_copy else latest),
+                        ("jar", "<classifier>tests</classifier>", classifier_version)))
+                (folder / "maven-metadata.xml").write_text(
+                    f'<metadata><groupId>{group}</groupId><artifactId>{artifact}</artifactId><version>1.0-SNAPSHOT</version>'
+                    f'<versioning><lastUpdated>20261021120000</lastUpdated><snapshotVersions>{versions}</snapshotVersions>'
+                    f'</versioning></metadata>', encoding="utf-8")
+        for file in list(repository.rglob("*")):
+            if file.is_file():
+                file.with_name(file.name + ".sha1").write_text(hashlib.sha1(file.read_bytes()).hexdigest(), encoding="ascii")
+        yield (f"-Dsnapshot.repository={repository.as_uri()}", f"-Dsnapshot.group={group}",
+               f"-Dsnapshot.bom.version={bom_version}", "--offline", "-Daether.offline.protocols=file"), older
 
 
 class MavenIntegrationTest(unittest.TestCase):
@@ -96,6 +159,27 @@ class MavenIntegrationTest(unittest.TestCase):
         self.assertIn("Invalid bootBomGuard exceptions",
                       self.run_fixture(profile="duplicate-exception", expected_failure=True))
 
+    def test_timestamped_snapshots_align_in_warning_and_strict_modes(self):
+        with snapshot_repository() as (flags, _):
+            for strict in (False, True):
+                out = self.run_fixture("snapshot", fail=strict, extra=flags)
+                self.assertIn("PASS checked=3 drift=0 unknown=0", out)
+
+    def test_snapshot_identity_without_metadata_is_unknown(self):
+        with snapshot_repository(metadata=False, local_copy=True) as (flags, older):
+            # Concrete requests resolve without alias metadata; the BOM alias cannot be identified.
+            flags += (f"-Dsnapshot.version={older}",)
+            for strict in (False, True):
+                out = self.run_fixture("snapshot", fail=strict, expected_failure=strict, extra=flags)
+                self.assertIn("UNKNOWN Maven model/dependency resolution failed", out)
+                self.assertNotIn("DRIFT ", out)
+                self.assertNotIn("PASS checked=", out)
+
+    def test_non_unique_snapshot_aliases_still_align(self):
+        with snapshot_repository(local_copy=True) as (flags, _):
+            out = self.run_fixture("snapshot", fail=True, extra=flags)
+            self.assertIn("PASS checked=3 drift=0 unknown=0", out)
+
 
 class MavenSnapshotIntegrationTest(unittest.TestCase):
     """Frozen file-repository snapshots; native resolution warms the offline guard cases."""
@@ -125,9 +209,9 @@ class MavenSnapshotIntegrationTest(unittest.TestCase):
                 with zipfile.ZipFile(directory / (stem + ".jar"), "w") as jar:
                     jar.writestr("META-INF/MANIFEST.MF", "Manifest-Version: 1.0\n")
 
-        def dependency(name, version=None):
+        def dependency(name, version=None, variant=""):
             return (f'<dependency><groupId>{cls.group}</groupId><artifactId>{name}</artifactId>'
-                    + (f'<version>{version}</version>' if version else "") + '</dependency>')
+                    + (f'<version>{version}</version>' if version else "") + variant + '</dependency>')
 
         for name, base, current in [("direct", "1.0-SNAPSHOT", cls.current),
                                     ("transitive", "1.0-SNAPSHOT", cls.current),
@@ -143,20 +227,46 @@ class MavenSnapshotIntegrationTest(unittest.TestCase):
                 f'<lastUpdated>20261025010203</lastUpdated><snapshotVersions>{entries}</snapshotVersions></versioning></metadata>', encoding="utf-8")
         for version in ["1.0", "2.0"]:
             publish(cls.group, "release", version)
+        variants = ['<type>java-source</type>', '<type>ejb-client</type>', '<type>pom</type>', '<type>zip</type>']
+        for version in ["1.0", "2.0"]:
+            publish(cls.group, "typed", version)
+            folder = cls.repository / cls.group.replace(".", "/") / "typed" / version
+            for suffix in ["-sources.jar", "-client.jar", ".zip"]:
+                with zipfile.ZipFile(folder / ("typed-" + version + suffix), "w"):
+                    pass
+        (cls.repository / cls.group.replace(".", "/") / "release" / "maven-metadata.xml").write_text(
+            '<metadata><groupId>' + cls.group + '</groupId><artifactId>release</artifactId>'
+            '<versioning><latest>2.0</latest><release>2.0</release><versions><version>1.0</version><version>2.0</version>'
+            '</versions><lastUpdated>20261025010203</lastUpdated></versioning></metadata>', encoding="utf-8")
+        publish(cls.group, "relocated", "2.0")
+        publish(cls.group, "legacy", "2.0", packaging="pom", dependencies=
+                '<distributionManagement><relocation><groupId>' + cls.group
+                + '</groupId><artifactId>relocated</artifactId><version>2.0</version></relocation></distributionManagement>')
         publish(cls.group, "bridge", "1.0", dependencies='<dependencies>' + dependency("transitive", "1.0-SNAPSHOT") + '</dependencies>')
-        managed = dependency("direct", "1.0-SNAPSHOT") + dependency("transitive", "1.0-SNAPSHOT") + dependency("release", "1.0")
+        managed = dependency("direct", "1.0-SNAPSHOT") + dependency("transitive", "1.0-SNAPSHOT") + dependency("release", "1.0") + dependency("legacy", "1.0") + "".join(dependency("typed", "1.0", variant) for variant in variants)
         publish("org.springframework.boot", "spring-boot-dependencies", cls.bom,
                 dependencies='<dependencyManagement><dependencies>' + managed + '</dependencies></dependencyManagement>', packaging="pom")
+        for file in list(cls.repository.rglob("*")):
+            if file.is_file():
+                file.with_name(file.name + ".sha1").write_text(hashlib.sha1(file.read_bytes()).hexdigest(), encoding="ascii")
         profiles = []
         for name, artifact, version, management in [("older", "direct", cls.old, False),
                                                     ("latest", "direct", cls.current, False),
                                                     ("managed-older", "direct", cls.old, True),
                                                     ("managed-snapshot", "direct", "2.0-SNAPSHOT", True),
-                                                    ("mixed", "release", "2.0", False)]:
+                                                    ("mixed", "release", "2.0", False),
+                                                    ("relocation", "legacy", "2.0", False)]:
             content = '<dependencies>' + dependency(artifact, version) + '</dependencies>'
             if management:
                 content = '<dependencyManagement>' + content + '</dependencyManagement>'
             profiles.append(f'<profile><id>{name}</id>{content}</profile>')
+        for profile, version in [("variants-aligned", "1.0"), ("variants-override", "2.0")]:
+            profiles.append('<profile><id>' + profile + '</id><dependencies>'
+                            + ''.join(dependency("typed", version, variant) for variant in variants) + '</dependencies></profile>')
+        system_jar = cls.repository / cls.group.replace(".", "/") / "release" / "2.0" / "release-2.0.jar"
+        profiles.append('<profile><id>system</id><dependencies>' + dependency("release", "2.0",
+                        '<scope>system</scope><systemPath>' + system_jar.as_posix() + '</systemPath>') + '</dependencies></profile>')
+        profiles.append('<profile><id>range</id><dependencies>' + dependency("release", "[1.0,2.0]") + '</dependencies></profile>')
         (cls.directory / "pom.xml").write_text(
             '<project xmlns="http://maven.apache.org/POM/4.0.0"><modelVersion>4.0.0</modelVersion>'
             '<groupId>guard.fixture</groupId><artifactId>snapshot-consumer</artifactId><version>1</version>'
@@ -168,7 +278,7 @@ class MavenSnapshotIntegrationTest(unittest.TestCase):
             + dependency("direct") + dependency("bridge", "1.0") + dependency("release") + '</dependencies>'
             '<profiles>' + ''.join(profiles) + '</profiles></project>', encoding="utf-8")
         # File repositories still require online Resolver mode once; no public snapshot or wall-clock metadata is used.
-        for profile in [None, "older", "latest", "managed-older", "managed-snapshot", "mixed"]:
+        for profile in [None, "older", "latest", "managed-older", "managed-snapshot", "mixed", "relocation", "variants-aligned", "variants-override", "system", "range"]:
             native = cls.maven(["org.apache.maven.plugins:maven-dependency-plugin:3.10.0:resolve"], profile, offline=False)
             if native.returncode:
                 raise AssertionError(native.stdout)
@@ -214,11 +324,146 @@ class MavenSnapshotIntegrationTest(unittest.TestCase):
         self.assertIn("WARN checked=3 drift=1 unknown=0", out)
         self.guard("managed-snapshot", strict=True, expected_exit=1)
 
+    def test_relocation_cannot_silently_drop_a_managed_coordinate(self):
+        out = self.guard("relocation")
+        self.assertIn("UNKNOWN Unsupported Maven dependency relocation", out)
+        self.assertNotIn("PASS checked=", out)
+        self.guard("relocation", strict=True, expected_exit=1)
+
+    def test_native_types_and_implicit_classifiers_align(self):
+        self.assertIn("PASS checked=7 drift=0 unknown=0", self.guard("variants-aligned", strict=True))
+
+    def test_native_types_and_implicit_classifiers_detect_overrides(self):
+        out = self.guard("variants-override")
+        for suffix in ["java-source:sources", "ejb-client:client", "pom:", "zip:"]:
+            self.assertIn(f"DRIFT {self.group}:typed:{suffix} expected=1.0 resolved=2.0", out)
+        self.assertIn("WARN checked=7 drift=4 unknown=0", out)
+        self.guard("variants-override", strict=True, expected_exit=1)
+
+    def test_system_scope_keeps_its_declared_native_version(self):
+        out = self.guard("system")
+        self.assertIn(f"DRIFT {self.group}:release expected=1.0 resolved=2.0", out)
+        self.guard("system", strict=True, expected_exit=1)
+
+    def test_native_bounded_range_is_compared_to_exact_bom(self):
+        out = self.guard("range")
+        self.assertIn(f"DRIFT {self.group}:release expected=1.0 resolved=2.0", out)
+        self.guard("range", strict=True, expected_exit=1)
+
+    def test_parallel_reactor_checks_each_module_and_fails_only_real_drift(self):
+        reactor = self.directory / "reactor"
+        reactor.mkdir()
+        parent = "boundary-reactor-" + uuid.uuid4().hex
+        plugin = '<groupId>io.github.bootbomguard</groupId><artifactId>boot-bom-guard-maven-plugin</artifactId><version>0.1.0-SNAPSHOT</version>'
+        (reactor / "pom.xml").write_text(
+            '<project><modelVersion>4.0.0</modelVersion><groupId>guard.fixture</groupId><artifactId>' + parent + '</artifactId><version>1</version><packaging>pom</packaging>'
+            '<modules><module>aligned</module><module>drift</module><module>allowed</module></modules>'
+            '<repositories><repository><id>bbg-frozen-snapshots</id><url>' + self.repository.as_uri() + '</url></repository></repositories>'
+            '<dependencyManagement><dependencies><dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-dependencies</artifactId><version>' + self.bom + '</version><type>pom</type><scope>import</scope></dependency></dependencies></dependencyManagement>'
+            '<build><plugins><plugin>' + plugin + '</plugin></plugins></build></project>', encoding="utf-8")
+        for name, version in [("aligned", "1.0"), ("drift", "2.0"), ("allowed", "2.0")]:
+            module = reactor / name
+            module.mkdir()
+            exception = ('<build><plugins><plugin>' + plugin + '<configuration><exceptions><exception><dependency>' + self.group + ':release</dependency><reason>Reviewed reactor override</reason></exception></exceptions></configuration></plugin></plugins></build>') if name == "allowed" else ""
+            (module / "pom.xml").write_text(
+                '<project><modelVersion>4.0.0</modelVersion><parent><groupId>guard.fixture</groupId><artifactId>' + parent + '</artifactId><version>1</version></parent><artifactId>' + name + '</artifactId><packaging>pom</packaging>'
+                '<dependencies><dependency><groupId>' + self.group + '</groupId><artifactId>release</artifactId><version>' + version + '</version></dependency></dependencies>' + exception + '</project>', encoding="utf-8")
+        def run(goal, strict=False):
+            args = [MAVEN, "-B", "-ntp", "--offline", "-T2", "--fail-at-end", "-f", str(reactor / "pom.xml"), goal]
+            if strict:
+                args.append("-DbootBomGuard.failOnDrift=true")
+            return subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace", timeout=180)
+        native = run("org.apache.maven.plugins:maven-dependency-plugin:3.10.0:tree")
+        self.assertEqual(0, native.returncode, native.stdout)
+        self.assertIn(self.group + ":release:jar:1.0:compile", native.stdout)
+        self.assertIn(self.group + ":release:jar:2.0:compile", native.stdout)
+        goal = "io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check"
+        warning = run(goal)
+        self.assertEqual(0, warning.returncode, warning.stdout)
+        self.assertEqual(4, warning.stdout.count("boot-bom-guard BOM="), warning.stdout)
+        self.assertIn("PASS checked=1 drift=0 unknown=0", warning.stdout)
+        self.assertIn("WARN checked=1 drift=1 unknown=0", warning.stdout)
+        self.assertIn("PASS checked=1 drift=1 unknown=0", warning.stdout)
+        self.assertNotIn("UNKNOWN ", warning.stdout)
+        strict = run(goal, strict=True)
+        self.assertEqual(1, strict.returncode, strict.stdout)
+        self.assertEqual(4, strict.stdout.count("boot-bom-guard BOM="), strict.stdout)
+        self.assertIn("policy failed", strict.stdout)
+        self.assertIn("PASS checked=1 drift=1 unknown=0", strict.stdout)
+
     def test_mixed_graph_reports_only_genuine_release_drift(self):
         out = self.guard("mixed")
         self.assertIn(f"DRIFT {self.group}:release expected=1.0 resolved=2.0 classification=DIRECT_OVERRIDE", out)
         self.assertIn("WARN checked=3 drift=1 unknown=0", out)
         self.guard("mixed", strict=True, expected_exit=1)
+
+
+class MavenTransportIntegrationTest(unittest.TestCase):
+    def test_native_mirror_and_basic_auth_keep_the_same_bom_policy(self):
+        with tempfile.TemporaryDirectory(prefix="bbg-mirror-") as temporary:
+            root = pathlib.Path(temporary)
+            repository = root / "repository"
+            identity = uuid.uuid4().hex
+            group = "guard.transport." + identity
+            version = "4.0.0-mirror-" + identity
+            def dependency(selected):
+                return '<dependency><groupId>' + group + '</groupId><artifactId>library</artifactId><version>' + selected + '</version></dependency>'
+            def publish(g, name, v, body):
+                folder = repository / g.replace(".", "/") / name / v
+                folder.mkdir(parents=True)
+                (folder / (name + "-" + v + ".pom")).write_text('<project><modelVersion>4.0.0</modelVersion><groupId>' + g + '</groupId><artifactId>' + name + '</artifactId><version>' + v + '</version>' + body + '</project>', encoding="utf-8")
+                with zipfile.ZipFile(folder / (name + "-" + v + ".jar"), "w"):
+                    pass
+            publish("org.springframework.boot", "spring-boot-dependencies", version,
+                    '<packaging>pom</packaging><dependencyManagement><dependencies>' + dependency("1") + '</dependencies></dependencyManagement>')
+            for selected in ["1", "2"]:
+                publish(group, "library", selected, "")
+            for file in list(repository.rglob("*")):
+                if file.is_file():
+                    file.with_name(file.name + ".sha1").write_text(hashlib.sha1(file.read_bytes()).hexdigest(), encoding="ascii")
+            hits = []
+            expected_auth = "Basic " + base64.b64encode(b"fixture-user:fixture-password").decode("ascii")
+            class Handler(http.server.SimpleHTTPRequestHandler):
+                def __init__(self, *args, **kwargs):
+                    super().__init__(*args, directory=str(repository), **kwargs)
+                def do_GET(self):
+                    if self.headers.get("Authorization") != expected_auth:
+                        self.send_response(401)
+                        self.send_header("WWW-Authenticate", 'Basic realm="fixture"')
+                        self.end_headers()
+                        return
+                    hits.append(self.path)
+                    super().do_GET()
+                def log_message(self, *args):
+                    pass
+            server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Handler)
+            thread = threading.Thread(target=server.serve_forever, daemon=True)
+            thread.start()
+            try:
+                (root / "settings.xml").write_text('<settings><mirrors><mirror><id>authenticated-fixture</id><mirrorOf>original-fixture</mirrorOf><url>http://127.0.0.1:' + str(server.server_port) + '/</url></mirror></mirrors><servers><server><id>authenticated-fixture</id><username>fixture-user</username><password>fixture-password</password></server></servers></settings>', encoding="utf-8")
+                (root / "pom.xml").write_text('<project><modelVersion>4.0.0</modelVersion><groupId>guard.fixture</groupId><artifactId>transport-consumer</artifactId><version>1</version>'
+                    '<repositories><repository><id>original-fixture</id><url>https://unused.invalid/mirror-required</url></repository></repositories>'
+                    '<dependencyManagement><dependencies><dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-dependencies</artifactId><version>' + version + '</version><type>pom</type><scope>import</scope></dependency></dependencies></dependencyManagement><dependencies>' + dependency("2") + '</dependencies></project>', encoding="utf-8")
+                def run(goal, strict=False, offline=False):
+                    args = [MAVEN, "-B", "-ntp", "-s", str(root / "settings.xml"), "-f", str(root / "pom.xml"), goal]
+                    if strict: args.append("-DbootBomGuard.failOnDrift=true")
+                    if offline: args.append("--offline")
+                    return subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace", timeout=180)
+                native = run("org.apache.maven.plugins:maven-dependency-plugin:3.10.0:resolve")
+                self.assertEqual(0, native.returncode, native.stdout)
+                self.assertTrue(hits, "Native Maven did not reach authenticated mirror")
+                self.assertIn(group + ":library:jar:2:compile", native.stdout)
+                goal = "io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check"
+                for strict in [False, True]:
+                    result = run(goal, strict=strict, offline=OFFLINE)
+                    self.assertEqual(int(strict), result.returncode, result.stdout)
+                    self.assertIn("DRIFT " + group + ":library expected=1 resolved=2", result.stdout)
+                    self.assertIn("WARN checked=1 drift=1 unknown=0", result.stdout)
+                    self.assertNotIn("fixture-password", result.stdout)
+            finally:
+                server.shutdown()
+                server.server_close()
+                thread.join(timeout=5)
 
 
 if __name__ == "__main__":
