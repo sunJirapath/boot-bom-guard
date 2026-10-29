@@ -1,6 +1,6 @@
 subprojects {
     group = "io.github.sunjirapath.bootbomguard"
-    version = "0.1.0-SNAPSHOT"
+    version = "0.1.0"
     repositories { mavenCentral() }
     apply(plugin = "java-library")
     extensions.configure<JavaPluginExtension> {
