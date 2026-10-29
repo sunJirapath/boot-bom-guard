@@ -1,8 +1,10 @@
+# Verification
+
 ## Campaign follow-up, 2026-10-29
 
 [Results for all 100 candidates](reports/real-world-2026-10-26/results.csv), [actual scenario coverage](reports/real-world-2026-10-26/coverage-matrix.md), and [report validation](reports/real-world-2026-10-26/report-validation.json) are now published with native oracle evidence. Fresh offline product checks on `51aa970678a1b892a81da82f65b891584bae57ae` passed 58 distinct tests (12 core, 21 Maven, 25 Gradle), zero failures/skips; [commands, counts and limits](reports/real-world-2026-10-26/evidence/final-validation-20261029.json). Historical online results below were not rerun online in this follow-up. Unsupported/blocked candidates are not successful integrations.
 
-# Verification — 2026-10-25
+## Historical verification — 2026-10-25
 
 Executed on Windows 11 with Temurin JDK 21.0.11, Maven 3.9.16, Gradle 8.14.3 and Gradle 9.8.2. Unless noted, commands below ran from `E:/boot-bom-guard`; the isolated CI installer ran in its ignored `build` directory.
 
