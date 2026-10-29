@@ -1,0 +1,1108 @@
+===== artifacts-online.log =====
+[INFO] Scanning for projects...
+[WARNING] This build will only read from the build cache, since the clean lifecycle is not part of the build invocation.
+[WARNING] Unexpected error while contacting Develocity server at https://ge.spring.io/
+[INFO]
+[INFO] --------< org.springframework.modulith:spring-modulith-runtime >--------
+[INFO] Building Spring Modulith - Runtime support 2.2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:resolve (default-cli) @ spring-modulith-runtime ---
+[INFO]
+[INFO] The following files have been resolved:
+[INFO]    org.jspecify:jspecify:jar:1.0.1:compile -- module org.jspecify
+[INFO]    org.springframework.modulith:spring-modulith-core:jar:2.2.0-SNAPSHOT:compile -- module spring.modulith.core [auto]
+[INFO]    org.springframework.modulith:spring-modulith-api:jar:2.2.0-SNAPSHOT:compile -- module spring.modulith.api [auto]
+[INFO]    org.springframework:spring-core:jar:7.1.0-RC1:compile -- module spring.core [auto]
+[INFO]    commons-logging:commons-logging:jar:1.4.0:compile -- module org.apache.commons.logging
+[INFO]    org.springframework:spring-context:jar:7.1.0-RC1:compile -- module spring.context [auto]
+[INFO]    org.springframework:spring-aop:jar:7.1.0-RC1:compile -- module spring.aop [auto]
+[INFO]    org.springframework:spring-beans:jar:7.1.0-RC1:compile -- module spring.beans [auto]
+[INFO]    org.springframework:spring-expression:jar:7.1.0-RC1:compile -- module spring.expression [auto]
+[INFO]    io.micrometer:micrometer-observation:jar:1.18.0-RC1:compile -- module micrometer.observation [auto]
+[INFO]    io.micrometer:micrometer-commons:jar:1.18.0-RC1:compile -- module micrometer.commons [auto]
+[INFO]    com.tngtech.archunit:archunit:jar:1.5.1:compile -- module com.tngtech.archunit [auto]
+[INFO]    org.slf4j:slf4j-api:jar:2.0.20:compile -- module org.slf4j
+[INFO]    com.jayway.jsonpath:json-path:jar:3.0.0:compile -- module json.path [auto]
+[INFO]    net.minidev:json-smart:jar:2.6.0:compile -- module json.smart (auto)
+[INFO]    net.minidev:accessors-smart:jar:2.6.0:compile -- module accessors.smart (auto)
+[INFO]    org.ow2.asm:asm:jar:9.7.1:compile -- module org.objectweb.asm
+[INFO]    org.springframework.boot:spring-boot-autoconfigure:jar:4.2.0-RC1:compile (optional) -- module spring.boot.autoconfigure [auto]
+[INFO]    org.springframework.boot:spring-boot:jar:4.2.0-RC1:compile -- module spring.boot [auto]
+[INFO]    org.springframework.modulith:spring-modulith-test:jar:2.2.0-SNAPSHOT:compile (optional) -- module spring.modulith.test [auto]
+[INFO]    org.springframework.boot:spring-boot-test-autoconfigure:jar:4.2.0-RC1:compile -- module spring.boot.test.autoconfigure [auto]
+[INFO]    org.springframework:spring-test:jar:7.1.0-RC1:compile -- module spring.test [auto]
+[INFO]    org.springframework:spring-tx:jar:7.1.0-RC1:compile -- module spring.tx [auto]
+[INFO]    org.assertj:assertj-core:jar:3.27.7:compile -- module org.assertj.core
+[INFO]    net.bytebuddy:byte-buddy:jar:1.18.15:compile -- module net.bytebuddy
+[INFO]    org.awaitility:awaitility:jar:4.3.0:compile -- module awaitility (auto)
+[INFO]    org.springframework.boot:spring-boot-flyway:jar:4.2.0-RC1:compile (optional) -- module spring.boot.flyway [auto]
+[INFO]    org.springframework.boot:spring-boot-jdbc:jar:4.2.0-RC1:compile -- module spring.boot.jdbc [auto]
+[INFO]    org.springframework.boot:spring-boot-sql:jar:4.2.0-RC1:compile -- module spring.boot.sql [auto]
+[INFO]    org.springframework.boot:spring-boot-transaction:jar:4.2.0-RC1:compile -- module spring.boot.transaction [auto]
+[INFO]    org.springframework.boot:spring-boot-persistence:jar:4.2.0-RC1:compile -- module spring.boot.persistence [auto]
+[INFO]    org.springframework:spring-jdbc:jar:7.1.0-RC1:compile -- module spring.jdbc [auto]
+[INFO]    org.flywaydb:flyway-core:jar:12.11.0:compile (optional) -- module flyway.core (auto)
+[INFO]    tools.jackson.core:jackson-databind:jar:3.1.7:compile (optional) -- module tools.jackson.databind
+[INFO]    com.fasterxml.jackson.core:jackson-annotations:jar:2.21:compile -- module com.fasterxml.jackson.annotation
+[INFO]    tools.jackson.core:jackson-core:jar:3.1.7:compile (optional) -- module tools.jackson.core
+[INFO]    org.springframework:spring-core-test:jar:7.1.0-RC1:test -- module spring.core.test [auto]
+[INFO]    com.thoughtworks.qdox:qdox:jar:2.2.0:test -- module com.thoughtworks.qdox
+[INFO]    org.springframework.modulith:spring-modulith-starter-test:jar:2.2.0-SNAPSHOT:test -- module spring.modulith.starter.test [auto]
+[INFO]    org.springframework.modulith:spring-modulith-docs:jar:2.2.0-SNAPSHOT:test -- module spring.modulith.docs [auto]
+[INFO]    com.structurizr:structurizr-core:jar:5.0.3:test -- module structurizr.core (auto)
+[INFO]    com.google.code.findbugs:jsr305:jar:3.0.2:test -- module jsr305 (auto)
+[INFO]    com.structurizr:structurizr-export:jar:5.0.3:test -- module structurizr.export (auto)
+[INFO]    org.springframework.boot:spring-boot-starter-test:jar:4.2.0-RC1:test -- module spring.boot.starter.test [auto]
+[INFO]    org.springframework.boot:spring-boot-starter:jar:4.2.0-RC1:test -- module spring.boot.starter [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-logging:jar:4.2.0-RC1:test -- module spring.boot.starter.logging [auto]
+[INFO]    ch.qos.logback:logback-classic:jar:1.6.5:test -- module ch.qos.logback.classic
+[INFO]    ch.qos.logback:logback-core:jar:1.6.5:test -- module ch.qos.logback.core
+[INFO]    org.apache.logging.log4j:log4j-to-slf4j:jar:2.26.1:test -- module org.apache.logging.log4j.to.slf4j
+[INFO]    org.apache.logging.log4j:log4j-api:jar:2.26.1:test -- module org.apache.logging.log4j
+[INFO]    org.slf4j:jul-to-slf4j:jar:2.0.20:test -- module jul.to.slf4j
+[INFO]    jakarta.annotation:jakarta.annotation-api:jar:3.0.0:test -- module jakarta.annotation
+[INFO]    org.yaml:snakeyaml:jar:2.7:test -- module org.yaml.snakeyaml
+[INFO]    org.springframework.boot:spring-boot-test:jar:4.2.0-RC1:compile -- module spring.boot.test [auto]
+[INFO]    jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.5:test -- module jakarta.xml.bind
+[INFO]    jakarta.activation:jakarta.activation-api:jar:2.1.4:test -- module jakarta.activation
+[INFO]    org.hamcrest:hamcrest:jar:3.0:compile -- module org.hamcrest [auto]
+[INFO]    org.junit.jupiter:junit-jupiter:jar:6.1.3:test -- module org.junit.jupiter
+[INFO]    org.junit.jupiter:junit-jupiter-api:jar:6.1.3:test -- module org.junit.jupiter.api
+[INFO]    org.opentest4j:opentest4j:jar:1.3.0:test -- module org.opentest4j
+[INFO]    org.junit.platform:junit-platform-commons:jar:6.1.3:test -- module org.junit.platform.commons
+[INFO]    org.apiguardian:apiguardian-api:jar:1.1.2:test -- module org.apiguardian.api
+[INFO]    org.junit.jupiter:junit-jupiter-params:jar:6.1.3:test -- module org.junit.jupiter.params
+[INFO]    org.junit.jupiter:junit-jupiter-engine:jar:6.1.3:test -- module org.junit.jupiter.engine
+[INFO]    org.junit.platform:junit-platform-engine:jar:6.1.3:test -- module org.junit.platform.engine
+[INFO]    org.mockito:mockito-core:jar:5.24.0:test -- module org.mockito
+[INFO]    net.bytebuddy:byte-buddy-agent:jar:1.18.15:test -- module net.bytebuddy.agent
+[INFO]    org.objenesis:objenesis:jar:3.3:test -- module org.objenesis [auto]
+[INFO]    org.mockito:mockito-junit-jupiter:jar:5.24.0:test -- module org.mockito.junit.jupiter
+[INFO]    org.skyscreamer:jsonassert:jar:1.5.3:test -- module jsonassert (auto)
+[INFO]    com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test -- module android.json (auto)
+[INFO]    org.xmlunit:xmlunit-core:jar:2.14.0:test -- module org.xmlunit [auto]
+[INFO]    org.springframework.boot:spring-boot-actuator-autoconfigure:jar:4.2.0-RC1:test -- module spring.boot.actuator.autoconfigure [auto]
+[INFO]    org.springframework.boot:spring-boot-actuator:jar:4.2.0-RC1:test -- module spring.boot.actuator [auto]
+[INFO]    org.springframework.boot:spring-boot-data-jdbc-test:jar:4.2.0-RC1:test -- module spring.boot.data.jdbc.test [auto]
+[INFO]    org.springframework.boot:spring-boot-data-jdbc:jar:4.2.0-RC1:test -- module spring.boot.data.jdbc [auto]
+[INFO]    org.springframework.boot:spring-boot-data-commons:jar:4.2.0-RC1:test -- module spring.boot.data.commons [auto]
+[INFO]    org.springframework.data:spring-data-commons:jar:4.2.0-RC1:test -- module spring.data.commons [auto]
+[INFO]    org.springframework.data:spring-data-jdbc:jar:4.2.0-RC1:test -- module spring.data.jdbc [auto]
+[INFO]    org.springframework.data:spring-data-relational:jar:4.2.0-RC1:test -- module spring.data.relational [auto]
+[INFO]    org.springframework.boot:spring-boot-jdbc-test:jar:4.2.0-RC1:test -- module spring.boot.jdbc.test [auto]
+[INFO]    org.springframework.boot:spring-boot-data-jpa-test:jar:4.2.0-RC1:test -- module spring.boot.data.jpa.test [auto]
+[INFO]    org.springframework.boot:spring-boot-data-jpa:jar:4.2.0-RC1:test -- module spring.boot.data.jpa [auto]
+[INFO]    org.springframework.boot:spring-boot-hibernate:jar:4.2.0-RC1:test -- module spring.boot.hibernate [auto]
+[INFO]    org.hibernate.orm:hibernate-core:jar:7.4.13.Final:test -- module org.hibernate.orm.core [auto]
+[INFO]    jakarta.transaction:jakarta.transaction-api:jar:2.0.1:test -- module jakarta.transaction
+[INFO]    org.jboss.logging:jboss-logging:jar:3.6.3.Final:test -- module org.jboss.logging
+[INFO]    org.hibernate.models:hibernate-models:jar:1.1.2:test -- module org.hibernate.models [auto]
+[INFO]    org.glassfish.jaxb:jaxb-runtime:jar:4.0.9:test -- module org.glassfish.jaxb.runtime
+[INFO]    org.glassfish.jaxb:jaxb-core:jar:4.0.9:test -- module org.glassfish.jaxb.core
+[INFO]    org.eclipse.angus:angus-activation:jar:2.0.3:test -- module org.eclipse.angus.activation
+[INFO]    org.glassfish.jaxb:txw2:jar:4.0.9:test -- module com.sun.xml.txw2
+[INFO]    com.sun.istack:istack-commons-runtime:jar:4.1.2:test -- module com.sun.istack.runtime
+[INFO]    jakarta.inject:jakarta.inject-api:jar:2.0.1:test -- module jakarta.inject
+[INFO]    org.springframework.data:spring-data-jpa:jar:4.2.0-RC1:test -- module spring.data.jpa [auto]
+[INFO]    org.antlr:antlr4-runtime:jar:4.13.2:test -- module org.antlr.antlr4.runtime [auto]
+[INFO]    org.springframework:spring-aspects:jar:7.1.0-RC1:test -- module spring.aspects [auto]
+[INFO]    org.aspectj:aspectjweaver:jar:1.9.25.1:test -- module org.aspectj.weaver [auto]
+[INFO]    org.springframework.boot:spring-boot-data-r2dbc-test:jar:4.2.0-RC1:test -- module spring.boot.data.r2dbc.test [auto]
+[INFO]    org.springframework.boot:spring-boot-data-r2dbc:jar:4.2.0-RC1:test -- module spring.boot.data.r2dbc [auto]
+[INFO]    org.springframework.boot:spring-boot-r2dbc:jar:4.2.0-RC1:test -- module spring.boot.r2dbc [auto]
+[INFO]    org.springframework:spring-r2dbc:jar:7.1.0-RC1:test -- module spring.r2dbc [auto]
+[INFO]    io.r2dbc:r2dbc-pool:jar:1.0.2.RELEASE:test -- module r2dbc.pool [auto]
+[INFO]    io.projectreactor.addons:reactor-pool:jar:1.3.0-RC1:test -- module reactor.pool [auto]
+[INFO]    org.springframework.data:spring-data-r2dbc:jar:4.2.0-RC1:test -- module spring.data.r2dbc [auto]
+[INFO]    io.r2dbc:r2dbc-h2:jar:1.1.0.RELEASE:test -- module r2dbc.h2 [auto]
+[INFO]    io.r2dbc:r2dbc-spi:jar:1.0.0.RELEASE:test -- module r2dbc.spi [auto]
+[INFO]    org.reactivestreams:reactive-streams:jar:1.0.4:test -- module org.reactivestreams [auto]
+[INFO]    com.h2database:h2:jar:2.5.252:test -- module com.h2database [auto]
+[INFO]    io.projectreactor:reactor-core:jar:3.9.0-RC1:test -- module reactor.core [auto]
+[INFO]    org.springframework.boot:spring-boot-jooq-test:jar:4.2.0-RC1:test -- module spring.boot.jooq.test [auto]
+[INFO]    org.springframework.boot:spring-boot-jooq:jar:4.2.0-RC1:test -- module spring.boot.jooq [auto]
+[INFO]    org.jooq:jooq:jar:3.21.9:test -- module org.jooq
+[INFO]    org.springframework.boot:spring-boot-jpa-test:jar:4.2.0-RC1:test -- module spring.boot.jpa.test [auto]
+[INFO]    org.springframework.boot:spring-boot-jpa:jar:4.2.0-RC1:test -- module spring.boot.jpa [auto]
+[INFO]    jakarta.persistence:jakarta.persistence-api:jar:3.2.0:test -- module jakarta.persistence
+[INFO]    org.springframework:spring-orm:jar:7.1.0-RC1:test -- module spring.orm [auto]
+[INFO]    org.projectlombok:lombok:jar:1.18.48:test -- module lombok
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  36.437 s
+[INFO] Finished at: 2026-10-25T17:44:34Z
+[INFO] ------------------------------------------------------------------------
+[INFO] 1 goals, 1 executed
+[WARNING]
+[WARNING] 1 build scan custom value was not captured:
+[WARNING]  - Maximum custom value value length (100,000) exceeded: Git status
+[WARNING] Unexpected error while contacting Develocity server at https://ge.spring.io/
+[WARNING] No build scan will be published: Develocity features were not enabled due to an unexpected error while contacting Develocity.
+
+===== bootstrap-native-reactor.log =====
+[INFO] Scanning for projects...
+[WARNING] This build will only read from the build cache, since the clean lifecycle is not part of the build invocation.
+[WARNING] Unexpected error while contacting Develocity server at https://ge.spring.io/
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO]
+[INFO] Spring Modulith                                                    [pom]
+[INFO] Spring Modulith - API                                              [jar]
+[INFO] Spring Modulith - Core                                             [jar]
+[INFO] Spring Modulith - Test                                             [jar]
+[INFO] Spring Modulith - Docs                                             [jar]
+[INFO] Spring Modulith - Starters                                         [pom]
+[INFO] Spring Modulith - Starters - Starter Test                          [jar]
+[INFO] Spring Modulith - Runtime support                                  [jar]
+[INFO]
+[INFO] ------------< org.springframework.modulith:spring-modulith >------------
+[INFO] Building Spring Modulith 2.2.0-SNAPSHOT                            [1/8]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- flatten:1.8.0:flatten (flatten) @ spring-modulith ---
+[INFO] Generating flattened POM of project org.springframework.modulith:spring-modulith:pom:2.2.0-SNAPSHOT...
+[INFO]
+[INFO] >>> source:3.4.0:jar (attach-sources) > generate-sources @ spring-modulith >>>
+[INFO]
+[INFO] <<< source:3.4.0:jar (attach-sources) < generate-sources @ spring-modulith <<<
+[INFO]
+[INFO]
+[INFO] --- source:3.4.0:jar (attach-sources) @ spring-modulith ---
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ spring-modulith ---
+[INFO] Installing /work/.flattened-pom.xml to /root/.m2/repository/org/springframework/modulith/spring-modulith/2.2.0-SNAPSHOT/spring-modulith-2.2.0-SNAPSHOT.pom
+[INFO]
+[INFO] ----------< org.springframework.modulith:spring-modulith-api >----------
+[INFO] Building Spring Modulith - API 2.2.0-SNAPSHOT                      [2/8]
+[INFO]   from spring-modulith-api/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ spring-modulith-api ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- flatten:1.8.0:flatten (flatten) @ spring-modulith-api ---
+[INFO] Generating flattened POM of project org.springframework.modulith:spring-modulith-api:jar:2.2.0-SNAPSHOT...
+[INFO]
+[INFO] --- compiler:3.16.0:compile (default-compile) @ spring-modulith-api ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 7 source files with javac [debug parameters target 17] to target/classes
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by lombok.permit.Permit
+WARNING: Please consider reporting this to the maintainers of class lombok.permit.Permit
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ spring-modulith-api ---
+[INFO] skip non existing resourceDirectory /work/spring-modulith-api/src/test/resources
+[INFO]
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ spring-modulith-api ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.6.0:test (default-test) @ spring-modulith-api ---
+[INFO] Skipped
+[INFO]
+[INFO] --- jar:3.5.1:jar (default-jar) @ spring-modulith-api ---
+[INFO] Building jar: /work/spring-modulith-api/target/spring-modulith-api-2.2.0-SNAPSHOT.jar
+[INFO]
+[INFO] >>> source:3.4.0:jar (attach-sources) > generate-sources @ spring-modulith-api >>>
+[INFO]
+[INFO] <<< source:3.4.0:jar (attach-sources) < generate-sources @ spring-modulith-api <<<
+[INFO]
+[INFO]
+[INFO] --- source:3.4.0:jar (attach-sources) @ spring-modulith-api ---
+[INFO] Building jar: /work/spring-modulith-api/target/spring-modulith-api-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ spring-modulith-api ---
+[INFO] Installing /work/spring-modulith-api/.flattened-pom.xml to /root/.m2/repository/org/springframework/modulith/spring-modulith-api/2.2.0-SNAPSHOT/spring-modulith-api-2.2.0-SNAPSHOT.pom
+[INFO] Installing /work/spring-modulith-api/target/spring-modulith-api-2.2.0-SNAPSHOT.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-api/2.2.0-SNAPSHOT/spring-modulith-api-2.2.0-SNAPSHOT.jar
+[INFO] Installing /work/spring-modulith-api/target/spring-modulith-api-2.2.0-SNAPSHOT-sources.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-api/2.2.0-SNAPSHOT/spring-modulith-api-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] ---------< org.springframework.modulith:spring-modulith-core >----------
+[INFO] Building Spring Modulith - Core 2.2.0-SNAPSHOT                     [3/8]
+[INFO]   from spring-modulith-core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ spring-modulith-core ---
+[INFO] Copying 5 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- flatten:1.8.0:flatten (flatten) @ spring-modulith-core ---
+[INFO] Generating flattened POM of project org.springframework.modulith:spring-modulith-core:jar:2.2.0-SNAPSHOT...
+[INFO]
+[INFO] --- compiler:3.16.0:compile (default-compile) @ spring-modulith-core ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 44 source files with javac [debug parameters target 17] to target/classes
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ spring-modulith-core ---
+[INFO] Copying 5 resources from src/test/resources to target/test-classes
+[INFO]
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ spring-modulith-core ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 110 source files with javac [debug parameters target 17] to target/test-classes
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- surefire:3.6.0:test (default-test) @ spring-modulith-core ---
+[INFO] Skipped
+[INFO]
+[INFO] --- jar:3.5.1:jar (default-jar) @ spring-modulith-core ---
+[INFO] Building jar: /work/spring-modulith-core/target/spring-modulith-core-2.2.0-SNAPSHOT.jar
+[INFO]
+[INFO] >>> source:3.4.0:jar (attach-sources) > generate-sources @ spring-modulith-core >>>
+[INFO]
+[INFO] <<< source:3.4.0:jar (attach-sources) < generate-sources @ spring-modulith-core <<<
+[INFO]
+[INFO]
+[INFO] --- source:3.4.0:jar (attach-sources) @ spring-modulith-core ---
+[INFO] Building jar: /work/spring-modulith-core/target/spring-modulith-core-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ spring-modulith-core ---
+[INFO] Installing /work/spring-modulith-core/.flattened-pom.xml to /root/.m2/repository/org/springframework/modulith/spring-modulith-core/2.2.0-SNAPSHOT/spring-modulith-core-2.2.0-SNAPSHOT.pom
+[INFO] Installing /work/spring-modulith-core/target/spring-modulith-core-2.2.0-SNAPSHOT.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-core/2.2.0-SNAPSHOT/spring-modulith-core-2.2.0-SNAPSHOT.jar
+[INFO] Installing /work/spring-modulith-core/target/spring-modulith-core-2.2.0-SNAPSHOT-sources.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-core/2.2.0-SNAPSHOT/spring-modulith-core-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] ---------< org.springframework.modulith:spring-modulith-test >----------
+[INFO] Building Spring Modulith - Test 2.2.0-SNAPSHOT                     [4/8]
+[INFO]   from spring-modulith-test/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ spring-modulith-test ---
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- flatten:1.8.0:flatten (flatten) @ spring-modulith-test ---
+[INFO] Generating flattened POM of project org.springframework.modulith:spring-modulith-test:jar:2.2.0-SNAPSHOT...
+[INFO]
+[INFO] --- compiler:3.16.0:compile (default-compile) @ spring-modulith-test ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 22 source files with javac [debug parameters target 17] to target/classes
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ spring-modulith-test ---
+[INFO] Copying 2 resources from src/test/resources to target/test-classes
+[INFO]
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ spring-modulith-test ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 14 source files with javac [debug parameters target 17] to target/test-classes
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- surefire:3.6.0:test (default-test) @ spring-modulith-test ---
+[INFO] Skipped
+[INFO]
+[INFO] --- jar:3.5.1:jar (default-jar) @ spring-modulith-test ---
+[INFO] Building jar: /work/spring-modulith-test/target/spring-modulith-test-2.2.0-SNAPSHOT.jar
+[INFO]
+[INFO] >>> source:3.4.0:jar (attach-sources) > generate-sources @ spring-modulith-test >>>
+[INFO]
+[INFO] <<< source:3.4.0:jar (attach-sources) < generate-sources @ spring-modulith-test <<<
+[INFO]
+[INFO]
+[INFO] --- source:3.4.0:jar (attach-sources) @ spring-modulith-test ---
+[INFO] Building jar: /work/spring-modulith-test/target/spring-modulith-test-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ spring-modulith-test ---
+[INFO] Installing /work/spring-modulith-test/.flattened-pom.xml to /root/.m2/repository/org/springframework/modulith/spring-modulith-test/2.2.0-SNAPSHOT/spring-modulith-test-2.2.0-SNAPSHOT.pom
+[INFO] Installing /work/spring-modulith-test/target/spring-modulith-test-2.2.0-SNAPSHOT.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-test/2.2.0-SNAPSHOT/spring-modulith-test-2.2.0-SNAPSHOT.jar
+[INFO] Installing /work/spring-modulith-test/target/spring-modulith-test-2.2.0-SNAPSHOT-sources.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-test/2.2.0-SNAPSHOT/spring-modulith-test-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] ---------< org.springframework.modulith:spring-modulith-docs >----------
+[INFO] Building Spring Modulith - Docs 2.2.0-SNAPSHOT                     [5/8]
+[INFO]   from spring-modulith-docs/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ spring-modulith-docs ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- flatten:1.8.0:flatten (flatten) @ spring-modulith-docs ---
+[INFO] Generating flattened POM of project org.springframework.modulith:spring-modulith-docs:jar:2.2.0-SNAPSHOT...
+[INFO]
+[INFO] --- compiler:3.16.0:compile (default-compile) @ spring-modulith-docs ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 13 source files with javac [debug parameters target 17] to target/classes
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ spring-modulith-docs ---
+[INFO] Copying 2 resources from src/test/resources to target/test-classes
+[INFO]
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ spring-modulith-docs ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug parameters target 17] to target/test-classes
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- surefire:3.6.0:test (default-test) @ spring-modulith-docs ---
+[INFO] Skipped
+[INFO]
+[INFO] --- jar:3.5.1:jar (default-jar) @ spring-modulith-docs ---
+[INFO] Building jar: /work/spring-modulith-docs/target/spring-modulith-docs-2.2.0-SNAPSHOT.jar
+[INFO]
+[INFO] >>> source:3.4.0:jar (attach-sources) > generate-sources @ spring-modulith-docs >>>
+[INFO]
+[INFO] <<< source:3.4.0:jar (attach-sources) < generate-sources @ spring-modulith-docs <<<
+[INFO]
+[INFO]
+[INFO] --- source:3.4.0:jar (attach-sources) @ spring-modulith-docs ---
+[INFO] Building jar: /work/spring-modulith-docs/target/spring-modulith-docs-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ spring-modulith-docs ---
+[INFO] Installing /work/spring-modulith-docs/.flattened-pom.xml to /root/.m2/repository/org/springframework/modulith/spring-modulith-docs/2.2.0-SNAPSHOT/spring-modulith-docs-2.2.0-SNAPSHOT.pom
+[INFO] Installing /work/spring-modulith-docs/target/spring-modulith-docs-2.2.0-SNAPSHOT.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-docs/2.2.0-SNAPSHOT/spring-modulith-docs-2.2.0-SNAPSHOT.jar
+[INFO] Installing /work/spring-modulith-docs/target/spring-modulith-docs-2.2.0-SNAPSHOT-sources.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-docs/2.2.0-SNAPSHOT/spring-modulith-docs-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] -------< org.springframework.modulith:spring-modulith-starters >--------
+[INFO] Building Spring Modulith - Starters 2.2.0-SNAPSHOT                 [6/8]
+[INFO]   from spring-modulith-starters/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- flatten:1.8.0:flatten (flatten) @ spring-modulith-starters ---
+[INFO] Generating flattened POM of project org.springframework.modulith:spring-modulith-starters:pom:2.2.0-SNAPSHOT...
+[INFO]
+[INFO] >>> source:3.4.0:jar (attach-sources) > generate-sources @ spring-modulith-starters >>>
+[INFO]
+[INFO] <<< source:3.4.0:jar (attach-sources) < generate-sources @ spring-modulith-starters <<<
+[INFO]
+[INFO]
+[INFO] --- source:3.4.0:jar (attach-sources) @ spring-modulith-starters ---
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ spring-modulith-starters ---
+[INFO] Installing /work/spring-modulith-starters/.flattened-pom.xml to /root/.m2/repository/org/springframework/modulith/spring-modulith-starters/2.2.0-SNAPSHOT/spring-modulith-starters-2.2.0-SNAPSHOT.pom
+[INFO]
+[INFO] -----< org.springframework.modulith:spring-modulith-starter-test >------
+[INFO] Building Spring Modulith - Starters - Starter Test 2.2.0-SNAPSHOT  [7/8]
+[INFO]   from spring-modulith-starters/spring-modulith-starter-test/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ spring-modulith-starter-test ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- flatten:1.8.0:flatten (flatten) @ spring-modulith-starter-test ---
+[INFO] Generating flattened POM of project org.springframework.modulith:spring-modulith-starter-test:jar:2.2.0-SNAPSHOT...
+[INFO]
+[INFO] --- compiler:3.16.0:compile (default-compile) @ spring-modulith-starter-test ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ spring-modulith-starter-test ---
+[INFO] skip non existing resourceDirectory /work/spring-modulith-starters/spring-modulith-starter-test/src/test/resources
+[INFO]
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ spring-modulith-starter-test ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.6.0:test (default-test) @ spring-modulith-starter-test ---
+[INFO] Skipped
+[INFO]
+[INFO] --- jar:3.4.2:jar (default-jar) @ spring-modulith-starter-test ---
+[INFO] Building jar: /work/spring-modulith-starters/spring-modulith-starter-test/target/spring-modulith-starter-test-2.2.0-SNAPSHOT.jar
+[INFO]
+[INFO] >>> source:3.4.0:jar (attach-sources) > generate-sources @ spring-modulith-starter-test >>>
+[INFO]
+[INFO] <<< source:3.4.0:jar (attach-sources) < generate-sources @ spring-modulith-starter-test <<<
+[INFO]
+[INFO]
+[INFO] --- source:3.4.0:jar (attach-sources) @ spring-modulith-starter-test ---
+[INFO] Building jar: /work/spring-modulith-starters/spring-modulith-starter-test/target/spring-modulith-starter-test-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ spring-modulith-starter-test ---
+[INFO] Installing /work/spring-modulith-starters/spring-modulith-starter-test/.flattened-pom.xml to /root/.m2/repository/org/springframework/modulith/spring-modulith-starter-test/2.2.0-SNAPSHOT/spring-modulith-starter-test-2.2.0-SNAPSHOT.pom
+[INFO] Installing /work/spring-modulith-starters/spring-modulith-starter-test/target/spring-modulith-starter-test-2.2.0-SNAPSHOT.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-starter-test/2.2.0-SNAPSHOT/spring-modulith-starter-test-2.2.0-SNAPSHOT.jar
+[INFO] Installing /work/spring-modulith-starters/spring-modulith-starter-test/target/spring-modulith-starter-test-2.2.0-SNAPSHOT-sources.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-starter-test/2.2.0-SNAPSHOT/spring-modulith-starter-test-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --------< org.springframework.modulith:spring-modulith-runtime >--------
+[INFO] Building Spring Modulith - Runtime support 2.2.0-SNAPSHOT          [8/8]
+[INFO]   from spring-modulith-runtime/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ spring-modulith-runtime ---
+[INFO] Copying 11 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- flatten:1.8.0:flatten (flatten) @ spring-modulith-runtime ---
+[INFO] Generating flattened POM of project org.springframework.modulith:spring-modulith-runtime:jar:2.2.0-SNAPSHOT...
+[INFO]
+[INFO] --- compiler:3.16.0:compile (default-compile) @ spring-modulith-runtime ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 21 source files with javac [debug parameters target 17] to target/classes
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ spring-modulith-runtime ---
+[INFO] Copying 6 resources from src/test/resources to target/test-classes
+[INFO]
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ spring-modulith-runtime ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 17 source files with javac [debug parameters target 17] to target/test-classes
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- surefire:3.6.0:test (default-test) @ spring-modulith-runtime ---
+[INFO] Skipped
+[INFO]
+[INFO] --- jar:3.5.1:jar (default-jar) @ spring-modulith-runtime ---
+[INFO] Building jar: /work/spring-modulith-runtime/target/spring-modulith-runtime-2.2.0-SNAPSHOT.jar
+[INFO]
+[INFO] >>> source:3.4.0:jar (attach-sources) > generate-sources @ spring-modulith-runtime >>>
+[INFO]
+[INFO] <<< source:3.4.0:jar (attach-sources) < generate-sources @ spring-modulith-runtime <<<
+[INFO]
+[INFO]
+[INFO] --- source:3.4.0:jar (attach-sources) @ spring-modulith-runtime ---
+[INFO] Building jar: /work/spring-modulith-runtime/target/spring-modulith-runtime-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --- shade:3.6.2:shade (default) @ spring-modulith-runtime ---
+[INFO] Minimizing jar org.springframework.modulith:spring-modulith-runtime:jar:2.2.0-SNAPSHOT
+[WARNING] Removing module-info from spring-modulith-runtime-2.2.0-SNAPSHOT.jar
+[INFO] Dependency-reduced POM written at: /work/spring-modulith-runtime/target/dependency-reduced-pom.xml
+[WARNING] accessors-smart-2.6.0.jar, json-path-3.0.0.jar, json-smart-2.6.0.jar, spring-modulith-runtime-2.2.0-SNAPSHOT.jar define 1 overlapping resource:
+[WARNING]   - META-INF/MANIFEST.MF
+[WARNING] maven-shade-plugin has detected that some files are
+[WARNING] present in two or more JARs. When this happens, only one
+[WARNING] single version of the file is copied to the uber jar.
+[WARNING] Usually this is not harmful and you can skip these warnings,
+[WARNING] otherwise try to manually exclude artifacts based on
+[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[WARNING] See https://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Minimized 357 -> 310 (86%)
+[INFO] Replacing original artifact with shaded artifact.
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ spring-modulith-runtime ---
+[INFO] Installing /work/spring-modulith-runtime/target/dependency-reduced-pom.xml to /root/.m2/repository/org/springframework/modulith/spring-modulith-runtime/2.2.0-SNAPSHOT/spring-modulith-runtime-2.2.0-SNAPSHOT.pom
+[INFO] Installing /work/spring-modulith-runtime/target/spring-modulith-runtime-2.2.0-SNAPSHOT.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-runtime/2.2.0-SNAPSHOT/spring-modulith-runtime-2.2.0-SNAPSHOT.jar
+[INFO] Installing /work/spring-modulith-runtime/target/spring-modulith-runtime-2.2.0-SNAPSHOT-sources.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-runtime/2.2.0-SNAPSHOT/spring-modulith-runtime-2.2.0-SNAPSHOT-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Spring Modulith 2.2.0-SNAPSHOT:
+[INFO]
+[INFO] Spring Modulith .................................... SUCCESS [  0.721 s]
+[INFO] Spring Modulith - API .............................. SUCCESS [  5.296 s]
+[INFO] Spring Modulith - Core ............................. SUCCESS [ 52.598 s]
+[INFO] Spring Modulith - Test ............................. SUCCESS [ 15.030 s]
+[INFO] Spring Modulith - Docs ............................. SUCCESS [  9.866 s]
+[INFO] Spring Modulith - Starters ......................... SUCCESS [  0.125 s]
+[INFO] Spring Modulith - Starters - Starter Test .......... SUCCESS [  1.107 s]
+[INFO] Spring Modulith - Runtime support .................. SUCCESS [ 23.936 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:27 min
+[INFO] Finished at: 2026-10-25T17:42:35Z
+[INFO] ------------------------------------------------------------------------
+[INFO] 61 goals, 61 executed
+[WARNING]
+[WARNING] 1 build scan custom value was not captured:
+[WARNING]  - Maximum custom value value length (100,000) exceeded: Git status
+[WARNING] Unexpected error while contacting Develocity server at https://ge.spring.io/
+[WARNING] No build scan will be published: Develocity features were not enabled due to an unexpected error while contacting Develocity.
+
+===== history/20261025-174255/artifacts-online.log =====
+[INFO] Scanning for projects...
+[WARNING] This build will only read from the build cache, since the clean lifecycle is not part of the build invocation.
+[WARNING] Unexpected error while contacting Develocity server at https://ge.spring.io/
+[INFO]
+[INFO] --------< org.springframework.modulith:spring-modulith-runtime >--------
+[INFO] Building Spring Modulith - Runtime support 2.2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for org.springframework.modulith:spring-modulith-core:jar:2.2.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for org.springframework.modulith:spring-modulith-test:jar:2.2.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for org.springframework.modulith:spring-modulith-starter-test:jar:2.2.0-SNAPSHOT is missing, no dependency information available
+[INFO] Artifact org.springframework:spring-context:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-aop:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-beans:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-expression:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact io.micrometer:micrometer-observation:jar:1.18.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact io.micrometer:micrometer-commons:jar:1.18.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-tx:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-jdbc:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-core-test:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-core:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-test:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework.data:spring-data-commons:jar:4.2.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework.data:spring-data-jdbc:jar:4.2.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework.data:spring-data-relational:jar:4.2.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework.data:spring-data-jpa:jar:4.2.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-aspects:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact io.projectreactor:reactor-core:jar:3.9.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-orm:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-context:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-aop:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-beans:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-expression:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact io.micrometer:micrometer-observation:jar:1.18.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact io.micrometer:micrometer-commons:jar:1.18.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-tx:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-jdbc:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-core-test:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-core:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-test:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework.data:spring-data-commons:jar:4.2.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework.data:spring-data-jdbc:jar:4.2.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework.data:spring-data-relational:jar:4.2.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework.data:spring-data-jpa:jar:4.2.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-aspects:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact io.projectreactor:reactor-core:jar:3.9.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-orm:jar:7.1.0-RC1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  37.057 s
+[INFO] Finished at: 2026-10-25T17:28:01Z
+[INFO] ------------------------------------------------------------------------
+[INFO] 0 goals, 0 executed
+[WARNING]
+[WARNING] 1 build scan custom value was not captured:
+[WARNING]  - Maximum custom value value length (100,000) exceeded: Git status
+[WARNING] Unexpected error while contacting Develocity server at https://ge.spring.io/
+[WARNING] No build scan will be published: Develocity features were not enabled due to an unexpected error while contacting Develocity.
+[ERROR] Failed to execute goal on project spring-modulith-runtime: Could not resolve dependencies for project org.springframework.modulith:spring-modulith-runtime:jar:2.2.0-SNAPSHOT
+[ERROR] dependency: org.springframework.modulith:spring-modulith-core:jar:2.2.0-SNAPSHOT (compile)
+[ERROR] 	Could not find artifact org.springframework.modulith:spring-modulith-core:jar:2.2.0-SNAPSHOT
+[ERROR] dependency: org.springframework.modulith:spring-modulith-test:jar:2.2.0-SNAPSHOT (compile?)
+[ERROR] 	Could not find artifact org.springframework.modulith:spring-modulith-test:jar:2.2.0-SNAPSHOT
+[ERROR] dependency: org.springframework.modulith:spring-modulith-starter-test:jar:2.2.0-SNAPSHOT (test)
+[ERROR] 	Could not find artifact org.springframework.modulith:spring-modulith-starter-test:jar:2.2.0-SNAPSHOT
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+
+===== history/20261025-174255/bootstrap-native-reactor.log =====
+[INFO] Scanning for projects...
+[WARNING] This build will only read from the build cache, since the clean lifecycle is not part of the build invocation.
+[WARNING] Unexpected error while contacting Develocity server at https://ge.spring.io/
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO]
+[INFO] Spring Modulith                                                    [pom]
+[INFO] Spring Modulith - API                                              [jar]
+[INFO] Spring Modulith - Core                                             [jar]
+[INFO] Spring Modulith - Test                                             [jar]
+[INFO] Spring Modulith - Docs                                             [jar]
+[INFO] Spring Modulith - Starters                                         [pom]
+[INFO] Spring Modulith - Starters - Starter Test                          [jar]
+[INFO] Spring Modulith - Runtime support                                  [jar]
+[INFO]
+[INFO] ------------< org.springframework.modulith:spring-modulith >------------
+[INFO] Building Spring Modulith 2.2.0-SNAPSHOT                            [1/8]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- flatten:1.8.0:flatten (flatten) @ spring-modulith ---
+[INFO] Generating flattened POM of project org.springframework.modulith:spring-modulith:pom:2.2.0-SNAPSHOT...
+[INFO]
+[INFO] >>> source:3.4.0:jar (attach-sources) > generate-sources @ spring-modulith >>>
+[INFO]
+[INFO] <<< source:3.4.0:jar (attach-sources) < generate-sources @ spring-modulith <<<
+[INFO]
+[INFO]
+[INFO] --- source:3.4.0:jar (attach-sources) @ spring-modulith ---
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ spring-modulith ---
+[INFO] Installing /work/.flattened-pom.xml to /root/.m2/repository/org/springframework/modulith/spring-modulith/2.2.0-SNAPSHOT/spring-modulith-2.2.0-SNAPSHOT.pom
+[INFO]
+[INFO] ----------< org.springframework.modulith:spring-modulith-api >----------
+[INFO] Building Spring Modulith - API 2.2.0-SNAPSHOT                      [2/8]
+[INFO]   from spring-modulith-api/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ spring-modulith-api ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- flatten:1.8.0:flatten (flatten) @ spring-modulith-api ---
+[INFO] Generating flattened POM of project org.springframework.modulith:spring-modulith-api:jar:2.2.0-SNAPSHOT...
+[INFO]
+[INFO] --- compiler:3.16.0:compile (default-compile) @ spring-modulith-api ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 7 source files with javac [debug parameters target 17] to target/classes
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by lombok.permit.Permit
+WARNING: Please consider reporting this to the maintainers of class lombok.permit.Permit
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ spring-modulith-api ---
+[INFO] skip non existing resourceDirectory /work/spring-modulith-api/src/test/resources
+[INFO]
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ spring-modulith-api ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.6.0:test (default-test) @ spring-modulith-api ---
+[INFO] Skipped
+[INFO]
+[INFO] --- jar:3.5.1:jar (default-jar) @ spring-modulith-api ---
+[INFO] Building jar: /work/spring-modulith-api/target/spring-modulith-api-2.2.0-SNAPSHOT.jar
+[INFO]
+[INFO] >>> source:3.4.0:jar (attach-sources) > generate-sources @ spring-modulith-api >>>
+[INFO]
+[INFO] <<< source:3.4.0:jar (attach-sources) < generate-sources @ spring-modulith-api <<<
+[INFO]
+[INFO]
+[INFO] --- source:3.4.0:jar (attach-sources) @ spring-modulith-api ---
+[INFO] Building jar: /work/spring-modulith-api/target/spring-modulith-api-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ spring-modulith-api ---
+[INFO] Installing /work/spring-modulith-api/.flattened-pom.xml to /root/.m2/repository/org/springframework/modulith/spring-modulith-api/2.2.0-SNAPSHOT/spring-modulith-api-2.2.0-SNAPSHOT.pom
+[INFO] Installing /work/spring-modulith-api/target/spring-modulith-api-2.2.0-SNAPSHOT.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-api/2.2.0-SNAPSHOT/spring-modulith-api-2.2.0-SNAPSHOT.jar
+[INFO] Installing /work/spring-modulith-api/target/spring-modulith-api-2.2.0-SNAPSHOT-sources.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-api/2.2.0-SNAPSHOT/spring-modulith-api-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] ---------< org.springframework.modulith:spring-modulith-core >----------
+[INFO] Building Spring Modulith - Core 2.2.0-SNAPSHOT                     [3/8]
+[INFO]   from spring-modulith-core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ spring-modulith-core ---
+[INFO] Copying 5 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- flatten:1.8.0:flatten (flatten) @ spring-modulith-core ---
+[INFO] Generating flattened POM of project org.springframework.modulith:spring-modulith-core:jar:2.2.0-SNAPSHOT...
+[INFO]
+[INFO] --- compiler:3.16.0:compile (default-compile) @ spring-modulith-core ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 44 source files with javac [debug parameters target 17] to target/classes
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ spring-modulith-core ---
+[INFO] Copying 5 resources from src/test/resources to target/test-classes
+[INFO]
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ spring-modulith-core ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 110 source files with javac [debug parameters target 17] to target/test-classes
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- surefire:3.6.0:test (default-test) @ spring-modulith-core ---
+[INFO] Skipped
+[INFO]
+[INFO] --- jar:3.5.1:jar (default-jar) @ spring-modulith-core ---
+[INFO] Building jar: /work/spring-modulith-core/target/spring-modulith-core-2.2.0-SNAPSHOT.jar
+[INFO]
+[INFO] >>> source:3.4.0:jar (attach-sources) > generate-sources @ spring-modulith-core >>>
+[INFO]
+[INFO] <<< source:3.4.0:jar (attach-sources) < generate-sources @ spring-modulith-core <<<
+[INFO]
+[INFO]
+[INFO] --- source:3.4.0:jar (attach-sources) @ spring-modulith-core ---
+[INFO] Building jar: /work/spring-modulith-core/target/spring-modulith-core-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ spring-modulith-core ---
+[INFO] Installing /work/spring-modulith-core/.flattened-pom.xml to /root/.m2/repository/org/springframework/modulith/spring-modulith-core/2.2.0-SNAPSHOT/spring-modulith-core-2.2.0-SNAPSHOT.pom
+[INFO] Installing /work/spring-modulith-core/target/spring-modulith-core-2.2.0-SNAPSHOT.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-core/2.2.0-SNAPSHOT/spring-modulith-core-2.2.0-SNAPSHOT.jar
+[INFO] Installing /work/spring-modulith-core/target/spring-modulith-core-2.2.0-SNAPSHOT-sources.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-core/2.2.0-SNAPSHOT/spring-modulith-core-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] ---------< org.springframework.modulith:spring-modulith-test >----------
+[INFO] Building Spring Modulith - Test 2.2.0-SNAPSHOT                     [4/8]
+[INFO]   from spring-modulith-test/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ spring-modulith-test ---
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- flatten:1.8.0:flatten (flatten) @ spring-modulith-test ---
+[INFO] Generating flattened POM of project org.springframework.modulith:spring-modulith-test:jar:2.2.0-SNAPSHOT...
+[INFO]
+[INFO] --- compiler:3.16.0:compile (default-compile) @ spring-modulith-test ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 22 source files with javac [debug parameters target 17] to target/classes
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ spring-modulith-test ---
+[INFO] Copying 2 resources from src/test/resources to target/test-classes
+[INFO]
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ spring-modulith-test ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 14 source files with javac [debug parameters target 17] to target/test-classes
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- surefire:3.6.0:test (default-test) @ spring-modulith-test ---
+[INFO] Skipped
+[INFO]
+[INFO] --- jar:3.5.1:jar (default-jar) @ spring-modulith-test ---
+[INFO] Building jar: /work/spring-modulith-test/target/spring-modulith-test-2.2.0-SNAPSHOT.jar
+[INFO]
+[INFO] >>> source:3.4.0:jar (attach-sources) > generate-sources @ spring-modulith-test >>>
+[INFO]
+[INFO] <<< source:3.4.0:jar (attach-sources) < generate-sources @ spring-modulith-test <<<
+[INFO]
+[INFO]
+[INFO] --- source:3.4.0:jar (attach-sources) @ spring-modulith-test ---
+[INFO] Building jar: /work/spring-modulith-test/target/spring-modulith-test-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ spring-modulith-test ---
+[INFO] Installing /work/spring-modulith-test/.flattened-pom.xml to /root/.m2/repository/org/springframework/modulith/spring-modulith-test/2.2.0-SNAPSHOT/spring-modulith-test-2.2.0-SNAPSHOT.pom
+[INFO] Installing /work/spring-modulith-test/target/spring-modulith-test-2.2.0-SNAPSHOT.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-test/2.2.0-SNAPSHOT/spring-modulith-test-2.2.0-SNAPSHOT.jar
+[INFO] Installing /work/spring-modulith-test/target/spring-modulith-test-2.2.0-SNAPSHOT-sources.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-test/2.2.0-SNAPSHOT/spring-modulith-test-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] ---------< org.springframework.modulith:spring-modulith-docs >----------
+[INFO] Building Spring Modulith - Docs 2.2.0-SNAPSHOT                     [5/8]
+[INFO]   from spring-modulith-docs/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ spring-modulith-docs ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- flatten:1.8.0:flatten (flatten) @ spring-modulith-docs ---
+[INFO] Generating flattened POM of project org.springframework.modulith:spring-modulith-docs:jar:2.2.0-SNAPSHOT...
+[INFO]
+[INFO] --- compiler:3.16.0:compile (default-compile) @ spring-modulith-docs ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 13 source files with javac [debug parameters target 17] to target/classes
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ spring-modulith-docs ---
+[INFO] Copying 2 resources from src/test/resources to target/test-classes
+[INFO]
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ spring-modulith-docs ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug parameters target 17] to target/test-classes
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- surefire:3.6.0:test (default-test) @ spring-modulith-docs ---
+[INFO] Skipped
+[INFO]
+[INFO] --- jar:3.5.1:jar (default-jar) @ spring-modulith-docs ---
+[INFO] Building jar: /work/spring-modulith-docs/target/spring-modulith-docs-2.2.0-SNAPSHOT.jar
+[INFO]
+[INFO] >>> source:3.4.0:jar (attach-sources) > generate-sources @ spring-modulith-docs >>>
+[INFO]
+[INFO] <<< source:3.4.0:jar (attach-sources) < generate-sources @ spring-modulith-docs <<<
+[INFO]
+[INFO]
+[INFO] --- source:3.4.0:jar (attach-sources) @ spring-modulith-docs ---
+[INFO] Building jar: /work/spring-modulith-docs/target/spring-modulith-docs-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ spring-modulith-docs ---
+[INFO] Installing /work/spring-modulith-docs/.flattened-pom.xml to /root/.m2/repository/org/springframework/modulith/spring-modulith-docs/2.2.0-SNAPSHOT/spring-modulith-docs-2.2.0-SNAPSHOT.pom
+[INFO] Installing /work/spring-modulith-docs/target/spring-modulith-docs-2.2.0-SNAPSHOT.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-docs/2.2.0-SNAPSHOT/spring-modulith-docs-2.2.0-SNAPSHOT.jar
+[INFO] Installing /work/spring-modulith-docs/target/spring-modulith-docs-2.2.0-SNAPSHOT-sources.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-docs/2.2.0-SNAPSHOT/spring-modulith-docs-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] -------< org.springframework.modulith:spring-modulith-starters >--------
+[INFO] Building Spring Modulith - Starters 2.2.0-SNAPSHOT                 [6/8]
+[INFO]   from spring-modulith-starters/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- flatten:1.8.0:flatten (flatten) @ spring-modulith-starters ---
+[INFO] Generating flattened POM of project org.springframework.modulith:spring-modulith-starters:pom:2.2.0-SNAPSHOT...
+[INFO]
+[INFO] >>> source:3.4.0:jar (attach-sources) > generate-sources @ spring-modulith-starters >>>
+[INFO]
+[INFO] <<< source:3.4.0:jar (attach-sources) < generate-sources @ spring-modulith-starters <<<
+[INFO]
+[INFO]
+[INFO] --- source:3.4.0:jar (attach-sources) @ spring-modulith-starters ---
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ spring-modulith-starters ---
+[INFO] Installing /work/spring-modulith-starters/.flattened-pom.xml to /root/.m2/repository/org/springframework/modulith/spring-modulith-starters/2.2.0-SNAPSHOT/spring-modulith-starters-2.2.0-SNAPSHOT.pom
+[INFO]
+[INFO] -----< org.springframework.modulith:spring-modulith-starter-test >------
+[INFO] Building Spring Modulith - Starters - Starter Test 2.2.0-SNAPSHOT  [7/8]
+[INFO]   from spring-modulith-starters/spring-modulith-starter-test/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ spring-modulith-starter-test ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- flatten:1.8.0:flatten (flatten) @ spring-modulith-starter-test ---
+[INFO] Generating flattened POM of project org.springframework.modulith:spring-modulith-starter-test:jar:2.2.0-SNAPSHOT...
+[INFO]
+[INFO] --- compiler:3.16.0:compile (default-compile) @ spring-modulith-starter-test ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ spring-modulith-starter-test ---
+[INFO] skip non existing resourceDirectory /work/spring-modulith-starters/spring-modulith-starter-test/src/test/resources
+[INFO]
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ spring-modulith-starter-test ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.6.0:test (default-test) @ spring-modulith-starter-test ---
+[INFO] Skipped
+[INFO]
+[INFO] --- jar:3.4.2:jar (default-jar) @ spring-modulith-starter-test ---
+[INFO] Building jar: /work/spring-modulith-starters/spring-modulith-starter-test/target/spring-modulith-starter-test-2.2.0-SNAPSHOT.jar
+[INFO]
+[INFO] >>> source:3.4.0:jar (attach-sources) > generate-sources @ spring-modulith-starter-test >>>
+[INFO]
+[INFO] <<< source:3.4.0:jar (attach-sources) < generate-sources @ spring-modulith-starter-test <<<
+[INFO]
+[INFO]
+[INFO] --- source:3.4.0:jar (attach-sources) @ spring-modulith-starter-test ---
+[INFO] Building jar: /work/spring-modulith-starters/spring-modulith-starter-test/target/spring-modulith-starter-test-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ spring-modulith-starter-test ---
+[INFO] Installing /work/spring-modulith-starters/spring-modulith-starter-test/.flattened-pom.xml to /root/.m2/repository/org/springframework/modulith/spring-modulith-starter-test/2.2.0-SNAPSHOT/spring-modulith-starter-test-2.2.0-SNAPSHOT.pom
+[INFO] Installing /work/spring-modulith-starters/spring-modulith-starter-test/target/spring-modulith-starter-test-2.2.0-SNAPSHOT.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-starter-test/2.2.0-SNAPSHOT/spring-modulith-starter-test-2.2.0-SNAPSHOT.jar
+[INFO] Installing /work/spring-modulith-starters/spring-modulith-starter-test/target/spring-modulith-starter-test-2.2.0-SNAPSHOT-sources.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-starter-test/2.2.0-SNAPSHOT/spring-modulith-starter-test-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --------< org.springframework.modulith:spring-modulith-runtime >--------
+[INFO] Building Spring Modulith - Runtime support 2.2.0-SNAPSHOT          [8/8]
+[INFO]   from spring-modulith-runtime/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ spring-modulith-runtime ---
+[INFO] Copying 11 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- flatten:1.8.0:flatten (flatten) @ spring-modulith-runtime ---
+[INFO] Generating flattened POM of project org.springframework.modulith:spring-modulith-runtime:jar:2.2.0-SNAPSHOT...
+[INFO]
+[INFO] --- compiler:3.16.0:compile (default-compile) @ spring-modulith-runtime ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 21 source files with javac [debug parameters target 17] to target/classes
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ spring-modulith-runtime ---
+[INFO] Copying 6 resources from src/test/resources to target/test-classes
+[INFO]
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ spring-modulith-runtime ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 17 source files with javac [debug parameters target 17] to target/test-classes
+[WARNING] location of system modules is not set in conjunction with -source 17
+  not setting the location of system modules may lead to class files that cannot run on JDK 17
+    --release 17 is recommended instead of -source 17 -target 17 because it sets the location of system modules automatically
+[INFO]
+[INFO] --- surefire:3.6.0:test (default-test) @ spring-modulith-runtime ---
+[INFO] Skipped
+[INFO]
+[INFO] --- jar:3.5.1:jar (default-jar) @ spring-modulith-runtime ---
+[INFO] Building jar: /work/spring-modulith-runtime/target/spring-modulith-runtime-2.2.0-SNAPSHOT.jar
+[INFO]
+[INFO] >>> source:3.4.0:jar (attach-sources) > generate-sources @ spring-modulith-runtime >>>
+[INFO]
+[INFO] <<< source:3.4.0:jar (attach-sources) < generate-sources @ spring-modulith-runtime <<<
+[INFO]
+[INFO]
+[INFO] --- source:3.4.0:jar (attach-sources) @ spring-modulith-runtime ---
+[INFO] Building jar: /work/spring-modulith-runtime/target/spring-modulith-runtime-2.2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --- shade:3.6.2:shade (default) @ spring-modulith-runtime ---
+[INFO] Minimizing jar org.springframework.modulith:spring-modulith-runtime:jar:2.2.0-SNAPSHOT
+[WARNING] Removing module-info from spring-modulith-runtime-2.2.0-SNAPSHOT.jar
+[INFO] Dependency-reduced POM written at: /work/spring-modulith-runtime/target/dependency-reduced-pom.xml
+[WARNING] accessors-smart-2.6.0.jar, json-path-3.0.0.jar, json-smart-2.6.0.jar, spring-modulith-runtime-2.2.0-SNAPSHOT.jar define 1 overlapping resource:
+[WARNING]   - META-INF/MANIFEST.MF
+[WARNING] maven-shade-plugin has detected that some files are
+[WARNING] present in two or more JARs. When this happens, only one
+[WARNING] single version of the file is copied to the uber jar.
+[WARNING] Usually this is not harmful and you can skip these warnings,
+[WARNING] otherwise try to manually exclude artifacts based on
+[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[WARNING] See https://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Minimized 357 -> 310 (86%)
+[INFO] Replacing original artifact with shaded artifact.
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ spring-modulith-runtime ---
+[INFO] Installing /work/spring-modulith-runtime/target/dependency-reduced-pom.xml to /root/.m2/repository/org/springframework/modulith/spring-modulith-runtime/2.2.0-SNAPSHOT/spring-modulith-runtime-2.2.0-SNAPSHOT.pom
+[INFO] Installing /work/spring-modulith-runtime/target/spring-modulith-runtime-2.2.0-SNAPSHOT.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-runtime/2.2.0-SNAPSHOT/spring-modulith-runtime-2.2.0-SNAPSHOT.jar
+[INFO] Installing /work/spring-modulith-runtime/target/spring-modulith-runtime-2.2.0-SNAPSHOT-sources.jar to /root/.m2/repository/org/springframework/modulith/spring-modulith-runtime/2.2.0-SNAPSHOT/spring-modulith-runtime-2.2.0-SNAPSHOT-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Spring Modulith 2.2.0-SNAPSHOT:
+[INFO]
+[INFO] Spring Modulith .................................... SUCCESS [  0.721 s]
+[INFO] Spring Modulith - API .............................. SUCCESS [  5.296 s]
+[INFO] Spring Modulith - Core ............................. SUCCESS [ 52.598 s]
+[INFO] Spring Modulith - Test ............................. SUCCESS [ 15.030 s]
+[INFO] Spring Modulith - Docs ............................. SUCCESS [  9.866 s]
+[INFO] Spring Modulith - Starters ......................... SUCCESS [  0.125 s]
+[INFO] Spring Modulith - Starters - Starter Test .......... SUCCESS [  1.107 s]
+[INFO] Spring Modulith - Runtime support .................. SUCCESS [ 23.936 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:27 min
+[INFO] Finished at: 2026-10-25T17:42:35Z
+[INFO] ------------------------------------------------------------------------
+[INFO] 61 goals, 61 executed
+[WARNING]
+[WARNING] 1 build scan custom value was not captured:
+[WARNING]  - Maximum custom value value length (100,000) exceeded: Git status
+[WARNING] Unexpected error while contacting Develocity server at https://ge.spring.io/
+[WARNING] No build scan will be published: Develocity features were not enabled due to an unexpected error while contacting Develocity.
+
+===== history/20261025-174255/native-online.log =====
+[INFO] Scanning for projects...
+[WARNING] This build will only read from the build cache, since the clean lifecycle is not part of the build invocation.
+[WARNING] Unexpected error while contacting Develocity server at https://ge.spring.io/
+[INFO]
+[INFO] --------< org.springframework.modulith:spring-modulith-runtime >--------
+[INFO] Building Spring Modulith - Runtime support 2.2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ spring-modulith-runtime ---
+[INFO] Effective-POM written to: /out/effective.xml
+[INFO]
+[INFO] --------< org.springframework.modulith:spring-modulith-runtime >--------
+[INFO] Building Spring Modulith - Runtime support 2.2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for org.springframework.modulith:spring-modulith-core:jar:2.2.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for org.springframework.modulith:spring-modulith-test:jar:2.2.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for org.springframework.modulith:spring-modulith-starter-test:jar:2.2.0-SNAPSHOT is missing, no dependency information available
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ spring-modulith-runtime ---
+[INFO] Wrote dependency tree to: /out/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  36.505 s
+[INFO] Finished at: 2026-10-25T17:27:01Z
+[INFO] ------------------------------------------------------------------------
+[INFO] 2 goals, 2 executed
+[WARNING]
+[WARNING] 1 build scan custom value was not captured:
+[WARNING]  - Maximum custom value value length (100,000) exceeded: Git status
+[WARNING] Unexpected error while contacting Develocity server at https://ge.spring.io/
+[WARNING] No build scan will be published: Develocity features were not enabled due to an unexpected error while contacting Develocity.
+
+===== native-online.log =====
+[INFO] Scanning for projects...
+[WARNING] This build will only read from the build cache, since the clean lifecycle is not part of the build invocation.
+[WARNING] Unexpected error while contacting Develocity server at https://ge.spring.io/
+[INFO]
+[INFO] --------< org.springframework.modulith:spring-modulith-runtime >--------
+[INFO] Building Spring Modulith - Runtime support 2.2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ spring-modulith-runtime ---
+[INFO] Effective-POM written to: /out/effective.xml
+[INFO]
+[INFO] --------< org.springframework.modulith:spring-modulith-runtime >--------
+[INFO] Building Spring Modulith - Runtime support 2.2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ spring-modulith-runtime ---
+[INFO] Wrote dependency tree to: /out/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  37.647 s
+[INFO] Finished at: 2026-10-25T17:43:35Z
+[INFO] ------------------------------------------------------------------------
+[INFO] 2 goals, 2 executed
+[WARNING]
+[WARNING] 1 build scan custom value was not captured:
+[WARNING]  - Maximum custom value value length (100,000) exceeded: Git status
+[WARNING] Unexpected error while contacting Develocity server at https://ge.spring.io/
+[WARNING] No build scan will be published: Develocity features were not enabled due to an unexpected error while contacting Develocity.
+
+===== pristine.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------< org.springframework.boot:spring-boot-dependencies >----------
+[INFO] Building spring-boot-dependencies 4.2.0-RC1
+[INFO]   from spring-boot-dependencies-4.2.0-RC1.pom
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ spring-boot-dependencies ---
+[INFO] Effective-POM written to: /out/pristine.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.580 s
+[INFO] Finished at: 2026-10-25T17:46:52Z
+[INFO] ------------------------------------------------------------------------
+
+===== repeat-offline.log =====
+[INFO] Scanning for projects...
+[WARNING] This build will only read from the build cache, since the clean lifecycle is not part of the build invocation.
+[INFO]
+[INFO] --------< org.springframework.modulith:spring-modulith-runtime >--------
+[INFO] Building Spring Modulith - Runtime support 2.2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-modulith-runtime ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.2.0-RC1
+PASS checked=98 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.303 s
+[INFO] Finished at: 2026-10-25T17:46:56Z
+[INFO] ------------------------------------------------------------------------
+[INFO] 1 goals, 1 executed
+[WARNING] The build is running offline. A build scan will not be published at this time, but it can be published if you run the 'com.gradle:develocity-maven-extension:build-scan-publish-previous' goal in the next build.
+
+===== strict.log =====
+[INFO] Scanning for projects...
+[WARNING] This build will only read from the build cache, since the clean lifecycle is not part of the build invocation.
+[WARNING] Unexpected error while contacting Develocity server at https://ge.spring.io/
+[INFO]
+[INFO] --------< org.springframework.modulith:spring-modulith-runtime >--------
+[INFO] Building Spring Modulith - Runtime support 2.2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-modulith-runtime ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.2.0-RC1
+PASS checked=98 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  36.098 s
+[INFO] Finished at: 2026-10-25T17:46:30Z
+[INFO] ------------------------------------------------------------------------
+[INFO] 1 goals, 1 executed
+[WARNING]
+[WARNING] 1 build scan custom value was not captured:
+[WARNING]  - Maximum custom value value length (100,000) exceeded: Git status
+[WARNING] Unexpected error while contacting Develocity server at https://ge.spring.io/
+[WARNING] No build scan will be published: Develocity features were not enabled due to an unexpected error while contacting Develocity.
+
+===== warning.log =====
+[INFO] Scanning for projects...
+[WARNING] This build will only read from the build cache, since the clean lifecycle is not part of the build invocation.
+[WARNING] Unexpected error while contacting Develocity server at https://ge.spring.io/
+[INFO]
+[INFO] --------< org.springframework.modulith:spring-modulith-runtime >--------
+[INFO] Building Spring Modulith - Runtime support 2.2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-modulith-runtime ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.2.0-RC1
+PASS checked=98 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  35.853 s
+[INFO] Finished at: 2026-10-25T17:45:32Z
+[INFO] ------------------------------------------------------------------------
+[INFO] 1 goals, 1 executed
+[WARNING]
+[WARNING] 1 build scan custom value was not captured:
+[WARNING]  - Maximum custom value value length (100,000) exceeded: Git status
+[WARNING] Unexpected error while contacting Develocity server at https://ge.spring.io/
+[WARNING] No build scan will be published: Develocity features were not enabled due to an unexpected error while contacting Develocity.

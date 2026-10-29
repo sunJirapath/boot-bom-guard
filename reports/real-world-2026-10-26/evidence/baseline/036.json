@@ -1,0 +1,1757 @@
+{
+  "baseline.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-137b-36-baseline",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\036-ThomasVitale--llm-apps-java-spring-ai,target=/work",
+      "-w",
+      "/work",
+      "-e",
+      "CI=true",
+      "--mount",
+      "type=volume,source=bbg-campaign-gradle-137b,target=/cache",
+      "-e",
+      "GRADLE_USER_HOME=/cache",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\guard,target=/guard",
+      "--mount",
+      "type=volume,source=bbg-campaign-toolchains-137b,target=/toolchains,readonly",
+      "gradle@sha256:21bd311ed01360c189b8870c6b6e988199ff10f72d445d02fb39d3cff9da91d7",
+      "gradle",
+      "--no-daemon",
+      "--console=plain",
+      "--max-workers=2",
+      "-Dorg.gradle.jvmargs=-Xmx1536m",
+      "-Porg.gradle.java.installations.paths=/toolchains/jdk17,/toolchains/jdk25",
+      "-p",
+      "/work/use-cases/chatbot",
+      "dependencies",
+      "--configuration",
+      "runtimeClasspath"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 1,
+    "elapsed_s": 14.046,
+    "timeout_s": 240
+  },
+  "clone.command.json": {
+    "command": [
+      "git",
+      "-c",
+      "credential.helper=",
+      "-c",
+      "core.hooksPath=NUL",
+      "-c",
+      "core.longpaths=true",
+      "clone",
+      "--depth=1",
+      "--no-tags",
+      "https://github.com/ThomasVitale/llm-apps-java-spring-ai.git",
+      "E:\\tmp\\bbg-campaign-137b0026\\clones\\036-ThomasVitale--llm-apps-java-spring-ai"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 0,
+    "elapsed_s": 2.266,
+    "timeout_s": 300
+  },
+  "inspection.json": {
+    "repo": "ThomasVitale/llm-apps-java-spring-ai",
+    "sha": "61400890ee56ca064a63aefde2ff44f34d50b767",
+    "selected_build": "use-cases/chatbot/build.gradle",
+    "wrappers": [
+      {
+        "path": "gradle/wrapper/gradle-wrapper.properties",
+        "distribution": [
+          "distributionUrl=https\\://downloads.gradle.org/distributions/gradle-9.8.2-bin.zip"
+        ]
+      }
+    ],
+    "declared_build_files": 54,
+    "maven_pom_files": 0,
+    "gradle_build_scripts": 53,
+    "selected_scope_project_count": 1,
+    "scope_note": "Inventory includes independent examples, BOMs, buildSrc and aggregation projects; this is not a resolved whole-repository project count.",
+    "structure": [
+      {
+        "path": "buildSrc/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "data-ingestion/document-readers/document-readers-json-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-readers/document-readers-markdown-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-readers/document-readers-pdf-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-readers/document-readers-text-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-readers/document-readers-tika-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-transformers/document-transformers-metadata-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-transformers/document-transformers-splitters-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "mcp/mcp-clients/mcp-brave/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/audio/speech-to-text-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/audio/text-to-speech-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/chat/chat-mistral-ai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/chat/chat-multiple-providers/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/chat/chat-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/chat/chat-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/embedding/embedding-mistral-ai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/embedding/embedding-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/embedding/embedding-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/embedding/embedding-transformers/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/image/image-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "observability/models/observability-models-mistral-ai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "observability/models/observability-models-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "observability/models/observability-models-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "observability/vector-stores/observability-vector-stores-pgvector/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/guardrails/guardrails-input/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/guardrails/guardrails-output/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/memory/memory-basics/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/memory/memory-jdbc/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/memory/memory-spring-security/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/memory/memory-vector-store/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/multimodality/multimodality-mistral-ai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/multimodality/multimodality-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/multimodality/multimodality-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-basics-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-basics-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-messages-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-messages-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-templates-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-templates-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/structured-output/structured-output-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/structured-output/structured-output-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/tool-calling/tool-calling-mistral-ai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/tool-calling/tool-calling-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/tool-calling/tool-calling-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "rag/rag-branching/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "rag/rag-conditional/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "rag/rag-sequential/rag-advanced/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "rag/rag-sequential/rag-naive/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "use-cases/chatbot/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "use-cases/question-answering/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "use-cases/semantic-search/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "use-cases/structured-data-extraction/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "use-cases/text-classification/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      }
+    ]
+  },
+  "inventory.json": {
+    "id": 36,
+    "repo": "ThomasVitale/llm-apps-java-spring-ai",
+    "tier_proposed": "Medium",
+    "catalog_tool": "Gradle (nested build)",
+    "pilot": false,
+    "sha": "61400890ee56ca064a63aefde2ff44f34d50b767",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\036-ThomasVitale--llm-apps-java-spring-ai",
+    "build_file_count": 54,
+    "builds": [
+      {
+        "path": "buildSrc/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "data-ingestion/document-readers/document-readers-json-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-readers/document-readers-markdown-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-readers/document-readers-pdf-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-readers/document-readers-text-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-readers/document-readers-tika-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-transformers/document-transformers-metadata-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-transformers/document-transformers-splitters-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "mcp/mcp-clients/mcp-brave/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/audio/speech-to-text-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/audio/text-to-speech-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/chat/chat-mistral-ai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/chat/chat-multiple-providers/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/chat/chat-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/chat/chat-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/embedding/embedding-mistral-ai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/embedding/embedding-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/embedding/embedding-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/embedding/embedding-transformers/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/image/image-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "observability/models/observability-models-mistral-ai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "observability/models/observability-models-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "observability/models/observability-models-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "observability/vector-stores/observability-vector-stores-pgvector/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/guardrails/guardrails-input/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/guardrails/guardrails-output/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/memory/memory-basics/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/memory/memory-jdbc/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/memory/memory-spring-security/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/memory/memory-vector-store/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/multimodality/multimodality-mistral-ai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/multimodality/multimodality-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/multimodality/multimodality-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-basics-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-basics-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-messages-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-messages-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-templates-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-templates-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/structured-output/structured-output-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/structured-output/structured-output-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/tool-calling/tool-calling-mistral-ai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/tool-calling/tool-calling-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/tool-calling/tool-calling-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "rag/rag-branching/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "rag/rag-conditional/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "rag/rag-sequential/rag-advanced/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "rag/rag-sequential/rag-naive/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "use-cases/chatbot/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "use-cases/question-answering/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "use-cases/semantic-search/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "use-cases/structured-data-extraction/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "use-cases/text-classification/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      }
+    ],
+    "extensions": [],
+    "outcome": "NOT_RUN",
+    "baseline_status": "NOT_RUN"
+  },
+  "result.json": {
+    "id": 36,
+    "repo": "ThomasVitale/llm-apps-java-spring-ai",
+    "tier_proposed": "Medium",
+    "catalog_tool": "Gradle (nested build)",
+    "pilot": false,
+    "sha": "61400890ee56ca064a63aefde2ff44f34d50b767",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\036-ThomasVitale--llm-apps-java-spring-ai",
+    "build_file_count": 54,
+    "builds": [
+      {
+        "path": "buildSrc/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "data-ingestion/document-readers/document-readers-json-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-readers/document-readers-markdown-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-readers/document-readers-pdf-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-readers/document-readers-text-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-readers/document-readers-tika-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-transformers/document-transformers-metadata-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "data-ingestion/document-transformers/document-transformers-splitters-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "mcp/mcp-clients/mcp-brave/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/audio/speech-to-text-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/audio/text-to-speech-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/chat/chat-mistral-ai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/chat/chat-multiple-providers/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/chat/chat-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/chat/chat-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/embedding/embedding-mistral-ai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/embedding/embedding-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/embedding/embedding-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/embedding/embedding-transformers/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "models/image/image-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "observability/models/observability-models-mistral-ai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "observability/models/observability-models-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "observability/models/observability-models-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "observability/vector-stores/observability-vector-stores-pgvector/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/guardrails/guardrails-input/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/guardrails/guardrails-output/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/memory/memory-basics/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/memory/memory-jdbc/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/memory/memory-spring-security/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/memory/memory-vector-store/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/multimodality/multimodality-mistral-ai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/multimodality/multimodality-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/multimodality/multimodality-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-basics-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-basics-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-messages-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-messages-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-templates-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/prompts/prompts-templates-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/structured-output/structured-output-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/structured-output/structured-output-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/tool-calling/tool-calling-mistral-ai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/tool-calling/tool-calling-ollama/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "patterns/tool-calling/tool-calling-openai/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "rag/rag-branching/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "rag/rag-conditional/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "rag/rag-sequential/rag-advanced/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "rag/rag-sequential/rag-naive/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "use-cases/chatbot/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "use-cases/question-answering/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "use-cases/semantic-search/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "use-cases/structured-data-extraction/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "use-cases/text-classification/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      }
+    ],
+    "extensions": [],
+    "outcome": "ENV_BLOCKED",
+    "baseline_status": "FAILED_OR_INCOMPLETE",
+    "build_tool": "Gradle",
+    "build_root": "use-cases/chatbot/build.gradle",
+    "tier_measured": "UNMEASURED",
+    "scenario": "unmodified-resolution",
+    "elapsed_s": 14.046,
+    "selected_scope": "One selected consumer project; additional reactors/controlled projects are separate experiments",
+    "jdk": "25",
+    "boot_version": "native BOM unknown",
+    "module_count": 1,
+    "declared_module_count": 1
+  },
+  "runs.json": [
+    {
+      "label": "baseline",
+      "exit": 1,
+      "elapsed_s": 14.046
+    }
+  ],
+  "sha.command.json": {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "E:\\tmp\\bbg-campaign-137b0026\\clones\\036-ThomasVitale--llm-apps-java-spring-ai",
+    "exit": 0,
+    "elapsed_s": 0.047,
+    "timeout_s": 240
+  }
+}

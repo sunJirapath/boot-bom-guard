@@ -21,6 +21,6 @@ See [[STATE]] and [[DECISIONS]].
 
 ## Found in the existing repo
 
-- Candidate checks (unverified; confirm, then edit): `./gradlew test`, `cd core && mvn test`, `cd maven-plugin && mvn test`, `mvn test`
+- Verified 2026-10-29: `mvn -B -ntp --offline install`, `python scripts/verify_maven.py --offline`, `gradlew.bat --offline --no-daemon --console=plain check -PtestOffline=true --rerun-tasks`: 58 distinct tests, zero failures/skips. [Campaign and scope limits](../reports/real-world-2026-10-26/summary.md).
 - CI workflows (the commands CI really runs): `.github/workflows/ci.yml`
 - Existing guidance to follow first: none

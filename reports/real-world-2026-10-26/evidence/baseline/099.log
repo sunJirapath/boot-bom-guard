@@ -1,0 +1,82 @@
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------< com.rydr:api-driver >-------------------------
+[INFO] Building api-driver 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ api-driver ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] ------------------------< com.rydr:api-driver >-------------------------
+[INFO] Building api-driver 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Artifact com.fasterxml.jackson:jackson-bom:pom:2.9.7 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact com.fasterxml.jackson:jackson-bom:pom:2.9.7 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact io.netty:netty-bom:pom:4.1.29.Final is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact io.netty:netty-bom:pom:4.1.29.Final is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.eclipse.jetty:jetty-bom:pom:9.4.12.v20180830 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.eclipse.jetty:jetty-bom:pom:9.4.12.v20180830 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[WARNING] The POM for com.rydr:rydr-common:jar:0.0.1-SNAPSHOT is missing, no dependency information available
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ api-driver ---
+[INFO] Wrote dependency tree to: /work/.bbg/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  32.854 s
+[INFO] Finished at: 2026-10-25T13:43:26Z
+[INFO] ------------------------------------------------------------------------
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\099-weiguangli-io--rydr'...
+
+===== original-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------< com.rydr:api-driver >-------------------------
+[INFO] Building api-driver 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ api-driver ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:2.1.7.RELEASE
+UNKNOWN Unsupported Spring Boot BOM 2.1.7.RELEASE; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.689 s
+[INFO] Finished at: 2026-10-25T13:43:39Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project api-driver: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------< com.rydr:api-driver >-------------------------
+[INFO] Building api-driver 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ api-driver ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:2.1.7.RELEASE
+UNKNOWN Unsupported Spring Boot BOM 2.1.7.RELEASE; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.824 s
+[INFO] Finished at: 2026-10-25T13:43:33Z
+[INFO] ------------------------------------------------------------------------
+
+===== sha.log =====
+cc62a5cd9836e030f3cc105d5cd1b44faadaca67

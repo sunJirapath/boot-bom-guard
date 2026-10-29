@@ -1,0 +1,2808 @@
+{
+  "baseline.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-137b-88-baseline",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\088-zlt2000--microservices-platform,target=/work",
+      "-w",
+      "/work",
+      "-e",
+      "CI=true",
+      "--mount",
+      "type=volume,source=bbg-campaign-m2-137b,target=/root/.m2",
+      "-e",
+      "MAVEN_OPTS=-Xmx2g",
+      "maven@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320",
+      "mvn",
+      "-B",
+      "-ntp",
+      "-N",
+      "-f",
+      "/work/zlt-gateway/sc-gateway/pom.xml",
+      "-Daether.connector.connectTimeout=10000",
+      "-Daether.connector.requestTimeout=20000",
+      "org.apache.maven.plugins:maven-help-plugin:3.5.1:effective-pom",
+      "org.apache.maven.plugins:maven-dependency-plugin:3.10.0:tree",
+      "-Doutput=/work/.bbg/effective.xml",
+      "-DoutputFile=/work/.bbg/tree.json",
+      "-DoutputType=json"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 124,
+    "elapsed_s": 180.047,
+    "timeout_s": 180
+  },
+  "clone.command.json": {
+    "command": [
+      "git",
+      "-c",
+      "credential.helper=",
+      "-c",
+      "core.hooksPath=NUL",
+      "-c",
+      "core.longpaths=true",
+      "clone",
+      "--depth=1",
+      "--no-tags",
+      "https://github.com/zlt2000/microservices-platform.git",
+      "E:\\tmp\\bbg-campaign-137b0026\\clones\\088-zlt2000--microservices-platform"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 0,
+    "elapsed_s": 15.344,
+    "timeout_s": 300
+  },
+  "inspection.json": {
+    "repo": "zlt2000/microservices-platform",
+    "sha": "d53d7b0b0c16329986b6083e6af08d6787974e7a",
+    "selected_build": "zlt-gateway/sc-gateway/pom.xml",
+    "wrappers": [],
+    "declared_build_files": 48,
+    "maven_pom_files": 48,
+    "gradle_build_scripts": 0,
+    "selected_scope_project_count": 1,
+    "scope_note": "Inventory includes independent examples, BOMs, buildSrc and aggregation projects; this is not a resolved whole-repository project count.",
+    "structure": [
+      {
+        "path": "pom.xml",
+        "tool": "Maven",
+        "boot": [
+          "${spring-boot-dependencies.version}"
+        ],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "parent": {},
+        "properties": {
+          "maven.compiler.source": "17",
+          "maven.compiler.target": "17",
+          "project.build.sourceEncoding": "UTF-8",
+          "java.version": "17",
+          "spring-cloud-alibaba-dependencies.version": "2022.0.0.0",
+          "spring-boot-dependencies.version": "3.1.6",
+          "spring-cloud-dependencies.version": "2022.0.4",
+          "commons-collections4.version": "4.4",
+          "jjwt.version": "0.9.1",
+          "druid-starter": "1.2.18",
+          "jasypt.version": "1.14",
+          "sharding-sphere.version": "3.1.0",
+          "security-jwt.version": "1.1.0.RELEASE",
+          "redisson-starter.version": "3.25.0",
+          "mybatis-plus-boot-starter.version": "3.5.4.1",
+          "aliyun-sdk-oss": "3.8.1",
+          "qiniu-java-sdk": "7.2.28",
+          "easypoi.version": "4.1.3",
+          "poi.version": "4.1.1",
+          "spring-boot-admin.version": "3.1.8",
+          "velocity.version": "1.7",
+          "commons-configuration2.version": "2.7",
+          "fastdfs-client.version": "1.27.2",
+          "userAgent.version": "1.21",
+          "transmittable.version": "2.14.4",
+          "banner.version": "1.0.2",
+          "commons-beanutils.version": "1.9.4",
+          "commons-io.version": "2.7",
+          "spring-data-elasticsearch.version": "4.2.3",
+          "elasticsearch.version": "7.13.4",
+          "knife4j.version": "4.3.0",
+          "hibernate-validator.version": "8.0.1.Final",
+          "dubbo.version": "2.7.8",
+          "curator.version": "5.1.0",
+          "commons-configuration.version": "1.10",
+          "aws-java-sdk-s3.version": "1.12.40",
+          "spring-cloud-starter-oauth2.version": "2.2.5.RELEASE",
+          "docker-maven-plugin.version": "1.2.2",
+          "docker.baseImage": "openjdk:8-jre-alpine",
+          "docker.volumes": "/tmp",
+          "docker.image.prefix": "hub.zlt.com:8080/microservices-platform",
+          "docker.java.security.egd": "-Djava.security.egd=file:/dev/./urandom",
+          "docker.java.opts": "-Xms128m -Xmx128m",
+          "guava.version": "20.0",
+          "maven-compiler-plugin.version": "3.11.0",
+          "maven-surefire-plugin.version": "3.1.2",
+          "mysql-connector-java.version": "8.0.33",
+          "javax.annotation-api.version": "1.3.2",
+          "tomcat-embed-core.version": "10.1.11",
+          "httpclient.version": "5.2.1",
+          "oauth2-oidc-sdk.version": "11.7"
+        },
+        "modules": [
+          "zlt-commons",
+          "zlt-uaa",
+          "zlt-gateway",
+          "zlt-business",
+          "zlt-web",
+          "zlt-monitor",
+          "zlt-config",
+          "zlt-demo"
+        ],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "org.apache.maven.plugins:maven-compiler-plugin",
+          "org.apache.maven.plugins:maven-surefire-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-business/file-center/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-business",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-business/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "user-center",
+          "file-center",
+          "search-center"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-business/search-center/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-business",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "search-client",
+          "search-server"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-business/search-center/search-client/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "search-center",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-business/search-center/search-server/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "search-center",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-business/user-center/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-business",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-commons/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "zlt-redis-spring-boot-starter",
+          "zlt-common-spring-boot-starter",
+          "zlt-db-spring-boot-starter",
+          "zlt-log-spring-boot-starter",
+          "zlt-loadbalancer-spring-boot-starter",
+          "zlt-auth-client-spring-boot-starter",
+          "zlt-sentinel-spring-boot-starter",
+          "zlt-common-core",
+          "zlt-elasticsearch-spring-boot-starter",
+          "zlt-oss-spring-boot-starter",
+          "zlt-zookeeper-spring-boot-starter"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-auth-client-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-common-core/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-common-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-db-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-elasticsearch-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-loadbalancer-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-log-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-oss-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-redis-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-sentinel-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-zookeeper-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-config/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/dubbo-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "sharding-jdbc-demo",
+          "rocketmq-demo",
+          "seata-demo",
+          "sso-demo",
+          "dubbo-demo",
+          "websocket-demo",
+          "resources-server-demo"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/resources-server-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/rocketmq-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "rocketmq-transactional",
+          "rocketmq-produce",
+          "rocketmq-consume"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/rocketmq-demo/rocketmq-consume/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "rocketmq-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/rocketmq-demo/rocketmq-produce/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "rocketmq-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/rocketmq-demo/rocketmq-transactional/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "rocketmq-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/seata-demo/account-service/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "seata-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/seata-demo/business-service/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "seata-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/seata-demo/order-service/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "seata-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/seata-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "business-service",
+          "order-service",
+          "storage-service",
+          "account-service",
+          "seata-common-starter"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/seata-demo/seata-common-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "seata-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/seata-demo/storage-service/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "seata-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/sharding-jdbc-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/sso-demo/oidc-sso/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "sso-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/sso-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "ss-sso",
+          "web-sso",
+          "oidc-sso"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/sso-demo/ss-sso/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "sso-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/sso-demo/web-sso/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "sso-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/websocket-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-gateway/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "sc-gateway"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-gateway/sc-gateway/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-gateway",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-monitor/log-center/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-monitor",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-monitor/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "sc-admin",
+          "log-center"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-monitor/sc-admin/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-monitor",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-uaa/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-web/layui-web/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-web",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-web/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "layui-web",
+          "react-web"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-web/react-web/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "zlt-web",
+          "groupId": "com.zlt",
+          "version": "6.0.0"
+        },
+        "properties": {
+          "node.version": "v16.13.2",
+          "yarn.version": "v1.22.19"
+        },
+        "modules": [],
+        "plugins": []
+      }
+    ]
+  },
+  "inventory.json": {
+    "id": 88,
+    "repo": "zlt2000/microservices-platform",
+    "tier_proposed": "Huge",
+    "catalog_tool": "Maven",
+    "pilot": false,
+    "sha": "d53d7b0b0c16329986b6083e6af08d6787974e7a",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\088-zlt2000--microservices-platform",
+    "build_file_count": 48,
+    "builds": [
+      {
+        "path": "pom.xml",
+        "tool": "Maven",
+        "boot": [
+          "${spring-boot-dependencies.version}"
+        ],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "parent": {},
+        "properties": {
+          "maven.compiler.source": "17",
+          "maven.compiler.target": "17",
+          "project.build.sourceEncoding": "UTF-8",
+          "java.version": "17",
+          "spring-cloud-alibaba-dependencies.version": "2022.0.0.0",
+          "spring-boot-dependencies.version": "3.1.6",
+          "spring-cloud-dependencies.version": "2022.0.4",
+          "commons-collections4.version": "4.4",
+          "jjwt.version": "0.9.1",
+          "druid-starter": "1.2.18",
+          "jasypt.version": "1.14",
+          "sharding-sphere.version": "3.1.0",
+          "security-jwt.version": "1.1.0.RELEASE",
+          "redisson-starter.version": "3.25.0",
+          "mybatis-plus-boot-starter.version": "3.5.4.1",
+          "aliyun-sdk-oss": "3.8.1",
+          "qiniu-java-sdk": "7.2.28",
+          "easypoi.version": "4.1.3",
+          "poi.version": "4.1.1",
+          "spring-boot-admin.version": "3.1.8",
+          "velocity.version": "1.7",
+          "commons-configuration2.version": "2.7",
+          "fastdfs-client.version": "1.27.2",
+          "userAgent.version": "1.21",
+          "transmittable.version": "2.14.4",
+          "banner.version": "1.0.2",
+          "commons-beanutils.version": "1.9.4",
+          "commons-io.version": "2.7",
+          "spring-data-elasticsearch.version": "4.2.3",
+          "elasticsearch.version": "7.13.4",
+          "knife4j.version": "4.3.0",
+          "hibernate-validator.version": "8.0.1.Final",
+          "dubbo.version": "2.7.8",
+          "curator.version": "5.1.0",
+          "commons-configuration.version": "1.10",
+          "aws-java-sdk-s3.version": "1.12.40",
+          "spring-cloud-starter-oauth2.version": "2.2.5.RELEASE",
+          "docker-maven-plugin.version": "1.2.2",
+          "docker.baseImage": "openjdk:8-jre-alpine",
+          "docker.volumes": "/tmp",
+          "docker.image.prefix": "hub.zlt.com:8080/microservices-platform",
+          "docker.java.security.egd": "-Djava.security.egd=file:/dev/./urandom",
+          "docker.java.opts": "-Xms128m -Xmx128m",
+          "guava.version": "20.0",
+          "maven-compiler-plugin.version": "3.11.0",
+          "maven-surefire-plugin.version": "3.1.2",
+          "mysql-connector-java.version": "8.0.33",
+          "javax.annotation-api.version": "1.3.2",
+          "tomcat-embed-core.version": "10.1.11",
+          "httpclient.version": "5.2.1",
+          "oauth2-oidc-sdk.version": "11.7"
+        },
+        "modules": [
+          "zlt-commons",
+          "zlt-uaa",
+          "zlt-gateway",
+          "zlt-business",
+          "zlt-web",
+          "zlt-monitor",
+          "zlt-config",
+          "zlt-demo"
+        ],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "org.apache.maven.plugins:maven-compiler-plugin",
+          "org.apache.maven.plugins:maven-surefire-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-business/file-center/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-business",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-business/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "user-center",
+          "file-center",
+          "search-center"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-business/search-center/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-business",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "search-client",
+          "search-server"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-business/search-center/search-client/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "search-center",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-business/search-center/search-server/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "search-center",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-business/user-center/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-business",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-commons/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "zlt-redis-spring-boot-starter",
+          "zlt-common-spring-boot-starter",
+          "zlt-db-spring-boot-starter",
+          "zlt-log-spring-boot-starter",
+          "zlt-loadbalancer-spring-boot-starter",
+          "zlt-auth-client-spring-boot-starter",
+          "zlt-sentinel-spring-boot-starter",
+          "zlt-common-core",
+          "zlt-elasticsearch-spring-boot-starter",
+          "zlt-oss-spring-boot-starter",
+          "zlt-zookeeper-spring-boot-starter"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-auth-client-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-common-core/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-common-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-db-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-elasticsearch-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-loadbalancer-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-log-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-oss-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-redis-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-sentinel-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-zookeeper-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-config/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/dubbo-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "sharding-jdbc-demo",
+          "rocketmq-demo",
+          "seata-demo",
+          "sso-demo",
+          "dubbo-demo",
+          "websocket-demo",
+          "resources-server-demo"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/resources-server-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/rocketmq-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "rocketmq-transactional",
+          "rocketmq-produce",
+          "rocketmq-consume"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/rocketmq-demo/rocketmq-consume/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "rocketmq-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/rocketmq-demo/rocketmq-produce/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "rocketmq-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/rocketmq-demo/rocketmq-transactional/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "rocketmq-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/seata-demo/account-service/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "seata-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/seata-demo/business-service/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "seata-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/seata-demo/order-service/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "seata-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/seata-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "business-service",
+          "order-service",
+          "storage-service",
+          "account-service",
+          "seata-common-starter"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/seata-demo/seata-common-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "seata-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/seata-demo/storage-service/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "seata-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/sharding-jdbc-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/sso-demo/oidc-sso/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "sso-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/sso-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "ss-sso",
+          "web-sso",
+          "oidc-sso"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/sso-demo/ss-sso/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "sso-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/sso-demo/web-sso/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "sso-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/websocket-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-gateway/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "sc-gateway"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-gateway/sc-gateway/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-gateway",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-monitor/log-center/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-monitor",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-monitor/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "sc-admin",
+          "log-center"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-monitor/sc-admin/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-monitor",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-uaa/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-web/layui-web/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-web",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-web/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "layui-web",
+          "react-web"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-web/react-web/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "zlt-web",
+          "groupId": "com.zlt",
+          "version": "6.0.0"
+        },
+        "properties": {
+          "node.version": "v16.13.2",
+          "yarn.version": "v1.22.19"
+        },
+        "modules": [],
+        "plugins": []
+      }
+    ],
+    "extensions": [],
+    "outcome": "NOT_RUN",
+    "baseline_status": "NOT_RUN"
+  },
+  "result.json": {
+    "id": 88,
+    "repo": "zlt2000/microservices-platform",
+    "tier_proposed": "Huge",
+    "catalog_tool": "Maven",
+    "pilot": false,
+    "sha": "d53d7b0b0c16329986b6083e6af08d6787974e7a",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\088-zlt2000--microservices-platform",
+    "build_file_count": 48,
+    "builds": [
+      {
+        "path": "pom.xml",
+        "tool": "Maven",
+        "boot": [
+          "${spring-boot-dependencies.version}"
+        ],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "parent": {},
+        "properties": {
+          "maven.compiler.source": "17",
+          "maven.compiler.target": "17",
+          "project.build.sourceEncoding": "UTF-8",
+          "java.version": "17",
+          "spring-cloud-alibaba-dependencies.version": "2022.0.0.0",
+          "spring-boot-dependencies.version": "3.1.6",
+          "spring-cloud-dependencies.version": "2022.0.4",
+          "commons-collections4.version": "4.4",
+          "jjwt.version": "0.9.1",
+          "druid-starter": "1.2.18",
+          "jasypt.version": "1.14",
+          "sharding-sphere.version": "3.1.0",
+          "security-jwt.version": "1.1.0.RELEASE",
+          "redisson-starter.version": "3.25.0",
+          "mybatis-plus-boot-starter.version": "3.5.4.1",
+          "aliyun-sdk-oss": "3.8.1",
+          "qiniu-java-sdk": "7.2.28",
+          "easypoi.version": "4.1.3",
+          "poi.version": "4.1.1",
+          "spring-boot-admin.version": "3.1.8",
+          "velocity.version": "1.7",
+          "commons-configuration2.version": "2.7",
+          "fastdfs-client.version": "1.27.2",
+          "userAgent.version": "1.21",
+          "transmittable.version": "2.14.4",
+          "banner.version": "1.0.2",
+          "commons-beanutils.version": "1.9.4",
+          "commons-io.version": "2.7",
+          "spring-data-elasticsearch.version": "4.2.3",
+          "elasticsearch.version": "7.13.4",
+          "knife4j.version": "4.3.0",
+          "hibernate-validator.version": "8.0.1.Final",
+          "dubbo.version": "2.7.8",
+          "curator.version": "5.1.0",
+          "commons-configuration.version": "1.10",
+          "aws-java-sdk-s3.version": "1.12.40",
+          "spring-cloud-starter-oauth2.version": "2.2.5.RELEASE",
+          "docker-maven-plugin.version": "1.2.2",
+          "docker.baseImage": "openjdk:8-jre-alpine",
+          "docker.volumes": "/tmp",
+          "docker.image.prefix": "hub.zlt.com:8080/microservices-platform",
+          "docker.java.security.egd": "-Djava.security.egd=file:/dev/./urandom",
+          "docker.java.opts": "-Xms128m -Xmx128m",
+          "guava.version": "20.0",
+          "maven-compiler-plugin.version": "3.11.0",
+          "maven-surefire-plugin.version": "3.1.2",
+          "mysql-connector-java.version": "8.0.33",
+          "javax.annotation-api.version": "1.3.2",
+          "tomcat-embed-core.version": "10.1.11",
+          "httpclient.version": "5.2.1",
+          "oauth2-oidc-sdk.version": "11.7"
+        },
+        "modules": [
+          "zlt-commons",
+          "zlt-uaa",
+          "zlt-gateway",
+          "zlt-business",
+          "zlt-web",
+          "zlt-monitor",
+          "zlt-config",
+          "zlt-demo"
+        ],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "org.apache.maven.plugins:maven-compiler-plugin",
+          "org.apache.maven.plugins:maven-surefire-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-business/file-center/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-business",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-business/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "user-center",
+          "file-center",
+          "search-center"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-business/search-center/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-business",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "search-client",
+          "search-server"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-business/search-center/search-client/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "search-center",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-business/search-center/search-server/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "search-center",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-business/user-center/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-business",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-commons/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "zlt-redis-spring-boot-starter",
+          "zlt-common-spring-boot-starter",
+          "zlt-db-spring-boot-starter",
+          "zlt-log-spring-boot-starter",
+          "zlt-loadbalancer-spring-boot-starter",
+          "zlt-auth-client-spring-boot-starter",
+          "zlt-sentinel-spring-boot-starter",
+          "zlt-common-core",
+          "zlt-elasticsearch-spring-boot-starter",
+          "zlt-oss-spring-boot-starter",
+          "zlt-zookeeper-spring-boot-starter"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-auth-client-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-common-core/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-common-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-db-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-elasticsearch-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-loadbalancer-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-log-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-oss-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-redis-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-sentinel-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-commons/zlt-zookeeper-spring-boot-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-commons",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-config/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/dubbo-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "sharding-jdbc-demo",
+          "rocketmq-demo",
+          "seata-demo",
+          "sso-demo",
+          "dubbo-demo",
+          "websocket-demo",
+          "resources-server-demo"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/resources-server-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/rocketmq-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "rocketmq-transactional",
+          "rocketmq-produce",
+          "rocketmq-consume"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/rocketmq-demo/rocketmq-consume/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "rocketmq-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/rocketmq-demo/rocketmq-produce/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "rocketmq-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/rocketmq-demo/rocketmq-transactional/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "rocketmq-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/seata-demo/account-service/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "seata-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/seata-demo/business-service/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "seata-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/seata-demo/order-service/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "seata-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/seata-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "business-service",
+          "order-service",
+          "storage-service",
+          "account-service",
+          "seata-common-starter"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/seata-demo/seata-common-starter/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "seata-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/seata-demo/storage-service/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "seata-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/sharding-jdbc-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/sso-demo/oidc-sso/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "sso-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/sso-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "ss-sso",
+          "web-sso",
+          "oidc-sso"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-demo/sso-demo/ss-sso/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "sso-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/sso-demo/web-sso/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "sso-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-demo/websocket-demo/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-demo",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-gateway/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "sc-gateway"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-gateway/sc-gateway/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-gateway",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-monitor/log-center/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-monitor",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-monitor/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "sc-admin",
+          "log-center"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-monitor/sc-admin/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-monitor",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-uaa/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "com.spotify:docker-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-web/layui-web/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "zlt-web",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "zlt-web/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "com.zlt",
+          "artifactId": "central-platform",
+          "version": "6.0.0"
+        },
+        "properties": {},
+        "modules": [
+          "layui-web",
+          "react-web"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "zlt-web/react-web/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "zlt-web",
+          "groupId": "com.zlt",
+          "version": "6.0.0"
+        },
+        "properties": {
+          "node.version": "v16.13.2",
+          "yarn.version": "v1.22.19"
+        },
+        "modules": [],
+        "plugins": []
+      }
+    ],
+    "extensions": [],
+    "outcome": "ENV_BLOCKED",
+    "baseline_status": "TIMEOUT",
+    "build_tool": "Maven",
+    "build_root": "zlt-gateway/sc-gateway/pom.xml",
+    "tier_measured": "UNMEASURED",
+    "scenario": "unmodified-resolution",
+    "elapsed_s": 180.047,
+    "selected_scope": "One selected consumer project; additional reactors/controlled projects are separate experiments",
+    "declared_module_count": null,
+    "module_count": 1
+  },
+  "runs.json": [
+    {
+      "label": "baseline",
+      "exit": 124,
+      "elapsed_s": 180.047
+    }
+  ],
+  "sha.command.json": {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "E:\\tmp\\bbg-campaign-137b0026\\clones\\088-zlt2000--microservices-platform",
+    "exit": 0,
+    "elapsed_s": 0.141,
+    "timeout_s": 240
+  }
+}

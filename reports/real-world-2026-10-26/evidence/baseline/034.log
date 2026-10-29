@@ -1,0 +1,394 @@
+===== baseline.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+
+> Task :dependencies
+
+------------------------------------------------------------
+Root project 'catalog-service' - Provides functionality for managing the books in the catalog.
+------------------------------------------------------------
+
+runtimeClasspath - Runtime classpath of source set 'main'.
++--- org.springframework.boot:spring-boot-starter-actuator -> 2.7.18
+|    +--- org.springframework.boot:spring-boot-starter:2.7.18
+|    |    +--- org.springframework.boot:spring-boot:2.7.18
+|    |    |    +--- org.springframework:spring-core:5.3.31
+|    |    |    |    \--- org.springframework:spring-jcl:5.3.31
+|    |    |    \--- org.springframework:spring-context:5.3.31
+|    |    |         +--- org.springframework:spring-aop:5.3.31
+|    |    |         |    +--- org.springframework:spring-beans:5.3.31
+|    |    |         |    |    \--- org.springframework:spring-core:5.3.31 (*)
+|    |    |         |    \--- org.springframework:spring-core:5.3.31 (*)
+|    |    |         +--- org.springframework:spring-beans:5.3.31 (*)
+|    |    |         +--- org.springframework:spring-core:5.3.31 (*)
+|    |    |         \--- org.springframework:spring-expression:5.3.31
+|    |    |              \--- org.springframework:spring-core:5.3.31 (*)
+|    |    +--- org.springframework.boot:spring-boot-autoconfigure:2.7.18
+|    |    |    \--- org.springframework.boot:spring-boot:2.7.18 (*)
+|    |    +--- org.springframework.boot:spring-boot-starter-logging:2.7.18
+|    |    |    +--- ch.qos.logback:logback-classic:1.2.12
+|    |    |    |    +--- ch.qos.logback:logback-core:1.2.12
+|    |    |    |    \--- org.slf4j:slf4j-api:1.7.32 -> 1.7.36
+|    |    |    +--- org.apache.logging.log4j:log4j-to-slf4j:2.17.2
+|    |    |    |    +--- org.slf4j:slf4j-api:1.7.35 -> 1.7.36
+|    |    |    |    \--- org.apache.logging.log4j:log4j-api:2.17.2
+|    |    |    \--- org.slf4j:jul-to-slf4j:1.7.36
+|    |    |         \--- org.slf4j:slf4j-api:1.7.36
+|    |    +--- jakarta.annotation:jakarta.annotation-api:1.3.5
+|    |    +--- org.springframework:spring-core:5.3.31 (*)
+|    |    \--- org.yaml:snakeyaml:1.30
+|    +--- org.springframework.boot:spring-boot-actuator-autoconfigure:2.7.18
+|    |    +--- com.fasterxml.jackson.core:jackson-databind:2.13.5
+|    |    |    +--- com.fasterxml.jackson.core:jackson-annotations:2.13.5
+|    |    |    |    \--- com.fasterxml.jackson:jackson-bom:2.13.5
+|    |    |    |         +--- com.fasterxml.jackson.core:jackson-annotations:2.13.5 (c)
+|    |    |    |         +--- com.fasterxml.jackson.core:jackson-core:2.13.5 (c)
+|    |    |    |         +--- com.fasterxml.jackson.core:jackson-databind:2.13.5 (c)
+|    |    |    |         +--- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.13.5 (c)
+|    |    |    |         +--- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.5 (c)
+|    |    |    |         \--- com.fasterxml.jackson.module:jackson-module-parameter-names:2.13.5 (c)
+|    |    |    +--- com.fasterxml.jackson.core:jackson-core:2.13.5
+|    |    |    |    \--- com.fasterxml.jackson:jackson-bom:2.13.5 (*)
+|    |    |    \--- com.fasterxml.jackson:jackson-bom:2.13.5 (*)
+|    |    +--- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.5
+|    |    |    +--- com.fasterxml.jackson.core:jackson-annotations:2.13.5 (*)
+|    |    |    +--- com.fasterxml.jackson.core:jackson-core:2.13.5 (*)
+|    |    |    +--- com.fasterxml.jackson.core:jackson-databind:2.13.5 (*)
+|    |    |    \--- com.fasterxml.jackson:jackson-bom:2.13.5 (*)
+|    |    +--- org.springframework.boot:spring-boot-actuator:2.7.18
+|    |    |    \--- org.springframework.boot:spring-boot:2.7.18 (*)
+|    |    +--- org.springframework.boot:spring-boot:2.7.18 (*)
+|    |    \--- org.springframework.boot:spring-boot-autoconfigure:2.7.18 (*)
+|    \--- io.micrometer:micrometer-core:1.9.17
+|         +--- org.hdrhistogram:HdrHistogram:2.1.12
+|         \--- org.latencyutils:LatencyUtils:2.0.3
++--- org.springframework.boot:spring-boot-starter-data-jdbc -> 2.7.18
+|    +--- org.springframework.boot:spring-boot-starter-jdbc:2.7.18
+|    |    +--- org.springframework.boot:spring-boot-starter:2.7.18 (*)
+|    |    +--- com.zaxxer:HikariCP:4.0.3
+|    |    |    \--- org.slf4j:slf4j-api:1.7.30 -> 1.7.36
+|    |    \--- org.springframework:spring-jdbc:5.3.31
+|    |         +--- org.springframework:spring-beans:5.3.31 (*)
+|    |         +--- org.springframework:spring-core:5.3.31 (*)
+|    |         \--- org.springframework:spring-tx:5.3.31
+|    |              +--- org.springframework:spring-beans:5.3.31 (*)
+|    |              \--- org.springframework:spring-core:5.3.31 (*)
+|    \--- org.springframework.data:spring-data-jdbc:2.4.18
+|         +--- org.springframework.data:spring-data-relational:2.4.18
+|         |    +--- org.springframework.data:spring-data-commons:2.7.18
+|         |    |    +--- org.springframework:spring-core:5.3.31 (*)
+|         |    |    +--- org.springframework:spring-beans:5.3.31 (*)
+|         |    |    \--- org.slf4j:slf4j-api:1.7.32 -> 1.7.36
+|         |    +--- org.springframework:spring-tx:5.3.31 (*)
+|         |    +--- org.springframework:spring-context:5.3.31 (*)
+|         |    +--- org.springframework:spring-beans:5.3.31 (*)
+|         |    +--- org.springframework:spring-core:5.3.31 (*)
+|         |    \--- org.slf4j:slf4j-api:1.7.32 -> 1.7.36
+|         +--- org.springframework.data:spring-data-commons:2.7.18 (*)
+|         +--- org.springframework:spring-tx:5.3.31 (*)
+|         +--- org.springframework:spring-context:5.3.31 (*)
+|         +--- org.springframework:spring-beans:5.3.31 (*)
+|         +--- org.springframework:spring-jdbc:5.3.31 (*)
+|         +--- org.springframework:spring-core:5.3.31 (*)
+|         \--- org.slf4j:slf4j-api:1.7.32 -> 1.7.36
++--- org.springframework.boot:spring-boot-starter-oauth2-resource-server -> 2.7.18
+|    +--- org.springframework.boot:spring-boot-starter:2.7.18 (*)
+|    +--- org.springframework.security:spring-security-config:5.7.11
+|    |    +--- org.springframework.security:spring-security-core:5.7.11
+|    |    |    +--- org.springframework.security:spring-security-crypto:5.7.11
+|    |    |    +--- org.springframework:spring-aop:5.3.29 -> 5.3.31 (*)
+|    |    |    +--- org.springframework:spring-beans:5.3.29 -> 5.3.31 (*)
+|    |    |    +--- org.springframework:spring-context:5.3.29 -> 5.3.31 (*)
+|    |    |    +--- org.springframework:spring-core:5.3.29 -> 5.3.31 (*)
+|    |    |    \--- org.springframework:spring-expression:5.3.29 -> 5.3.31 (*)
+|    |    +--- org.springframework:spring-aop:5.3.29 -> 5.3.31 (*)
+|    |    +--- org.springframework:spring-beans:5.3.29 -> 5.3.31 (*)
+|    |    +--- org.springframework:spring-context:5.3.29 -> 5.3.31 (*)
+|    |    \--- org.springframework:spring-core:5.3.29 -> 5.3.31 (*)
+|    +--- org.springframework.security:spring-security-core:5.7.11 (*)
+|    +--- org.springframework.security:spring-security-oauth2-resource-server:5.7.11
+|    |    +--- org.springframework.security:spring-security-core:5.7.11 (*)
+|    |    +--- org.springframework.security:spring-security-oauth2-core:5.7.11
+|    |    |    +--- org.springframework.security:spring-security-core:5.7.11 (*)
+|    |    |    +--- org.springframework:spring-core:5.3.29 -> 5.3.31 (*)
+|    |    |    \--- org.springframework:spring-web:5.3.29 -> 5.3.31
+|    |    |         +--- org.springframework:spring-beans:5.3.31 (*)
+|    |    |         \--- org.springframework:spring-core:5.3.31 (*)
+|    |    +--- org.springframework.security:spring-security-web:5.7.11
+|    |    |    +--- org.springframework.security:spring-security-core:5.7.11 (*)
+|    |    |    +--- org.springframework:spring-core:5.3.29 -> 5.3.31 (*)
+|    |    |    +--- org.springframework:spring-aop:5.3.29 -> 5.3.31 (*)
+|    |    |    +--- org.springframework:spring-beans:5.3.29 -> 5.3.31 (*)
+|    |    |    +--- org.springframework:spring-context:5.3.29 -> 5.3.31 (*)
+|    |    |    +--- org.springframework:spring-expression:5.3.29 -> 5.3.31 (*)
+|    |    |    \--- org.springframework:spring-web:5.3.29 -> 5.3.31 (*)
+|    |    \--- org.springframework:spring-core:5.3.29 -> 5.3.31 (*)
+|    \--- org.springframework.security:spring-security-oauth2-jose:5.7.11
+|         +--- org.springframework.security:spring-security-core:5.7.11 (*)
+|         +--- org.springframework.security:spring-security-oauth2-core:5.7.11 (*)
+|         +--- org.springframework:spring-core:5.3.29 -> 5.3.31 (*)
+|         \--- com.nimbusds:nimbus-jose-jwt:9.22
+|              \--- com.github.stephenc.jcip:jcip-annotations:1.0-1
++--- org.springframework.boot:spring-boot-starter-web -> 2.7.18
+|    +--- org.springframework.boot:spring-boot-starter:2.7.18 (*)
+|    +--- org.springframework.boot:spring-boot-starter-json:2.7.18
+|    |    +--- org.springframework.boot:spring-boot-starter:2.7.18 (*)
+|    |    +--- org.springframework:spring-web:5.3.31 (*)
+|    |    +--- com.fasterxml.jackson.core:jackson-databind:2.13.5 (*)
+|    |    +--- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.13.5
+|    |    |    +--- com.fasterxml.jackson.core:jackson-core:2.13.5 (*)
+|    |    |    +--- com.fasterxml.jackson.core:jackson-databind:2.13.5 (*)
+|    |    |    \--- com.fasterxml.jackson:jackson-bom:2.13.5 (*)
+|    |    +--- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.5 (*)
+|    |    \--- com.fasterxml.jackson.module:jackson-module-parameter-names:2.13.5
+|    |         +--- com.fasterxml.jackson.core:jackson-core:2.13.5 (*)
+|    |         +--- com.fasterxml.jackson.core:jackson-databind:2.13.5 (*)
+|    |         \--- com.fasterxml.jackson:jackson-bom:2.13.5 (*)
+|    +--- org.springframework.boot:spring-boot-starter-tomcat:2.7.18
+|    |    +--- jakarta.annotation:jakarta.annotation-api:1.3.5
+|    |    +--- org.apache.tomcat.embed:tomcat-embed-core:9.0.83
+|    |    +--- org.apache.tomcat.embed:tomcat-embed-el:9.0.83
+|    |    \--- org.apache.tomcat.embed:tomcat-embed-websocket:9.0.83
+|    |         \--- org.apache.tomcat.embed:tomcat-embed-core:9.0.83
+|    +--- org.springframework:spring-web:5.3.31 (*)
+|    \--- org.springframework:spring-webmvc:5.3.31
+|         +--- org.springframework:spring-aop:5.3.31 (*)
+|         +--- org.springframework:spring-beans:5.3.31 (*)
+|         +--- org.springframework:spring-context:5.3.31 (*)
+|         +--- org.springframework:spring-core:5.3.31 (*)
+|         +--- org.springframework:spring-expression:5.3.31 (*)
+|         \--- org.springframework:spring-web:5.3.31 (*)
++--- org.springframework.boot:spring-boot-starter-validation -> 2.7.18
+|    +--- org.springframework.boot:spring-boot-starter:2.7.18 (*)
+|    +--- org.apache.tomcat.embed:tomcat-embed-el:9.0.83
+|    \--- org.hibernate.validator:hibernate-validator:6.2.5.Final
+|         +--- jakarta.validation:jakarta.validation-api:2.0.2
+|         +--- org.jboss.logging:jboss-logging:3.4.1.Final -> 3.4.3.Final
+|         \--- com.fasterxml:classmate:1.5.1
++--- org.springframework.cloud:spring-cloud-starter-config -> 3.1.9
+|    +--- org.springframework.cloud:spring-cloud-starter:3.1.8
+|    |    +--- org.springframework.boot:spring-boot-starter:2.6.15 -> 2.7.18 (*)
+|    |    +--- org.springframework.cloud:spring-cloud-context:3.1.8
+|    |    |    \--- org.springframework.security:spring-security-crypto:5.6.10 -> 5.7.11
+|    |    +--- org.springframework.cloud:spring-cloud-commons:3.1.8
+|    |    |    \--- org.springframework.security:spring-security-crypto:5.6.10 -> 5.7.11
+|    |    \--- org.springframework.security:spring-security-rsa:1.0.12.RELEASE
+|    |         \--- org.bouncycastle:bcpkix-jdk18on:1.73
+|    |              +--- org.bouncycastle:bcprov-jdk18on:1.73
+|    |              \--- org.bouncycastle:bcutil-jdk18on:1.73
+|    |                   \--- org.bouncycastle:bcprov-jdk18on:1.73
+|    +--- org.springframework.cloud:spring-cloud-config-client:3.1.9
+|    |    +--- org.springframework.boot:spring-boot-autoconfigure:2.6.15 -> 2.7.18 (*)
+|    |    +--- org.springframework.cloud:spring-cloud-commons:3.1.8 (*)
+|    |    +--- org.springframework.cloud:spring-cloud-context:3.1.8 (*)
+|    |    +--- org.springframework:spring-web:5.3.27 -> 5.3.31 (*)
+|    |    +--- com.fasterxml.jackson.core:jackson-annotations:2.13.5 (*)
+|    |    +--- com.fasterxml.jackson.core:jackson-databind:2.13.5 (*)
+|    |    \--- org.apache.httpcomponents:httpclient:4.5.14
+|    |         +--- org.apache.httpcomponents:httpcore:4.4.16
+|    |         \--- commons-codec:commons-codec:1.11 -> 1.15
+|    \--- com.fasterxml.jackson.core:jackson-databind:2.13.5 (*)
++--- org.springframework.retry:spring-retry -> 1.3.1
++--- org.flywaydb:flyway-core -> 8.5.13
++--- io.micrometer:micrometer-registry-prometheus -> 1.9.17
+|    +--- io.micrometer:micrometer-core:1.9.17 (*)
+|    \--- io.prometheus:simpleclient_common:0.15.0
+|         \--- io.prometheus:simpleclient:0.15.0
+|              +--- io.prometheus:simpleclient_tracer_otel:0.15.0
+|              |    \--- io.prometheus:simpleclient_tracer_common:0.15.0
+|              \--- io.prometheus:simpleclient_tracer_otel_agent:0.15.0
+|                   \--- io.prometheus:simpleclient_tracer_common:0.15.0
++--- io.opentelemetry.javaagent:opentelemetry-javaagent:1.33.3
+\--- org.postgresql:postgresql -> 42.3.8
+     \--- org.checkerframework:checker-qual:3.5.0
+
+(c) - A dependency constraint, not a dependency. The dependency affected by the constraint occurs elsewhere in the tree.
+(*) - Indicates repeated occurrences of a transitive dependency subtree. Gradle expands transitive dependency subtrees only once per project; repeat occurrences only display the root of the subtree, followed by this annotation.
+
+A web-based, searchable dependency report is available by adding the --scan option.
+
+[Incubating] Problems report is available at: file:///work/PolarBookshop/catalog-service/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 38s
+1 actionable task: 1 executed
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\034-ThomasVitale--cloud-native-spring-in-action'...
+Updating files:  56% (2076/3648)
+Updating files:  57% (2080/3648)
+Updating files:  58% (2116/3648)
+Updating files:  59% (2153/3648)
+Updating files:  60% (2189/3648)
+Updating files:  61% (2226/3648)
+Updating files:  62% (2262/3648)
+Updating files:  63% (2299/3648)
+Updating files:  64% (2335/3648)
+Updating files:  65% (2372/3648)
+Updating files:  66% (2408/3648)
+Updating files:  67% (2445/3648)
+Updating files:  68% (2481/3648)
+Updating files:  69% (2518/3648)
+Updating files:  70% (2554/3648)
+Updating files:  71% (2591/3648)
+Updating files:  72% (2627/3648)
+Updating files:  73% (2664/3648)
+Updating files:  74% (2700/3648)
+Updating files:  75% (2736/3648)
+Updating files:  76% (2773/3648)
+Updating files:  77% (2809/3648)
+Updating files:  78% (2846/3648)
+Updating files:  79% (2882/3648)
+Updating files:  80% (2919/3648)
+Updating files:  81% (2955/3648)
+Updating files:  82% (2992/3648)
+Updating files:  83% (3028/3648)
+Updating files:  84% (3065/3648)
+Updating files:  85% (3101/3648)
+Updating files:  86% (3138/3648)
+Updating files:  87% (3174/3648)
+Updating files:  88% (3211/3648)
+Updating files:  89% (3247/3648)
+Updating files:  90% (3284/3648)
+Updating files:  91% (3320/3648)
+Updating files:  92% (3357/3648)
+Updating files:  93% (3393/3648)
+Updating files:  94% (3430/3648)
+Updating files:  95% (3466/3648)
+Updating files:  96% (3503/3648)
+Updating files:  97% (3539/3648)
+Updating files:  98% (3576/3648)
+Updating files:  99% (3612/3648)
+Updating files: 100% (3648/3648)
+Updating files: 100% (3648/3648), done.
+
+===== integration.patch =====
+--- PolarBookshop/catalog-service/build.gradle
++++ PolarBookshop/catalog-service/build.gradle
+@@ -1,4 +1,6 @@
+-plugins {
++plugins {
++    id 'io.github.bootbomguard'
++
+    id 'org.springframework.boot' version '2.7.18'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'java'
+@@ -82,3 +84,5 @@
+ tasks.named('test') {
+    useJUnitPlatform()
+ }
++
++bootBomGuard { failOnDrift.set(providers.gradleProperty("auditStrict").map { it.toBoolean() }.getOrElse(false)) }
+--- settings.gradle
++++ settings.gradle
+@@ -1 +1,4 @@
++pluginManagement {
++    includeBuild("/guard")
++}
+ rootProject.name = 'catalog-service'
+
+===== original-strict.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :guard:core:compileJava UP-TO-DATE
+> Task :guard:gradle-plugin:compileJava UP-TO-DATE
+> Task :guard:gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :guard:gradle-plugin:processResources UP-TO-DATE
+> Task :guard:gradle-plugin:classes UP-TO-DATE
+> Task :guard:gradle-plugin:jar UP-TO-DATE
+> Task :guard:core:processResources NO-SOURCE
+> Task :guard:core:classes UP-TO-DATE
+> Task :guard:core:jar UP-TO-DATE
+
+> Task :bootBomGuard
+configuration=compileClasspath
+boot-bom-guard BOM=unknown
+UNKNOWN Missing Spring Boot BOM; import a native Gradle platform.
+WARN checked=0 drift=0 unknown=1
+configuration=runtimeClasspath
+boot-bom-guard BOM=unknown
+UNKNOWN Missing Spring Boot BOM; import a native Gradle platform.
+WARN checked=0 drift=0 unknown=1
+configuration=testCompileClasspath
+boot-bom-guard BOM=unknown
+UNKNOWN Missing Spring Boot BOM; import a native Gradle platform.
+WARN checked=0 drift=0 unknown=1
+configuration=testRuntimeClasspath
+boot-bom-guard BOM=unknown
+UNKNOWN Missing Spring Boot BOM; import a native Gradle platform.
+WARN checked=0 drift=0 unknown=1
+
+> Task :bootBomGuard FAILED
+
+[Incubating] Problems report is available at: file:///work/PolarBookshop/catalog-service/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':bootBomGuard'.
+> boot-bom-guard policy failed: drift or incomplete analysis
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 14s
+7 actionable tasks: 1 executed, 6 up-to-date
+
+===== original-warning.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :guard:core:compileJava UP-TO-DATE
+> Task :guard:gradle-plugin:compileJava UP-TO-DATE
+> Task :guard:gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :guard:gradle-plugin:processResources UP-TO-DATE
+> Task :guard:gradle-plugin:classes UP-TO-DATE
+> Task :guard:gradle-plugin:jar UP-TO-DATE
+> Task :guard:core:processResources NO-SOURCE
+> Task :guard:core:classes UP-TO-DATE
+> Task :guard:core:jar UP-TO-DATE
+
+> Task :bootBomGuard
+configuration=compileClasspath
+boot-bom-guard BOM=unknown
+UNKNOWN Missing Spring Boot BOM; import a native Gradle platform.
+WARN checked=0 drift=0 unknown=1
+configuration=runtimeClasspath
+boot-bom-guard BOM=unknown
+UNKNOWN Missing Spring Boot BOM; import a native Gradle platform.
+WARN checked=0 drift=0 unknown=1
+configuration=testCompileClasspath
+boot-bom-guard BOM=unknown
+UNKNOWN Missing Spring Boot BOM; import a native Gradle platform.
+WARN checked=0 drift=0 unknown=1
+configuration=testRuntimeClasspath
+boot-bom-guard BOM=unknown
+UNKNOWN Missing Spring Boot BOM; import a native Gradle platform.
+WARN checked=0 drift=0 unknown=1
+
+[Incubating] Problems report is available at: file:///work/PolarBookshop/catalog-service/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 29s
+7 actionable tasks: 1 executed, 6 up-to-date
+
+===== sha.log =====
+fb268d7a29a74df003656d0f068c1556946328d1

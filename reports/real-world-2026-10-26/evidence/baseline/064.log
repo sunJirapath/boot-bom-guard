@@ -1,0 +1,77 @@
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -----------------< io.bookingmicroservices:apigateway >-----------------
+[INFO] Building apigateway 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ apigateway ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] -----------------< io.bookingmicroservices:apigateway >-----------------
+[INFO] Building apigateway 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Artifact com.fasterxml:oss-parent:pom:56 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact com.fasterxml:oss-parent:pom:56 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ apigateway ---
+[INFO] Wrote dependency tree to: /work/.bbg/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.640 s
+[INFO] Finished at: 2026-10-25T13:31:39Z
+[INFO] ------------------------------------------------------------------------
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\064-meysamhadeli--booking-microservices-java-spring-boot'...
+
+===== original-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -----------------< io.bookingmicroservices:apigateway >-----------------
+[INFO] Building apigateway 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ apigateway ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:3.4.0
+UNKNOWN Unsupported Spring Boot BOM 3.4.0; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.484 s
+[INFO] Finished at: 2026-10-25T13:31:48Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project apigateway: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -----------------< io.bookingmicroservices:apigateway >-----------------
+[INFO] Building apigateway 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ apigateway ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:3.4.0
+UNKNOWN Unsupported Spring Boot BOM 3.4.0; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.634 s
+[INFO] Finished at: 2026-10-25T13:31:45Z
+[INFO] ------------------------------------------------------------------------
+
+===== sha.log =====
+ea481c3ee7ebd405cd7e11d1b1a3ab9b73b5b972

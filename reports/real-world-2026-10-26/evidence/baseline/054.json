@@ -1,0 +1,341 @@
+{
+  "baseline.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-137b-54-baseline",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\054-rohitghatol--spring-boot-microservices,target=/work",
+      "-w",
+      "/work",
+      "-e",
+      "CI=true",
+      "--mount",
+      "type=volume,source=bbg-campaign-gradle-137b,target=/cache",
+      "-e",
+      "GRADLE_USER_HOME=/cache",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\guard,target=/guard",
+      "--mount",
+      "type=volume,source=bbg-campaign-toolchains-137b,target=/toolchains,readonly",
+      "gradle@sha256:21bd311ed01360c189b8870c6b6e988199ff10f72d445d02fb39d3cff9da91d7",
+      "gradle",
+      "--no-daemon",
+      "--console=plain",
+      "--max-workers=2",
+      "-Dorg.gradle.jvmargs=-Xmx1536m",
+      "-Porg.gradle.java.installations.paths=/toolchains/jdk17,/toolchains/jdk25",
+      "-p",
+      "/work/api-gateway",
+      "dependencies",
+      "--configuration",
+      "runtimeClasspath"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 1,
+    "elapsed_s": 17.14,
+    "timeout_s": 240
+  },
+  "clone.command.json": {
+    "command": [
+      "git",
+      "-c",
+      "credential.helper=",
+      "-c",
+      "core.hooksPath=NUL",
+      "-c",
+      "core.longpaths=true",
+      "clone",
+      "--depth=1",
+      "--no-tags",
+      "https://github.com/rohitghatol/spring-boot-microservices.git",
+      "E:\\tmp\\bbg-campaign-137b0026\\clones\\054-rohitghatol--spring-boot-microservices"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 0,
+    "elapsed_s": 1.64,
+    "timeout_s": 300
+  },
+  "inspection.json": {
+    "repo": "rohitghatol/spring-boot-microservices",
+    "sha": "a3c9df9350a07578df281949e6018d01ac37238e",
+    "selected_build": "api-gateway/build.gradle",
+    "wrappers": [
+      {
+        "path": "api-gateway/gradle/wrapper/gradle-wrapper.properties",
+        "distribution": [
+          "distributionUrl=https\\://services.gradle.org/distributions/gradle-2.10-bin.zip"
+        ]
+      }
+    ],
+    "declared_build_files": 8,
+    "maven_pom_files": 0,
+    "gradle_build_scripts": 8,
+    "selected_scope_project_count": 1,
+    "scope_note": "Inventory includes independent examples, BOMs, buildSrc and aggregation projects; this is not a resolved whole-repository project count.",
+    "structure": [
+      {
+        "path": "api-gateway/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "auth-server/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "comments-webservice/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "config-server/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "task-webservice/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "user-webservice/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "web-portal/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "webservice-registry/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      }
+    ]
+  },
+  "inventory.json": {
+    "id": 54,
+    "repo": "rohitghatol/spring-boot-microservices",
+    "tier_proposed": "Large",
+    "catalog_tool": "Nested build(s)",
+    "pilot": false,
+    "sha": "a3c9df9350a07578df281949e6018d01ac37238e",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\054-rohitghatol--spring-boot-microservices",
+    "build_file_count": 8,
+    "builds": [
+      {
+        "path": "api-gateway/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "auth-server/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "comments-webservice/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "config-server/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "task-webservice/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "user-webservice/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "web-portal/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "webservice-registry/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      }
+    ],
+    "extensions": [],
+    "outcome": "NOT_RUN",
+    "baseline_status": "NOT_RUN"
+  },
+  "result.json": {
+    "id": 54,
+    "repo": "rohitghatol/spring-boot-microservices",
+    "tier_proposed": "Large",
+    "catalog_tool": "Nested build(s)",
+    "pilot": false,
+    "sha": "a3c9df9350a07578df281949e6018d01ac37238e",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\054-rohitghatol--spring-boot-microservices",
+    "build_file_count": 8,
+    "builds": [
+      {
+        "path": "api-gateway/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "auth-server/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "comments-webservice/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "config-server/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "task-webservice/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "user-webservice/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "web-portal/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "webservice-registry/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      }
+    ],
+    "extensions": [],
+    "outcome": "ENV_BLOCKED",
+    "baseline_status": "FAILED_OR_INCOMPLETE",
+    "build_tool": "Gradle",
+    "build_root": "api-gateway/build.gradle",
+    "tier_measured": "UNMEASURED",
+    "scenario": "unmodified-resolution",
+    "elapsed_s": 17.14,
+    "selected_scope": "One selected consumer project; additional reactors/controlled projects are separate experiments",
+    "jdk": "declared via conventions; runtime 21",
+    "boot_version": "native BOM unknown",
+    "module_count": 1,
+    "declared_module_count": 1
+  },
+  "runs.json": [
+    {
+      "label": "baseline",
+      "exit": 1,
+      "elapsed_s": 17.14
+    }
+  ],
+  "sha.command.json": {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "E:\\tmp\\bbg-campaign-137b0026\\clones\\054-rohitghatol--spring-boot-microservices",
+    "exit": 0,
+    "elapsed_s": 0.062,
+    "timeout_s": 240
+  }
+}

@@ -1,0 +1,127 @@
+===== baseline.log =====
+[INFO] Scanning for projects...
+[ERROR] [ERROR] Some problems were encountered while processing the POMs:
+[ERROR] Non-resolvable import POM: The following artifacts could not be resolved: org.activiti:activiti-api-dependencies:pom:9.1.0-SNAPSHOT (absent): Could not find artifact org.activiti:activiti-api-dependencies:pom:9.1.0-SNAPSHOT in activiti-releases (https://artifacts.alfresco.com/nexus/content/repositories/activiti-releases) @ org.activiti:activiti-core:9.1.0-SNAPSHOT, /work/activiti-core/pom.xml, line 36, column 19
+[ERROR] Non-resolvable import POM: The following artifacts could not be resolved: org.activiti:activiti-core-common-dependencies:pom:9.1.0-SNAPSHOT (absent): Could not find artifact org.activiti:activiti-core-common-dependencies:pom:9.1.0-SNAPSHOT in activiti-releases (https://artifacts.alfresco.com/nexus/content/repositories/activiti-releases) @ org.activiti:activiti-core:9.1.0-SNAPSHOT, /work/activiti-core/pom.xml, line 43, column 19
+[ERROR] 'dependencies.dependency.version' for org.activiti:activiti-spring-identity:jar is missing. @ line 18, column 17
+[ERROR] 'dependencies.dependency.version' for org.activiti:activiti-spring-security:jar is missing. @ line 22, column 17
+[ERROR] 'dependencies.dependency.version' for org.activiti:activiti-api-process-model:jar is missing. @ line 26, column 17
+[ERROR] 'dependencies.dependency.version' for org.activiti:activiti-api-process-runtime:jar is missing. @ line 30, column 17
+[ERROR] 'dependencies.dependency.version' for org.activiti:activiti-api-model-shared:jar is missing. @ line 34, column 17
+[ERROR] 'dependencies.dependency.version' for org.activiti:activiti-api-runtime-shared:jar is missing. @ line 38, column 17
+[ERROR] 'dependencies.dependency.version' for org.activiti:activiti-core-test-local-runtime:jar is missing. @ line 165, column 17
+ @
+[ERROR] The build could not read 1 project -> [Help 1]
+[ERROR]
+[ERROR]   The project org.activiti:activiti-spring-boot-starter:9.1.0-SNAPSHOT (/work/activiti-core/activiti-spring-boot-starter/pom.xml) has 9 errors
+[ERROR]     Non-resolvable import POM: The following artifacts could not be resolved: org.activiti:activiti-api-dependencies:pom:9.1.0-SNAPSHOT (absent): Could not find artifact org.activiti:activiti-api-dependencies:pom:9.1.0-SNAPSHOT in activiti-releases (https://artifacts.alfresco.com/nexus/content/repositories/activiti-releases) @ org.activiti:activiti-core:9.1.0-SNAPSHOT, /work/activiti-core/pom.xml, line 36, column 19 -> [Help 2]
+[ERROR]     Non-resolvable import POM: The following artifacts could not be resolved: org.activiti:activiti-core-common-dependencies:pom:9.1.0-SNAPSHOT (absent): Could not find artifact org.activiti:activiti-core-common-dependencies:pom:9.1.0-SNAPSHOT in activiti-releases (https://artifacts.alfresco.com/nexus/content/repositories/activiti-releases) @ org.activiti:activiti-core:9.1.0-SNAPSHOT, /work/activiti-core/pom.xml, line 43, column 19 -> [Help 2]
+[ERROR]     'dependencies.dependency.version' for org.activiti:activiti-spring-identity:jar is missing. @ line 18, column 17
+[ERROR]     'dependencies.dependency.version' for org.activiti:activiti-spring-security:jar is missing. @ line 22, column 17
+[ERROR]     'dependencies.dependency.version' for org.activiti:activiti-api-process-model:jar is missing. @ line 26, column 17
+[ERROR]     'dependencies.dependency.version' for org.activiti:activiti-api-process-runtime:jar is missing. @ line 30, column 17
+[ERROR]     'dependencies.dependency.version' for org.activiti:activiti-api-model-shared:jar is missing. @ line 34, column 17
+[ERROR]     'dependencies.dependency.version' for org.activiti:activiti-api-runtime-shared:jar is missing. @ line 38, column 17
+[ERROR]     'dependencies.dependency.version' for org.activiti:activiti-core-test-local-runtime:jar is missing. @ line 165, column 17
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/ProjectBuildingException
+[ERROR] [Help 2] http://cwiki.apache.org/confluence/display/MAVEN/UnresolvableModelException
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\093-Activiti--Activiti'...
+Updating files:  18% (999/5363)
+Updating files:  19% (1019/5363)
+Updating files:  20% (1073/5363)
+Updating files:  21% (1127/5363)
+Updating files:  22% (1180/5363)
+Updating files:  23% (1234/5363)
+Updating files:  24% (1288/5363)
+Updating files:  25% (1341/5363)
+Updating files:  26% (1395/5363)
+Updating files:  27% (1449/5363)
+Updating files:  27% (1486/5363)
+Updating files:  28% (1502/5363)
+Updating files:  29% (1556/5363)
+Updating files:  30% (1609/5363)
+Updating files:  31% (1663/5363)
+Updating files:  32% (1717/5363)
+Updating files:  33% (1770/5363)
+Updating files:  34% (1824/5363)
+Updating files:  35% (1878/5363)
+Updating files:  36% (1931/5363)
+Updating files:  37% (1985/5363)
+Updating files:  38% (2038/5363)
+Updating files:  39% (2092/5363)
+Updating files:  40% (2146/5363)
+Updating files:  41% (2199/5363)
+Updating files:  42% (2253/5363)
+Updating files:  43% (2307/5363)
+Updating files:  44% (2360/5363)
+Updating files:  45% (2414/5363)
+Updating files:  46% (2467/5363)
+Updating files:  46% (2511/5363)
+Updating files:  47% (2521/5363)
+Updating files:  48% (2575/5363)
+Updating files:  49% (2628/5363)
+Updating files:  50% (2682/5363)
+Updating files:  51% (2736/5363)
+Updating files:  52% (2789/5363)
+Updating files:  53% (2843/5363)
+Updating files:  54% (2897/5363)
+Updating files:  55% (2950/5363)
+Updating files:  56% (3004/5363)
+Updating files:  57% (3057/5363)
+Updating files:  58% (3111/5363)
+Updating files:  59% (3165/5363)
+Updating files:  60% (3218/5363)
+Updating files:  61% (3272/5363)
+Updating files:  62% (3326/5363)
+Updating files:  63% (3379/5363)
+Updating files:  64% (3433/5363)
+Updating files:  65% (3486/5363)
+Updating files:  65% (3491/5363)
+Updating files:  66% (3540/5363)
+Updating files:  67% (3594/5363)
+Updating files:  68% (3647/5363)
+Updating files:  69% (3701/5363)
+Updating files:  70% (3755/5363)
+Updating files:  71% (3808/5363)
+Updating files:  72% (3862/5363)
+Updating files:  73% (3915/5363)
+Updating files:  74% (3969/5363)
+Updating files:  75% (4023/5363)
+Updating files:  76% (4076/5363)
+Updating files:  77% (4130/5363)
+Updating files:  78% (4184/5363)
+Updating files:  79% (4237/5363)
+Updating files:  79% (4262/5363)
+Updating files:  80% (4291/5363)
+Updating files:  81% (4345/5363)
+Updating files:  82% (4398/5363)
+Updating files:  83% (4452/5363)
+Updating files:  84% (4505/5363)
+Updating files:  85% (4559/5363)
+Updating files:  86% (4613/5363)
+Updating files:  87% (4666/5363)
+Updating files:  88% (4720/5363)
+Updating files:  89% (4774/5363)
+Updating files:  90% (4827/5363)
+Updating files:  91% (4881/5363)
+Updating files:  91% (4883/5363)
+Updating files:  92% (4934/5363)
+Updating files:  93% (4988/5363)
+Updating files:  94% (5042/5363)
+Updating files:  95% (5095/5363)
+Updating files:  96% (5149/5363)
+Updating files:  97% (5203/5363)
+Updating files:  98% (5256/5363)
+Updating files:  99% (5310/5363)
+Updating files: 100% (5363/5363)
+Updating files: 100% (5363/5363), done.
+
+===== sha.log =====
+801abc4414df028b11b52cde68f8c9ec366df9c2

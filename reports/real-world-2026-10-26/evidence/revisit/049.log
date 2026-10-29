@@ -1,0 +1,246 @@
+===== guard-repeat-offline.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+
+> Task :realworld-app:web:bootBomGuard
+configuration=compileClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.3 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.0.3]
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=compileClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+WARN checked=67 drift=2 unknown=0
+configuration=runtimeClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.3 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.0.3]
+DRIFT jakarta.xml.bind:jakarta.xml.bind-api expected=4.0.4 resolved=4.0.5 classification=UNKNOWN_ORIGIN evidence=configuration=runtimeClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=runtimeClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+WARN checked=72 drift=3 unknown=0
+configuration=testCompileClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.3 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.0.3]
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=testCompileClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+WARN checked=96 drift=2 unknown=0
+configuration=testRuntimeClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.3 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.0.3]
+DRIFT jakarta.xml.bind:jakarta.xml.bind-api expected=4.0.4 resolved=4.0.5 classification=UNKNOWN_ORIGIN evidence=configuration=testRuntimeClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=testRuntimeClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+WARN checked=100 drift=3 unknown=0
+
+[Incubating] Problems report is available at: file:///work/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 14s
+4 actionable tasks: 1 executed, 3 up-to-date
+
+===== guard-strict.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+
+> Task :realworld-app:web:bootBomGuard
+configuration=compileClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.3 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.0.3]
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=compileClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+WARN checked=67 drift=2 unknown=0
+configuration=runtimeClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.3 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.0.3]
+DRIFT jakarta.xml.bind:jakarta.xml.bind-api expected=4.0.4 resolved=4.0.5 classification=UNKNOWN_ORIGIN evidence=configuration=runtimeClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=runtimeClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+WARN checked=72 drift=3 unknown=0
+configuration=testCompileClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.3 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.0.3]
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=testCompileClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+WARN checked=96 drift=2 unknown=0
+configuration=testRuntimeClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.3 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.0.3]
+DRIFT jakarta.xml.bind:jakarta.xml.bind-api expected=4.0.4 resolved=4.0.5 classification=UNKNOWN_ORIGIN evidence=configuration=testRuntimeClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=testRuntimeClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+WARN checked=100 drift=3 unknown=0
+
+> Task :realworld-app:web:bootBomGuard FAILED
+
+[Incubating] Problems report is available at: file:///work/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':realworld-app:web:bootBomGuard'.
+> boot-bom-guard policy failed: drift or incomplete analysis
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+4 actionable tasks: 1 executed, 3 up-to-date
+
+BUILD FAILED in 12s
+
+===== guard-warning.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+
+> Task :realworld-app:web:bootBomGuard
+configuration=compileClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.3 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.0.3]
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=compileClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+WARN checked=67 drift=2 unknown=0
+configuration=runtimeClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.3 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.0.3]
+DRIFT jakarta.xml.bind:jakarta.xml.bind-api expected=4.0.4 resolved=4.0.5 classification=UNKNOWN_ORIGIN evidence=configuration=runtimeClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=runtimeClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+WARN checked=72 drift=3 unknown=0
+configuration=testCompileClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.3 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.0.3]
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=testCompileClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+WARN checked=96 drift=2 unknown=0
+configuration=testRuntimeClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.3 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.0.3]
+DRIFT jakarta.xml.bind:jakarta.xml.bind-api expected=4.0.4 resolved=4.0.5 classification=UNKNOWN_ORIGIN evidence=configuration=testRuntimeClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.2.21 resolved=2.3.10 classification=UNKNOWN_ORIGIN evidence=configuration=testRuntimeClasspath; rootRequest=true; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=true; conflict=false; constraint origin unknown
+WARN checked=100 drift=3 unknown=0
+
+[Incubating] Problems report is available at: file:///work/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 11s
+4 actionable tasks: 1 executed, 3 up-to-date
+
+===== history/20261025-173340/wrapper-native.log =====
+Downloading https://services.gradle.org/distributions/gradle-9.3.1-bin.zip
+.............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+
+Welcome to Gradle 9.3.1!
+
+Here are the highlights of this release:
+ - Test reporting improvements
+ - Error and warning improvements
+ - Build authoring improvements
+
+For more details see https://docs.gradle.org/9.3.1/release-notes.html
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :buildSrc:pluginDescriptors
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:compileKotlin
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+
+> Task :buildSrc:jar
+:jar: No valid plugin descriptors were found in META-INF/gradle-plugins
+
+> Task :bbgRevisitNative FAILED
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Initialization script '/out/native.init.gradle' line: 18
+
+* What went wrong:
+Execution failed for task ':bbgRevisitNative'.
+> Native artifacts incomplete; see native.json
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1m 52s
+4 actionable tasks: 4 executed
+
+===== pristine-gradle.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+
+> Task :bbgNativeOracle
+BBG_NATIVE_ORACLE_WRITTEN /out/pristine-native.json
+
+BUILD SUCCESSFUL in 9s
+1 actionable task: 1 executed
+
+===== rich-native.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+
+> Task :realworld-app:web:bbgNativeOracle
+BBG_NATIVE_ORACLE_WRITTEN /out/native-rich.json
+
+BUILD SUCCESSFUL in 13s
+4 actionable tasks: 1 executed, 3 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html
+
+===== wrapper-native.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :realworld-app:web:bbgRevisitNative
+
+BUILD SUCCESSFUL in 35s
+4 actionable tasks: 1 executed, 3 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html

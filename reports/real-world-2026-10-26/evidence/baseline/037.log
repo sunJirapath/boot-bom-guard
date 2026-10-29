@@ -1,0 +1,75 @@
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.example:spring-social >----------------------
+[INFO] Building oauth2-demo 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ spring-social ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] ---------------------< com.example:spring-social >----------------------
+[INFO] Building oauth2-demo 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ spring-social ---
+[INFO] Wrote dependency tree to: /work/.bbg/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.875 s
+[INFO] Finished at: 2026-10-25T13:28:13Z
+[INFO] ------------------------------------------------------------------------
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\037-callicoder--spring-boot-react-oauth2-social-login-demo'...
+
+===== original-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.example:spring-social >----------------------
+[INFO] Building oauth2-demo 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-social ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:2.5.5
+UNKNOWN Unsupported Spring Boot BOM 2.5.5; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.892 s
+[INFO] Finished at: 2026-10-25T13:28:27Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project spring-social: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.example:spring-social >----------------------
+[INFO] Building oauth2-demo 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-social ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:2.5.5
+UNKNOWN Unsupported Spring Boot BOM 2.5.5; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.731 s
+[INFO] Finished at: 2026-10-25T13:28:18Z
+[INFO] ------------------------------------------------------------------------
+
+===== sha.log =====
+1b77669e0ca326b1c556a83dc0c3bae233653788

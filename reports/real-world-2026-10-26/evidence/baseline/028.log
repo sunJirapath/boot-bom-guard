@@ -1,0 +1,436 @@
+===== allowed-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ spring-petclinic-data-jdbc ---
+[INFO] Wrote dependency tree to: /work/.bbg/allowed-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.409 s
+[INFO] Finished at: 2026-10-25T16:13:14Z
+[INFO] ------------------------------------------------------------------------
+
+===== allowed-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-petclinic-data-jdbc ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.1
+ALLOWED org.slf4j:slf4j-api expected=2.0.17 resolved=2.0.18 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct reason=Campaign intentional exception
+PASS checked=123 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.137 s
+[INFO] Finished at: 2026-10-25T16:13:22Z
+[INFO] ------------------------------------------------------------------------
+
+===== allowed-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-petclinic-data-jdbc ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.1
+ALLOWED org.slf4j:slf4j-api expected=2.0.17 resolved=2.0.18 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct reason=Campaign intentional exception
+PASS checked=123 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.686 s
+[INFO] Finished at: 2026-10-25T16:13:19Z
+[INFO] ------------------------------------------------------------------------
+
+===== allowed.patch =====
+--- pom.xml
++++ pom.xml
+@@ -309,4 +309,8 @@
+         </pluginRepository>
+
+     </pluginRepositories>
+
+
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.18</version></dependency></dependencies><build><plugins><plugin><groupId>io.github.bootbomguard</groupId><artifactId>boot-bom-guard-maven-plugin</artifactId><version>0.1.0-SNAPSHOT</version><configuration><exceptions><exception><dependency>org.slf4j:slf4j-api</dependency><reason>Campaign intentional exception</reason></exception></exceptions></configuration></plugin></plugins></build></profile>
++</profiles>
+ </project>
+
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ spring-petclinic-data-jdbc ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ spring-petclinic-data-jdbc ---
+[INFO] Wrote dependency tree to: /work/.bbg/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  28.163 s
+[INFO] Finished at: 2026-10-25T13:28:15Z
+[INFO] ------------------------------------------------------------------------
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\028-spring-petclinic--spring-petclinic-data-jdbc'...
+
+===== determinism.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-petclinic-data-jdbc ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.1
+PASS checked=123 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.453 s
+[INFO] Finished at: 2026-10-25T16:13:39Z
+[INFO] ------------------------------------------------------------------------
+
+===== direct-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ spring-petclinic-data-jdbc ---
+[INFO] Wrote dependency tree to: /work/.bbg/direct-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.177 s
+[INFO] Finished at: 2026-10-25T16:12:47Z
+[INFO] ------------------------------------------------------------------------
+
+===== direct-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-petclinic-data-jdbc ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.1
+DRIFT org.slf4j:slf4j-api expected=2.0.17 resolved=2.0.18 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+WARN checked=123 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.297 s
+[INFO] Finished at: 2026-10-25T16:12:55Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project spring-petclinic-data-jdbc: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== direct-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-petclinic-data-jdbc ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.1
+DRIFT org.slf4j:slf4j-api expected=2.0.17 resolved=2.0.18 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+WARN checked=123 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.467 s
+[INFO] Finished at: 2026-10-25T16:12:51Z
+[INFO] ------------------------------------------------------------------------
+
+===== direct.patch =====
+--- pom.xml
++++ pom.xml
+@@ -309,4 +309,8 @@
+         </pluginRepository>
+
+     </pluginRepositories>
+
+
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.18</version></dependency></dependencies></profile>
++</profiles>
+ </project>
+
+===== incomplete-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.425 s
+[INFO] Finished at: 2026-10-25T16:13:26Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project spring-petclinic-data-jdbc: Could not resolve dependencies for project org.springframework.samples:spring-petclinic-data-jdbc:jar:3.0.0.BUILD-SNAPSHOT
+[ERROR] dependency: guard.audit:deliberately-missing:jar:1 (compile)
+[ERROR] 	Cannot access spring-snapshots (https://repo.spring.io/snapshot) in offline mode and the artifact guard.audit:deliberately-missing:jar:1 has not been downloaded from it before.
+[ERROR] 	Cannot access spring-milestones (https://repo.spring.io/milestone) in offline mode and the artifact guard.audit:deliberately-missing:jar:1 has not been downloaded from it before.
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact guard.audit:deliberately-missing:jar:1 has not been downloaded from it before.
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+
+===== incomplete-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-petclinic-data-jdbc ---
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.1
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.668 s
+[INFO] Finished at: 2026-10-25T16:13:34Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project spring-petclinic-data-jdbc: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== incomplete-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-petclinic-data-jdbc ---
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.1
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.398 s
+[INFO] Finished at: 2026-10-25T16:13:31Z
+[INFO] ------------------------------------------------------------------------
+
+===== incomplete.patch =====
+--- pom.xml
++++ pom.xml
+@@ -309,4 +309,8 @@
+         </pluginRepository>
+
+     </pluginRepositories>
+
+
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>guard.audit</groupId><artifactId>deliberately-missing</artifactId><version>1</version></dependency></dependencies></profile>
++</profiles>
+ </project>
+
+===== managed-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ spring-petclinic-data-jdbc ---
+[INFO] Wrote dependency tree to: /work/.bbg/managed-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.173 s
+[INFO] Finished at: 2026-10-25T16:13:00Z
+[INFO] ------------------------------------------------------------------------
+
+===== managed-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-petclinic-data-jdbc ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.1
+DRIFT org.slf4j:slf4j-api expected=2.0.17 resolved=2.0.18 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.18; declaration source unknown; path=transitive
+WARN checked=123 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.413 s
+[INFO] Finished at: 2026-10-25T16:13:09Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project spring-petclinic-data-jdbc: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== managed-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-petclinic-data-jdbc ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.1
+DRIFT org.slf4j:slf4j-api expected=2.0.17 resolved=2.0.18 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.18; declaration source unknown; path=transitive
+WARN checked=123 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.571 s
+[INFO] Finished at: 2026-10-25T16:13:04Z
+[INFO] ------------------------------------------------------------------------
+
+===== managed.patch =====
+--- pom.xml
++++ pom.xml
+@@ -309,4 +309,8 @@
+         </pluginRepository>
+
+     </pluginRepositories>
+
+
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencyManagement><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.18</version></dependency></dependencies></dependencyManagement></profile>
++</profiles>
+ </project>
+
+===== offline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-petclinic-data-jdbc ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.1
+PASS checked=123 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.578 s
+[INFO] Finished at: 2026-10-25T16:13:43Z
+[INFO] ------------------------------------------------------------------------
+
+===== original-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-petclinic-data-jdbc ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.1
+PASS checked=123 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.767 s
+[INFO] Finished at: 2026-10-25T13:28:44Z
+[INFO] ------------------------------------------------------------------------
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< org.springframework.samples:spring-petclinic-data-jdbc >-------
+[INFO] Building petclinic 3.0.0.BUILD-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-petclinic-data-jdbc ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.1
+PASS checked=123 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  14.481 s
+[INFO] Finished at: 2026-10-25T13:28:36Z
+[INFO] ------------------------------------------------------------------------
+
+===== pristine-bom.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------< org.springframework.boot:spring-boot-dependencies >----------
+[INFO] Building spring-boot-dependencies 4.0.1
+[INFO]   from spring-boot-dependencies-4.0.1.pom
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ spring-boot-dependencies ---
+[INFO] Effective-POM written to: /work/.bbg/pristine.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.413 s
+[INFO] Finished at: 2026-10-25T13:37:41Z
+[INFO] ------------------------------------------------------------------------
+
+===== sha.log =====
+d601d3a8fa481e67676f67beda790e0d6bda701d

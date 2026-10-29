@@ -1,0 +1,107 @@
+===== baseline.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon JVM discovery is an incubating feature.
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Unable to download toolchain matching the requirements ({languageVersion=17, vendor=Azul Zulu, implementation=vendor-specific, nativeImageCapable=false}) from 'null', due to: No defined toolchain download url for LINUX on x86_64 architecture.
+
+* Try:
+> Learn more about toolchain auto-detection and auto-provisioning at https://docs.gradle.org/8.14.3/userguide/toolchains.html#sec:auto_detection.
+> Learn more about toolchain repositories at https://docs.gradle.org/8.14.3/userguide/toolchains.html#sub:download_repositories.
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\092-Netflix--genie'...
+Updating files:  23% (380/1605)
+Updating files:  24% (386/1605)
+Updating files:  25% (402/1605)
+Updating files:  26% (418/1605)
+Updating files:  27% (434/1605)
+Updating files:  28% (450/1605)
+Updating files:  29% (466/1605)
+Updating files:  30% (482/1605)
+Updating files:  31% (498/1605)
+Updating files:  32% (514/1605)
+Updating files:  33% (530/1605)
+Updating files:  34% (546/1605)
+Updating files:  35% (562/1605)
+Updating files:  36% (578/1605)
+Updating files:  37% (594/1605)
+Updating files:  38% (610/1605)
+Updating files:  38% (611/1605)
+Updating files:  39% (626/1605)
+Updating files:  40% (642/1605)
+Updating files:  41% (659/1605)
+Updating files:  42% (675/1605)
+Updating files:  43% (691/1605)
+Updating files:  44% (707/1605)
+Updating files:  45% (723/1605)
+Updating files:  46% (739/1605)
+Updating files:  47% (755/1605)
+Updating files:  48% (771/1605)
+Updating files:  49% (787/1605)
+Updating files:  50% (803/1605)
+Updating files:  51% (819/1605)
+Updating files:  52% (835/1605)
+Updating files:  53% (851/1605)
+Updating files:  54% (867/1605)
+Updating files:  54% (879/1605)
+Updating files:  55% (883/1605)
+Updating files:  56% (899/1605)
+Updating files:  57% (915/1605)
+Updating files:  58% (931/1605)
+Updating files:  59% (947/1605)
+Updating files:  60% (963/1605)
+Updating files:  61% (980/1605)
+Updating files:  62% (996/1605)
+Updating files:  63% (1012/1605)
+Updating files:  64% (1028/1605)
+Updating files:  65% (1044/1605)
+Updating files:  66% (1060/1605)
+Updating files:  67% (1076/1605)
+Updating files:  68% (1092/1605)
+Updating files:  68% (1104/1605)
+Updating files:  69% (1108/1605)
+Updating files:  70% (1124/1605)
+Updating files:  71% (1140/1605)
+Updating files:  72% (1156/1605)
+Updating files:  73% (1172/1605)
+Updating files:  74% (1188/1605)
+Updating files:  75% (1204/1605)
+Updating files:  76% (1220/1605)
+Updating files:  77% (1236/1605)
+Updating files:  78% (1252/1605)
+Updating files:  79% (1268/1605)
+Updating files:  80% (1284/1605)
+Updating files:  81% (1301/1605)
+Updating files:  82% (1317/1605)
+Updating files:  82% (1318/1605)
+Updating files:  83% (1333/1605)
+Updating files:  84% (1349/1605)
+Updating files:  85% (1365/1605)
+Updating files:  86% (1381/1605)
+Updating files:  87% (1397/1605)
+Updating files:  88% (1413/1605)
+Updating files:  89% (1429/1605)
+Updating files:  89% (1440/1605)
+Updating files:  90% (1445/1605)
+Updating files:  91% (1461/1605)
+Updating files:  92% (1477/1605)
+Updating files:  93% (1493/1605)
+Updating files:  94% (1509/1605)
+Updating files:  95% (1525/1605)
+Updating files:  96% (1541/1605)
+Updating files:  97% (1557/1605)
+Updating files:  97% (1570/1605)
+Updating files:  98% (1573/1605)
+Updating files:  99% (1589/1605)
+Updating files: 100% (1605/1605)
+Updating files: 100% (1605/1605), done.
+
+===== sha.log =====
+a7125b178dbb70020b6e3495961a18e55ffd11d5

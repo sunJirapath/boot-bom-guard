@@ -1,0 +1,672 @@
+{
+  "baseline.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-137b-92-baseline",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\092-Netflix--genie,target=/work",
+      "-w",
+      "/work",
+      "-e",
+      "CI=true",
+      "--mount",
+      "type=volume,source=bbg-campaign-gradle-137b,target=/cache",
+      "-e",
+      "GRADLE_USER_HOME=/cache",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\guard,target=/guard",
+      "gradle@sha256:21bd311ed01360c189b8870c6b6e988199ff10f72d445d02fb39d3cff9da91d7",
+      "gradle",
+      "--no-daemon",
+      "--console=plain",
+      "--max-workers=2",
+      "-Dorg.gradle.jvmargs=-Xmx1536m",
+      "-p",
+      "/work/.",
+      "dependencies",
+      "--configuration",
+      "runtimeClasspath"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 1,
+    "elapsed_s": 4.375,
+    "timeout_s": 240
+  },
+  "clone.command.json": {
+    "command": [
+      "git",
+      "-c",
+      "credential.helper=",
+      "-c",
+      "core.hooksPath=NUL",
+      "clone",
+      "--depth=1",
+      "--no-tags",
+      "https://github.com/Netflix/genie.git",
+      "E:\\tmp\\bbg-campaign-137b0026\\clones\\092-Netflix--genie"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 0,
+    "elapsed_s": 10.39,
+    "timeout_s": 300
+  },
+  "inspection.json": {
+    "repo": "Netflix/genie",
+    "sha": "a7125b178dbb70020b6e3495961a18e55ffd11d5",
+    "selected_build": "build.gradle",
+    "wrappers": [
+      {
+        "path": "gradle/wrapper/gradle-wrapper.properties",
+        "distribution": [
+          "distributionUrl=https\\://services.gradle.org/distributions/gradle-8.12.1-bin.zip"
+        ]
+      }
+    ],
+    "declared_build_files": 17,
+    "maven_pom_files": 0,
+    "gradle_build_scripts": 16,
+    "selected_scope_project_count": 1,
+    "scope_note": "Inventory includes independent examples, BOMs, buildSrc and aggregation projects; this is not a resolved whole-repository project count.",
+    "structure": [
+      {
+        "path": "build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "${spring_boot_3_version}",
+            ""
+          ],
+          [
+            "",
+            "${spring_boot_3_version}"
+          ],
+          [
+            "",
+            "${spring_boot_2_version}"
+          ]
+        ],
+        "jdk": [
+          "1",
+          "1",
+          "8"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "genie-agent-app/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-agent/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-app/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-client/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-common-external/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-common-internal/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-common/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-demo/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-docs/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-proto/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-swagger/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-test-web/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-test/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-ui/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-web/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      }
+    ]
+  },
+  "inventory.json": {
+    "id": 92,
+    "repo": "Netflix/genie",
+    "tier_proposed": "Huge",
+    "catalog_tool": "Gradle Groovy",
+    "pilot": true,
+    "sha": "a7125b178dbb70020b6e3495961a18e55ffd11d5",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\092-Netflix--genie",
+    "build_file_count": 17,
+    "builds": [
+      {
+        "path": "build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "${spring_boot_3_version}",
+            ""
+          ],
+          [
+            "",
+            "${spring_boot_3_version}"
+          ],
+          [
+            "",
+            "${spring_boot_2_version}"
+          ]
+        ],
+        "jdk": [
+          "1",
+          "1",
+          "8"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "genie-agent-app/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-agent/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-app/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-client/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-common-external/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-common-internal/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-common/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-demo/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-docs/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-proto/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-swagger/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-test-web/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-test/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-ui/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-web/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      }
+    ],
+    "extensions": [],
+    "outcome": "NOT_RUN",
+    "baseline_status": "NOT_RUN"
+  },
+  "result.json": {
+    "id": 92,
+    "repo": "Netflix/genie",
+    "tier_proposed": "Huge",
+    "catalog_tool": "Gradle Groovy",
+    "pilot": true,
+    "sha": "a7125b178dbb70020b6e3495961a18e55ffd11d5",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\092-Netflix--genie",
+    "build_file_count": 17,
+    "builds": [
+      {
+        "path": "build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "${spring_boot_3_version}",
+            ""
+          ],
+          [
+            "",
+            "${spring_boot_3_version}"
+          ],
+          [
+            "",
+            "${spring_boot_2_version}"
+          ]
+        ],
+        "jdk": [
+          "1",
+          "1",
+          "8"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "genie-agent-app/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-agent/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-app/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-client/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-common-external/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-common-internal/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-common/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-demo/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-docs/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-proto/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-swagger/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-test-web/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-test/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-ui/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "genie-web/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [
+          "17",
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      }
+    ],
+    "extensions": [],
+    "outcome": "ENV_BLOCKED",
+    "baseline_status": "FAILED_OR_INCOMPLETE",
+    "build_tool": "Gradle",
+    "build_root": "build.gradle",
+    "tier_measured": "UNMEASURED",
+    "scenario": "unmodified-resolution",
+    "elapsed_s": 4.375,
+    "selected_scope": "One selected consumer project; additional reactors/controlled projects are separate experiments",
+    "jdk": "1,1,8",
+    "boot_version": "native BOM unknown (declared ${spring_boot_3_version},${spring_boot_3_version},${spring_boot_2_version})",
+    "module_count": 1,
+    "declared_module_count": 1
+  },
+  "runs.json": [
+    {
+      "label": "baseline",
+      "exit": 1,
+      "elapsed_s": 4.375
+    }
+  ],
+  "sha.command.json": {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "E:\\tmp\\bbg-campaign-137b0026\\clones\\092-Netflix--genie",
+    "exit": 0,
+    "elapsed_s": 0.063,
+    "timeout_s": 240
+  }
+}

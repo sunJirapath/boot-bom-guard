@@ -1,0 +1,66 @@
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< com.github.wxiaoqi:ace-admin >--------------------
+[INFO] Building ace-admin 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ ace-admin ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] --------------------< com.github.wxiaoqi:ace-admin >--------------------
+[INFO] Building ace-admin 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for com.github.wxiaoqi:ace-common:jar:2.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for com.github.wxiaoqi:ace-api:jar:2.0-SNAPSHOT is missing, no dependency information available
+[WARNING] 2 problems were encountered while building the effective model for com.alibaba:druid:jar:1.1.10 during dependency collection step for project (use -X to see details)
+[WARNING] 1 problem was encountered while building the effective model for org.javassist:javassist:jar:3.21.0-GA during dependency collection step for project (use -X to see details)
+[WARNING] Could not transfer metadata com.google.guava:guava/maven-metadata.xml from/to spring-milestones (https://repo.spring.io/libs-milestone): status code: 401, reason phrase:  (401)
+
+CAMPAIGN_TIMEOUT
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\090-wxiaoqi--Spring-Cloud-Platform'...
+Updating files:  64% (267/415)
+Updating files:  65% (270/415)
+Updating files:  66% (274/415)
+Updating files:  67% (279/415)
+Updating files:  68% (283/415)
+Updating files:  69% (287/415)
+Updating files:  70% (291/415)
+Updating files:  71% (295/415)
+Updating files:  72% (299/415)
+Updating files:  73% (303/415)
+Updating files:  74% (308/415)
+Updating files:  75% (312/415)
+Updating files:  76% (316/415)
+Updating files:  77% (320/415)
+Updating files:  78% (324/415)
+Updating files:  79% (328/415)
+Updating files:  80% (332/415)
+Updating files:  81% (337/415)
+Updating files:  82% (341/415)
+Updating files:  83% (345/415)
+Updating files:  84% (349/415)
+Updating files:  85% (353/415)
+Updating files:  86% (357/415)
+Updating files:  87% (362/415)
+Updating files:  88% (366/415)
+Updating files:  89% (370/415)
+Updating files:  90% (374/415)
+Updating files:  91% (378/415)
+Updating files:  92% (382/415)
+Updating files:  93% (386/415)
+Updating files:  94% (391/415)
+Updating files:  95% (395/415)
+Updating files:  96% (399/415)
+Updating files:  97% (403/415)
+Updating files:  98% (407/415)
+Updating files:  99% (411/415)
+Updating files: 100% (415/415)
+Updating files: 100% (415/415), done.
+
+===== sha.log =====
+349ad0d6a54670698f0c2a08b17aa4db426f8109

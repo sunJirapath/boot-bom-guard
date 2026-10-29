@@ -1,0 +1,727 @@
+===== allowed.patch =====
+--- order-service/pom.xml
++++ order-service/pom.xml
+@@ -135,6 +135,8 @@
+                 </plugins>
+
+             </build>
+
+         </profile>
+
+-    </profiles>
+
++
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.19</version></dependency></dependencies><build><plugins><plugin><groupId>io.github.bootbomguard</groupId><artifactId>boot-bom-guard-maven-plugin</artifactId><version>0.1.0-SNAPSHOT</version><configuration><exceptions><exception><dependency>org.slf4j:slf4j-api</dependency><reason>Campaign intentional exception</reason></exception></exceptions></configuration></plugin></plugins></build></profile>
++</profiles>
+
+
+
+ </project>
+
+===== artifacts-online.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:resolve (default-cli) @ order-service ---
+[INFO] Can't extract module name from kafka_2.13-4.2.1.jar: kafka.2.13: Invalid module name: '2' is not a Java identifier
+[INFO] Can't extract module name from scala-logging_2.13-3.9.6.jar: scala.logging.2.13: Invalid module name: '2' is not a Java identifier
+[INFO]
+[INFO] The following files have been resolved:
+[INFO]    org.springframework.boot:spring-boot-starter-web:jar:4.1.1:compile -- module spring.boot.starter.web [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-jackson:jar:4.1.1:compile -- module spring.boot.starter.jackson [auto]
+[INFO]    org.springframework.boot:spring-boot-jackson:jar:4.1.1:compile -- module spring.boot.jackson [auto]
+[INFO]    tools.jackson.core:jackson-databind:jar:3.1.5:compile -- module tools.jackson.databind
+[INFO]    tools.jackson.core:jackson-core:jar:3.1.5:compile -- module tools.jackson.core
+[INFO]    org.springframework.boot:spring-boot-starter-tomcat:jar:4.1.1:compile -- module spring.boot.starter.tomcat [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-tomcat-runtime:jar:4.1.1:compile -- module spring.boot.starter.tomcat.runtime [auto]
+[INFO]    org.apache.tomcat.embed:tomcat-embed-core:jar:11.0.24:compile -- module org.apache.tomcat.embed.core
+[INFO]    org.apache.tomcat.embed:tomcat-embed-el:jar:11.0.24:compile -- module org.apache.tomcat.embed.el
+[INFO]    org.apache.tomcat.embed:tomcat-embed-websocket:jar:11.0.24:compile -- module org.apache.tomcat.embed.websocket
+[INFO]    org.springframework.boot:spring-boot-tomcat:jar:4.1.1:compile -- module spring.boot.tomcat [auto]
+[INFO]    org.springframework.boot:spring-boot-http-converter:jar:4.1.1:compile -- module spring.boot.http.converter [auto]
+[INFO]    org.springframework.boot:spring-boot-webmvc:jar:4.1.1:compile -- module spring.boot.webmvc [auto]
+[INFO]    org.springframework.boot:spring-boot-servlet:jar:4.1.1:compile -- module spring.boot.servlet [auto]
+[INFO]    org.springframework:spring-webmvc:jar:7.0.9:compile -- module spring.webmvc [auto]
+[INFO]    org.springframework:spring-aop:jar:7.0.9:compile -- module spring.aop [auto]
+[INFO]    org.springframework:spring-expression:jar:7.0.9:compile -- module spring.expression [auto]
+[INFO]    org.springdoc:springdoc-openapi-starter-webmvc-ui:jar:3.1.1:compile -- module org.springdoc.openapi.ui [auto]
+[INFO]    org.springdoc:springdoc-openapi-starter-webmvc-api:jar:3.1.1:compile -- module org.springdoc.openapi.webmvc.core [auto]
+[INFO]    org.springdoc:springdoc-openapi-starter-common:jar:3.1.1:compile -- module org.springdoc.openapi.common [auto]
+[INFO]    org.springframework.boot:spring-boot-validation:jar:4.1.1:compile -- module spring.boot.validation [auto]
+[INFO]    org.hibernate.validator:hibernate-validator:jar:9.1.3.Final:compile -- module org.hibernate.validator
+[INFO]    org.jboss.logging:jboss-logging:jar:3.6.3.Final:compile -- module org.jboss.logging
+[INFO]    com.fasterxml:classmate:jar:1.7.3:compile -- module com.fasterxml.classmate
+[INFO]    io.swagger.core.v3:swagger-core-jakarta:jar:2.2.55:compile -- module io.swagger.v3.core [auto]
+[INFO]    io.swagger.core.v3:swagger-annotations-jakarta:jar:2.2.55:compile -- module io.swagger.v3.oas.annotations [auto]
+[INFO]    io.swagger.core.v3:swagger-models-jakarta:jar:2.2.55:compile -- module io.swagger.v3.oas.models [auto]
+[INFO]    jakarta.validation:jakarta.validation-api:jar:3.1.1:compile -- module jakarta.validation
+[INFO]    com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.21.5:compile -- module com.fasterxml.jackson.datatype.jsr310
+[INFO]    org.springframework.boot:spring-boot-web-server:jar:4.1.1:compile -- module spring.boot.web.server [auto]
+[INFO]    org.webjars:swagger-ui:jar:5.32.14:compile -- module swagger.ui (auto)
+[INFO]    org.webjars:webjars-locator-lite:jar:1.1.4:compile -- module org.webjars.locator_lite [auto]
+[INFO]    org.jspecify:jspecify:jar:1.0.1:compile -- module org.jspecify
+[INFO]    org.springframework.boot:spring-boot-starter-kafka:jar:4.1.1:compile -- module spring.boot.starter.kafka [auto]
+[INFO]    org.springframework.boot:spring-boot-starter:jar:4.1.1:compile -- module spring.boot.starter [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-logging:jar:4.1.1:compile -- module spring.boot.starter.logging [auto]
+[INFO]    ch.qos.logback:logback-classic:jar:1.5.38:compile -- module ch.qos.logback.classic
+[INFO]    ch.qos.logback:logback-core:jar:1.5.38:compile -- module ch.qos.logback.core
+[INFO]    org.apache.logging.log4j:log4j-to-slf4j:jar:2.25.5:compile -- module org.apache.logging.log4j.to.slf4j
+[INFO]    org.slf4j:jul-to-slf4j:jar:2.0.18:compile -- module jul.to.slf4j
+[INFO]    jakarta.annotation:jakarta.annotation-api:jar:3.0.0:compile -- module jakarta.annotation
+[INFO]    org.yaml:snakeyaml:jar:2.6:compile -- module org.yaml.snakeyaml
+[INFO]    org.springframework.boot:spring-boot-kafka:jar:4.1.1:compile -- module spring.boot.kafka [auto]
+[INFO]    org.springframework.boot:spring-boot-transaction:jar:4.1.1:compile -- module spring.boot.transaction [auto]
+[INFO]    org.springframework.boot:spring-boot-persistence:jar:4.1.1:compile -- module spring.boot.persistence [auto]
+[INFO]    org.springframework:spring-tx:jar:7.0.9:compile -- module spring.tx [auto]
+[INFO]    org.springframework.kafka:spring-kafka:jar:4.1.1:compile -- module spring.kafka [auto]
+[INFO]    org.springframework:spring-messaging:jar:7.0.9:compile -- module spring.messaging [auto]
+[INFO]    org.apache.kafka:kafka-streams:jar:4.2.1:compile -- module kafka.streams (auto)
+[INFO]    org.apache.kafka:kafka-clients:jar:4.2.1:compile -- module kafka.clients (auto)
+[INFO]    com.github.luben:zstd-jni:jar:1.5.6-10:runtime -- module com.github.luben.zstd_jni
+[INFO]    at.yawk.lz4:lz4-java:jar:1.10.1:runtime -- module org.lz4.java [auto]
+[INFO]    org.xerial.snappy:snappy-java:jar:1.1.10.7:runtime -- module snappy.java (auto)
+[INFO]    org.rocksdb:rocksdbjni:jar:10.1.3:compile -- module rocksdbjni (auto)
+[INFO]    com.fasterxml.jackson.core:jackson-annotations:jar:2.21:compile -- module com.fasterxml.jackson.annotation
+[INFO]    org.slf4j:slf4j-api:jar:2.0.18:compile -- module org.slf4j
+[INFO]    com.fasterxml.jackson.core:jackson-databind:jar:2.21.5:compile -- module com.fasterxml.jackson.databind
+[INFO]    com.fasterxml.jackson.core:jackson-core:jar:2.21.5:compile -- module com.fasterxml.jackson.core
+[INFO]    pl.piomin:base-domain:jar:1.0-SNAPSHOT:compile -- module base.domain (auto)
+[INFO]    org.springframework.boot:spring-boot-starter-test:jar:4.1.1:test -- module spring.boot.starter.test [auto]
+[INFO]    org.springframework.boot:spring-boot-test:jar:4.1.1:test -- module spring.boot.test [auto]
+[INFO]    org.springframework.boot:spring-boot-test-autoconfigure:jar:4.1.1:test -- module spring.boot.test.autoconfigure [auto]
+[INFO]    com.jayway.jsonpath:json-path:jar:2.10.0:test -- module json.path [auto]
+[INFO]    jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.5:compile -- module jakarta.xml.bind
+[INFO]    jakarta.activation:jakarta.activation-api:jar:2.1.4:compile -- module jakarta.activation
+[INFO]    net.minidev:json-smart:jar:2.6.0:test -- module json.smart (auto)
+[INFO]    net.minidev:accessors-smart:jar:2.6.0:test -- module accessors.smart (auto)
+[INFO]    org.ow2.asm:asm:jar:9.7.1:test -- module org.objectweb.asm
+[INFO]    org.assertj:assertj-core:jar:3.27.7:test -- module org.assertj.core
+[INFO]    net.bytebuddy:byte-buddy:jar:1.18.11:test -- module net.bytebuddy
+[INFO]    org.awaitility:awaitility:jar:4.3.0:test -- module awaitility (auto)
+[INFO]    org.hamcrest:hamcrest:jar:3.0:test -- module org.hamcrest [auto]
+[INFO]    org.junit.jupiter:junit-jupiter:jar:6.0.3:test -- module org.junit.jupiter
+[INFO]    org.junit.jupiter:junit-jupiter-api:jar:6.0.3:test -- module org.junit.jupiter.api
+[INFO]    org.opentest4j:opentest4j:jar:1.3.0:test -- module org.opentest4j
+[INFO]    org.junit.platform:junit-platform-commons:jar:6.0.3:test -- module org.junit.platform.commons
+[INFO]    org.apiguardian:apiguardian-api:jar:1.1.2:test -- module org.apiguardian.api
+[INFO]    org.junit.jupiter:junit-jupiter-params:jar:6.0.3:test -- module org.junit.jupiter.params
+[INFO]    org.junit.jupiter:junit-jupiter-engine:jar:6.0.3:test -- module org.junit.jupiter.engine
+[INFO]    org.junit.platform:junit-platform-engine:jar:6.0.3:test -- module org.junit.platform.engine
+[INFO]    org.mockito:mockito-core:jar:5.23.0:test -- module org.mockito
+[INFO]    net.bytebuddy:byte-buddy-agent:jar:1.18.11:test -- module net.bytebuddy.agent
+[INFO]    org.objenesis:objenesis:jar:3.3:test -- module org.objenesis [auto]
+[INFO]    org.mockito:mockito-junit-jupiter:jar:5.23.0:test -- module org.mockito.junit.jupiter
+[INFO]    org.skyscreamer:jsonassert:jar:1.5.3:test -- module jsonassert (auto)
+[INFO]    com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test -- module android.json (auto)
+[INFO]    org.springframework:spring-core:jar:7.0.9:compile -- module spring.core [auto]
+[INFO]    commons-logging:commons-logging:jar:1.3.6:compile -- module org.apache.commons.logging
+[INFO]    org.springframework:spring-test:jar:7.0.9:test -- module spring.test [auto]
+[INFO]    org.xmlunit:xmlunit-core:jar:2.11.0:test -- module org.xmlunit [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-kafka-test:jar:4.1.1:test -- module spring.boot.starter.kafka.test [auto]
+[INFO]    org.springframework.kafka:spring-kafka-test:jar:4.1.1:test -- module spring.kafka.test [auto]
+[INFO]    org.springframework:spring-context:jar:7.0.9:compile -- module spring.context [auto]
+[INFO]    org.apache.kafka:kafka-clients:jar:test:4.2.1:test -- module kafka.clients (auto)
+[INFO]    org.apache.kafka:kafka-server:jar:4.2.1:test -- module kafka.server (auto)
+[INFO]    org.apache.kafka:kafka-storage:jar:4.2.1:test -- module kafka.storage (auto)
+[INFO]    com.github.ben-manes.caffeine:caffeine:jar:3.2.4:test -- module com.github.benmanes.caffeine
+[INFO]    org.apache.kafka:kafka-group-coordinator:jar:4.2.1:test -- module kafka.group.coordinator (auto)
+[INFO]    org.apache.kafka:kafka-group-coordinator-api:jar:4.2.1:test -- module kafka.group.coordinator.api (auto)
+[INFO]    org.apache.kafka:kafka-coordinator-common:jar:4.2.1:test -- module kafka.coordinator.common (auto)
+[INFO]    org.hdrhistogram:HdrHistogram:jar:2.2.2:test -- module HdrHistogram (auto)
+[INFO]    com.google.re2j:re2j:jar:1.8:test -- module re2j (auto)
+[INFO]    com.dynatrace.hash4j:hash4j:jar:0.22.0:test -- module hash4j
+[INFO]    org.apache.kafka:kafka-transaction-coordinator:jar:4.2.1:test -- module kafka.transaction.coordinator (auto)
+[INFO]    org.apache.kafka:kafka-raft:jar:4.2.1:test -- module kafka.raft (auto)
+[INFO]    org.apache.kafka:kafka-share-coordinator:jar:4.2.1:test -- module kafka.share.coordinator (auto)
+[INFO]    org.apache.kafka:kafka-storage-api:jar:4.2.1:test -- module kafka.storage.api (auto)
+[INFO]    com.yammer.metrics:metrics-core:jar:2.2.0:test -- module metrics.core (auto)
+[INFO]    org.apache.logging.log4j:log4j-api:jar:2.25.5:compile -- module org.apache.logging.log4j
+[INFO]    org.apache.logging.log4j:log4j-core:jar:2.25.5:test -- module org.apache.logging.log4j.core
+[INFO]    org.apache.kafka:kafka-test-common-runtime:jar:4.2.1:test -- module kafka.test.common.runtime (auto)
+[INFO]    org.apache.kafka:kafka_2.13:jar:4.2.1:test
+[INFO]    org.scala-lang:scala-library:jar:2.13.17:test -- module scala.library [auto]
+[INFO]    org.apache.kafka:kafka-tools-api:jar:4.2.1:test -- module kafka.tools.api (auto)
+[INFO]    net.sourceforge.argparse4j:argparse4j:jar:0.7.0:test -- module argparse4j (auto)
+[INFO]    commons-validator:commons-validator:jar:1.10.1:test -- module org.apache.commons.validator
+[INFO]    commons-beanutils:commons-beanutils:jar:1.11.0:test -- module org.apache.commons.beanutils
+[INFO]    commons-digester:commons-digester:jar:2.1:test -- module commons.digester (auto)
+[INFO]    commons-collections:commons-collections:jar:3.2.2:test -- module commons.collections (auto)
+[INFO]    com.fasterxml.jackson.dataformat:jackson-dataformat-csv:jar:2.21.5:test -- module com.fasterxml.jackson.dataformat.csv
+[INFO]    org.bitbucket.b_c:jose4j:jar:0.9.6:test -- module org.jose4j [auto]
+[INFO]    org.scala-lang:scala-reflect:jar:2.13.17:test -- module scala.reflect [auto]
+[INFO]    com.typesafe.scala-logging:scala-logging_2.13:jar:3.9.6:test
+[INFO]    org.apache.kafka:kafka-test-common-internal-api:jar:4.2.1:test -- module kafka.test.common.internal.api (auto)
+[INFO]    com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.21.5:compile -- module com.fasterxml.jackson.dataformat.yaml
+[INFO]    org.apache.kafka:kafka-metadata:jar:4.2.1:test -- module kafka.metadata (auto)
+[INFO]    com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.21.5:test -- module com.fasterxml.jackson.datatype.jdk8
+[INFO]    org.apache.kafka:kafka-server-common:jar:4.2.1:test -- module kafka.server.common (auto)
+[INFO]    net.sf.jopt-simple:jopt-simple:jar:5.0.4:test -- module jopt.simple (auto)
+[INFO]    org.pcollections:pcollections:jar:4.0.2:test -- module org.pcollections
+[INFO]    org.apache.kafka:kafka-server-common:jar:test:4.2.1:test -- module kafka.server.common (auto)
+[INFO]    org.apache.kafka:kafka-streams-test-utils:jar:4.2.1:test -- module kafka.streams.test.utils (auto)
+[INFO]    org.junit.platform:junit-platform-launcher:jar:6.0.3:test -- module org.junit.platform.launcher
+[INFO]    org.springframework.boot:spring-boot-testcontainers:jar:4.1.1:test -- module spring.boot.testcontainers [auto]
+[INFO]    org.springframework.boot:spring-boot-autoconfigure:jar:4.1.1:compile -- module spring.boot.autoconfigure [auto]
+[INFO]    org.testcontainers:testcontainers:jar:2.0.5:test -- module testcontainers (auto)
+[INFO]    org.apache.commons:commons-compress:jar:1.28.0:test -- module org.apache.commons.compress
+[INFO]    commons-codec:commons-codec:jar:1.21.0:test -- module org.apache.commons.codec
+[INFO]    commons-io:commons-io:jar:2.20.0:test -- module org.apache.commons.io
+[INFO]    org.apache.commons:commons-lang3:jar:3.20.0:compile -- module org.apache.commons.lang3
+[INFO]    org.rnorth.duct-tape:duct-tape:jar:1.0.8:test -- module duct.tape (auto)
+[INFO]    org.jetbrains:annotations:jar:17.0.0:test -- module org.jetbrains.annotations [auto]
+[INFO]    com.github.docker-java:docker-java-api:jar:3.7.1:test -- module com.github.dockerjava.api [auto]
+[INFO]    com.github.docker-java:docker-java-transport-zerodep:jar:3.7.1:test -- module com.github.dockerjava.transport.zerodep [auto]
+[INFO]    com.github.docker-java:docker-java-transport:jar:3.7.1:test -- module com.github.dockerjava.transport [auto]
+[INFO]    net.java.dev.jna:jna:jar:5.18.1:test -- module com.sun.jna [auto]
+[INFO]    org.testcontainers:kafka:jar:1.21.4:test -- module kafka (auto)
+[INFO]    org.springframework.boot:spring-boot-resttestclient:jar:4.1.1:test -- module spring.boot.resttestclient [auto]
+[INFO]    org.springframework:spring-web:jar:7.0.9:compile -- module spring.web [auto]
+[INFO]    org.springframework:spring-beans:jar:7.0.9:compile -- module spring.beans [auto]
+[INFO]    io.micrometer:micrometer-observation:jar:1.17.1:compile -- module micrometer.observation [auto]
+[INFO]    io.micrometer:micrometer-commons:jar:1.17.1:compile -- module micrometer.commons [auto]
+[INFO]    org.springframework.boot:spring-boot-restclient:jar:4.1.1:test -- module spring.boot.restclient [auto]
+[INFO]    org.springframework.boot:spring-boot:jar:4.1.1:compile -- module spring.boot [auto]
+[INFO]    org.springframework.boot:spring-boot-http-client:jar:4.1.1:test -- module spring.boot.http.client [auto]
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.474 s
+[INFO] Finished at: 2026-10-25T17:18:04Z
+[INFO] ------------------------------------------------------------------------
+
+===== bootstrap-local-module.log =====
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for pl.piomin:base-domain:jar:1.0-SNAPSHOT
+[WARNING] The expression ${artifactId} is deprecated. Please use ${project.artifactId} instead.
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO]
+[INFO] -----------------------< pl.piomin:base-domain >------------------------
+[INFO] Building base-domain 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ base-domain ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /work/base-domain/src/main/resources
+[INFO]
+[INFO] --- compiler:3.15.0:compile (default-compile) @ base-domain ---
+[INFO] Recompiling the module because of changed source code.
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 1 source file with javac [debug target 21] to target/classes
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ base-domain ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /work/base-domain/src/test/resources
+[INFO]
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ base-domain ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.5.4:test (default-test) @ base-domain ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ base-domain ---
+[INFO] Building jar: /work/base-domain/target/base-domain-1.0-SNAPSHOT.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ base-domain ---
+[INFO] Installing /work/base-domain/pom.xml to /root/.m2/repository/pl/piomin/base-domain/1.0-SNAPSHOT/base-domain-1.0-SNAPSHOT.pom
+[INFO] Installing /work/base-domain/target/base-domain-1.0-SNAPSHOT.jar to /root/.m2/repository/pl/piomin/base-domain/1.0-SNAPSHOT/base-domain-1.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.214 s
+[INFO] Finished at: 2026-10-25T17:16:27Z
+[INFO] ------------------------------------------------------------------------
+
+===== bootstrap-parent.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------< pl.piomin:sample-spring-kafka-microservices >-------------
+[INFO] Building sample-spring-kafka-microservices 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- jacoco:0.8.15:prepare-agent (default) @ sample-spring-kafka-microservices ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.15/org.jacoco.agent-0.8.15-runtime.jar=destfile=/work/target/jacoco.exec
+[INFO]
+[INFO] --- jacoco:0.8.15:report (report) @ sample-spring-kafka-microservices ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ sample-spring-kafka-microservices ---
+[INFO] Installing /work/pom.xml to /root/.m2/repository/pl/piomin/sample-spring-kafka-microservices/1.0-SNAPSHOT/sample-spring-kafka-microservices-1.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.880 s
+[INFO] Finished at: 2026-10-25T17:17:58Z
+[INFO] ------------------------------------------------------------------------
+
+===== direct.patch =====
+--- order-service/pom.xml
++++ order-service/pom.xml
+@@ -135,6 +135,8 @@
+                 </plugins>
+
+             </build>
+
+         </profile>
+
+-    </profiles>
+
++
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.19</version></dependency></dependencies></profile>
++</profiles>
+
+
+
+ </project>
+
+===== incomplete.patch =====
+--- order-service/pom.xml
++++ order-service/pom.xml
+@@ -135,6 +135,8 @@
+                 </plugins>
+
+             </build>
+
+         </profile>
+
+-    </profiles>
+
++
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>guard.audit</groupId><artifactId>deliberately-missing</artifactId><version>1</version></dependency></dependencies></profile>
++</profiles>
+
+
+
+ </project>
+
+===== managed.patch =====
+--- order-service/pom.xml
++++ order-service/pom.xml
+@@ -135,6 +135,8 @@
+                 </plugins>
+
+             </build>
+
+         </profile>
+
+-    </profiles>
+
++
++<profile><id>bbg-audit</id><dependencyManagement><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.19</version></dependency></dependencies></dependencyManagement></profile>
++</profiles>
+
+
+
+ </project>
+
+===== mutation-allowed-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ order-service ---
+[INFO] Wrote dependency tree to: /work/.bbg/allowed-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.221 s
+[INFO] Finished at: 2026-10-25T17:41:59Z
+[INFO] ------------------------------------------------------------------------
+
+===== mutation-allowed-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ order-service ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+ALLOWED org.slf4j:slf4j-api expected=2.0.18 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct reason=Campaign intentional exception
+PASS checked=105 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.880 s
+[INFO] Finished at: 2026-10-25T17:42:04Z
+[INFO] ------------------------------------------------------------------------
+
+===== mutation-allowed-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ order-service ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+ALLOWED org.slf4j:slf4j-api expected=2.0.18 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct reason=Campaign intentional exception
+PASS checked=105 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.798 s
+[INFO] Finished at: 2026-10-25T17:42:02Z
+[INFO] ------------------------------------------------------------------------
+
+===== mutation-determinism.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ order-service ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+PASS checked=105 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.824 s
+[INFO] Finished at: 2026-10-25T17:42:14Z
+[INFO] ------------------------------------------------------------------------
+
+===== mutation-direct-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ order-service ---
+[INFO] Wrote dependency tree to: /work/.bbg/direct-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.228 s
+[INFO] Finished at: 2026-10-25T17:41:44Z
+[INFO] ------------------------------------------------------------------------
+
+===== mutation-direct-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ order-service ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+DRIFT org.slf4j:slf4j-api expected=2.0.18 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+WARN checked=105 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.862 s
+[INFO] Finished at: 2026-10-25T17:41:49Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project order-service: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== mutation-direct-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ order-service ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+DRIFT org.slf4j:slf4j-api expected=2.0.18 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+WARN checked=105 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.823 s
+[INFO] Finished at: 2026-10-25T17:41:46Z
+[INFO] ------------------------------------------------------------------------
+
+===== mutation-incomplete-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.773 s
+[INFO] Finished at: 2026-10-25T17:42:06Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project order-service: Could not resolve dependencies for project pl.piomin:order-service:jar:1.0-SNAPSHOT
+[ERROR] dependency: guard.audit:deliberately-missing:jar:1 (compile)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact guard.audit:deliberately-missing:jar:1 has not been downloaded from it before.
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+
+===== mutation-incomplete-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ order-service ---
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.867 s
+[INFO] Finished at: 2026-10-25T17:42:11Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project order-service: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== mutation-incomplete-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ order-service ---
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.857 s
+[INFO] Finished at: 2026-10-25T17:42:09Z
+[INFO] ------------------------------------------------------------------------
+
+===== mutation-managed-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ order-service ---
+[INFO] Wrote dependency tree to: /work/.bbg/managed-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.222 s
+[INFO] Finished at: 2026-10-25T17:41:51Z
+[INFO] ------------------------------------------------------------------------
+
+===== mutation-managed-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ order-service ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+DRIFT org.slf4j:slf4j-api expected=2.0.18 resolved=2.0.19 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.19; declaration source unknown; path=transitive
+WARN checked=105 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.806 s
+[INFO] Finished at: 2026-10-25T17:41:56Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project order-service: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== mutation-managed-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ order-service ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+DRIFT org.slf4j:slf4j-api expected=2.0.18 resolved=2.0.19 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.19; declaration source unknown; path=transitive
+WARN checked=105 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.841 s
+[INFO] Finished at: 2026-10-25T17:41:54Z
+[INFO] ------------------------------------------------------------------------
+
+===== mutation-offline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ order-service ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+PASS checked=105 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.905 s
+[INFO] Finished at: 2026-10-25T17:42:16Z
+[INFO] ------------------------------------------------------------------------
+
+===== native-online.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ order-service ---
+[INFO] Effective-POM written to: /out/effective.xml
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ order-service ---
+[INFO] Wrote dependency tree to: /out/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.440 s
+[INFO] Finished at: 2026-10-25T17:18:01Z
+[INFO] ------------------------------------------------------------------------
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ order-service ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+PASS checked=105 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.765 s
+[INFO] Finished at: 2026-10-25T17:18:06Z
+[INFO] ------------------------------------------------------------------------
+
+===== pristine.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------< org.springframework.boot:spring-boot-dependencies >----------
+[INFO] Building spring-boot-dependencies 4.1.1
+[INFO]   from spring-boot-dependencies-4.1.1.pom
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ spring-boot-dependencies ---
+[INFO] Effective-POM written to: /out/pristine.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.602 s
+[INFO] Finished at: 2026-10-25T17:18:11Z
+[INFO] ------------------------------------------------------------------------
+
+===== repeat-offline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ order-service ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+PASS checked=105 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.698 s
+[INFO] Finished at: 2026-10-25T17:18:13Z
+[INFO] ------------------------------------------------------------------------
+
+===== strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ order-service ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+PASS checked=105 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.721 s
+[INFO] Finished at: 2026-10-25T17:18:09Z
+[INFO] ------------------------------------------------------------------------
+
+===== warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< pl.piomin:order-service >-----------------------
+[INFO] Building order-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ order-service ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+PASS checked=105 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.765 s
+[INFO] Finished at: 2026-10-25T17:18:06Z
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,1104 @@
+===== artifacts-online.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------------------< com.zlt:sc-gateway >-------------------------
+[INFO] Building sc-gateway 6.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:resolve (default-cli) @ sc-gateway ---
+[INFO] Can't extract module name from sentinel-spring-webmvc-6x-adapter-1.8.6.jar: sentinel.spring.webmvc.6x.adapter: Invalid module name: '6x' is not a Java identifier
+[INFO] Can't extract module name from sentinel-cluster-server-default-1.8.6.jar: sentinel.cluster.server.default: Invalid module name: 'default' is not a Java identifier
+[INFO] Can't extract module name from sentinel-cluster-common-default-1.8.6.jar: sentinel.cluster.common.default: Invalid module name: 'default' is not a Java identifier
+[INFO] Can't extract module name from sentinel-cluster-client-default-1.8.6.jar: sentinel.cluster.client.default: Invalid module name: 'default' is not a Java identifier
+[INFO]
+[INFO] The following files have been resolved:
+[INFO]    com.zlt:zlt-config:jar:6.0.0:compile -- module zlt.config (auto)
+[INFO]    com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config:jar:2022.0.0.0:compile -- module spring.cloud.starter.alibaba.nacos.config (auto)
+[INFO]    jakarta.annotation:jakarta.annotation-api:jar:2.1.1:compile -- module jakarta.annotation
+[INFO]    com.zlt:zlt-log-spring-boot-starter:jar:6.0.0:compile -- module zlt.log.spring.boot.starter (auto)
+[INFO]    org.slf4j:slf4j-api:jar:2.0.9:compile -- module org.slf4j
+[INFO]    com.alibaba:transmittable-thread-local:jar:2.14.4:compile -- module transmittable.thread.local (auto)
+[INFO]    org.springframework.boot:spring-boot-starter-aop:jar:3.1.6:compile -- module spring.boot.starter.aop [auto]
+[INFO]    org.springframework:spring-aop:jar:6.0.14:compile -- module spring.aop [auto]
+[INFO]    org.aspectj:aspectjweaver:jar:1.9.20.1:compile -- module org.aspectj.weaver [auto]
+[INFO]    cn.hutool:hutool-all:jar:5.8.15:compile -- module cn.hutool [auto]
+[INFO]    com.zlt:zlt-loadbalancer-spring-boot-starter:jar:6.0.0:compile -- module zlt.loadbalancer.spring.boot.starter (auto)
+[INFO]    com.zlt:zlt-common-core:jar:6.0.0:compile -- module zlt.common.core (auto)
+[INFO]    org.springframework.security:spring-security-web:jar:6.1.5:compile -- module spring.security.web [auto]
+[INFO]    org.springframework.security:spring-security-core:jar:6.1.5:compile -- module spring.security.core [auto]
+[INFO]    org.springframework:spring-context:jar:6.0.14:compile -- module spring.context [auto]
+[INFO]    org.springframework:spring-expression:jar:6.0.14:compile -- module spring.expression [auto]
+[INFO]    com.fasterxml.jackson.core:jackson-annotations:jar:2.15.3:compile -- module com.fasterxml.jackson.annotation
+[INFO]    com.fasterxml.jackson.core:jackson-databind:jar:2.15.3:compile -- module com.fasterxml.jackson.databind
+[INFO]    org.apache.poi:poi:jar:4.1.1:compile -- module poi (auto)
+[INFO]    org.apache.commons:commons-math3:jar:3.6.1:compile -- module commons.math3 (auto)
+[INFO]    org.apache.poi:poi-ooxml:jar:4.1.1:compile -- module poi.ooxml (auto)
+[INFO]    org.apache.poi:poi-ooxml-schemas:jar:4.1.1:compile -- module poi.ooxml.schemas (auto)
+[INFO]    org.apache.xmlbeans:xmlbeans:jar:3.1.0:compile -- module xmlbeans (auto)
+[INFO]    org.apache.commons:commons-compress:jar:1.19:compile -- module org.apache.commons.compress [auto]
+[INFO]    com.github.virtuald:curvesapi:jar:1.06:compile -- module curvesapi (auto)
+[INFO]    cn.afterturn:easypoi-base:jar:4.1.3:compile -- module easypoi.base (auto)
+[INFO]    ognl:ognl:jar:3.2.6:compile -- module ognl (auto)
+[INFO]    org.javassist:javassist:jar:3.25.0-GA:compile -- module javassist (auto)
+[INFO]    javax.validation:validation-api:jar:1.1.0.Final:compile -- module validation.api (auto)
+[INFO]    cn.afterturn:easypoi-annotation:jar:4.1.3:compile -- module easypoi.annotation (auto)
+[INFO]    com.nepxion:banner:jar:1.0.2:compile -- module banner (auto)
+[INFO]    com.taobao.text:text-ui:jar:0.0.2:compile -- module text.ui (auto)
+[INFO]    com.google.guava:guava:jar:20.0:compile -- module guava (auto)
+[INFO]    com.fasterxml.jackson.core:jackson-core:jar:2.15.3:compile -- module com.fasterxml.jackson.core
+[INFO]    org.springframework.security:spring-security-oauth2-core:jar:6.1.5:compile -- module spring.security.oauth2.core [auto]
+[INFO]    org.springframework.security:spring-security-oauth2-jose:jar:6.1.5:compile -- module spring.security.oauth2.jose [auto]
+[INFO]    org.springframework:spring-webmvc:jar:6.0.14:compile -- module spring.webmvc [auto]
+[INFO]    org.springframework.cloud:spring-cloud-starter-loadbalancer:jar:4.0.4:compile -- module spring.cloud.starter.loadbalancer (auto)
+[INFO]    org.springframework.cloud:spring-cloud-loadbalancer:jar:4.0.4:compile -- module spring.cloud.loadbalancer (auto)
+[INFO]    org.springframework.boot:spring-boot-starter-cache:jar:3.1.6:compile -- module spring.boot.starter.cache [auto]
+[INFO]    org.springframework:spring-context-support:jar:6.0.14:compile -- module spring.context.support [auto]
+[INFO]    com.stoyanr:evictor:jar:1.0.0:compile -- module evictor (auto)
+[INFO]    org.apache.httpcomponents.client5:httpclient5:jar:5.2.1:compile -- module org.apache.httpcomponents.client5.httpclient5 [auto]
+[INFO]    org.apache.httpcomponents.core5:httpcore5:jar:5.2.3:compile -- module org.apache.httpcomponents.core5.httpcore5 [auto]
+[INFO]    org.apache.httpcomponents.core5:httpcore5-h2:jar:5.2.3:compile -- module org.apache.httpcomponents.core5.httpcore5.h2 [auto]
+[INFO]    com.zlt:zlt-sentinel-spring-boot-starter:jar:6.0.0:compile -- module zlt.sentinel.spring.boot.starter (auto)
+[INFO]    com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:jar:2022.0.0.0:compile -- module spring.cloud.starter.alibaba.sentinel (auto)
+[INFO]    com.alibaba.csp:sentinel-transport-simple-http:jar:1.8.6:compile -- module sentinel.transport.simple.http (auto)
+[INFO]    com.alibaba.csp:sentinel-transport-common:jar:1.8.6:compile -- module sentinel.transport.common (auto)
+[INFO]    com.alibaba:fastjson:jar:1.2.83_noneautotype:compile -- module fastjson (auto)
+[INFO]    com.alibaba.csp:sentinel-annotation-aspectj:jar:1.8.6:compile -- module sentinel.annotation.aspectj (auto)
+[INFO]    com.alibaba.cloud:spring-cloud-circuitbreaker-sentinel:jar:2022.0.0.0:compile -- module spring.cloud.circuitbreaker.sentinel (auto)
+[INFO]    com.alibaba.csp:sentinel-spring-webflux-adapter:jar:1.8.6:compile -- module sentinel.spring.webflux.adapter (auto)
+[INFO]    com.alibaba.csp:sentinel-spring-webmvc-6x-adapter:jar:1.8.6:compile
+[INFO]    com.alibaba.csp:sentinel-cluster-server-default:jar:1.8.6:compile
+[INFO]    com.alibaba.csp:sentinel-cluster-common-default:jar:1.8.6:compile
+[INFO]    io.netty:netty-handler:jar:4.1.101.Final:compile -- module io.netty.handler [auto]
+[INFO]    io.netty:netty-transport-native-unix-common:jar:4.1.101.Final:compile -- module io.netty.transport.unix.common [auto]
+[INFO]    com.alibaba.csp:sentinel-cluster-client-default:jar:1.8.6:compile
+[INFO]    com.alibaba.csp:sentinel-datasource-nacos:jar:1.8.6:compile -- module sentinel.datasource.nacos (auto)
+[INFO]    com.alibaba.csp:sentinel-datasource-extension:jar:1.8.6:compile -- module sentinel.datasource.extension (auto)
+[INFO]    com.alibaba.cloud:spring-cloud-alibaba-sentinel-gateway:jar:2022.0.0.0:compile -- module spring.cloud.alibaba.sentinel.gateway (auto)
+[INFO]    com.alibaba.csp:sentinel-api-gateway-adapter-common:jar:1.8.6:compile -- module sentinel.api.gateway.adapter.common (auto)
+[INFO]    com.alibaba.csp:sentinel-core:jar:1.8.6:compile -- module sentinel.core (auto)
+[INFO]    com.alibaba.csp:sentinel-parameter-flow-control:jar:1.8.6:compile -- module sentinel.parameter.flow.control (auto)
+[INFO]    com.googlecode.concurrentlinkedhashmap:concurrentlinkedhashmap-lru:jar:1.4.2:compile -- module concurrentlinkedhashmap.lru (auto)
+[INFO]    com.alibaba.csp:sentinel-spring-cloud-gateway-adapter:jar:1.8.6:compile -- module sentinel.spring.cloud.gateway.adapter (auto)
+[INFO]    com.alibaba.csp:sentinel-reactor-adapter:jar:1.8.6:compile -- module sentinel.reactor.adapter (auto)
+[INFO]    com.alibaba.cloud:spring-cloud-alibaba-sentinel-datasource:jar:2022.0.0.0:compile -- module spring.cloud.alibaba.sentinel.datasource (auto)
+[INFO]    org.springframework.cloud:spring-cloud-starter-gateway:jar:4.0.7:compile -- module spring.cloud.starter.gateway (auto)
+[INFO]    org.springframework.cloud:spring-cloud-starter:jar:4.0.4:compile -- module spring.cloud.starter (auto)
+[INFO]    org.springframework.security:spring-security-rsa:jar:1.0.12.RELEASE:compile -- module spring.security.rsa (auto)
+[INFO]    org.bouncycastle:bcpkix-jdk18on:jar:1.73:compile -- module org.bouncycastle.pkix
+[INFO]    org.bouncycastle:bcprov-jdk18on:jar:1.73:compile -- module org.bouncycastle.provider
+[INFO]    org.bouncycastle:bcutil-jdk18on:jar:1.73:compile -- module org.bouncycastle.util
+[INFO]    org.springframework.cloud:spring-cloud-gateway-server:jar:4.0.7:compile -- module spring.cloud.gateway.server (auto)
+[INFO]    org.springframework.boot:spring-boot-starter-validation:jar:3.1.6:compile -- module spring.boot.starter.validation [auto]
+[INFO]    org.apache.tomcat.embed:tomcat-embed-el:jar:10.1.16:compile -- module org.apache.tomcat.embed.el
+[INFO]    org.hibernate.validator:hibernate-validator:jar:8.0.1.Final:compile -- module org.hibernate.validator [auto]
+[INFO]    jakarta.validation:jakarta.validation-api:jar:3.0.2:compile -- module jakarta.validation
+[INFO]    org.jboss.logging:jboss-logging:jar:3.5.3.Final:compile -- module org.jboss.logging
+[INFO]    com.fasterxml:classmate:jar:1.5.1:compile -- module com.fasterxml.classmate
+[INFO]    io.projectreactor.addons:reactor-extra:jar:3.5.1:compile -- module reactor.extra [auto]
+[INFO]    com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:jar:2022.0.0.0:compile -- module spring.cloud.starter.alibaba.nacos.discovery (auto)
+[INFO]    com.alibaba.cloud:spring-cloud-alibaba-commons:jar:2022.0.0.0:compile -- module spring.cloud.alibaba.commons (auto)
+[INFO]    com.alibaba.nacos:nacos-client:jar:2.2.1:compile -- module nacos.client (auto)
+[INFO]    com.alibaba.nacos:nacos-auth-plugin:jar:2.2.1:compile -- module nacos.auth.plugin (auto)
+[INFO]    com.alibaba.nacos:nacos-encryption-plugin:jar:2.2.1:compile -- module nacos.encryption.plugin (auto)
+[INFO]    commons-codec:commons-codec:jar:1.15:compile -- module org.apache.commons.codec [auto]
+[INFO]    org.apache.httpcomponents:httpasyncclient:jar:4.1.5:compile -- module org.apache.httpcomponents.httpasyncclient [auto]
+[INFO]    org.apache.httpcomponents:httpcore:jar:4.4.16:compile -- module org.apache.httpcomponents.httpcore [auto]
+[INFO]    org.apache.httpcomponents:httpcore-nio:jar:4.4.16:compile -- module org.apache.httpcomponents.httpcore.nio [auto]
+[INFO]    org.apache.httpcomponents:httpclient:jar:4.5.14:compile -- module org.apache.httpcomponents.httpclient [auto]
+[INFO]    io.prometheus:simpleclient:jar:0.16.0:compile -- module simpleclient (auto)
+[INFO]    io.prometheus:simpleclient_tracer_otel:jar:0.16.0:compile -- module simpleclient.tracer.otel (auto)
+[INFO]    io.prometheus:simpleclient_tracer_common:jar:0.16.0:compile -- module simpleclient.tracer.common (auto)
+[INFO]    io.prometheus:simpleclient_tracer_otel_agent:jar:0.16.0:compile -- module simpleclient.tracer.otel.agent (auto)
+[INFO]    org.yaml:snakeyaml:jar:1.33:compile -- module org.yaml.snakeyaml [auto]
+[INFO]    com.alibaba.spring:spring-context-support:jar:1.0.11:compile -- module spring.context.support (auto)
+[INFO]    org.springframework.cloud:spring-cloud-commons:jar:4.0.4:compile -- module spring.cloud.commons (auto)
+[INFO]    org.springframework.security:spring-security-crypto:jar:6.1.5:compile -- module spring.security.crypto [auto]
+[INFO]    org.springframework.cloud:spring-cloud-context:jar:4.0.4:compile -- module spring.cloud.context (auto)
+[INFO]    org.springframework.boot:spring-boot-starter-webflux:jar:3.1.6:compile -- module spring.boot.starter.webflux [auto]
+[INFO]    org.springframework.boot:spring-boot-starter:jar:3.1.6:compile -- module spring.boot.starter [auto]
+[INFO]    org.springframework.boot:spring-boot:jar:3.1.6:compile -- module spring.boot [auto]
+[INFO]    org.springframework.boot:spring-boot-autoconfigure:jar:3.1.6:compile -- module spring.boot.autoconfigure [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-logging:jar:3.1.6:compile -- module spring.boot.starter.logging [auto]
+[INFO]    ch.qos.logback:logback-classic:jar:1.4.11:compile -- module ch.qos.logback.classic
+[INFO]    ch.qos.logback:logback-core:jar:1.4.11:compile -- module ch.qos.logback.core
+[INFO]    org.apache.logging.log4j:log4j-to-slf4j:jar:2.20.0:compile -- module org.apache.logging.slf4j [auto]
+[INFO]    org.apache.logging.log4j:log4j-api:jar:2.20.0:compile -- module org.apache.logging.log4j
+[INFO]    org.slf4j:jul-to-slf4j:jar:2.0.9:compile -- module jul.to.slf4j
+[INFO]    org.springframework.boot:spring-boot-starter-json:jar:3.1.6:compile -- module spring.boot.starter.json [auto]
+[INFO]    com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.15.3:compile -- module com.fasterxml.jackson.datatype.jdk8
+[INFO]    com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.15.3:compile -- module com.fasterxml.jackson.module.paramnames
+[INFO]    org.springframework.boot:spring-boot-starter-reactor-netty:jar:3.1.6:compile -- module spring.boot.starter.reactor.netty [auto]
+[INFO]    io.projectreactor.netty:reactor-netty-http:jar:1.1.13:compile -- module reactor.netty.http [auto]
+[INFO]    io.netty:netty-codec-http:jar:4.1.101.Final:compile -- module io.netty.codec.http [auto]
+[INFO]    io.netty:netty-codec-http2:jar:4.1.101.Final:compile -- module io.netty.codec.http2 [auto]
+[INFO]    io.netty:netty-resolver-dns:jar:4.1.101.Final:compile -- module io.netty.resolver.dns [auto]
+[INFO]    io.netty:netty-codec-dns:jar:4.1.101.Final:compile -- module io.netty.codec.dns [auto]
+[INFO]    io.netty:netty-resolver-dns-native-macos:jar:osx-x86_64:4.1.101.Final:compile -- module io.netty.resolver.dns.macos.osx.x86_64 [auto]
+[INFO]    io.netty:netty-resolver-dns-classes-macos:jar:4.1.101.Final:compile -- module io.netty.resolver.dns.classes.macos [auto]
+[INFO]    io.netty:netty-transport-native-epoll:jar:linux-x86_64:4.1.101.Final:compile -- module io.netty.transport.epoll.linux.x86_64 [auto]
+[INFO]    io.netty:netty-transport-classes-epoll:jar:4.1.101.Final:compile -- module io.netty.transport.classes.epoll [auto]
+[INFO]    io.projectreactor.netty:reactor-netty-core:jar:1.1.13:compile -- module reactor.netty.core [auto]
+[INFO]    io.netty:netty-handler-proxy:jar:4.1.101.Final:compile -- module io.netty.handler.proxy [auto]
+[INFO]    io.netty:netty-codec-socks:jar:4.1.101.Final:compile -- module io.netty.codec.socks [auto]
+[INFO]    org.springframework:spring-web:jar:6.0.14:compile -- module spring.web [auto]
+[INFO]    org.springframework:spring-beans:jar:6.0.14:compile -- module spring.beans [auto]
+[INFO]    org.springframework:spring-webflux:jar:6.0.14:compile -- module spring.webflux [auto]
+[INFO]    io.projectreactor:reactor-core:jar:3.5.12:compile -- module reactor.core [auto]
+[INFO]    org.reactivestreams:reactive-streams:jar:1.0.4:compile -- module org.reactivestreams [auto]
+[INFO]    com.zlt:zlt-redis-spring-boot-starter:jar:6.0.0:compile -- module zlt.redis.spring.boot.starter (auto)
+[INFO]    org.redisson:redisson-spring-boot-starter:jar:3.25.0:compile -- module redisson.spring.boot.starter [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-data-redis:jar:3.1.6:compile -- module spring.boot.starter.data.redis [auto]
+[INFO]    org.springframework.data:spring-data-redis:jar:3.1.6:compile -- module spring.data.redis [auto]
+[INFO]    org.springframework.data:spring-data-keyvalue:jar:3.1.6:compile -- module spring.data.keyvalue [auto]
+[INFO]    org.springframework.data:spring-data-commons:jar:3.1.6:compile -- module spring.data.commons [auto]
+[INFO]    org.springframework:spring-tx:jar:6.0.14:compile -- module spring.tx [auto]
+[INFO]    org.springframework:spring-oxm:jar:6.0.14:compile -- module spring.oxm [auto]
+[INFO]    org.redisson:redisson:jar:3.25.0:compile -- module redisson [auto]
+[INFO]    io.netty:netty-common:jar:4.1.101.Final:compile -- module io.netty.common [auto]
+[INFO]    io.netty:netty-codec:jar:4.1.101.Final:compile -- module io.netty.codec [auto]
+[INFO]    io.netty:netty-buffer:jar:4.1.101.Final:compile -- module io.netty.buffer [auto]
+[INFO]    io.netty:netty-transport:jar:4.1.101.Final:compile -- module io.netty.transport [auto]
+[INFO]    io.netty:netty-resolver:jar:4.1.101.Final:compile -- module io.netty.resolver [auto]
+[INFO]    javax.cache:cache-api:jar:1.1.1:compile -- module cache.api (auto)
+[INFO]    io.reactivex.rxjava3:rxjava:jar:3.1.8:compile -- module io.reactivex.rxjava3
+[INFO]    org.jboss.marshalling:jboss-marshalling:jar:2.0.11.Final:compile -- module jboss.marshalling (auto)
+[INFO]    org.jboss.marshalling:jboss-marshalling-river:jar:2.0.11.Final:compile -- module jboss.marshalling.river (auto)
+[INFO]    com.esotericsoftware:kryo:jar:5.5.0:compile -- module com.esotericsoftware.kryo [auto]
+[INFO]    com.esotericsoftware:reflectasm:jar:1.11.9:compile -- module com.esotericsoftware.reflectasm [auto]
+[INFO]    com.esotericsoftware:minlog:jar:1.3.1:compile -- module com.esotericsoftware.minlog [auto]
+[INFO]    com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.15.3:compile -- module com.fasterxml.jackson.dataformat.yaml
+[INFO]    org.jodd:jodd-bean:jar:5.1.6:compile -- module jodd.bean (auto)
+[INFO]    org.jodd:jodd-core:jar:5.1.6:compile -- module jodd.core (auto)
+[INFO]    org.redisson:redisson-spring-data-32:jar:3.25.0:compile -- module redisson.spring.data27 [auto]
+[INFO]    commons-io:commons-io:jar:2.7:compile -- module org.apache.commons.io [auto]
+[INFO]    org.apache.commons:commons-pool2:jar:2.11.1:compile -- module org.apache.commons.pool2 [auto]
+[INFO]    com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.15.3:compile -- module com.fasterxml.jackson.datatype.jsr310
+[INFO]    com.zlt:zlt-auth-client-spring-boot-starter:jar:6.0.0:compile -- module zlt.auth.client.spring.boot.starter (auto)
+[INFO]    org.springframework.boot:spring-boot-starter-oauth2-authorization-server:jar:3.1.6:compile -- module spring.boot.starter.oauth2.authorization.server [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-web:jar:3.1.6:compile -- module spring.boot.starter.web [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-tomcat:jar:3.1.6:compile -- module spring.boot.starter.tomcat [auto]
+[INFO]    org.apache.tomcat.embed:tomcat-embed-websocket:jar:10.1.16:compile -- module org.apache.tomcat.embed.websocket
+[INFO]    org.springframework.security:spring-security-oauth2-authorization-server:jar:1.1.3:compile -- module spring.security.oauth2.authorization.server [auto]
+[INFO]    org.springframework.security:spring-security-config:jar:6.1.5:compile -- module spring.security.config [auto]
+[INFO]    org.springframework.security:spring-security-oauth2-resource-server:jar:6.1.5:compile -- module spring.security.oauth2.resource.server [auto]
+[INFO]    com.nimbusds:oauth2-oidc-sdk:jar:11.7:compile -- module oauth2.oidc.sdk (auto)
+[INFO]    com.github.stephenc.jcip:jcip-annotations:jar:1.0-1:compile -- module jcip.annotations (auto)
+[INFO]    com.nimbusds:content-type:jar:2.3:compile -- module content.type (auto)
+[INFO]    com.nimbusds:lang-tag:jar:1.7:compile -- module lang.tag (auto)
+[INFO]    com.nimbusds:nimbus-jose-jwt:jar:9.37:compile -- module com.nimbusds.jose.jwt [auto]
+[INFO]    org.springframework.cloud:spring-cloud-starter-openfeign:jar:4.0.4:compile -- module spring.cloud.starter.openfeign (auto)
+[INFO]    org.springframework.cloud:spring-cloud-openfeign-core:jar:4.0.4:compile -- module spring.cloud.openfeign.core (auto)
+[INFO]    io.github.openfeign.form:feign-form-spring:jar:3.8.0:compile -- module feign.form.spring (auto)
+[INFO]    io.github.openfeign.form:feign-form:jar:3.8.0:compile -- module feign.form (auto)
+[INFO]    commons-fileupload:commons-fileupload:jar:1.5:compile -- module commons.fileupload (auto)
+[INFO]    io.github.openfeign:feign-core:jar:12.4:compile -- module feign.core
+[INFO]    io.github.openfeign:feign-slf4j:jar:12.4:compile -- module feign.slf4j
+[INFO]    org.springframework.boot:spring-boot-starter-actuator:jar:3.1.6:compile -- module spring.boot.starter.actuator [auto]
+[INFO]    org.springframework.boot:spring-boot-actuator-autoconfigure:jar:3.1.6:compile -- module spring.boot.actuator.autoconfigure [auto]
+[INFO]    org.springframework.boot:spring-boot-actuator:jar:3.1.6:compile -- module spring.boot.actuator [auto]
+[INFO]    io.micrometer:micrometer-observation:jar:1.11.6:compile -- module micrometer.observation [auto]
+[INFO]    io.micrometer:micrometer-commons:jar:1.11.6:compile -- module micrometer.commons [auto]
+[INFO]    io.micrometer:micrometer-core:jar:1.11.6:compile -- module micrometer.core [auto]
+[INFO]    org.hdrhistogram:HdrHistogram:jar:2.1.12:runtime -- module HdrHistogram (auto)
+[INFO]    org.latencyutils:LatencyUtils:jar:2.0.3:runtime -- module LatencyUtils (auto)
+[INFO]    org.springframework.boot:spring-boot-configuration-processor:jar:3.1.6:compile (optional) -- module spring.boot.configuration.processor [auto]
+[INFO]    com.github.xiaoymin:knife4j-gateway-spring-boot-starter:jar:4.3.0:compile -- module knife4j.gateway.spring.boot.starter (auto)
+[INFO]    com.github.xiaoymin:knife4j-openapi3-ui:jar:4.3.0:compile -- module knife4j.openapi3.ui (auto)
+[INFO]    com.baomidou:mybatis-plus-extension:jar:3.5.4.1:compile -- module com.baomidou.mybatis.plus.extension [auto]
+[INFO]    com.baomidou:mybatis-plus-core:jar:3.5.4.1:compile -- module com.baomidou.mybatis.plus.core [auto]
+[INFO]    com.baomidou:mybatis-plus-annotation:jar:3.5.4.1:compile -- module com.baomidou.mybatis.plus.annotation [auto]
+[INFO]    com.github.jsqlparser:jsqlparser:jar:4.6:compile -- module jsqlparser (auto)
+[INFO]    org.mybatis:mybatis:jar:3.5.13:compile -- module org.mybatis [auto]
+[INFO]    io.micrometer:micrometer-registry-prometheus:jar:1.11.6:compile -- module micrometer.registry.prometheus [auto]
+[INFO]    io.prometheus:simpleclient_common:jar:0.16.0:compile -- module simpleclient.common (auto)
+[INFO]    eu.bitwalker:UserAgentUtils:jar:1.21:compile -- module UserAgentUtils (auto)
+[INFO]    org.apache.commons:commons-lang3:jar:3.12.0:compile -- module org.apache.commons.lang3 [auto]
+[INFO]    org.apache.commons:commons-collections4:jar:4.4:compile -- module org.apache.commons.collections4 [auto]
+[INFO]    commons-beanutils:commons-beanutils:jar:1.9.4:compile -- module commons.beanutils (auto)
+[INFO]    commons-logging:commons-logging:jar:1.2:compile -- module commons.logging (auto)
+[INFO]    commons-collections:commons-collections:jar:3.2.2:compile -- module commons.collections (auto)
+[INFO]    org.projectlombok:lombok:jar:1.18.30:compile -- module lombok
+[INFO]    org.springframework.boot:spring-boot-starter-test:jar:3.1.6:test -- module spring.boot.starter.test [auto]
+[INFO]    org.springframework.boot:spring-boot-test:jar:3.1.6:test -- module spring.boot.test [auto]
+[INFO]    org.springframework.boot:spring-boot-test-autoconfigure:jar:3.1.6:test -- module spring.boot.test.autoconfigure [auto]
+[INFO]    com.jayway.jsonpath:json-path:jar:2.8.0:test -- module json.path (auto)
+[INFO]    jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.1:test -- module jakarta.xml.bind
+[INFO]    jakarta.activation:jakarta.activation-api:jar:2.1.2:test -- module jakarta.activation
+[INFO]    net.minidev:json-smart:jar:2.4.11:compile -- module json.smart (auto)
+[INFO]    net.minidev:accessors-smart:jar:2.4.11:compile -- module accessors.smart (auto)
+[INFO]    org.ow2.asm:asm:jar:9.3:compile -- module org.objectweb.asm
+[INFO]    org.assertj:assertj-core:jar:3.24.2:test -- module org.assertj.core
+[INFO]    net.bytebuddy:byte-buddy:jar:1.14.10:compile -- module net.bytebuddy
+[INFO]    org.hamcrest:hamcrest:jar:2.2:test -- module org.hamcrest [auto]
+[INFO]    org.junit.jupiter:junit-jupiter:jar:5.9.3:test -- module org.junit.jupiter
+[INFO]    org.junit.jupiter:junit-jupiter-api:jar:5.9.3:test -- module org.junit.jupiter.api
+[INFO]    org.opentest4j:opentest4j:jar:1.2.0:test -- module org.opentest4j
+[INFO]    org.junit.platform:junit-platform-commons:jar:1.9.3:test -- module org.junit.platform.commons
+[INFO]    org.apiguardian:apiguardian-api:jar:1.1.2:test -- module org.apiguardian.api
+[INFO]    org.junit.jupiter:junit-jupiter-params:jar:5.9.3:test -- module org.junit.jupiter.params
+[INFO]    org.junit.jupiter:junit-jupiter-engine:jar:5.9.3:test -- module org.junit.jupiter.engine
+[INFO]    org.junit.platform:junit-platform-engine:jar:1.9.3:test -- module org.junit.platform.engine
+[INFO]    org.mockito:mockito-core:jar:5.3.1:test -- module org.mockito [auto]
+[INFO]    net.bytebuddy:byte-buddy-agent:jar:1.14.10:test -- module net.bytebuddy.agent
+[INFO]    org.objenesis:objenesis:jar:3.3:compile -- module org.objenesis [auto]
+[INFO]    org.mockito:mockito-junit-jupiter:jar:5.3.1:test -- module org.mockito.junit.jupiter [auto]
+[INFO]    org.skyscreamer:jsonassert:jar:1.5.1:test -- module jsonassert (auto)
+[INFO]    com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test -- module android.json (auto)
+[INFO]    org.springframework:spring-core:jar:6.0.14:compile -- module spring.core [auto]
+[INFO]    org.springframework:spring-jcl:jar:6.0.14:compile -- module spring.jcl [auto]
+[INFO]    org.springframework:spring-test:jar:6.0.14:test -- module spring.test [auto]
+[INFO]    org.xmlunit:xmlunit-core:jar:2.9.1:test -- module org.xmlunit [auto]
+[INFO]    org.springframework.cloud:spring-cloud-starter-bootstrap:jar:4.0.4:compile -- module spring.cloud.starter.bootstrap (auto)
+[INFO]    javax.annotation:javax.annotation-api:jar:1.3.2:compile -- module java.annotation [auto]
+[INFO]    org.apache.tomcat.embed:tomcat-embed-core:jar:10.1.11:compile -- module org.apache.tomcat.embed.core
+[INFO]    org.apache.tomcat:tomcat-annotations-api:jar:10.1.16:compile -- module jakarta.annotation
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.600 s
+[INFO] Finished at: 2026-10-25T17:39:47Z
+[INFO] ------------------------------------------------------------------------
+
+===== bootstrap-native-reactor.log =====
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.zlt:zlt-common-core:jar:6.0.0
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.fasterxml.jackson.core:jackson-databind:jar -> duplicate declaration of version (?) @ line 76, column 21
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO]
+[INFO] central-platform                                                   [pom]
+[INFO] zlt-commons                                                        [pom]
+[INFO] zlt-common-core                                                    [jar]
+[INFO] zlt-redis-spring-boot-starter                                      [jar]
+[INFO] zlt-log-spring-boot-starter                                        [jar]
+[INFO] zlt-loadbalancer-spring-boot-starter                               [jar]
+[INFO] zlt-auth-client-spring-boot-starter                                [jar]
+[INFO] zlt-sentinel-spring-boot-starter                                   [jar]
+[INFO] zlt-config                                                         [jar]
+[INFO] zlt-gateway                                                        [pom]
+[INFO] sc-gateway                                                         [jar]
+[INFO]
+[INFO] ----------------------< com.zlt:central-platform >----------------------
+[INFO] Building central-platform 6.0.0                                   [1/11]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ central-platform ---
+[INFO] Installing /work/pom.xml to /root/.m2/repository/com/zlt/central-platform/6.0.0/central-platform-6.0.0.pom
+[INFO]
+[INFO] ------------------------< com.zlt:zlt-commons >-------------------------
+[INFO] Building zlt-commons 6.0.0                                        [2/11]
+[INFO]   from zlt-commons/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-commons ---
+[INFO] Installing /work/zlt-commons/pom.xml to /root/.m2/repository/com/zlt/zlt-commons/6.0.0/zlt-commons-6.0.0.pom
+[INFO]
+[INFO] ----------------------< com.zlt:zlt-common-core >-----------------------
+[INFO] Building zlt-common-core 6.0.0                                    [3/11]
+[INFO]   from zlt-commons/zlt-common-core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Artifact org.jetbrains.kotlinx:kotlinx-coroutines-bom:pom:1.7.3 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [aliyun-repos (https://maven.aliyun.com/repository/public, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.jetbrains.kotlinx:kotlinx-coroutines-bom:pom:1.7.3 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [aliyun-repos (https://maven.aliyun.com/repository/public, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ zlt-common-core ---
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile) @ zlt-common-core ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 53 source files with javac [debug target 17] to target/classes
+[INFO] /work/zlt-commons/zlt-common-core/src/main/java/com/central/common/utils/JsonUtil.java: Some input files use or override a deprecated API.
+[INFO] /work/zlt-commons/zlt-common-core/src/main/java/com/central/common/utils/JsonUtil.java: Recompile with -Xlint:deprecation for details.
+[INFO] /work/zlt-commons/zlt-common-core/src/main/java/com/central/common/utils/JsonUtil.java: Some input files use unchecked or unsafe operations.
+[INFO] /work/zlt-commons/zlt-common-core/src/main/java/com/central/common/utils/JsonUtil.java: Recompile with -Xlint:unchecked for details.
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ zlt-common-core ---
+[INFO] skip non existing resourceDirectory /work/zlt-commons/zlt-common-core/src/test/resources
+[INFO]
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ zlt-common-core ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.1.2:test (default-test) @ zlt-common-core ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ zlt-common-core ---
+[INFO] Building jar: /work/zlt-commons/zlt-common-core/target/zlt-common-core-6.0.0.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-common-core ---
+[INFO] Installing /work/zlt-commons/zlt-common-core/pom.xml to /root/.m2/repository/com/zlt/zlt-common-core/6.0.0/zlt-common-core-6.0.0.pom
+[INFO] Installing /work/zlt-commons/zlt-common-core/target/zlt-common-core-6.0.0.jar to /root/.m2/repository/com/zlt/zlt-common-core/6.0.0/zlt-common-core-6.0.0.jar
+[INFO]
+[INFO] ---------------< com.zlt:zlt-redis-spring-boot-starter >----------------
+[INFO] Building zlt-redis-spring-boot-starter 6.0.0                      [4/11]
+[INFO]   from zlt-commons/zlt-redis-spring-boot-starter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ zlt-redis-spring-boot-starter ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile) @ zlt-redis-spring-boot-starter ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 7 source files with javac [debug target 17] to target/classes
+[INFO] /work/zlt-commons/zlt-redis-spring-boot-starter/src/main/java/com/central/common/redis/template/RedisRepository.java: /work/zlt-commons/zlt-redis-spring-boot-starter/src/main/java/com/central/common/redis/template/RedisRepository.java uses or overrides a deprecated API.
+[INFO] /work/zlt-commons/zlt-redis-spring-boot-starter/src/main/java/com/central/common/redis/template/RedisRepository.java: Recompile with -Xlint:deprecation for details.
+[INFO] /work/zlt-commons/zlt-redis-spring-boot-starter/src/main/java/com/central/common/redis/template/RedisRepository.java: /work/zlt-commons/zlt-redis-spring-boot-starter/src/main/java/com/central/common/redis/template/RedisRepository.java uses unchecked or unsafe operations.
+[INFO] /work/zlt-commons/zlt-redis-spring-boot-starter/src/main/java/com/central/common/redis/template/RedisRepository.java: Recompile with -Xlint:unchecked for details.
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ zlt-redis-spring-boot-starter ---
+[INFO] skip non existing resourceDirectory /work/zlt-commons/zlt-redis-spring-boot-starter/src/test/resources
+[INFO]
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ zlt-redis-spring-boot-starter ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.1.2:test (default-test) @ zlt-redis-spring-boot-starter ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ zlt-redis-spring-boot-starter ---
+[INFO] Building jar: /work/zlt-commons/zlt-redis-spring-boot-starter/target/zlt-redis-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-redis-spring-boot-starter ---
+[INFO] Installing /work/zlt-commons/zlt-redis-spring-boot-starter/pom.xml to /root/.m2/repository/com/zlt/zlt-redis-spring-boot-starter/6.0.0/zlt-redis-spring-boot-starter-6.0.0.pom
+[INFO] Installing /work/zlt-commons/zlt-redis-spring-boot-starter/target/zlt-redis-spring-boot-starter-6.0.0.jar to /root/.m2/repository/com/zlt/zlt-redis-spring-boot-starter/6.0.0/zlt-redis-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] ----------------< com.zlt:zlt-log-spring-boot-starter >-----------------
+[INFO] Building zlt-log-spring-boot-starter 6.0.0                        [5/11]
+[INFO]   from zlt-commons/zlt-log-spring-boot-starter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ zlt-log-spring-boot-starter ---
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile) @ zlt-log-spring-boot-starter ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 17 source files with javac [debug target 17] to target/classes
+[INFO] /work/zlt-commons/zlt-log-spring-boot-starter/src/main/java/org/slf4j/TtlMDCAdapter.java: Some input files use unchecked or unsafe operations.
+[INFO] /work/zlt-commons/zlt-log-spring-boot-starter/src/main/java/org/slf4j/TtlMDCAdapter.java: Recompile with -Xlint:unchecked for details.
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ zlt-log-spring-boot-starter ---
+[INFO] skip non existing resourceDirectory /work/zlt-commons/zlt-log-spring-boot-starter/src/test/resources
+[INFO]
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ zlt-log-spring-boot-starter ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.1.2:test (default-test) @ zlt-log-spring-boot-starter ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ zlt-log-spring-boot-starter ---
+[INFO] Building jar: /work/zlt-commons/zlt-log-spring-boot-starter/target/zlt-log-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-log-spring-boot-starter ---
+[INFO] Installing /work/zlt-commons/zlt-log-spring-boot-starter/pom.xml to /root/.m2/repository/com/zlt/zlt-log-spring-boot-starter/6.0.0/zlt-log-spring-boot-starter-6.0.0.pom
+[INFO] Installing /work/zlt-commons/zlt-log-spring-boot-starter/target/zlt-log-spring-boot-starter-6.0.0.jar to /root/.m2/repository/com/zlt/zlt-log-spring-boot-starter/6.0.0/zlt-log-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] ------------< com.zlt:zlt-loadbalancer-spring-boot-starter >------------
+[INFO] Building zlt-loadbalancer-spring-boot-starter 6.0.0               [6/11]
+[INFO]   from zlt-commons/zlt-loadbalancer-spring-boot-starter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ zlt-loadbalancer-spring-boot-starter ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile) @ zlt-loadbalancer-spring-boot-starter ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 14 source files with javac [debug target 17] to target/classes
+[INFO] /work/zlt-commons/zlt-loadbalancer-spring-boot-starter/src/main/java/com/central/common/lb/config/VersionLoadBalancerConfig.java: /work/zlt-commons/zlt-loadbalancer-spring-boot-starter/src/main/java/com/central/common/lb/config/VersionLoadBalancerConfig.java uses or overrides a deprecated API.
+[INFO] /work/zlt-commons/zlt-loadbalancer-spring-boot-starter/src/main/java/com/central/common/lb/config/VersionLoadBalancerConfig.java: Recompile with -Xlint:deprecation for details.
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ zlt-loadbalancer-spring-boot-starter ---
+[INFO] skip non existing resourceDirectory /work/zlt-commons/zlt-loadbalancer-spring-boot-starter/src/test/resources
+[INFO]
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ zlt-loadbalancer-spring-boot-starter ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.1.2:test (default-test) @ zlt-loadbalancer-spring-boot-starter ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ zlt-loadbalancer-spring-boot-starter ---
+[INFO] Building jar: /work/zlt-commons/zlt-loadbalancer-spring-boot-starter/target/zlt-loadbalancer-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-loadbalancer-spring-boot-starter ---
+[INFO] Installing /work/zlt-commons/zlt-loadbalancer-spring-boot-starter/pom.xml to /root/.m2/repository/com/zlt/zlt-loadbalancer-spring-boot-starter/6.0.0/zlt-loadbalancer-spring-boot-starter-6.0.0.pom
+[INFO] Installing /work/zlt-commons/zlt-loadbalancer-spring-boot-starter/target/zlt-loadbalancer-spring-boot-starter-6.0.0.jar to /root/.m2/repository/com/zlt/zlt-loadbalancer-spring-boot-starter/6.0.0/zlt-loadbalancer-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] ------------< com.zlt:zlt-auth-client-spring-boot-starter >-------------
+[INFO] Building zlt-auth-client-spring-boot-starter 6.0.0                [7/11]
+[INFO]   from zlt-commons/zlt-auth-client-spring-boot-starter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ zlt-auth-client-spring-boot-starter ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile) @ zlt-auth-client-spring-boot-starter ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 30 source files with javac [debug target 17] to target/classes
+[WARNING] unknown enum constant javax.annotation.meta.When.MAYBE
+  reason: class file for javax.annotation.meta.When not found
+[WARNING] unknown enum constant javax.annotation.meta.When.MAYBE
+  reason: class file for javax.annotation.meta.When not found
+[WARNING] unknown enum constant javax.annotation.meta.When.MAYBE
+  reason: class file for javax.annotation.meta.When not found
+[WARNING] unknown enum constant javax.annotation.meta.When.MAYBE
+  reason: class file for javax.annotation.meta.When not found
+[WARNING] unknown enum constant javax.annotation.meta.When.MAYBE
+  reason: class file for javax.annotation.meta.When not found
+[INFO] /work/zlt-commons/zlt-auth-client-spring-boot-starter/src/main/java/com/central/oauth2/common/service/impl/DefaultPermissionServiceImpl.java: Some input files use unchecked or unsafe operations.
+[INFO] /work/zlt-commons/zlt-auth-client-spring-boot-starter/src/main/java/com/central/oauth2/common/service/impl/DefaultPermissionServiceImpl.java: Recompile with -Xlint:unchecked for details.
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ zlt-auth-client-spring-boot-starter ---
+[INFO] skip non existing resourceDirectory /work/zlt-commons/zlt-auth-client-spring-boot-starter/src/test/resources
+[INFO]
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ zlt-auth-client-spring-boot-starter ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.1.2:test (default-test) @ zlt-auth-client-spring-boot-starter ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ zlt-auth-client-spring-boot-starter ---
+[INFO] Building jar: /work/zlt-commons/zlt-auth-client-spring-boot-starter/target/zlt-auth-client-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-auth-client-spring-boot-starter ---
+[INFO] Installing /work/zlt-commons/zlt-auth-client-spring-boot-starter/pom.xml to /root/.m2/repository/com/zlt/zlt-auth-client-spring-boot-starter/6.0.0/zlt-auth-client-spring-boot-starter-6.0.0.pom
+[INFO] Installing /work/zlt-commons/zlt-auth-client-spring-boot-starter/target/zlt-auth-client-spring-boot-starter-6.0.0.jar to /root/.m2/repository/com/zlt/zlt-auth-client-spring-boot-starter/6.0.0/zlt-auth-client-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] --------------< com.zlt:zlt-sentinel-spring-boot-starter >--------------
+[INFO] Building zlt-sentinel-spring-boot-starter 6.0.0                   [8/11]
+[INFO]   from zlt-commons/zlt-sentinel-spring-boot-starter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ zlt-sentinel-spring-boot-starter ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile) @ zlt-sentinel-spring-boot-starter ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug target 17] to target/classes
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ zlt-sentinel-spring-boot-starter ---
+[INFO] skip non existing resourceDirectory /work/zlt-commons/zlt-sentinel-spring-boot-starter/src/test/resources
+[INFO]
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ zlt-sentinel-spring-boot-starter ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.1.2:test (default-test) @ zlt-sentinel-spring-boot-starter ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ zlt-sentinel-spring-boot-starter ---
+[INFO] Building jar: /work/zlt-commons/zlt-sentinel-spring-boot-starter/target/zlt-sentinel-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-sentinel-spring-boot-starter ---
+[INFO] Installing /work/zlt-commons/zlt-sentinel-spring-boot-starter/pom.xml to /root/.m2/repository/com/zlt/zlt-sentinel-spring-boot-starter/6.0.0/zlt-sentinel-spring-boot-starter-6.0.0.pom
+[INFO] Installing /work/zlt-commons/zlt-sentinel-spring-boot-starter/target/zlt-sentinel-spring-boot-starter-6.0.0.jar to /root/.m2/repository/com/zlt/zlt-sentinel-spring-boot-starter/6.0.0/zlt-sentinel-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] -------------------------< com.zlt:zlt-config >-------------------------
+[INFO] Building zlt-config 6.0.0                                         [9/11]
+[INFO]   from zlt-config/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ zlt-config ---
+[INFO] Copying 5 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile) @ zlt-config ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ zlt-config ---
+[INFO] skip non existing resourceDirectory /work/zlt-config/src/test/resources
+[INFO]
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ zlt-config ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.1.2:test (default-test) @ zlt-config ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ zlt-config ---
+[INFO] Building jar: /work/zlt-config/target/zlt-config-6.0.0.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-config ---
+[INFO] Installing /work/zlt-config/pom.xml to /root/.m2/repository/com/zlt/zlt-config/6.0.0/zlt-config-6.0.0.pom
+[INFO] Installing /work/zlt-config/target/zlt-config-6.0.0.jar to /root/.m2/repository/com/zlt/zlt-config/6.0.0/zlt-config-6.0.0.jar
+[INFO]
+[INFO] ------------------------< com.zlt:zlt-gateway >-------------------------
+[INFO] Building zlt-gateway 6.0.0                                       [10/11]
+[INFO]   from zlt-gateway/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-gateway ---
+[INFO] Installing /work/zlt-gateway/pom.xml to /root/.m2/repository/com/zlt/zlt-gateway/6.0.0/zlt-gateway-6.0.0.pom
+[INFO]
+[INFO] -------------------------< com.zlt:sc-gateway >-------------------------
+[INFO] Building sc-gateway 6.0.0                                        [11/11]
+[INFO]   from zlt-gateway/sc-gateway/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ sc-gateway ---
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile) @ sc-gateway ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 19 source files with javac [debug target 17] to target/classes
+[INFO] /work/zlt-gateway/sc-gateway/src/main/java/com/central/gateway/feign/AsynMenuService.java: Some input files use or override a deprecated API.
+[INFO] /work/zlt-gateway/sc-gateway/src/main/java/com/central/gateway/feign/AsynMenuService.java: Recompile with -Xlint:deprecation for details.
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ sc-gateway ---
+[INFO] skip non existing resourceDirectory /work/zlt-gateway/sc-gateway/src/test/resources
+[INFO]
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ sc-gateway ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.1.2:test (default-test) @ sc-gateway ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ sc-gateway ---
+[INFO] Building jar: /work/zlt-gateway/sc-gateway/target/sc-gateway.jar
+[INFO]
+[INFO] --- spring-boot:3.1.6:repackage (default) @ sc-gateway ---
+[INFO] Artifact org.springframework:spring-context:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-aop:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-beans:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-core:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-jcl:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-expression:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.apache.httpcomponents.client5:httpclient5:jar:5.2.1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-context:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-aop:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-beans:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-core:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-jcl:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-expression:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.apache.httpcomponents.client5:httpclient5:jar:5.2.1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Replacing main artifact /work/zlt-gateway/sc-gateway/target/sc-gateway.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to /work/zlt-gateway/sc-gateway/target/sc-gateway.jar.original
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ sc-gateway ---
+[INFO] Installing /work/zlt-gateway/sc-gateway/pom.xml to /root/.m2/repository/com/zlt/sc-gateway/6.0.0/sc-gateway-6.0.0.pom
+[INFO] Installing /work/zlt-gateway/sc-gateway/target/sc-gateway.jar to /root/.m2/repository/com/zlt/sc-gateway/6.0.0/sc-gateway-6.0.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for central-platform 6.0.0:
+[INFO]
+[INFO] central-platform ................................... SUCCESS [  0.097 s]
+[INFO] zlt-commons ........................................ SUCCESS [  0.009 s]
+[INFO] zlt-common-core .................................... SUCCESS [01:26 min]
+[INFO] zlt-redis-spring-boot-starter ...................... SUCCESS [01:41 min]
+[INFO] zlt-log-spring-boot-starter ........................ SUCCESS [ 57.583 s]
+[INFO] zlt-loadbalancer-spring-boot-starter ............... SUCCESS [ 30.425 s]
+[INFO] zlt-auth-client-spring-boot-starter ................ SUCCESS [ 48.176 s]
+[INFO] zlt-sentinel-spring-boot-starter ................... SUCCESS [ 35.301 s]
+[INFO] zlt-config ......................................... SUCCESS [  6.425 s]
+[INFO] zlt-gateway ........................................ SUCCESS [  0.007 s]
+[INFO] sc-gateway ......................................... SUCCESS [ 13.401 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  06:20 min
+[INFO] Finished at: 2026-10-25T17:39:39Z
+[INFO] ------------------------------------------------------------------------
+
+===== boundary-offline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------------------< com.zlt:sc-gateway >-------------------------
+[INFO] Building sc-gateway 6.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ sc-gateway ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:3.1.6
+UNKNOWN Unsupported Spring Boot BOM 3.1.6; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.394 s
+[INFO] Finished at: 2026-10-25T17:48:59Z
+[INFO] ------------------------------------------------------------------------
+
+===== history/20261025-173939/artifacts-online.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------------------< com.zlt:sc-gateway >-------------------------
+[INFO] Building sc-gateway 6.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for com.zlt:zlt-config:jar:6.0.0 is missing, no dependency information available
+[WARNING] The POM for com.zlt:zlt-log-spring-boot-starter:jar:6.0.0 is missing, no dependency information available
+[WARNING] The POM for com.zlt:zlt-loadbalancer-spring-boot-starter:jar:6.0.0 is missing, no dependency information available
+[WARNING] The POM for com.zlt:zlt-sentinel-spring-boot-starter:jar:6.0.0 is missing, no dependency information available
+[WARNING] The POM for com.zlt:zlt-redis-spring-boot-starter:jar:6.0.0 is missing, no dependency information available
+[WARNING] The POM for com.zlt:zlt-auth-client-spring-boot-starter:jar:6.0.0 is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  50.787 s
+[INFO] Finished at: 2026-10-25T17:25:09Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project sc-gateway: Could not resolve dependencies for project com.zlt:sc-gateway:jar:6.0.0
+[ERROR] dependency: com.zlt:zlt-config:jar:6.0.0 (compile)
+[ERROR] 	Could not find artifact com.zlt:zlt-config:jar:6.0.0 in aliyun-repos (https://maven.aliyun.com/repository/public)
+[ERROR] 	Could not find artifact com.zlt:zlt-config:jar:6.0.0 in central (https://repo.maven.apache.org/maven2)
+[ERROR] dependency: com.zlt:zlt-log-spring-boot-starter:jar:6.0.0 (compile)
+[ERROR] 	Could not find artifact com.zlt:zlt-log-spring-boot-starter:jar:6.0.0 in aliyun-repos (https://maven.aliyun.com/repository/public)
+[ERROR] 	Could not find artifact com.zlt:zlt-log-spring-boot-starter:jar:6.0.0 in central (https://repo.maven.apache.org/maven2)
+[ERROR] dependency: com.zlt:zlt-loadbalancer-spring-boot-starter:jar:6.0.0 (compile)
+[ERROR] 	Could not find artifact com.zlt:zlt-loadbalancer-spring-boot-starter:jar:6.0.0 in aliyun-repos (https://maven.aliyun.com/repository/public)
+[ERROR] 	Could not find artifact com.zlt:zlt-loadbalancer-spring-boot-starter:jar:6.0.0 in central (https://repo.maven.apache.org/maven2)
+[ERROR] dependency: com.zlt:zlt-sentinel-spring-boot-starter:jar:6.0.0 (compile)
+[ERROR] 	Could not find artifact com.zlt:zlt-sentinel-spring-boot-starter:jar:6.0.0 in aliyun-repos (https://maven.aliyun.com/repository/public)
+[ERROR] 	Could not find artifact com.zlt:zlt-sentinel-spring-boot-starter:jar:6.0.0 in central (https://repo.maven.apache.org/maven2)
+[ERROR] dependency: com.zlt:zlt-redis-spring-boot-starter:jar:6.0.0 (compile)
+[ERROR] 	Could not find artifact com.zlt:zlt-redis-spring-boot-starter:jar:6.0.0 in aliyun-repos (https://maven.aliyun.com/repository/public)
+[ERROR] 	Could not find artifact com.zlt:zlt-redis-spring-boot-starter:jar:6.0.0 in central (https://repo.maven.apache.org/maven2)
+[ERROR] dependency: com.zlt:zlt-auth-client-spring-boot-starter:jar:6.0.0 (compile)
+[ERROR] 	Could not find artifact com.zlt:zlt-auth-client-spring-boot-starter:jar:6.0.0 in aliyun-repos (https://maven.aliyun.com/repository/public)
+[ERROR] 	Could not find artifact com.zlt:zlt-auth-client-spring-boot-starter:jar:6.0.0 in central (https://repo.maven.apache.org/maven2)
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+
+===== history/20261025-173939/bootstrap-native-reactor.log =====
+[INFO] Scanning for projects...
+[WARNING]
+[WARNING] Some problems were encountered while building the effective model for com.zlt:zlt-common-core:jar:6.0.0
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.fasterxml.jackson.core:jackson-databind:jar -> duplicate declaration of version (?) @ line 76, column 21
+[WARNING]
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING]
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING]
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO]
+[INFO] central-platform                                                   [pom]
+[INFO] zlt-commons                                                        [pom]
+[INFO] zlt-common-core                                                    [jar]
+[INFO] zlt-redis-spring-boot-starter                                      [jar]
+[INFO] zlt-log-spring-boot-starter                                        [jar]
+[INFO] zlt-loadbalancer-spring-boot-starter                               [jar]
+[INFO] zlt-auth-client-spring-boot-starter                                [jar]
+[INFO] zlt-sentinel-spring-boot-starter                                   [jar]
+[INFO] zlt-config                                                         [jar]
+[INFO] zlt-gateway                                                        [pom]
+[INFO] sc-gateway                                                         [jar]
+[INFO]
+[INFO] ----------------------< com.zlt:central-platform >----------------------
+[INFO] Building central-platform 6.0.0                                   [1/11]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ central-platform ---
+[INFO] Installing /work/pom.xml to /root/.m2/repository/com/zlt/central-platform/6.0.0/central-platform-6.0.0.pom
+[INFO]
+[INFO] ------------------------< com.zlt:zlt-commons >-------------------------
+[INFO] Building zlt-commons 6.0.0                                        [2/11]
+[INFO]   from zlt-commons/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-commons ---
+[INFO] Installing /work/zlt-commons/pom.xml to /root/.m2/repository/com/zlt/zlt-commons/6.0.0/zlt-commons-6.0.0.pom
+[INFO]
+[INFO] ----------------------< com.zlt:zlt-common-core >-----------------------
+[INFO] Building zlt-common-core 6.0.0                                    [3/11]
+[INFO]   from zlt-commons/zlt-common-core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Artifact org.jetbrains.kotlinx:kotlinx-coroutines-bom:pom:1.7.3 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [aliyun-repos (https://maven.aliyun.com/repository/public, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.jetbrains.kotlinx:kotlinx-coroutines-bom:pom:1.7.3 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [aliyun-repos (https://maven.aliyun.com/repository/public, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ zlt-common-core ---
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile) @ zlt-common-core ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 53 source files with javac [debug target 17] to target/classes
+[INFO] /work/zlt-commons/zlt-common-core/src/main/java/com/central/common/utils/JsonUtil.java: Some input files use or override a deprecated API.
+[INFO] /work/zlt-commons/zlt-common-core/src/main/java/com/central/common/utils/JsonUtil.java: Recompile with -Xlint:deprecation for details.
+[INFO] /work/zlt-commons/zlt-common-core/src/main/java/com/central/common/utils/JsonUtil.java: Some input files use unchecked or unsafe operations.
+[INFO] /work/zlt-commons/zlt-common-core/src/main/java/com/central/common/utils/JsonUtil.java: Recompile with -Xlint:unchecked for details.
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ zlt-common-core ---
+[INFO] skip non existing resourceDirectory /work/zlt-commons/zlt-common-core/src/test/resources
+[INFO]
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ zlt-common-core ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.1.2:test (default-test) @ zlt-common-core ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ zlt-common-core ---
+[INFO] Building jar: /work/zlt-commons/zlt-common-core/target/zlt-common-core-6.0.0.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-common-core ---
+[INFO] Installing /work/zlt-commons/zlt-common-core/pom.xml to /root/.m2/repository/com/zlt/zlt-common-core/6.0.0/zlt-common-core-6.0.0.pom
+[INFO] Installing /work/zlt-commons/zlt-common-core/target/zlt-common-core-6.0.0.jar to /root/.m2/repository/com/zlt/zlt-common-core/6.0.0/zlt-common-core-6.0.0.jar
+[INFO]
+[INFO] ---------------< com.zlt:zlt-redis-spring-boot-starter >----------------
+[INFO] Building zlt-redis-spring-boot-starter 6.0.0                      [4/11]
+[INFO]   from zlt-commons/zlt-redis-spring-boot-starter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ zlt-redis-spring-boot-starter ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile) @ zlt-redis-spring-boot-starter ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 7 source files with javac [debug target 17] to target/classes
+[INFO] /work/zlt-commons/zlt-redis-spring-boot-starter/src/main/java/com/central/common/redis/template/RedisRepository.java: /work/zlt-commons/zlt-redis-spring-boot-starter/src/main/java/com/central/common/redis/template/RedisRepository.java uses or overrides a deprecated API.
+[INFO] /work/zlt-commons/zlt-redis-spring-boot-starter/src/main/java/com/central/common/redis/template/RedisRepository.java: Recompile with -Xlint:deprecation for details.
+[INFO] /work/zlt-commons/zlt-redis-spring-boot-starter/src/main/java/com/central/common/redis/template/RedisRepository.java: /work/zlt-commons/zlt-redis-spring-boot-starter/src/main/java/com/central/common/redis/template/RedisRepository.java uses unchecked or unsafe operations.
+[INFO] /work/zlt-commons/zlt-redis-spring-boot-starter/src/main/java/com/central/common/redis/template/RedisRepository.java: Recompile with -Xlint:unchecked for details.
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ zlt-redis-spring-boot-starter ---
+[INFO] skip non existing resourceDirectory /work/zlt-commons/zlt-redis-spring-boot-starter/src/test/resources
+[INFO]
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ zlt-redis-spring-boot-starter ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.1.2:test (default-test) @ zlt-redis-spring-boot-starter ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ zlt-redis-spring-boot-starter ---
+[INFO] Building jar: /work/zlt-commons/zlt-redis-spring-boot-starter/target/zlt-redis-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-redis-spring-boot-starter ---
+[INFO] Installing /work/zlt-commons/zlt-redis-spring-boot-starter/pom.xml to /root/.m2/repository/com/zlt/zlt-redis-spring-boot-starter/6.0.0/zlt-redis-spring-boot-starter-6.0.0.pom
+[INFO] Installing /work/zlt-commons/zlt-redis-spring-boot-starter/target/zlt-redis-spring-boot-starter-6.0.0.jar to /root/.m2/repository/com/zlt/zlt-redis-spring-boot-starter/6.0.0/zlt-redis-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] ----------------< com.zlt:zlt-log-spring-boot-starter >-----------------
+[INFO] Building zlt-log-spring-boot-starter 6.0.0                        [5/11]
+[INFO]   from zlt-commons/zlt-log-spring-boot-starter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ zlt-log-spring-boot-starter ---
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile) @ zlt-log-spring-boot-starter ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 17 source files with javac [debug target 17] to target/classes
+[INFO] /work/zlt-commons/zlt-log-spring-boot-starter/src/main/java/org/slf4j/TtlMDCAdapter.java: Some input files use unchecked or unsafe operations.
+[INFO] /work/zlt-commons/zlt-log-spring-boot-starter/src/main/java/org/slf4j/TtlMDCAdapter.java: Recompile with -Xlint:unchecked for details.
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ zlt-log-spring-boot-starter ---
+[INFO] skip non existing resourceDirectory /work/zlt-commons/zlt-log-spring-boot-starter/src/test/resources
+[INFO]
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ zlt-log-spring-boot-starter ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.1.2:test (default-test) @ zlt-log-spring-boot-starter ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ zlt-log-spring-boot-starter ---
+[INFO] Building jar: /work/zlt-commons/zlt-log-spring-boot-starter/target/zlt-log-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-log-spring-boot-starter ---
+[INFO] Installing /work/zlt-commons/zlt-log-spring-boot-starter/pom.xml to /root/.m2/repository/com/zlt/zlt-log-spring-boot-starter/6.0.0/zlt-log-spring-boot-starter-6.0.0.pom
+[INFO] Installing /work/zlt-commons/zlt-log-spring-boot-starter/target/zlt-log-spring-boot-starter-6.0.0.jar to /root/.m2/repository/com/zlt/zlt-log-spring-boot-starter/6.0.0/zlt-log-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] ------------< com.zlt:zlt-loadbalancer-spring-boot-starter >------------
+[INFO] Building zlt-loadbalancer-spring-boot-starter 6.0.0               [6/11]
+[INFO]   from zlt-commons/zlt-loadbalancer-spring-boot-starter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ zlt-loadbalancer-spring-boot-starter ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile) @ zlt-loadbalancer-spring-boot-starter ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 14 source files with javac [debug target 17] to target/classes
+[INFO] /work/zlt-commons/zlt-loadbalancer-spring-boot-starter/src/main/java/com/central/common/lb/config/VersionLoadBalancerConfig.java: /work/zlt-commons/zlt-loadbalancer-spring-boot-starter/src/main/java/com/central/common/lb/config/VersionLoadBalancerConfig.java uses or overrides a deprecated API.
+[INFO] /work/zlt-commons/zlt-loadbalancer-spring-boot-starter/src/main/java/com/central/common/lb/config/VersionLoadBalancerConfig.java: Recompile with -Xlint:deprecation for details.
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ zlt-loadbalancer-spring-boot-starter ---
+[INFO] skip non existing resourceDirectory /work/zlt-commons/zlt-loadbalancer-spring-boot-starter/src/test/resources
+[INFO]
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ zlt-loadbalancer-spring-boot-starter ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.1.2:test (default-test) @ zlt-loadbalancer-spring-boot-starter ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ zlt-loadbalancer-spring-boot-starter ---
+[INFO] Building jar: /work/zlt-commons/zlt-loadbalancer-spring-boot-starter/target/zlt-loadbalancer-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-loadbalancer-spring-boot-starter ---
+[INFO] Installing /work/zlt-commons/zlt-loadbalancer-spring-boot-starter/pom.xml to /root/.m2/repository/com/zlt/zlt-loadbalancer-spring-boot-starter/6.0.0/zlt-loadbalancer-spring-boot-starter-6.0.0.pom
+[INFO] Installing /work/zlt-commons/zlt-loadbalancer-spring-boot-starter/target/zlt-loadbalancer-spring-boot-starter-6.0.0.jar to /root/.m2/repository/com/zlt/zlt-loadbalancer-spring-boot-starter/6.0.0/zlt-loadbalancer-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] ------------< com.zlt:zlt-auth-client-spring-boot-starter >-------------
+[INFO] Building zlt-auth-client-spring-boot-starter 6.0.0                [7/11]
+[INFO]   from zlt-commons/zlt-auth-client-spring-boot-starter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ zlt-auth-client-spring-boot-starter ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile) @ zlt-auth-client-spring-boot-starter ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 30 source files with javac [debug target 17] to target/classes
+[WARNING] unknown enum constant javax.annotation.meta.When.MAYBE
+  reason: class file for javax.annotation.meta.When not found
+[WARNING] unknown enum constant javax.annotation.meta.When.MAYBE
+  reason: class file for javax.annotation.meta.When not found
+[WARNING] unknown enum constant javax.annotation.meta.When.MAYBE
+  reason: class file for javax.annotation.meta.When not found
+[WARNING] unknown enum constant javax.annotation.meta.When.MAYBE
+  reason: class file for javax.annotation.meta.When not found
+[WARNING] unknown enum constant javax.annotation.meta.When.MAYBE
+  reason: class file for javax.annotation.meta.When not found
+[INFO] /work/zlt-commons/zlt-auth-client-spring-boot-starter/src/main/java/com/central/oauth2/common/service/impl/DefaultPermissionServiceImpl.java: Some input files use unchecked or unsafe operations.
+[INFO] /work/zlt-commons/zlt-auth-client-spring-boot-starter/src/main/java/com/central/oauth2/common/service/impl/DefaultPermissionServiceImpl.java: Recompile with -Xlint:unchecked for details.
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ zlt-auth-client-spring-boot-starter ---
+[INFO] skip non existing resourceDirectory /work/zlt-commons/zlt-auth-client-spring-boot-starter/src/test/resources
+[INFO]
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ zlt-auth-client-spring-boot-starter ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.1.2:test (default-test) @ zlt-auth-client-spring-boot-starter ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ zlt-auth-client-spring-boot-starter ---
+[INFO] Building jar: /work/zlt-commons/zlt-auth-client-spring-boot-starter/target/zlt-auth-client-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-auth-client-spring-boot-starter ---
+[INFO] Installing /work/zlt-commons/zlt-auth-client-spring-boot-starter/pom.xml to /root/.m2/repository/com/zlt/zlt-auth-client-spring-boot-starter/6.0.0/zlt-auth-client-spring-boot-starter-6.0.0.pom
+[INFO] Installing /work/zlt-commons/zlt-auth-client-spring-boot-starter/target/zlt-auth-client-spring-boot-starter-6.0.0.jar to /root/.m2/repository/com/zlt/zlt-auth-client-spring-boot-starter/6.0.0/zlt-auth-client-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] --------------< com.zlt:zlt-sentinel-spring-boot-starter >--------------
+[INFO] Building zlt-sentinel-spring-boot-starter 6.0.0                   [8/11]
+[INFO]   from zlt-commons/zlt-sentinel-spring-boot-starter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ zlt-sentinel-spring-boot-starter ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile) @ zlt-sentinel-spring-boot-starter ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug target 17] to target/classes
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ zlt-sentinel-spring-boot-starter ---
+[INFO] skip non existing resourceDirectory /work/zlt-commons/zlt-sentinel-spring-boot-starter/src/test/resources
+[INFO]
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ zlt-sentinel-spring-boot-starter ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.1.2:test (default-test) @ zlt-sentinel-spring-boot-starter ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ zlt-sentinel-spring-boot-starter ---
+[INFO] Building jar: /work/zlt-commons/zlt-sentinel-spring-boot-starter/target/zlt-sentinel-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-sentinel-spring-boot-starter ---
+[INFO] Installing /work/zlt-commons/zlt-sentinel-spring-boot-starter/pom.xml to /root/.m2/repository/com/zlt/zlt-sentinel-spring-boot-starter/6.0.0/zlt-sentinel-spring-boot-starter-6.0.0.pom
+[INFO] Installing /work/zlt-commons/zlt-sentinel-spring-boot-starter/target/zlt-sentinel-spring-boot-starter-6.0.0.jar to /root/.m2/repository/com/zlt/zlt-sentinel-spring-boot-starter/6.0.0/zlt-sentinel-spring-boot-starter-6.0.0.jar
+[INFO]
+[INFO] -------------------------< com.zlt:zlt-config >-------------------------
+[INFO] Building zlt-config 6.0.0                                         [9/11]
+[INFO]   from zlt-config/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ zlt-config ---
+[INFO] Copying 5 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile) @ zlt-config ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ zlt-config ---
+[INFO] skip non existing resourceDirectory /work/zlt-config/src/test/resources
+[INFO]
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ zlt-config ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.1.2:test (default-test) @ zlt-config ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ zlt-config ---
+[INFO] Building jar: /work/zlt-config/target/zlt-config-6.0.0.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-config ---
+[INFO] Installing /work/zlt-config/pom.xml to /root/.m2/repository/com/zlt/zlt-config/6.0.0/zlt-config-6.0.0.pom
+[INFO] Installing /work/zlt-config/target/zlt-config-6.0.0.jar to /root/.m2/repository/com/zlt/zlt-config/6.0.0/zlt-config-6.0.0.jar
+[INFO]
+[INFO] ------------------------< com.zlt:zlt-gateway >-------------------------
+[INFO] Building zlt-gateway 6.0.0                                       [10/11]
+[INFO]   from zlt-gateway/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ zlt-gateway ---
+[INFO] Installing /work/zlt-gateway/pom.xml to /root/.m2/repository/com/zlt/zlt-gateway/6.0.0/zlt-gateway-6.0.0.pom
+[INFO]
+[INFO] -------------------------< com.zlt:sc-gateway >-------------------------
+[INFO] Building sc-gateway 6.0.0                                        [11/11]
+[INFO]   from zlt-gateway/sc-gateway/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ sc-gateway ---
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile) @ sc-gateway ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 19 source files with javac [debug target 17] to target/classes
+[INFO] /work/zlt-gateway/sc-gateway/src/main/java/com/central/gateway/feign/AsynMenuService.java: Some input files use or override a deprecated API.
+[INFO] /work/zlt-gateway/sc-gateway/src/main/java/com/central/gateway/feign/AsynMenuService.java: Recompile with -Xlint:deprecation for details.
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ sc-gateway ---
+[INFO] skip non existing resourceDirectory /work/zlt-gateway/sc-gateway/src/test/resources
+[INFO]
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ sc-gateway ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.1.2:test (default-test) @ sc-gateway ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ sc-gateway ---
+[INFO] Building jar: /work/zlt-gateway/sc-gateway/target/sc-gateway.jar
+[INFO]
+[INFO] --- spring-boot:3.1.6:repackage (default) @ sc-gateway ---
+[INFO] Artifact org.springframework:spring-context:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-aop:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-beans:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-core:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-jcl:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-expression:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.apache.httpcomponents.client5:httpclient5:jar:5.2.1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-context:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-aop:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-beans:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-core:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-jcl:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.springframework:spring-expression:jar:6.0.14 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.apache.httpcomponents.client5:httpclient5:jar:5.2.1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Replacing main artifact /work/zlt-gateway/sc-gateway/target/sc-gateway.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to /work/zlt-gateway/sc-gateway/target/sc-gateway.jar.original
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ sc-gateway ---
+[INFO] Installing /work/zlt-gateway/sc-gateway/pom.xml to /root/.m2/repository/com/zlt/sc-gateway/6.0.0/sc-gateway-6.0.0.pom
+[INFO] Installing /work/zlt-gateway/sc-gateway/target/sc-gateway.jar to /root/.m2/repository/com/zlt/sc-gateway/6.0.0/sc-gateway-6.0.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for central-platform 6.0.0:
+[INFO]
+[INFO] central-platform ................................... SUCCESS [  0.097 s]
+[INFO] zlt-commons ........................................ SUCCESS [  0.009 s]
+[INFO] zlt-common-core .................................... SUCCESS [01:26 min]
+[INFO] zlt-redis-spring-boot-starter ...................... SUCCESS [01:41 min]
+[INFO] zlt-log-spring-boot-starter ........................ SUCCESS [ 57.583 s]
+[INFO] zlt-loadbalancer-spring-boot-starter ............... SUCCESS [ 30.425 s]
+[INFO] zlt-auth-client-spring-boot-starter ................ SUCCESS [ 48.176 s]
+[INFO] zlt-sentinel-spring-boot-starter ................... SUCCESS [ 35.301 s]
+[INFO] zlt-config ......................................... SUCCESS [  6.425 s]
+[INFO] zlt-gateway ........................................ SUCCESS [  0.007 s]
+[INFO] sc-gateway ......................................... SUCCESS [ 13.401 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  06:20 min
+[INFO] Finished at: 2026-10-25T17:39:39Z
+[INFO] ------------------------------------------------------------------------
+
+===== history/20261025-173939/native-online.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------------------< com.zlt:sc-gateway >-------------------------
+[INFO] Building sc-gateway 6.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ sc-gateway ---
+[INFO] Effective-POM written to: /out/effective.xml
+[INFO]
+[INFO] -------------------------< com.zlt:sc-gateway >-------------------------
+[INFO] Building sc-gateway 6.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for com.zlt:zlt-config:jar:6.0.0 is missing, no dependency information available
+[WARNING] The POM for com.zlt:zlt-log-spring-boot-starter:jar:6.0.0 is missing, no dependency information available
+[WARNING] The POM for com.zlt:zlt-loadbalancer-spring-boot-starter:jar:6.0.0 is missing, no dependency information available
+[WARNING] The POM for com.zlt:zlt-sentinel-spring-boot-starter:jar:6.0.0 is missing, no dependency information available
+[WARNING] The POM for com.zlt:zlt-redis-spring-boot-starter:jar:6.0.0 is missing, no dependency information available
+[WARNING] The POM for com.zlt:zlt-auth-client-spring-boot-starter:jar:6.0.0 is missing, no dependency information available
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ sc-gateway ---
+[INFO] Wrote dependency tree to: /out/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  03:05 min
+[INFO] Finished at: 2026-10-25T17:24:17Z
+[INFO] ------------------------------------------------------------------------
+
+===== native-online.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------------------< com.zlt:sc-gateway >-------------------------
+[INFO] Building sc-gateway 6.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ sc-gateway ---
+[INFO] Effective-POM written to: /out/effective.xml
+[INFO]
+[INFO] -------------------------< com.zlt:sc-gateway >-------------------------
+[INFO] Building sc-gateway 6.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ sc-gateway ---
+[INFO] Wrote dependency tree to: /out/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.739 s
+[INFO] Finished at: 2026-10-25T17:39:42Z
+[INFO] ------------------------------------------------------------------------
+
+===== strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------------------< com.zlt:sc-gateway >-------------------------
+[INFO] Building sc-gateway 6.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ sc-gateway ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:3.1.6
+UNKNOWN Unsupported Spring Boot BOM 3.1.6; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.429 s
+[INFO] Finished at: 2026-10-25T17:39:51Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project sc-gateway: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------------------< com.zlt:sc-gateway >-------------------------
+[INFO] Building sc-gateway 6.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ sc-gateway ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:3.1.6
+UNKNOWN Unsupported Spring Boot BOM 3.1.6; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.360 s
+[INFO] Finished at: 2026-10-25T17:39:49Z
+[INFO] ------------------------------------------------------------------------

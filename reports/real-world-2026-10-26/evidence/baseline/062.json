@@ -1,0 +1,714 @@
+{
+  "baseline.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-137b-62-baseline",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\062-eventuate-tram--eventuate-tram-examples-customers-and-orders,target=/work",
+      "-w",
+      "/work",
+      "-e",
+      "CI=true",
+      "--mount",
+      "type=volume,source=bbg-campaign-gradle-137b,target=/cache",
+      "-e",
+      "GRADLE_USER_HOME=/cache",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\guard,target=/guard",
+      "--mount",
+      "type=volume,source=bbg-campaign-toolchains-137b,target=/toolchains,readonly",
+      "gradle@sha256:21bd311ed01360c189b8870c6b6e988199ff10f72d445d02fb39d3cff9da91d7",
+      "gradle",
+      "--no-daemon",
+      "--console=plain",
+      "--max-workers=2",
+      "-Dorg.gradle.jvmargs=-Xmx1536m",
+      "-Porg.gradle.java.installations.paths=/toolchains/jdk17,/toolchains/jdk25",
+      "-p",
+      "/work/order-service/order-service-main",
+      "dependencies",
+      "--configuration",
+      "runtimeClasspath"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 0,
+    "elapsed_s": 81.36,
+    "timeout_s": 240
+  },
+  "checkout-retry.command.json": {
+    "command": [
+      "git",
+      "-c",
+      "core.longpaths=true",
+      "-c",
+      "core.hooksPath=NUL",
+      "restore",
+      "--source=HEAD",
+      "--staged",
+      "--worktree",
+      "."
+    ],
+    "cwd": "E:\\tmp\\bbg-campaign-137b0026\\clones\\062-eventuate-tram--eventuate-tram-examples-customers-and-orders",
+    "exit": 0,
+    "elapsed_s": 0.438,
+    "timeout_s": 240
+  },
+  "clone.command.json": {
+    "command": [
+      "git",
+      "-c",
+      "credential.helper=",
+      "-c",
+      "core.hooksPath=NUL",
+      "clone",
+      "--depth=1",
+      "--no-tags",
+      "https://github.com/eventuate-tram/eventuate-tram-examples-customers-and-orders.git",
+      "E:\\tmp\\bbg-campaign-137b0026\\clones\\062-eventuate-tram--eventuate-tram-examples-customers-and-orders"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 128,
+    "elapsed_s": 2.797,
+    "timeout_s": 300
+  },
+  "inspection.json": {
+    "repo": "eventuate-tram/eventuate-tram-examples-customers-and-orders",
+    "sha": "8632d030301c2a477141350df1e77f3f991f64e0",
+    "selected_build": "order-service/order-service-main/build.gradle",
+    "wrappers": [
+      {
+        "path": "gradle/wrapper/gradle-wrapper.properties",
+        "distribution": [
+          "distributionUrl=https\\://downloads.gradle.org/distributions/gradle-8.14.5-bin.zip"
+        ]
+      }
+    ],
+    "declared_build_files": 22,
+    "maven_pom_files": 0,
+    "gradle_build_scripts": 21,
+    "selected_scope_project_count": 1,
+    "scope_note": "Inventory includes independent examples, BOMs, buildSrc and aggregation projects; this is not a resolved whole-repository project count.",
+    "structure": [
+      {
+        "path": "api-gateway-service/api-gateway-service-main/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "",
+            "$springBootVersion"
+          ]
+        ],
+        "jdk": [
+          "17"
+        ],
+        "native_platform": true,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-domain/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-event-handling/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-event-publishing/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-main/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-persistence/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-restapi/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "end-to-end-tests/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-service/order-history-service-domain/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-service/order-history-service-event-handling/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-service/order-history-service-main/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-service/order-history-service-restapi/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-text-search-service-api-web/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-text-search-service/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "order-service/order-service-domain/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-service/order-service-event-handling/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-service/order-service-event-publishing/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-service/order-service-main/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-service/order-service-persistence/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-service/order-service-restapi/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      }
+    ]
+  },
+  "inventory.json": {
+    "id": 62,
+    "repo": "eventuate-tram/eventuate-tram-examples-customers-and-orders",
+    "tier_proposed": "Large",
+    "catalog_tool": "Gradle Groovy",
+    "pilot": true,
+    "sha": "8632d030301c2a477141350df1e77f3f991f64e0",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\062-eventuate-tram--eventuate-tram-examples-customers-and-orders",
+    "build_file_count": 22,
+    "builds": [
+      {
+        "path": "api-gateway-service/api-gateway-service-main/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "",
+            "$springBootVersion"
+          ]
+        ],
+        "jdk": [
+          "17"
+        ],
+        "native_platform": true,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-domain/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-event-handling/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-event-publishing/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-main/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-persistence/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-restapi/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "end-to-end-tests/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-service/order-history-service-domain/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-service/order-history-service-event-handling/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-service/order-history-service-main/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-service/order-history-service-restapi/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-text-search-service-api-web/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-text-search-service/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "order-service/order-service-domain/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-service/order-service-event-handling/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-service/order-service-event-publishing/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-service/order-service-main/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-service/order-service-persistence/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-service/order-service-restapi/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      }
+    ],
+    "extensions": [],
+    "outcome": "NOT_RUN",
+    "baseline_status": "NOT_RUN"
+  },
+  "result.json": {
+    "id": 62,
+    "repo": "eventuate-tram/eventuate-tram-examples-customers-and-orders",
+    "tier_proposed": "Large",
+    "catalog_tool": "Gradle Groovy",
+    "pilot": true,
+    "sha": "8632d030301c2a477141350df1e77f3f991f64e0",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\062-eventuate-tram--eventuate-tram-examples-customers-and-orders",
+    "build_file_count": 22,
+    "builds": [
+      {
+        "path": "api-gateway-service/api-gateway-service-main/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "",
+            "$springBootVersion"
+          ]
+        ],
+        "jdk": [
+          "17"
+        ],
+        "native_platform": true,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-domain/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-event-handling/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-event-publishing/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-main/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-persistence/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "customer-service/customer-service-restapi/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "end-to-end-tests/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-service/order-history-service-domain/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-service/order-history-service-event-handling/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-service/order-history-service-main/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-service/order-history-service-restapi/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-text-search-service-api-web/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-history-text-search-service/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "order-service/order-service-domain/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-service/order-service-event-handling/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-service/order-service-event-publishing/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-service/order-service-main/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-service/order-service-persistence/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "order-service/order-service-restapi/build.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      }
+    ],
+    "extensions": [],
+    "outcome": "ENV_BLOCKED",
+    "baseline_status": "FAILED_OR_INCOMPLETE",
+    "build_tool": "Gradle",
+    "build_root": "order-service/order-service-main/build.gradle",
+    "tier_measured": "UNMEASURED",
+    "scenario": "unmodified-resolution",
+    "elapsed_s": 81.36,
+    "selected_scope": "One selected consumer project; additional reactors/controlled projects are separate experiments",
+    "jdk": "declared via conventions; runtime 21",
+    "boot_version": "native BOM unknown",
+    "module_count": 1,
+    "declared_module_count": 1
+  },
+  "runs.json": [
+    {
+      "label": "baseline",
+      "exit": 0,
+      "elapsed_s": 81.36
+    }
+  ],
+  "sha.command.json": {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "E:\\tmp\\bbg-campaign-137b0026\\clones\\062-eventuate-tram--eventuate-tram-examples-customers-and-orders",
+    "exit": 0,
+    "elapsed_s": 0.078,
+    "timeout_s": 240
+  }
+}

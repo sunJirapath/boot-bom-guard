@@ -1,0 +1,297 @@
+===== guard-repeat-offline.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy UP-TO-DATE
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+Directory '/toolchains/zulu17' (Gradle property 'org.gradle.java.installations.paths') used for java installations does not exist
+
+> Task :order-service:order-service-main:bootBomGuard
+configuration=compileClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.1.1]
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=TRANSITIVE_DRIFT evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-core expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-databind expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.dataformat:jackson-dataformat-yaml expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jsr310 expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+WARN checked=83 drift=5 unknown=0
+configuration=runtimeClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.1.0, org.springframework.boot:spring-boot-dependencies:4.1.1]
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=TRANSITIVE_DRIFT evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-core expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-databind expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.dataformat:jackson-dataformat-yaml expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jdk8 expected=2.21.5 resolved=2.22.1 classification=UNKNOWN_ORIGIN evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jsr310 expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.module:jackson-module-parameter-names expected=2.21.5 resolved=2.22.1 classification=UNKNOWN_ORIGIN evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+WARN checked=116 drift=7 unknown=0
+configuration=testCompileClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.1.1]
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=TRANSITIVE_DRIFT evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-core expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-databind expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.dataformat:jackson-dataformat-yaml expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jsr310 expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+WARN checked=102 drift=5 unknown=0
+configuration=testRuntimeClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.1.0, org.springframework.boot:spring-boot-dependencies:4.1.1]
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=TRANSITIVE_DRIFT evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-core expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-databind expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.dataformat:jackson-dataformat-yaml expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jdk8 expected=2.21.5 resolved=2.22.1 classification=UNKNOWN_ORIGIN evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jsr310 expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.module:jackson-module-parameter-names expected=2.21.5 resolved=2.22.1 classification=UNKNOWN_ORIGIN evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+WARN checked=131 drift=7 unknown=0
+
+[Incubating] Problems report is available at: file:///work/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.5/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 9s
+3 actionable tasks: 1 executed, 2 up-to-date
+
+===== guard-strict.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy UP-TO-DATE
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+Directory '/toolchains/zulu17' (Gradle property 'org.gradle.java.installations.paths') used for java installations does not exist
+
+> Task :order-service:order-service-main:bootBomGuard FAILED
+configuration=compileClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.1.1]
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=TRANSITIVE_DRIFT evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-core expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-databind expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.dataformat:jackson-dataformat-yaml expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jsr310 expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+WARN checked=83 drift=5 unknown=0
+configuration=runtimeClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.1.0, org.springframework.boot:spring-boot-dependencies:4.1.1]
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=TRANSITIVE_DRIFT evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-core expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-databind expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.dataformat:jackson-dataformat-yaml expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jdk8 expected=2.21.5 resolved=2.22.1 classification=UNKNOWN_ORIGIN evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jsr310 expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.module:jackson-module-parameter-names expected=2.21.5 resolved=2.22.1 classification=UNKNOWN_ORIGIN evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+WARN checked=116 drift=7 unknown=0
+configuration=testCompileClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.1.1]
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=TRANSITIVE_DRIFT evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-core expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-databind expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.dataformat:jackson-dataformat-yaml expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jsr310 expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+WARN checked=102 drift=5 unknown=0
+configuration=testRuntimeClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.1.0, org.springframework.boot:spring-boot-dependencies:4.1.1]
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=TRANSITIVE_DRIFT evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':order-service:order-service-main:bootBomGuard'.
+> boot-bom-guard policy failed: drift or incomplete analysis
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 9s
+DRIFT com.fasterxml.jackson.core:jackson-core expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-databind expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.dataformat:jackson-dataformat-yaml expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jdk8 expected=2.21.5 resolved=2.22.1 classification=UNKNOWN_ORIGIN evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jsr310 expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.module:jackson-module-parameter-names expected=2.21.5 resolved=2.22.1 classification=UNKNOWN_ORIGIN evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+WARN checked=131 drift=7 unknown=0
+
+[Incubating] Problems report is available at: file:///work/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.5/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+3 actionable tasks: 1 executed, 2 up-to-date
+
+===== guard-warning.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy UP-TO-DATE
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+Directory '/toolchains/zulu17' (Gradle property 'org.gradle.java.installations.paths') used for java installations does not exist
+
+> Task :order-service:order-service-main:bootBomGuard
+configuration=compileClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.1.1]
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=TRANSITIVE_DRIFT evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-core expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-databind expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.dataformat:jackson-dataformat-yaml expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jsr310 expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=compileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+WARN checked=83 drift=5 unknown=0
+configuration=runtimeClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.1.0, org.springframework.boot:spring-boot-dependencies:4.1.1]
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=TRANSITIVE_DRIFT evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-core expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-databind expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.dataformat:jackson-dataformat-yaml expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jdk8 expected=2.21.5 resolved=2.22.1 classification=UNKNOWN_ORIGIN evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jsr310 expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.module:jackson-module-parameter-names expected=2.21.5 resolved=2.22.1 classification=UNKNOWN_ORIGIN evidence=configuration=runtimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+WARN checked=116 drift=7 unknown=0
+configuration=testCompileClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.1.1]
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=TRANSITIVE_DRIFT evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-core expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-databind expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.dataformat:jackson-dataformat-yaml expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jsr310 expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testCompileClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+WARN checked=102 drift=5 unknown=0
+configuration=testRuntimeClasspath
+boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1 mode=[platform] requested=[org.springframework.boot:spring-boot-dependencies:4.1.0, org.springframework.boot:spring-boot-dependencies:4.1.1]
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=TRANSITIVE_DRIFT evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-core expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.core:jackson-databind expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.dataformat:jackson-dataformat-yaml expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jdk8 expected=2.21.5 resolved=2.22.1 classification=UNKNOWN_ORIGIN evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.datatype:jackson-datatype-jsr310 expected=2.21.5 resolved=2.22.1 classification=TRANSITIVE_DRIFT evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=true; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+DRIFT com.fasterxml.jackson.module:jackson-module-parameter-names expected=2.21.5 resolved=2.22.1 classification=UNKNOWN_ORIGIN evidence=configuration=testRuntimeClasspath; rootRequest=false; rootConstraint=false; transitiveRequest=false; constrained=true; forced=false; rule=false; conflict=true; constraint origin unknown
+WARN checked=131 drift=7 unknown=0
+
+[Incubating] Problems report is available at: file:///work/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.5/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 10s
+3 actionable tasks: 1 executed, 2 up-to-date
+
+===== history/20261025-173458/wrapper-native.log =====
+Downloading https://downloads.gradle.org/distributions/gradle-8.14.5-bin.zip
+.............10%.............20%.............30%.............40%.............50%.............60%..............70%.............80%.............90%.............100%
+
+Welcome to Gradle 8.14.5!
+
+Here are the highlights of this release:
+ - Java 24 support
+ - GraalVM Native Image toolchain selection
+ - Enhancements to test reporting
+ - Build Authoring improvements
+
+For more details see https://docs.gradle.org/8.14.5/release-notes.html
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes
+> Task :buildSrc:jar
+> Task :order-service:order-service-main:bbgRevisitNative FAILED
+
+[Incubating] Problems report is available at: file:///work/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Initialization script '/out/native.init.gradle' line: 10
+
+* What went wrong:
+Execution failed for task ':order-service:order-service-main:bbgRevisitNative'.
+> Could not resolve all dependencies for configuration ':order-service:order-service-main:compileClasspath'.
+   > Failed to calculate the value of task ':order-service:order-service-main:compileJava' property 'javaCompiler'.
+      > Cannot find a Java installation on your machine (Linux 6.18.33.1-microsoft-standard-WSL2 amd64) matching: {languageVersion=17, vendor=any vendor, implementation=vendor-specific, nativeImageCapable=false}. Toolchain download repositories have not been configured.
+
+* Try:
+> Learn more about toolchain auto-detection and auto-provisioning at https://docs.gradle.org/8.14.5/userguide/toolchains.html#sec:auto_detection.
+> Learn more about toolchain repositories at https://docs.gradle.org/8.14.5/userguide/toolchains.html#sub:download_repositories.
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.5/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+3 actionable tasks: 3 executed
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 42s
+
+===== pristine-gradle.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+
+> Task :bbgNativeOracle
+BBG_NATIVE_ORACLE_WRITTEN /out/pristine-native.json
+
+BUILD SUCCESSFUL in 8s
+1 actionable task: 1 executed
+
+===== rich-native.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy UP-TO-DATE
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+Directory '/toolchains/zulu17' (Gradle property 'org.gradle.java.installations.paths') used for java installations does not exist
+
+> Task :order-service:order-service-main:bbgNativeOracle
+BBG_NATIVE_ORACLE_WRITTEN /out/native-rich.json
+
+[Incubating] Problems report is available at: file:///work/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.5/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 10s
+3 actionable tasks: 1 executed, 2 up-to-date
+
+===== wrapper-native.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy UP-TO-DATE
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+Directory '/toolchains/zulu17' (Gradle property 'org.gradle.java.installations.paths') used for java installations does not exist
+> Task :order-service:order-service-main:bbgRevisitNative
+
+[Incubating] Problems report is available at: file:///work/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.5/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 57s
+3 actionable tasks: 1 executed, 2 up-to-date

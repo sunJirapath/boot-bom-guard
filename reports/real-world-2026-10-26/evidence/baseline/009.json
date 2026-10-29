@@ -1,0 +1,390 @@
+{
+  "baseline.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-137b-9-baseline",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\009-sdeleuze--spring-boot-kotlin-demo,target=/work",
+      "-w",
+      "/work",
+      "-e",
+      "CI=true",
+      "--mount",
+      "type=volume,source=bbg-campaign-gradle-137b,target=/cache",
+      "-e",
+      "GRADLE_USER_HOME=/cache",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\guard,target=/guard",
+      "--mount",
+      "type=volume,source=bbg-campaign-toolchains-137b,target=/toolchains,readonly",
+      "gradle@sha256:21bd311ed01360c189b8870c6b6e988199ff10f72d445d02fb39d3cff9da91d7",
+      "gradle",
+      "--no-daemon",
+      "--console=plain",
+      "--max-workers=2",
+      "-Dorg.gradle.jvmargs=-Xmx1536m",
+      "-Porg.gradle.java.installations.paths=/toolchains/jdk17,/toolchains/jdk25",
+      "-p",
+      "/work/.",
+      "dependencies",
+      "--configuration",
+      "runtimeClasspath"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 0,
+    "elapsed_s": 32.922,
+    "timeout_s": 240
+  },
+  "clone.command.json": {
+    "command": [
+      "git",
+      "-c",
+      "credential.helper=",
+      "-c",
+      "core.hooksPath=NUL",
+      "clone",
+      "--depth=1",
+      "--no-tags",
+      "https://github.com/sdeleuze/spring-boot-kotlin-demo.git",
+      "E:\\tmp\\bbg-campaign-137b0026\\clones\\009-sdeleuze--spring-boot-kotlin-demo"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 0,
+    "elapsed_s": 2.343,
+    "timeout_s": 300
+  },
+  "first-attempt-environment/baseline.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-137b-9-baseline",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\009-sdeleuze--spring-boot-kotlin-demo,target=/work",
+      "-w",
+      "/work",
+      "-e",
+      "CI=true",
+      "--mount",
+      "type=volume,source=bbg-campaign-gradle-137b,target=/cache",
+      "-e",
+      "GRADLE_USER_HOME=/cache",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\guard,target=/guard",
+      "gradle@sha256:21bd311ed01360c189b8870c6b6e988199ff10f72d445d02fb39d3cff9da91d7",
+      "gradle",
+      "--no-daemon",
+      "--console=plain",
+      "--max-workers=2",
+      "-Dorg.gradle.jvmargs=-Xmx1536m",
+      "-p",
+      "/work/.",
+      "dependencies",
+      "--configuration",
+      "runtimeClasspath"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 1,
+    "elapsed_s": 130.516,
+    "timeout_s": 240
+  },
+  "first-attempt-environment/result.json": {
+    "id": 9,
+    "repo": "sdeleuze/spring-boot-kotlin-demo",
+    "tier_proposed": "Small",
+    "catalog_tool": "Gradle Kotlin",
+    "pilot": true,
+    "sha": "d2264ebc0ec6c05a04d205c314a96258ef83afdd",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\009-sdeleuze--spring-boot-kotlin-demo",
+    "build_file_count": 1,
+    "builds": [
+      {
+        "path": "build.gradle.kts",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "3.5.3",
+            ""
+          ]
+        ],
+        "jdk": [
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      }
+    ],
+    "extensions": [],
+    "outcome": "ENV_BLOCKED",
+    "baseline_status": "FAILED_OR_INCOMPLETE",
+    "build_tool": "Gradle",
+    "build_root": "build.gradle.kts",
+    "tier_measured": "UNMEASURED",
+    "scenario": "unmodified-resolution",
+    "elapsed_s": 130.516
+  },
+  "first-attempt-environment/runs.json": [
+    {
+      "label": "baseline",
+      "exit": 1,
+      "elapsed_s": 130.516
+    }
+  ],
+  "inspection.json": {
+    "repo": "sdeleuze/spring-boot-kotlin-demo",
+    "sha": "d2264ebc0ec6c05a04d205c314a96258ef83afdd",
+    "selected_build": "build.gradle.kts",
+    "wrappers": [
+      {
+        "path": "gradle/wrapper/gradle-wrapper.properties",
+        "distribution": [
+          "distributionUrl=https\\://services.gradle.org/distributions/gradle-8.14.2-bin.zip"
+        ]
+      }
+    ],
+    "declared_build_files": 1,
+    "maven_pom_files": 0,
+    "gradle_build_scripts": 1,
+    "selected_scope_project_count": 1,
+    "scope_note": "Inventory includes independent examples, BOMs, buildSrc and aggregation projects; this is not a resolved whole-repository project count.",
+    "structure": [
+      {
+        "path": "build.gradle.kts",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "3.5.3",
+            ""
+          ]
+        ],
+        "jdk": [
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      }
+    ]
+  },
+  "inventory.json": {
+    "id": 9,
+    "repo": "sdeleuze/spring-boot-kotlin-demo",
+    "tier_proposed": "Small",
+    "catalog_tool": "Gradle Kotlin",
+    "pilot": true,
+    "sha": "d2264ebc0ec6c05a04d205c314a96258ef83afdd",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\009-sdeleuze--spring-boot-kotlin-demo",
+    "build_file_count": 1,
+    "builds": [
+      {
+        "path": "build.gradle.kts",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "3.5.3",
+            ""
+          ]
+        ],
+        "jdk": [
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      }
+    ],
+    "extensions": [],
+    "outcome": "NOT_RUN",
+    "baseline_status": "NOT_RUN"
+  },
+  "original-strict.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-137b-9-original-strict",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\009-sdeleuze--spring-boot-kotlin-demo,target=/work",
+      "-w",
+      "/work",
+      "-e",
+      "CI=true",
+      "--mount",
+      "type=volume,source=bbg-campaign-gradle-137b,target=/cache",
+      "-e",
+      "GRADLE_USER_HOME=/cache",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\guard,target=/guard",
+      "--mount",
+      "type=volume,source=bbg-campaign-toolchains-137b,target=/toolchains,readonly",
+      "gradle@sha256:21bd311ed01360c189b8870c6b6e988199ff10f72d445d02fb39d3cff9da91d7",
+      "gradle",
+      "--no-daemon",
+      "--console=plain",
+      "--max-workers=2",
+      "-Dorg.gradle.jvmargs=-Xmx1536m",
+      "-Porg.gradle.java.installations.paths=/toolchains/jdk17,/toolchains/jdk25",
+      "-p",
+      "/work/.",
+      "bootBomGuard",
+      "-PauditStrict=true"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 1,
+    "elapsed_s": 37.188,
+    "timeout_s": 240
+  },
+  "original-warning.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-137b-9-original-warning",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\009-sdeleuze--spring-boot-kotlin-demo,target=/work",
+      "-w",
+      "/work",
+      "-e",
+      "CI=true",
+      "--mount",
+      "type=volume,source=bbg-campaign-gradle-137b,target=/cache",
+      "-e",
+      "GRADLE_USER_HOME=/cache",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\guard,target=/guard",
+      "--mount",
+      "type=volume,source=bbg-campaign-toolchains-137b,target=/toolchains,readonly",
+      "gradle@sha256:21bd311ed01360c189b8870c6b6e988199ff10f72d445d02fb39d3cff9da91d7",
+      "gradle",
+      "--no-daemon",
+      "--console=plain",
+      "--max-workers=2",
+      "-Dorg.gradle.jvmargs=-Xmx1536m",
+      "-Porg.gradle.java.installations.paths=/toolchains/jdk17,/toolchains/jdk25",
+      "-p",
+      "/work/.",
+      "bootBomGuard"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 0,
+    "elapsed_s": 63.265,
+    "timeout_s": 240
+  },
+  "result.json": {
+    "id": 9,
+    "repo": "sdeleuze/spring-boot-kotlin-demo",
+    "tier_proposed": "Small",
+    "catalog_tool": "Gradle Kotlin",
+    "pilot": true,
+    "sha": "d2264ebc0ec6c05a04d205c314a96258ef83afdd",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\009-sdeleuze--spring-boot-kotlin-demo",
+    "build_file_count": 1,
+    "builds": [
+      {
+        "path": "build.gradle.kts",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "3.5.3",
+            ""
+          ]
+        ],
+        "jdk": [
+          "17"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      }
+    ],
+    "extensions": [],
+    "outcome": "EXPECTED_UNSUPPORTED",
+    "baseline_status": "RESOLUTION_PASSED",
+    "build_tool": "Gradle",
+    "build_root": "build.gradle.kts",
+    "tier_measured": "UNMEASURED",
+    "scenario": "original-warning-strict",
+    "elapsed_s": 32.922,
+    "guard_warn_exit": 0,
+    "guard_strict_exit": 1,
+    "drift_count": 0,
+    "unknown_count": 4,
+    "bom_mechanism": "Spring dependency-management DSL",
+    "selected_scope": "One selected consumer project; additional reactors/controlled projects are separate experiments",
+    "jdk": "17",
+    "boot_version": "native BOM unknown (declared 3.5.3)",
+    "module_count": 1,
+    "declared_module_count": 1
+  },
+  "runs.json": [
+    {
+      "label": "baseline",
+      "exit": 0,
+      "elapsed_s": 32.922
+    },
+    {
+      "label": "original-warning",
+      "exit": 0,
+      "elapsed_s": 63.265
+    },
+    {
+      "label": "original-strict",
+      "exit": 1,
+      "elapsed_s": 37.188
+    }
+  ],
+  "sha.command.json": {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "E:\\tmp\\bbg-campaign-137b0026\\clones\\009-sdeleuze--spring-boot-kotlin-demo",
+    "exit": 0,
+    "elapsed_s": 0.11,
+    "timeout_s": 240
+  }
+}

@@ -1,0 +1,122 @@
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------< com.ctrip.framework.apollo:apollo-portal >--------------
+[INFO] Building Apollo Portal 3.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ apollo-portal ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] --------------< com.ctrip.framework.apollo:apollo-portal >--------------
+[INFO] Building Apollo Portal 3.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for com.ctrip.framework.apollo:apollo-common:jar:3.1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for com.ctrip.framework.apollo:apollo-audit-spring-boot-starter:jar:3.1.0-SNAPSHOT is missing, no dependency information available
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ apollo-portal ---
+[INFO] Wrote dependency tree to: /work/.bbg/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.559 s
+[INFO] Finished at: 2026-10-25T13:37:09Z
+[INFO] ------------------------------------------------------------------------
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\085-apolloconfig--apollo'...
+Updating files:  89% (1429/1599)
+Updating files:  90% (1440/1599)
+Updating files:  91% (1456/1599)
+Updating files:  92% (1472/1599)
+Updating files:  93% (1488/1599)
+Updating files:  94% (1504/1599)
+Updating files:  95% (1520/1599)
+Updating files:  96% (1536/1599)
+Updating files:  97% (1552/1599)
+Updating files:  98% (1568/1599)
+Updating files:  99% (1584/1599)
+Updating files: 100% (1599/1599)
+Updating files: 100% (1599/1599), done.
+
+===== native-artifact-control.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------< com.ctrip.framework.apollo:apollo-portal >--------------
+[INFO] Building Apollo Portal 3.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for com.ctrip.framework.apollo:apollo-common:jar:3.1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for com.ctrip.framework.apollo:apollo-audit-spring-boot-starter:jar:3.1.0-SNAPSHOT is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.818 s
+[INFO] Finished at: 2026-10-25T15:59:42Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project apollo-portal: Could not resolve dependencies for project com.ctrip.framework.apollo:apollo-portal:jar:3.1.0-SNAPSHOT
+[ERROR] dependency: com.ctrip.framework.apollo:apollo-common:jar:3.1.0-SNAPSHOT (compile)
+[ERROR] 	Cannot access central-portal-snapshots (https://central.sonatype.com/repository/maven-snapshots/) in offline mode and the artifact com.ctrip.framework.apollo:apollo-common:jar:3.1.0-SNAPSHOT has not been downloaded from it before.
+[ERROR] dependency: com.ctrip.framework.apollo:apollo-audit-spring-boot-starter:jar:3.1.0-SNAPSHOT (compile)
+[ERROR] 	Cannot access central-portal-snapshots (https://central.sonatype.com/repository/maven-snapshots/) in offline mode and the artifact com.ctrip.framework.apollo:apollo-audit-spring-boot-starter:jar:3.1.0-SNAPSHOT has not been downloaded from it before.
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+
+===== original-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------< com.ctrip.framework.apollo:apollo-portal >--------------
+[INFO] Building Apollo Portal 3.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ apollo-portal ---
+[WARNING] The POM for com.ctrip.framework.apollo:apollo-common:jar:3.1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for com.ctrip.framework.apollo:apollo-audit-spring-boot-starter:jar:3.1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.618 s
+[INFO] Finished at: 2026-10-25T13:37:31Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project apollo-portal: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------< com.ctrip.framework.apollo:apollo-portal >--------------
+[INFO] Building Apollo Portal 3.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ apollo-portal ---
+[WARNING] The POM for com.ctrip.framework.apollo:apollo-common:jar:3.1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for com.ctrip.framework.apollo:apollo-audit-spring-boot-starter:jar:3.1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.765 s
+[INFO] Finished at: 2026-10-25T13:37:21Z
+[INFO] ------------------------------------------------------------------------
+
+===== sha.log =====
+fd33f8dfbae3a459a79a270114a55951f0783073

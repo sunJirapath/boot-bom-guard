@@ -1,0 +1,76 @@
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< guru.springframework:spring-boot-web >----------------
+[INFO] Building Spring Boot Web Application 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ spring-boot-web ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] ----------------< guru.springframework:spring-boot-web >----------------
+[INFO] Building Spring Boot Web Application 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] 1 problem was encountered while building the effective model for org.javassist:javassist:jar:3.20.0-GA during dependency collection step for project (use -X to see details)
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ spring-boot-web ---
+[INFO] Wrote dependency tree to: /work/.bbg/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.295 s
+[INFO] Finished at: 2026-10-25T13:28:06Z
+[INFO] ------------------------------------------------------------------------
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\033-springframeworkguru--springbootwebapp'...
+
+===== original-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< guru.springframework:spring-boot-web >----------------
+[INFO] Building Spring Boot Web Application 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-boot-web ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:2.2.2.RELEASE
+UNKNOWN Unsupported Spring Boot BOM 2.2.2.RELEASE; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.565 s
+[INFO] Finished at: 2026-10-25T13:28:17Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project spring-boot-web: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< guru.springframework:spring-boot-web >----------------
+[INFO] Building Spring Boot Web Application 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-boot-web ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:2.2.2.RELEASE
+UNKNOWN Unsupported Spring Boot BOM 2.2.2.RELEASE; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.571 s
+[INFO] Finished at: 2026-10-25T13:28:12Z
+[INFO] ------------------------------------------------------------------------
+
+===== sha.log =====
+afa695b7b1be1e5978320175ea2aaf13be0bd013

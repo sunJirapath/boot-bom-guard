@@ -1,0 +1,84 @@
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------< com.ecommerce.microservices:common-spring >--------------
+[INFO] Building Common Library Spring Boot Starter 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ common-spring ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] -------------< com.ecommerce.microservices:common-spring >--------------
+[INFO] Building Common Library Spring Boot Starter 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for com.ecommerce.microservices:common-core:jar:1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for com.ecommerce.microservices:common-security:jar:1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for com.ecommerce.microservices:common-logging:jar:1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for com.ecommerce.microservices:common-keycloak:jar:1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for com.ecommerce.microservices:common-kafka:jar:1.0-SNAPSHOT is missing, no dependency information available
+[INFO] Artifact com.fasterxml.jackson:jackson-bom:pom:2.16.1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases), apache.snapshots (https://repository.apache.org/snapshots, default, snapshots)]
+[INFO] Artifact com.fasterxml.jackson:jackson-bom:pom:2.16.1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases), apache.snapshots (https://repository.apache.org/snapshots, default, snapshots)]
+[INFO] Artifact com.fasterxml.jackson:jackson-parent:pom:2.16 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases), apache.snapshots (https://repository.apache.org/snapshots, default, snapshots), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots, default, snapshots)]
+[INFO] Artifact com.fasterxml.jackson:jackson-parent:pom:2.16 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases), apache.snapshots (https://repository.apache.org/snapshots, default, snapshots), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots, default, snapshots)]
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ common-spring ---
+[INFO] Wrote dependency tree to: /work/.bbg/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.068 s
+[INFO] Finished at: 2026-10-25T13:33:13Z
+[INFO] ------------------------------------------------------------------------
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\071-hoangtien2k3--ecommerce-microservices'...
+
+===== original-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------< com.ecommerce.microservices:common-spring >--------------
+[INFO] Building Common Library Spring Boot Starter 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ common-spring ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:3.3.5
+UNKNOWN Unsupported Spring Boot BOM 3.3.5; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.798 s
+[INFO] Finished at: 2026-10-25T13:33:21Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project common-spring: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------< com.ecommerce.microservices:common-spring >--------------
+[INFO] Building Common Library Spring Boot Starter 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ common-spring ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:3.3.5
+UNKNOWN Unsupported Spring Boot BOM 3.3.5; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.476 s
+[INFO] Finished at: 2026-10-25T13:33:17Z
+[INFO] ------------------------------------------------------------------------
+
+===== sha.log =====
+2d687821f8246f426e536641cd0503cb15465275

@@ -1,0 +1,273 @@
+===== native-artifacts.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -----------< org.springframework.cloud:spring-cloud-commons >-----------
+[INFO] Building Spring Cloud Commons 5.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:resolve (default-cli) @ spring-cloud-commons ---
+[INFO]
+[INFO] The following files have been resolved:
+[INFO]    org.springframework.boot:spring-boot-configuration-processor:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.configuration.processor [auto]
+[INFO]    org.springframework.boot:spring-boot-restclient:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.restclient [auto]
+[INFO]    org.springframework.boot:spring-boot:jar:4.2.0-SNAPSHOT:compile -- module spring.boot [auto]
+[INFO]    org.springframework:spring-context:jar:7.1.0-RC1:compile -- module spring.context [auto]
+[INFO]    org.springframework:spring-expression:jar:7.1.0-RC1:compile -- module spring.expression [auto]
+[INFO]    org.springframework.boot:spring-boot-http-client:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.http.client [auto]
+[INFO]    org.springframework.boot:spring-boot-http-converter:jar:4.2.0-SNAPSHOT:compile -- module spring.boot.http.converter [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-actuator:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.starter.actuator [auto]
+[INFO]    org.springframework.boot:spring-boot-starter:jar:4.2.0-SNAPSHOT:compile -- module spring.boot.starter [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-logging:jar:4.2.0-SNAPSHOT:compile -- module spring.boot.starter.logging [auto]
+[INFO]    ch.qos.logback:logback-classic:jar:1.6.5:compile -- module ch.qos.logback.classic
+[INFO]    ch.qos.logback:logback-core:jar:1.6.5:compile -- module ch.qos.logback.core
+[INFO]    org.apache.logging.log4j:log4j-to-slf4j:jar:2.26.1:compile -- module org.apache.logging.log4j.to.slf4j
+[INFO]    org.apache.logging.log4j:log4j-api:jar:2.26.1:compile -- module org.apache.logging.log4j
+[INFO]    org.slf4j:jul-to-slf4j:jar:2.0.20:compile -- module jul.to.slf4j
+[INFO]    org.springframework.boot:spring-boot-autoconfigure:jar:4.2.0-SNAPSHOT:compile -- module spring.boot.autoconfigure [auto]
+[INFO]    jakarta.annotation:jakarta.annotation-api:jar:3.0.0:compile -- module jakarta.annotation
+[INFO]    org.yaml:snakeyaml:jar:2.7:compile -- module org.yaml.snakeyaml
+[INFO]    org.springframework.boot:spring-boot-starter-micrometer-metrics:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.starter.micrometer.metrics [auto]
+[INFO]    org.springframework.boot:spring-boot-micrometer-metrics:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.micrometer.metrics [auto]
+[INFO]    org.springframework.boot:spring-boot-micrometer-observation:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.micrometer.observation [auto]
+[INFO]    org.springframework.boot:spring-boot-actuator-autoconfigure:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.actuator.autoconfigure [auto]
+[INFO]    org.springframework.boot:spring-boot-actuator:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.actuator [auto]
+[INFO]    org.springframework.boot:spring-boot-health:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.health [auto]
+[INFO]    io.micrometer:micrometer-observation:jar:1.18.0-RC1:compile -- module micrometer.observation [auto]
+[INFO]    io.micrometer:micrometer-commons:jar:1.18.0-RC1:compile -- module micrometer.commons [auto]
+[INFO]    io.micrometer:micrometer-jakarta9:jar:1.18.0-RC1:compile (optional) -- module micrometer.jakarta9 [auto]
+[INFO]    io.micrometer:micrometer-core:jar:1.18.0-RC1:compile (optional) -- module micrometer.core [auto]
+[INFO]    org.hdrhistogram:HdrHistogram:jar:2.2.2:runtime (optional) -- module HdrHistogram (auto)
+[INFO]    org.springframework.boot:spring-boot-starter-web:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.starter.web [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-jackson:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.starter.jackson [auto]
+[INFO]    org.springframework.boot:spring-boot-jackson:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.jackson [auto]
+[INFO]    tools.jackson.core:jackson-databind:jar:3.1.7:compile (optional) -- module tools.jackson.databind
+[INFO]    com.fasterxml.jackson.core:jackson-annotations:jar:2.21:compile (optional) -- module com.fasterxml.jackson.annotation
+[INFO]    tools.jackson.core:jackson-core:jar:3.1.7:compile (optional) -- module tools.jackson.core
+[INFO]    org.springframework.boot:spring-boot-starter-tomcat:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.starter.tomcat [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-tomcat-runtime:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.starter.tomcat.runtime [auto]
+[INFO]    org.apache.tomcat.embed:tomcat-embed-core:jar:11.0.27:compile (optional) -- module org.apache.tomcat.embed.core
+[INFO]    org.apache.tomcat.embed:tomcat-embed-el:jar:11.0.27:compile (optional) -- module org.apache.tomcat.embed.el
+[INFO]    org.apache.tomcat.embed:tomcat-embed-websocket:jar:11.0.27:compile (optional) -- module org.apache.tomcat.embed.websocket
+[INFO]    org.springframework.boot:spring-boot-tomcat:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.tomcat [auto]
+[INFO]    org.springframework.boot:spring-boot-webmvc:jar:4.2.0-SNAPSHOT:compile -- module spring.boot.webmvc [auto]
+[INFO]    org.springframework.boot:spring-boot-servlet:jar:4.2.0-SNAPSHOT:compile -- module spring.boot.servlet [auto]
+[INFO]    org.springframework:spring-webmvc:jar:7.1.0-RC1:compile -- module spring.webmvc [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-webflux:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.starter.webflux [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-reactor-netty:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.starter.reactor.netty [auto]
+[INFO]    org.springframework.boot:spring-boot-reactor-netty:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.reactor.netty [auto]
+[INFO]    io.projectreactor.netty:reactor-netty-http:jar:1.4.0-RC1:compile (optional) -- module reactor.netty.http [auto]
+[INFO]    io.netty:netty-codec-http:jar:4.2.19.Final:compile (optional) -- module io.netty.codec.http
+[INFO]    io.netty:netty-buffer:jar:4.2.19.Final:compile (optional) -- module io.netty.buffer
+[INFO]    io.netty:netty-transport:jar:4.2.19.Final:compile (optional) -- module io.netty.transport
+[INFO]    io.netty:netty-codec-base:jar:4.2.19.Final:compile (optional) -- module io.netty.codec
+[INFO]    io.netty:netty-codec-compression:jar:4.2.19.Final:compile (optional) -- module io.netty.codec.compression
+[INFO]    io.netty:netty-handler:jar:4.2.19.Final:compile (optional) -- module io.netty.handler
+[INFO]    io.netty:netty-codec-http2:jar:4.2.19.Final:compile (optional) -- module io.netty.codec.http2
+[INFO]    io.netty:netty-codec-http3:jar:4.2.19.Final:compile (optional) -- module io.netty.codec.http3
+[INFO]    io.netty:netty-codec-classes-quic:jar:4.2.19.Final:compile (optional) -- module io.netty.codec.classes.quic
+[INFO]    io.netty:netty-codec-native-quic:jar:linux-x86_64:4.2.19.Final:runtime (optional) -- module io.netty.codec.quic.linux.x86_64
+[INFO]    io.netty:netty-codec-native-quic:jar:linux-aarch_64:4.2.19.Final:runtime (optional) -- module io.netty.codec.quic.linux.aarch_64
+[INFO]    io.netty:netty-codec-native-quic:jar:osx-x86_64:4.2.19.Final:runtime (optional) -- module io.netty.codec.quic.osx.x86_64
+[INFO]    io.netty:netty-codec-native-quic:jar:osx-aarch_64:4.2.19.Final:runtime (optional) -- module io.netty.codec.quic.osx.aarch_64
+[INFO]    io.netty:netty-codec-native-quic:jar:windows-x86_64:4.2.19.Final:runtime (optional) -- module io.netty.codec.quic.windows.x86_64
+[INFO]    io.netty:netty-resolver-dns:jar:4.2.19.Final:compile (optional) -- module io.netty.resolver.dns
+[INFO]    io.netty:netty-resolver:jar:4.2.19.Final:compile (optional) -- module io.netty.resolver
+[INFO]    io.netty:netty-codec-dns:jar:4.2.19.Final:compile (optional) -- module io.netty.codec.dns
+[INFO]    io.netty:netty-resolver-dns-native-macos:jar:osx-x86_64:4.2.19.Final:runtime (optional) -- module io.netty.resolver.dns.macos.osx.x86_64
+[INFO]    io.netty:netty-resolver-dns-classes-macos:jar:4.2.19.Final:runtime (optional) -- module io.netty.resolver.dns.classes.macos
+[INFO]    io.netty:netty-transport-native-epoll:jar:linux-x86_64:4.2.19.Final:runtime (optional) -- module io.netty.transport.epoll.linux.x86_64
+[INFO]    io.netty:netty-transport-native-unix-common:jar:4.2.19.Final:compile (optional) -- module io.netty.transport.unix.common
+[INFO]    io.netty:netty-transport-classes-epoll:jar:4.2.19.Final:runtime (optional) -- module io.netty.transport.classes.epoll
+[INFO]    io.projectreactor.netty:reactor-netty-core:jar:1.4.0-RC1:compile (optional) -- module reactor.netty.core [auto]
+[INFO]    io.netty:netty-handler-proxy:jar:4.2.19.Final:compile (optional) -- module io.netty.handler.proxy
+[INFO]    io.netty:netty-codec-socks:jar:4.2.19.Final:compile (optional) -- module io.netty.codec.socks
+[INFO]    org.springframework.boot:spring-boot-netty:jar:4.2.0-SNAPSHOT:runtime (optional) -- module spring.boot.netty [auto]
+[INFO]    io.netty:netty-common:jar:4.2.19.Final:compile (optional) -- module io.netty.common
+[INFO]    org.springframework.boot:spring-boot-reactor:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.reactor [auto]
+[INFO]    org.springframework.boot:spring-boot-webflux:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.webflux [auto]
+[INFO]    org.springframework.boot:spring-boot-webclient:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.webclient [auto]
+[INFO]    org.springframework:spring-webflux:jar:7.1.0-RC1:compile (optional) -- module spring.webflux [auto]
+[INFO]    org.springframework:spring-beans:jar:7.1.0-RC1:compile -- module spring.beans [auto]
+[INFO]    org.springframework.boot:spring-boot-http-codec:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.http.codec [auto]
+[INFO]    org.springframework.security:spring-security-crypto:jar:7.2.0-RC1:compile -- module spring.security.crypto [auto]
+[INFO]    org.springframework.integration:spring-integration-jmx:jar:7.2.0-RC1:compile (optional) -- module spring.integration.jmx [auto]
+[INFO]    org.springframework.integration:spring-integration-core:jar:7.2.0-RC1:compile (optional) -- module spring.integration.core [auto]
+[INFO]    org.springframework:spring-messaging:jar:7.1.0-RC1:compile (optional) -- module spring.messaging [auto]
+[INFO]    org.springframework:spring-tx:jar:7.1.0-RC1:compile (optional) -- module spring.tx [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-hateoas:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.starter.hateoas [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-webmvc:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.starter.webmvc [auto]
+[INFO]    org.springframework.boot:spring-boot-hateoas:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.hateoas [auto]
+[INFO]    org.springframework.hateoas:spring-hateoas:jar:3.2.0-RC1:compile (optional) -- module spring.hateoas [auto]
+[INFO]    org.springframework.plugin:spring-plugin-core:jar:4.2.0-RC1:compile (optional) -- module spring.plugin.core [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-aspectj:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.starter.aspectj [auto]
+[INFO]    org.springframework:spring-aop:jar:7.1.0-RC1:compile -- module spring.aop [auto]
+[INFO]    org.aspectj:aspectjweaver:jar:1.9.25.1:compile (optional) -- module org.aspectj.weaver [auto]
+[INFO]    org.springframework.boot:spring-boot-autoconfigure-processor:jar:4.2.0-SNAPSHOT:compile (optional) -- module spring.boot.autoconfigure.processor [auto]
+[INFO]    org.springframework.retry:spring-retry:jar:2.0.13:compile (optional) -- module spring.retry [auto]
+[INFO]    com.jayway.jsonpath:json-path:jar:3.0.0:compile (optional) -- module json.path [auto]
+[INFO]    net.minidev:json-smart:jar:2.6.0:runtime -- module json.smart (auto)
+[INFO]    net.minidev:accessors-smart:jar:2.6.0:runtime -- module accessors.smart (auto)
+[INFO]    org.ow2.asm:asm:jar:9.7.1:runtime -- module org.objectweb.asm
+[INFO]    org.slf4j:slf4j-api:jar:2.0.20:compile -- module org.slf4j
+[INFO]    org.apache.httpcomponents.client5:httpclient5:jar:5.6.5:compile (optional) -- module org.apache.httpcomponents.client5.httpclient5 [auto]
+[INFO]    org.apache.httpcomponents.core5:httpcore5:jar:5.4.4:compile (optional) -- module org.apache.httpcomponents.core5.httpcore5 [auto]
+[INFO]    org.apache.httpcomponents.core5:httpcore5-h2:jar:5.4.4:compile (optional) -- module org.apache.httpcomponents.core5.httpcore5.h2 [auto]
+[INFO]    com.squareup.okhttp3:okhttp:jar:4.12.0:compile (optional) -- module okhttp3 [auto]
+[INFO]    com.squareup.okio:okio:jar:3.6.0:compile (optional) -- module okio (auto)
+[INFO]    com.squareup.okio:okio-jvm:jar:3.6.0:compile (optional) -- module okio [auto]
+[INFO]    org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.9.10:compile (optional) -- module kotlin.stdlib.common (auto)
+[INFO]    org.jetbrains.kotlin:kotlin-stdlib-jdk8:jar:2.4.21:compile (optional) -- module kotlin.stdlib.jdk8
+[INFO]    org.jetbrains.kotlin:kotlin-stdlib:jar:2.4.21:compile (optional) -- module kotlin.stdlib
+[INFO]    org.jetbrains:annotations:jar:13.0:compile (optional) -- module annotations (auto)
+[INFO]    org.jetbrains.kotlin:kotlin-stdlib-jdk7:jar:2.4.21:compile (optional) -- module kotlin.stdlib.jdk7
+[INFO]    com.squareup.okhttp3:logging-interceptor:jar:4.12.0:compile (optional) -- module okhttp3.logging [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-test:jar:4.2.0-SNAPSHOT:test -- module spring.boot.starter.test [auto]
+[INFO]    org.springframework.boot:spring-boot-test:jar:4.2.0-SNAPSHOT:test -- module spring.boot.test [auto]
+[INFO]    org.springframework.boot:spring-boot-test-autoconfigure:jar:4.2.0-SNAPSHOT:test -- module spring.boot.test.autoconfigure [auto]
+[INFO]    jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.5:test -- module jakarta.xml.bind
+[INFO]    jakarta.activation:jakarta.activation-api:jar:2.1.4:test -- module jakarta.activation
+[INFO]    org.assertj:assertj-core:jar:3.27.7:test -- module org.assertj.core
+[INFO]    net.bytebuddy:byte-buddy:jar:1.18.15:test -- module net.bytebuddy
+[INFO]    org.awaitility:awaitility:jar:4.3.0:test -- module awaitility (auto)
+[INFO]    org.hamcrest:hamcrest:jar:3.0:test -- module org.hamcrest [auto]
+[INFO]    org.junit.jupiter:junit-jupiter:jar:6.1.3:test -- module org.junit.jupiter
+[INFO]    org.junit.jupiter:junit-jupiter-api:jar:6.1.3:test -- module org.junit.jupiter.api
+[INFO]    org.junit.jupiter:junit-jupiter-params:jar:6.1.3:test -- module org.junit.jupiter.params
+[INFO]    org.junit.jupiter:junit-jupiter-engine:jar:6.1.3:test -- module org.junit.jupiter.engine
+[INFO]    org.mockito:mockito-core:jar:5.24.0:test -- module org.mockito
+[INFO]    net.bytebuddy:byte-buddy-agent:jar:1.18.15:test -- module net.bytebuddy.agent
+[INFO]    org.objenesis:objenesis:jar:3.3:test -- module org.objenesis [auto]
+[INFO]    org.mockito:mockito-junit-jupiter:jar:5.24.0:test -- module org.mockito.junit.jupiter
+[INFO]    org.skyscreamer:jsonassert:jar:1.5.3:test -- module jsonassert (auto)
+[INFO]    com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test -- module android.json (auto)
+[INFO]    org.springframework:spring-core:jar:7.1.0-RC1:compile -- module spring.core [auto]
+[INFO]    commons-logging:commons-logging:jar:1.4.0:compile -- module org.apache.commons.logging
+[INFO]    org.springframework:spring-test:jar:7.1.0-RC1:test -- module spring.test [auto]
+[INFO]    org.xmlunit:xmlunit-core:jar:2.14.0:test -- module org.xmlunit [auto]
+[INFO]    org.springframework.cloud:spring-cloud-test-support:jar:5.1.0-SNAPSHOT:test -- module spring.cloud.test.support (auto)
+[INFO]    org.apache.maven:maven-resolver-provider:jar:3.10.0:test -- module org.apache.maven.v3.resolver.provider [auto]
+[INFO]    org.apache.maven:maven-model:jar:3.10.0:test -- module org.apache.maven.v3.model [auto]
+[INFO]    org.apache.maven:maven-model-builder:jar:3.10.0:test -- module org.apache.maven.v3.model.builder [auto]
+[INFO]    org.codehaus.plexus:plexus-interpolation:jar:1.30.0:test -- module org.codehaus.plexus.interpolation
+[INFO]    org.apache.maven:maven-artifact:jar:3.10.0:test -- module org.apache.maven.v3.artifact [auto]
+[INFO]    org.apache.maven:maven-builder-support:jar:3.10.0:test -- module org.apache.maven.v3.builder [auto]
+[INFO]    org.eclipse.sisu:org.eclipse.sisu.inject:jar:1.1.0:test -- module org.eclipse.sisu.inject [auto]
+[INFO]    org.apache.maven:maven-repository-metadata:jar:3.10.0:test -- module org.apache.maven.v3.repository.metadata [auto]
+[INFO]    org.apache.maven.resolver:maven-resolver-api:jar:2.0.24:test -- module org.apache.maven.resolver
+[INFO]    org.apache.maven.resolver:maven-resolver-spi:jar:2.0.24:test -- module org.apache.maven.resolver.spi
+[INFO]    com.google.code.gson:gson:jar:2.14.0:test -- module com.google.gson
+[INFO]    com.google.errorprone:error_prone_annotations:jar:2.48.0:test -- module com.google.errorprone.annotations
+[INFO]    org.apache.maven.resolver:maven-resolver-util:jar:2.0.24:test -- module org.apache.maven.resolver.util
+[INFO]    org.apache.maven.resolver:maven-resolver-impl:jar:2.0.24:test -- module org.apache.maven.resolver.impl [auto]
+[INFO]    org.apache.maven.resolver:maven-resolver-connector-basic:jar:2.0.24:test -- module org.apache.maven.resolver.connector.basic [auto]
+[INFO]    org.apache.maven.resolver:maven-resolver-transport-file:jar:2.0.24:test -- module org.apache.maven.resolver.transport.file [auto]
+[INFO]    org.apache.maven.resolver:maven-resolver-transport-apache:jar:2.0.24:test -- module org.apache.maven.resolver.transport.apache [auto]
+[INFO]    org.apache.httpcomponents:httpclient:jar:4.5.14:test -- module org.apache.httpcomponents.httpclient [auto]
+[INFO]    org.apache.httpcomponents:httpcore:jar:4.4.16:test -- module org.apache.httpcomponents.httpcore [auto]
+[INFO]    commons-codec:commons-codec:jar:1.22.1:test -- module org.apache.commons.codec
+[INFO]    org.codehaus.plexus:plexus-utils:jar:3.6.2:test -- module org.codehaus.plexus.util [auto]
+[INFO]    javax.inject:javax.inject:jar:1:test -- module javax.inject (auto)
+[INFO]    org.apache.maven.resolver:maven-resolver-supplier-mvn3:jar:2.0.24:test -- module org.apache.maven.resolver.supplier [auto]
+[INFO]    org.apache.maven.resolver:maven-resolver-named-locks:jar:2.0.24:test -- module org.apache.maven.resolver.named.locks [auto]
+[INFO]    org.springframework.boot:spring-boot-resttestclient:jar:4.2.0-SNAPSHOT:test -- module spring.boot.resttestclient [auto]
+[INFO]    org.springframework:spring-web:jar:7.1.0-RC1:compile -- module spring.web [auto]
+[INFO]    org.springframework.boot:spring-boot-webmvc-test:jar:4.2.0-SNAPSHOT:test -- module spring.boot.webmvc.test [auto]
+[INFO]    org.springframework.boot:spring-boot-web-server:jar:4.2.0-SNAPSHOT:compile -- module spring.boot.web.server [auto]
+[INFO]    org.junit.platform:junit-platform-launcher:jar:6.1.3:test -- module org.junit.platform.launcher
+[INFO]    org.junit.platform:junit-platform-engine:jar:6.1.3:test -- module org.junit.platform.engine
+[INFO]    org.opentest4j:opentest4j:jar:1.3.0:test -- module org.opentest4j
+[INFO]    org.junit.platform:junit-platform-commons:jar:6.1.3:test -- module org.junit.platform.commons
+[INFO]    org.apiguardian:apiguardian-api:jar:1.1.2:test -- module org.apiguardian.api
+[INFO]    org.jspecify:jspecify:jar:1.0.1:compile -- module org.jspecify
+[INFO]    io.projectreactor:reactor-test:jar:3.9.0-RC1:test -- module reactor.test [auto]
+[INFO]    io.projectreactor:reactor-core:jar:3.9.0-RC1:compile -- module reactor.core [auto]
+[INFO]    org.reactivestreams:reactive-streams:jar:1.0.4:compile -- module org.reactivestreams [auto]
+[INFO]    io.micrometer:micrometer-observation-test:jar:1.18.0-RC1:test -- module micrometer.observation.test [auto]
+[INFO]    org.apache.commons:commons-lang3:jar:3.21.0:test -- module org.apache.commons.lang3
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.382 s
+[INFO] Finished at: 2026-10-25T16:43:09Z
+[INFO] ------------------------------------------------------------------------
+
+===== native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -----------< org.springframework.cloud:spring-cloud-commons >-----------
+[INFO] Building Spring Cloud Commons 5.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ spring-cloud-commons ---
+[INFO] Effective-POM written to: /out/effective.xml
+[INFO]
+[INFO] -----------< org.springframework.cloud:spring-cloud-commons >-----------
+[INFO] Building Spring Cloud Commons 5.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ spring-cloud-commons ---
+[INFO] Wrote dependency tree to: /out/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.185 s
+[INFO] Finished at: 2026-10-25T16:43:06Z
+[INFO] ------------------------------------------------------------------------
+
+===== repeat.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -----------< org.springframework.cloud:spring-cloud-commons >-----------
+[INFO] Building Spring Cloud Commons 5.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-cloud-commons ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.2.0-SNAPSHOT
+PASS checked=139 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.751 s
+[INFO] Finished at: 2026-10-25T16:43:16Z
+[INFO] ------------------------------------------------------------------------
+
+===== strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -----------< org.springframework.cloud:spring-cloud-commons >-----------
+[INFO] Building Spring Cloud Commons 5.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-cloud-commons ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.2.0-SNAPSHOT
+PASS checked=139 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.751 s
+[INFO] Finished at: 2026-10-25T16:43:14Z
+[INFO] ------------------------------------------------------------------------
+
+===== warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -----------< org.springframework.cloud:spring-cloud-commons >-----------
+[INFO] Building Spring Cloud Commons 5.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-cloud-commons ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.2.0-SNAPSHOT
+PASS checked=139 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.804 s
+[INFO] Finished at: 2026-10-25T16:43:12Z
+[INFO] ------------------------------------------------------------------------

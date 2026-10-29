@@ -1,0 +1,356 @@
+{
+  "baseline.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-137b-35-baseline",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\035-ThomasVitale--spring-boot-multitenancy,target=/work",
+      "-w",
+      "/work",
+      "-e",
+      "CI=true",
+      "--mount",
+      "type=volume,source=bbg-campaign-gradle-137b,target=/cache",
+      "-e",
+      "GRADLE_USER_HOME=/cache",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\guard,target=/guard",
+      "--mount",
+      "type=volume,source=bbg-campaign-toolchains-137b,target=/toolchains,readonly",
+      "gradle@sha256:21bd311ed01360c189b8870c6b6e988199ff10f72d445d02fb39d3cff9da91d7",
+      "gradle",
+      "--no-daemon",
+      "--console=plain",
+      "--max-workers=2",
+      "-Dorg.gradle.jvmargs=-Xmx1536m",
+      "-Porg.gradle.java.installations.paths=/toolchains/jdk17,/toolchains/jdk25",
+      "-p",
+      "/work/chat-service",
+      "dependencies",
+      "--configuration",
+      "runtimeClasspath"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 124,
+    "elapsed_s": 240.016,
+    "timeout_s": 240
+  },
+  "clone.command.json": {
+    "command": [
+      "git",
+      "-c",
+      "credential.helper=",
+      "-c",
+      "core.hooksPath=NUL",
+      "-c",
+      "core.longpaths=true",
+      "clone",
+      "--depth=1",
+      "--no-tags",
+      "https://github.com/ThomasVitale/spring-boot-multitenancy.git",
+      "E:\\tmp\\bbg-campaign-137b0026\\clones\\035-ThomasVitale--spring-boot-multitenancy"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 0,
+    "elapsed_s": 2.282,
+    "timeout_s": 300
+  },
+  "inspection.json": {
+    "repo": "ThomasVitale/spring-boot-multitenancy",
+    "sha": "0dcbd4fb84f9c7fb9dfa4fc146adc2e8b7e6334c",
+    "selected_build": "chat-service/build.gradle",
+    "wrappers": [
+      {
+        "path": "chat-service/gradle/wrapper/gradle-wrapper.properties",
+        "distribution": [
+          "distributionUrl=https\\://downloads.gradle.org/distributions/gradle-9.8.1-bin.zip"
+        ]
+      }
+    ],
+    "declared_build_files": 6,
+    "maven_pom_files": 0,
+    "gradle_build_scripts": 3,
+    "selected_scope_project_count": 1,
+    "scope_note": "Inventory includes independent examples, BOMs, buildSrc and aggregation projects; this is not a resolved whole-repository project count.",
+    "structure": [
+      {
+        "path": "chat-service/build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "4.1.1",
+            ""
+          ]
+        ],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "chat-service/settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "edge-service/build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "4.1.1",
+            ""
+          ]
+        ],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "edge-service/settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "instrument-service/build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "4.1.1",
+            ""
+          ]
+        ],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "instrument-service/settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      }
+    ]
+  },
+  "inventory.json": {
+    "id": 35,
+    "repo": "ThomasVitale/spring-boot-multitenancy",
+    "tier_proposed": "Medium",
+    "catalog_tool": "Nested build(s)",
+    "pilot": false,
+    "sha": "0dcbd4fb84f9c7fb9dfa4fc146adc2e8b7e6334c",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\035-ThomasVitale--spring-boot-multitenancy",
+    "build_file_count": 6,
+    "builds": [
+      {
+        "path": "chat-service/build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "4.1.1",
+            ""
+          ]
+        ],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "chat-service/settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "edge-service/build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "4.1.1",
+            ""
+          ]
+        ],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "edge-service/settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "instrument-service/build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "4.1.1",
+            ""
+          ]
+        ],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "instrument-service/settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      }
+    ],
+    "extensions": [],
+    "outcome": "NOT_RUN",
+    "baseline_status": "NOT_RUN"
+  },
+  "result.json": {
+    "id": 35,
+    "repo": "ThomasVitale/spring-boot-multitenancy",
+    "tier_proposed": "Medium",
+    "catalog_tool": "Nested build(s)",
+    "pilot": false,
+    "sha": "0dcbd4fb84f9c7fb9dfa4fc146adc2e8b7e6334c",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\035-ThomasVitale--spring-boot-multitenancy",
+    "build_file_count": 6,
+    "builds": [
+      {
+        "path": "chat-service/build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "4.1.1",
+            ""
+          ]
+        ],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "chat-service/settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "edge-service/build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "4.1.1",
+            ""
+          ]
+        ],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "edge-service/settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      },
+      {
+        "path": "instrument-service/build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "4.1.1",
+            ""
+          ]
+        ],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      },
+      {
+        "path": "instrument-service/settings.gradle",
+        "tool": "Gradle",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "dependency_management_dsl": false
+      }
+    ],
+    "extensions": [],
+    "outcome": "ENV_BLOCKED",
+    "baseline_status": "TIMEOUT",
+    "build_tool": "Gradle",
+    "build_root": "chat-service/build.gradle",
+    "tier_measured": "UNMEASURED",
+    "scenario": "unmodified-resolution",
+    "elapsed_s": 240.016,
+    "selected_scope": "One selected consumer project; additional reactors/controlled projects are separate experiments",
+    "jdk": "25",
+    "boot_version": "native BOM unknown (declared 4.1.1)",
+    "module_count": 1,
+    "declared_module_count": 1
+  },
+  "runs.json": [
+    {
+      "label": "baseline",
+      "exit": 124,
+      "elapsed_s": 240.016
+    }
+  ],
+  "sha.command.json": {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "E:\\tmp\\bbg-campaign-137b0026\\clones\\035-ThomasVitale--spring-boot-multitenancy",
+    "exit": 0,
+    "elapsed_s": 0.078,
+    "timeout_s": 240
+  }
+}

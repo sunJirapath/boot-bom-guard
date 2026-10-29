@@ -1,0 +1,764 @@
+===== allowed-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ hilla-endpoint ---
+[INFO] Wrote dependency tree to: /work/.bbg/allowed-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.598 s
+[INFO] Finished at: 2026-10-25T16:23:29Z
+[INFO] ------------------------------------------------------------------------
+
+===== allowed-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ hilla-endpoint ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.22; declaration source unknown; path=transitive
+DRIFT net.bytebuddy:byte-buddy expected=1.18.15 resolved=1.17.7 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=1.17.7; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.mockito:mockito-core expected=5.23.0 resolved=4.5.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=4.5.0; declaration source unknown; path=direct
+ALLOWED org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct reason=Campaign intentional exception
+WARN checked=92 drift=6 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.218 s
+[INFO] Finished at: 2026-10-25T16:23:35Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project hilla-endpoint: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== allowed-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ hilla-endpoint ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.22; declaration source unknown; path=transitive
+DRIFT net.bytebuddy:byte-buddy expected=1.18.15 resolved=1.17.7 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=1.17.7; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.mockito:mockito-core expected=5.23.0 resolved=4.5.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=4.5.0; declaration source unknown; path=direct
+ALLOWED org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct reason=Campaign intentional exception
+WARN checked=92 drift=6 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.993 s
+[INFO] Finished at: 2026-10-25T16:23:32Z
+[INFO] ------------------------------------------------------------------------
+
+===== allowed.patch =====
+--- packages/java/endpoint/pom.xml
++++ packages/java/endpoint/pom.xml
+@@ -347,4 +347,8 @@
+             </plugin>
+
+         </plugins>
+
+     </build>
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.19</version></dependency></dependencies><build><plugins><plugin><groupId>io.github.bootbomguard</groupId><artifactId>boot-bom-guard-maven-plugin</artifactId><version>0.1.0-SNAPSHOT</version><configuration><exceptions><exception><dependency>org.slf4j:slf4j-api</dependency><reason>Campaign intentional exception</reason></exception></exceptions></configuration></plugin></plugins></build></profile>
++</profiles>
+ </project>
+
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ hilla-endpoint ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ hilla-endpoint ---
+[INFO] Wrote dependency tree to: /work/.bbg/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  23.533 s
+[INFO] Finished at: 2026-10-25T13:41:41Z
+[INFO] ------------------------------------------------------------------------
+
+===== benchmark-0-guard.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ hilla-endpoint ---
+[INFO] Wrote dependency tree to: /work/.bbg/benchmark-tree.json
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ hilla-endpoint ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.22; declaration source unknown; path=transitive
+DRIFT net.bytebuddy:byte-buddy expected=1.18.15 resolved=1.17.7 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=1.17.7; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.mockito:mockito-core expected=5.23.0 resolved=4.5.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=4.5.0; declaration source unknown; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.9 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.9; declaration source unknown; path=transitive
+WARN checked=92 drift=6 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.154 s
+[INFO] Finished at: 2026-10-25T16:04:19Z
+[INFO] ------------------------------------------------------------------------
+
+BBG_PEAK_RSS_KB=208348
+
+===== benchmark-0-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ hilla-endpoint ---
+[INFO] Wrote dependency tree to: /work/.bbg/benchmark-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.069 s
+[INFO] Finished at: 2026-10-25T16:04:16Z
+[INFO] ------------------------------------------------------------------------
+
+BBG_PEAK_RSS_KB=184364
+
+===== benchmark-1-guard.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ hilla-endpoint ---
+[INFO] Wrote dependency tree to: /work/.bbg/benchmark-tree.json
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ hilla-endpoint ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.22; declaration source unknown; path=transitive
+DRIFT net.bytebuddy:byte-buddy expected=1.18.15 resolved=1.17.7 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=1.17.7; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.mockito:mockito-core expected=5.23.0 resolved=4.5.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=4.5.0; declaration source unknown; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.9 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.9; declaration source unknown; path=transitive
+WARN checked=92 drift=6 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.144 s
+[INFO] Finished at: 2026-10-25T16:04:21Z
+[INFO] ------------------------------------------------------------------------
+
+BBG_PEAK_RSS_KB=183444
+
+===== benchmark-1-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ hilla-endpoint ---
+[INFO] Wrote dependency tree to: /work/.bbg/benchmark-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.051 s
+[INFO] Finished at: 2026-10-25T16:04:24Z
+[INFO] ------------------------------------------------------------------------
+
+BBG_PEAK_RSS_KB=181088
+
+===== benchmark-2-guard.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ hilla-endpoint ---
+[INFO] Wrote dependency tree to: /work/.bbg/benchmark-tree.json
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ hilla-endpoint ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.22; declaration source unknown; path=transitive
+DRIFT net.bytebuddy:byte-buddy expected=1.18.15 resolved=1.17.7 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=1.17.7; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.mockito:mockito-core expected=5.23.0 resolved=4.5.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=4.5.0; declaration source unknown; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.9 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.9; declaration source unknown; path=transitive
+WARN checked=92 drift=6 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.191 s
+[INFO] Finished at: 2026-10-25T16:04:29Z
+[INFO] ------------------------------------------------------------------------
+
+BBG_PEAK_RSS_KB=192144
+
+===== benchmark-2-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ hilla-endpoint ---
+[INFO] Wrote dependency tree to: /work/.bbg/benchmark-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.161 s
+[INFO] Finished at: 2026-10-25T16:04:27Z
+[INFO] ------------------------------------------------------------------------
+
+BBG_PEAK_RSS_KB=182376
+
+===== benchmark-3-guard.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ hilla-endpoint ---
+[INFO] Wrote dependency tree to: /work/.bbg/benchmark-tree.json
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ hilla-endpoint ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.22; declaration source unknown; path=transitive
+DRIFT net.bytebuddy:byte-buddy expected=1.18.15 resolved=1.17.7 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=1.17.7; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.mockito:mockito-core expected=5.23.0 resolved=4.5.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=4.5.0; declaration source unknown; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.9 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.9; declaration source unknown; path=transitive
+WARN checked=92 drift=6 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.193 s
+[INFO] Finished at: 2026-10-25T16:04:32Z
+[INFO] ------------------------------------------------------------------------
+
+BBG_PEAK_RSS_KB=185012
+
+===== benchmark-3-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ hilla-endpoint ---
+[INFO] Wrote dependency tree to: /work/.bbg/benchmark-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.162 s
+[INFO] Finished at: 2026-10-25T16:04:35Z
+[INFO] ------------------------------------------------------------------------
+
+BBG_PEAK_RSS_KB=183132
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\094-vaadin--hilla'...
+Updating files:  35% (677/1916)
+Updating files:  36% (690/1916)
+Updating files:  37% (709/1916)
+Updating files:  38% (729/1916)
+Updating files:  39% (748/1916)
+Updating files:  40% (767/1916)
+Updating files:  41% (786/1916)
+Updating files:  42% (805/1916)
+Updating files:  43% (824/1916)
+Updating files:  44% (844/1916)
+Updating files:  45% (863/1916)
+Updating files:  46% (882/1916)
+Updating files:  47% (901/1916)
+Updating files:  48% (920/1916)
+Updating files:  49% (939/1916)
+Updating files:  50% (958/1916)
+Updating files:  51% (978/1916)
+Updating files:  52% (997/1916)
+Updating files:  53% (1016/1916)
+Updating files:  54% (1035/1916)
+Updating files:  55% (1054/1916)
+Updating files:  56% (1073/1916)
+Updating files:  57% (1093/1916)
+Updating files:  58% (1112/1916)
+Updating files:  59% (1131/1916)
+Updating files:  60% (1150/1916)
+Updating files:  61% (1169/1916)
+Updating files:  62% (1188/1916)
+Updating files:  63% (1208/1916)
+Updating files:  64% (1227/1916)
+Updating files:  65% (1246/1916)
+Updating files:  66% (1265/1916)
+Updating files:  67% (1284/1916)
+Updating files:  68% (1303/1916)
+Updating files:  69% (1323/1916)
+Updating files:  70% (1342/1916)
+Updating files:  71% (1361/1916)
+Updating files:  72% (1380/1916)
+Updating files:  73% (1399/1916)
+Updating files:  74% (1418/1916)
+Updating files:  75% (1437/1916)
+Updating files:  76% (1457/1916)
+Updating files:  77% (1476/1916)
+Updating files:  78% (1495/1916)
+Updating files:  78% (1510/1916)
+Updating files:  79% (1514/1916)
+Updating files:  80% (1533/1916)
+Updating files:  81% (1552/1916)
+Updating files:  82% (1572/1916)
+Updating files:  83% (1591/1916)
+Updating files:  84% (1610/1916)
+Updating files:  85% (1629/1916)
+Updating files:  86% (1648/1916)
+Updating files:  87% (1667/1916)
+Updating files:  88% (1687/1916)
+Updating files:  89% (1706/1916)
+Updating files:  90% (1725/1916)
+Updating files:  91% (1744/1916)
+Updating files:  92% (1763/1916)
+Updating files:  93% (1782/1916)
+Updating files:  94% (1802/1916)
+Updating files:  95% (1821/1916)
+Updating files:  96% (1840/1916)
+Updating files:  97% (1859/1916)
+Updating files:  98% (1878/1916)
+Updating files:  99% (1897/1916)
+Updating files: 100% (1916/1916)
+Updating files: 100% (1916/1916), done.
+
+===== determinism.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ hilla-endpoint ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.22; declaration source unknown; path=transitive
+DRIFT net.bytebuddy:byte-buddy expected=1.18.15 resolved=1.17.7 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=1.17.7; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.mockito:mockito-core expected=5.23.0 resolved=4.5.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=4.5.0; declaration source unknown; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.9 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.9; declaration source unknown; path=transitive
+WARN checked=92 drift=6 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.103 s
+[INFO] Finished at: 2026-10-25T16:23:47Z
+[INFO] ------------------------------------------------------------------------
+
+===== direct-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ hilla-endpoint ---
+[INFO] Wrote dependency tree to: /work/.bbg/direct-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.584 s
+[INFO] Finished at: 2026-10-25T16:23:09Z
+[INFO] ------------------------------------------------------------------------
+
+===== direct-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ hilla-endpoint ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.22; declaration source unknown; path=transitive
+DRIFT net.bytebuddy:byte-buddy expected=1.18.15 resolved=1.17.7 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=1.17.7; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.mockito:mockito-core expected=5.23.0 resolved=4.5.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=4.5.0; declaration source unknown; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+WARN checked=92 drift=6 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.176 s
+[INFO] Finished at: 2026-10-25T16:23:16Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project hilla-endpoint: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== direct-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ hilla-endpoint ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.22; declaration source unknown; path=transitive
+DRIFT net.bytebuddy:byte-buddy expected=1.18.15 resolved=1.17.7 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=1.17.7; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.mockito:mockito-core expected=5.23.0 resolved=4.5.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=4.5.0; declaration source unknown; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+WARN checked=92 drift=6 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.273 s
+[INFO] Finished at: 2026-10-25T16:23:12Z
+[INFO] ------------------------------------------------------------------------
+
+===== direct.patch =====
+--- packages/java/endpoint/pom.xml
++++ packages/java/endpoint/pom.xml
+@@ -347,4 +347,8 @@
+             </plugin>
+
+         </plugins>
+
+     </build>
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.19</version></dependency></dependencies></profile>
++</profiles>
+ </project>
+
+===== incomplete-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.969 s
+[INFO] Finished at: 2026-10-25T16:23:38Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project hilla-endpoint: Could not resolve dependencies for project com.vaadin:hilla-endpoint:jar:25.4-SNAPSHOT
+[ERROR] dependency: guard.audit:deliberately-missing:jar:1 (compile)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact guard.audit:deliberately-missing:jar:1 has not been downloaded from it before.
+[ERROR] 	Cannot access vaadin-prereleases (https://maven.vaadin.com/vaadin-prereleases/) in offline mode and the artifact guard.audit:deliberately-missing:jar:1 has not been downloaded from it before.
+[ERROR] 	Cannot access vaadin-addons (https://maven.vaadin.com/vaadin-addons) in offline mode and the artifact guard.audit:deliberately-missing:jar:1 has not been downloaded from it before.
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+
+===== incomplete-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ hilla-endpoint ---
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.993 s
+[INFO] Finished at: 2026-10-25T16:23:44Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project hilla-endpoint: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== incomplete-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ hilla-endpoint ---
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.011 s
+[INFO] Finished at: 2026-10-25T16:23:41Z
+[INFO] ------------------------------------------------------------------------
+
+===== incomplete.patch =====
+--- packages/java/endpoint/pom.xml
++++ packages/java/endpoint/pom.xml
+@@ -347,4 +347,8 @@
+             </plugin>
+
+         </plugins>
+
+     </build>
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>guard.audit</groupId><artifactId>deliberately-missing</artifactId><version>1</version></dependency></dependencies></profile>
++</profiles>
+ </project>
+
+===== managed-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ hilla-endpoint ---
+[INFO] Wrote dependency tree to: /work/.bbg/managed-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.745 s
+[INFO] Finished at: 2026-10-25T16:23:19Z
+[INFO] ------------------------------------------------------------------------
+
+===== managed-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ hilla-endpoint ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.22; declaration source unknown; path=transitive
+DRIFT net.bytebuddy:byte-buddy expected=1.18.15 resolved=1.17.7 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=1.17.7; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.mockito:mockito-core expected=5.23.0 resolved=4.5.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=4.5.0; declaration source unknown; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.19; declaration source unknown; path=transitive
+WARN checked=92 drift=6 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.083 s
+[INFO] Finished at: 2026-10-25T16:23:25Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project hilla-endpoint: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== managed-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ hilla-endpoint ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.22; declaration source unknown; path=transitive
+DRIFT net.bytebuddy:byte-buddy expected=1.18.15 resolved=1.17.7 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=1.17.7; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.mockito:mockito-core expected=5.23.0 resolved=4.5.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=4.5.0; declaration source unknown; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.19; declaration source unknown; path=transitive
+WARN checked=92 drift=6 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.065 s
+[INFO] Finished at: 2026-10-25T16:23:22Z
+[INFO] ------------------------------------------------------------------------
+
+===== managed.patch =====
+--- packages/java/endpoint/pom.xml
++++ packages/java/endpoint/pom.xml
+@@ -347,4 +347,8 @@
+             </plugin>
+
+         </plugins>
+
+     </build>
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencyManagement><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.19</version></dependency></dependencies></dependencyManagement></profile>
++</profiles>
+ </project>
+
+===== offline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ hilla-endpoint ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.22; declaration source unknown; path=transitive
+DRIFT net.bytebuddy:byte-buddy expected=1.18.15 resolved=1.17.7 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=1.17.7; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.mockito:mockito-core expected=5.23.0 resolved=4.5.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=4.5.0; declaration source unknown; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.9 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.9; declaration source unknown; path=transitive
+WARN checked=92 drift=6 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.992 s
+[INFO] Finished at: 2026-10-25T16:23:50Z
+[INFO] ------------------------------------------------------------------------
+
+===== original-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ hilla-endpoint ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.22; declaration source unknown; path=transitive
+DRIFT net.bytebuddy:byte-buddy expected=1.18.15 resolved=1.17.7 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=1.17.7; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.mockito:mockito-core expected=5.23.0 resolved=4.5.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=4.5.0; declaration source unknown; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.9 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.9; declaration source unknown; path=transitive
+WARN checked=92 drift=6 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.924 s
+[INFO] Finished at: 2026-10-25T13:42:23Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project hilla-endpoint: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.vaadin:hilla-endpoint >----------------------
+[INFO] Building Hilla Endpoint 25.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ hilla-endpoint ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.fasterxml.jackson.core:jackson-annotations expected=2.21 resolved=2.22 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.22; declaration source unknown; path=transitive
+DRIFT net.bytebuddy:byte-buddy expected=1.18.15 resolved=1.17.7 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=1.17.7; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-reflect expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.jetbrains.kotlin:kotlin-stdlib expected=2.3.21 resolved=2.4.20 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.4.20; declaration source unknown; path=transitive
+DRIFT org.mockito:mockito-core expected=5.23.0 resolved=4.5.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=4.5.0; declaration source unknown; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.9 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.9; declaration source unknown; path=transitive
+WARN checked=92 drift=6 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  20.153 s
+[INFO] Finished at: 2026-10-25T13:42:12Z
+[INFO] ------------------------------------------------------------------------
+
+===== pristine-bom.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------< org.springframework.boot:spring-boot-dependencies >----------
+[INFO] Building spring-boot-dependencies 4.1.2
+[INFO]   from spring-boot-dependencies-4.1.2.pom
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ spring-boot-dependencies ---
+[INFO] Effective-POM written to: /work/.bbg/pristine.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.629 s
+[INFO] Finished at: 2026-10-25T15:51:49Z
+[INFO] ------------------------------------------------------------------------
+
+===== sha.log =====
+a6baed4f8ed8371b034f5f6b242638b12ef4505e

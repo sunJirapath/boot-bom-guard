@@ -1,0 +1,75 @@
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.kaviddiss:spring-boot-quartz-demo >----------------
+[INFO] Building Spring Boot + Quartz Demo 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ spring-boot-quartz-demo ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] ---------------< com.kaviddiss:spring-boot-quartz-demo >----------------
+[INFO] Building Spring Boot + Quartz Demo 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ spring-boot-quartz-demo ---
+[INFO] Wrote dependency tree to: /work/.bbg/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.422 s
+[INFO] Finished at: 2026-10-25T13:26:00Z
+[INFO] ------------------------------------------------------------------------
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\015-davidkiss--spring-boot-quartz-demo'...
+
+===== original-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.kaviddiss:spring-boot-quartz-demo >----------------
+[INFO] Building Spring Boot + Quartz Demo 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-boot-quartz-demo ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:1.2.1.RELEASE
+UNKNOWN Unsupported Spring Boot BOM 1.2.1.RELEASE; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.490 s
+[INFO] Finished at: 2026-10-25T13:26:16Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project spring-boot-quartz-demo: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.kaviddiss:spring-boot-quartz-demo >----------------
+[INFO] Building Spring Boot + Quartz Demo 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ spring-boot-quartz-demo ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:1.2.1.RELEASE
+UNKNOWN Unsupported Spring Boot BOM 1.2.1.RELEASE; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.550 s
+[INFO] Finished at: 2026-10-25T13:26:06Z
+[INFO] ------------------------------------------------------------------------
+
+===== sha.log =====
+b9d8b67d5bc6634b93cb6b9602f5f6b1b6c7a67c

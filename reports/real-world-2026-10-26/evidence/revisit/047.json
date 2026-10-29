@@ -1,0 +1,3506 @@
+{
+  "guard-repeat-offline.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-revisit-47-guard-repeat-offline",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\047-hamvocke--spring-testing,target=/work",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-revisit-20261026\\047,target=/out",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-revisit-20261026\\guard,target=/guard,readonly",
+      "--mount",
+      "type=volume,source=bbg-revisit-gradle-20261026,target=/cache",
+      "--mount",
+      "type=volume,source=bbg-revisit-toolchains-20261026,target=/toolchains,readonly",
+      "-e",
+      "GRADLE_USER_HOME=/cache",
+      "-e",
+      "CI=true",
+      "-w",
+      "/work",
+      "--network",
+      "none",
+      "gradle@sha256:21bd311ed01360c189b8870c6b6e988199ff10f72d445d02fb39d3cff9da91d7",
+      "/opt/java/openjdk/bin/java",
+      "-cp",
+      "/work/gradle/wrapper/gradle-wrapper.jar",
+      "org.gradle.wrapper.GradleWrapperMain",
+      "--no-daemon",
+      "--console=plain",
+      "--max-workers=2",
+      "-Dorg.gradle.jvmargs=-Xmx1536m",
+      "-Porg.gradle.java.installations.paths=/toolchains/jdk8,/toolchains/jdk17,/toolchains/jdk25,/toolchains/zulu17",
+      "-Dbbg.target=:",
+      "-I",
+      "/out/guard.init.gradle",
+      "--offline",
+      ":bootBomGuard"
+    ],
+    "cwd": "E:\\tmp\\bbg-revisit-20261026",
+    "exit": 0,
+    "elapsed_s": 9.907,
+    "timeout_s": 600
+  },
+  "guard-strict.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-revisit-47-guard-strict",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\047-hamvocke--spring-testing,target=/work",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-revisit-20261026\\047,target=/out",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-revisit-20261026\\guard,target=/guard,readonly",
+      "--mount",
+      "type=volume,source=bbg-revisit-gradle-20261026,target=/cache",
+      "--mount",
+      "type=volume,source=bbg-revisit-toolchains-20261026,target=/toolchains,readonly",
+      "-e",
+      "GRADLE_USER_HOME=/cache",
+      "-e",
+      "CI=true",
+      "-w",
+      "/work",
+      "gradle@sha256:21bd311ed01360c189b8870c6b6e988199ff10f72d445d02fb39d3cff9da91d7",
+      "/opt/java/openjdk/bin/java",
+      "-cp",
+      "/work/gradle/wrapper/gradle-wrapper.jar",
+      "org.gradle.wrapper.GradleWrapperMain",
+      "--no-daemon",
+      "--console=plain",
+      "--max-workers=2",
+      "-Dorg.gradle.jvmargs=-Xmx1536m",
+      "-Porg.gradle.java.installations.paths=/toolchains/jdk8,/toolchains/jdk17,/toolchains/jdk25,/toolchains/zulu17",
+      "-Dbbg.target=:",
+      "-I",
+      "/out/guard.init.gradle",
+      ":bootBomGuard",
+      "-Dbbg.strict=true"
+    ],
+    "cwd": "E:\\tmp\\bbg-revisit-20261026",
+    "exit": 1,
+    "elapsed_s": 9.344,
+    "timeout_s": 600
+  },
+  "guard-warning.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-revisit-47-guard-warning",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\047-hamvocke--spring-testing,target=/work",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-revisit-20261026\\047,target=/out",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-revisit-20261026\\guard,target=/guard,readonly",
+      "--mount",
+      "type=volume,source=bbg-revisit-gradle-20261026,target=/cache",
+      "--mount",
+      "type=volume,source=bbg-revisit-toolchains-20261026,target=/toolchains,readonly",
+      "-e",
+      "GRADLE_USER_HOME=/cache",
+      "-e",
+      "CI=true",
+      "-w",
+      "/work",
+      "gradle@sha256:21bd311ed01360c189b8870c6b6e988199ff10f72d445d02fb39d3cff9da91d7",
+      "/opt/java/openjdk/bin/java",
+      "-cp",
+      "/work/gradle/wrapper/gradle-wrapper.jar",
+      "org.gradle.wrapper.GradleWrapperMain",
+      "--no-daemon",
+      "--console=plain",
+      "--max-workers=2",
+      "-Dorg.gradle.jvmargs=-Xmx1536m",
+      "-Porg.gradle.java.installations.paths=/toolchains/jdk8,/toolchains/jdk17,/toolchains/jdk25,/toolchains/zulu17",
+      "-Dbbg.target=:",
+      "-I",
+      "/out/guard.init.gradle",
+      ":bootBomGuard"
+    ],
+    "cwd": "E:\\tmp\\bbg-revisit-20261026",
+    "exit": 0,
+    "elapsed_s": 10.609,
+    "timeout_s": 600
+  },
+  "history/20261025-173231/result.json": {
+    "id": 47,
+    "repo": "hamvocke/spring-testing",
+    "sha": "9cff812e1a71e399bc231ce8323107d1283b9505",
+    "build_root": "build.gradle",
+    "build_tool": "Gradle",
+    "tier_proposed": "Medium",
+    "boot_version": "native BOM unknown (declared 3.5.6)",
+    "previous_outcome": "ENV_BLOCKED",
+    "wrapper": "9.1.0",
+    "target": ":",
+    "jdk": "temurin21",
+    "runs": [
+      {
+        "label": "wrapper-native",
+        "exit": 1,
+        "elapsed_s": 28.422
+      }
+    ],
+    "outcome": "BASELINE_BLOCKED",
+    "blocker": "Downloading https://services.gradle.org/distributions/gradle-9.1.0-bin.zip\n............10%.............20%.............30%.............40%.............50%............60%.............70%.............80%.............90%.............100%\n\nWelcome to Gradle 9.1.0!\n\nHere are the highlights of this release:\n - Full Java 25 support\n - Native task graph visualization\n - Enhanced console output\n\nFor more details see https://docs.gradle.org/9.1.0/release-notes.html\n\nTo honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.1.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\nDaemon will be stopped at the end of the build\n> Task :bbgRevisitNative FAILED\n\nFAILURE: Build failed with an exception.\n\n* Where:\nInitialization script '/out/native.init.gradle' line: 10\n\n* What went wrong:\nExecution failed for task ':bbgRevisitNative'.\n> Could not resolve all dependencies for configuration ':compileClasspath'.\n   > Failed to calculate the value of task ':compileJava' property 'javaCompiler'.\n      > Cannot find a Java installation on your machine (Linux 6.18.33.1-microsoft-standard-WSL2 amd64) matching: {languageVersion=25, vendor=any vendor, implementation=vendor-specific, nativeImageCapable=false}. Toolchain download repositories have not been configured.\n\n* Try:\n> 1 actionable task: 1 executed\nLearn more about toolchain auto-detection and auto-provisioning at https://docs.gradle.org/9.1.0/userguide/toolchains.html#sec:auto_detection.\n> Learn more about toolchain repositories at https://docs.gradle.org/9.1.0/userguide/toolchains.html#sub:download_repositories.\n> Run with --stacktrace option to get the stack trace.\n> Run with --info or --debug option to get more log output.\n> Run with --scan to generate a Build Scan (Powered by Develocity).\n> Get more help at https://help.gradle.org.\n\nBUILD FAILED in 27s"
+  },
+  "history/20261025-173231/wrapper-native.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-revisit-47-wrapper-native",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\047-hamvocke--spring-testing,target=/work",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-revisit-20261026\\047,target=/out",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-revisit-20261026\\guard,target=/guard,readonly",
+      "--mount",
+      "type=volume,source=bbg-revisit-gradle-20261026,target=/cache",
+      "--mount",
+      "type=volume,source=bbg-revisit-toolchains-20261026,target=/toolchains,readonly",
+      "-e",
+      "GRADLE_USER_HOME=/cache",
+      "-e",
+      "CI=true",
+      "-w",
+      "/work",
+      "gradle@sha256:21bd311ed01360c189b8870c6b6e988199ff10f72d445d02fb39d3cff9da91d7",
+      "/opt/java/openjdk/bin/java",
+      "-cp",
+      "/work/gradle/wrapper/gradle-wrapper.jar",
+      "org.gradle.wrapper.GradleWrapperMain",
+      "--no-daemon",
+      "--console=plain",
+      "--max-workers=2",
+      "-Dorg.gradle.jvmargs=-Xmx1536m",
+      "-Dorg.gradle.java.installations.paths=/toolchains/jdk8,/toolchains/jdk17,/toolchains/jdk25,/toolchains/zulu17",
+      "-Dbbg.target=:",
+      "-I",
+      "/out/native.init.gradle",
+      ":bbgRevisitNative"
+    ],
+    "cwd": "E:\\tmp\\bbg-revisit-20261026",
+    "exit": 1,
+    "elapsed_s": 28.422,
+    "timeout_s": 600
+  },
+  "native.json": {
+    "compileClasspath": {
+      "modules": [
+        {
+          "key": "ch.qos.logback:logback-classic",
+          "version": "1.5.18"
+        },
+        {
+          "key": "ch.qos.logback:logback-core",
+          "version": "1.5.18"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-annotations",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-core",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.datatype:jackson-datatype-jdk8",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.datatype:jackson-datatype-jsr310",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.module:jackson-module-parameter-names",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson:jackson-bom",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.zaxxer:HikariCP",
+          "version": "6.3.3"
+        },
+        {
+          "key": "io.micrometer:micrometer-commons",
+          "version": "1.15.4"
+        },
+        {
+          "key": "io.micrometer:micrometer-observation",
+          "version": "1.15.4"
+        },
+        {
+          "key": "jakarta.annotation:jakarta.annotation-api",
+          "version": "2.1.1"
+        },
+        {
+          "key": "jakarta.persistence:jakarta.persistence-api",
+          "version": "3.1.0"
+        },
+        {
+          "key": "jakarta.transaction:jakarta.transaction-api",
+          "version": "2.0.1"
+        },
+        {
+          "key": "org.antlr:antlr4-runtime",
+          "version": "4.13.0"
+        },
+        {
+          "key": "org.apache.logging.log4j:log4j-api",
+          "version": "2.24.3"
+        },
+        {
+          "key": "org.apache.logging.log4j:log4j-to-slf4j",
+          "version": "2.24.3"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.46"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-el",
+          "version": "10.1.46"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-websocket",
+          "version": "10.1.46"
+        },
+        {
+          "key": "org.aspectj:aspectjweaver",
+          "version": "1.9.24"
+        },
+        {
+          "key": "org.hibernate.orm:hibernate-core",
+          "version": "6.6.29.Final"
+        },
+        {
+          "key": "org.slf4j:jul-to-slf4j",
+          "version": "2.0.17"
+        },
+        {
+          "key": "org.slf4j:slf4j-api",
+          "version": "2.0.17"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-autoconfigure",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-data-jpa",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-jdbc",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-json",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-logging",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-tomcat",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-web",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.data:spring-data-commons",
+          "version": "3.5.4"
+        },
+        {
+          "key": "org.springframework.data:spring-data-jpa",
+          "version": "3.5.4"
+        },
+        {
+          "key": "org.springframework:spring-aop",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-aspects",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-beans",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-context",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-core",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-expression",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-jcl",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-jdbc",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-orm",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-tx",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-web",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-webmvc",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.yaml:snakeyaml",
+          "version": "2.4"
+        }
+      ],
+      "unresolved": [],
+      "artifacts": [
+        "HikariCP-6.3.3.jar",
+        "antlr4-runtime-4.13.0.jar",
+        "aspectjweaver-1.9.24.jar",
+        "hibernate-core-6.6.29.Final.jar",
+        "jackson-annotations-2.19.2.jar",
+        "jackson-core-2.19.2.jar",
+        "jackson-databind-2.19.2.jar",
+        "jackson-datatype-jdk8-2.19.2.jar",
+        "jackson-datatype-jsr310-2.19.2.jar",
+        "jackson-module-parameter-names-2.19.2.jar",
+        "jakarta.annotation-api-2.1.1.jar",
+        "jakarta.persistence-api-3.1.0.jar",
+        "jakarta.transaction-api-2.0.1.jar",
+        "jul-to-slf4j-2.0.17.jar",
+        "log4j-api-2.24.3.jar",
+        "log4j-to-slf4j-2.24.3.jar",
+        "logback-classic-1.5.18.jar",
+        "logback-core-1.5.18.jar",
+        "micrometer-commons-1.15.4.jar",
+        "micrometer-observation-1.15.4.jar",
+        "slf4j-api-2.0.17.jar",
+        "snakeyaml-2.4.jar",
+        "spring-aop-6.2.11.jar",
+        "spring-aspects-6.2.11.jar",
+        "spring-beans-6.2.11.jar",
+        "spring-boot-3.5.6.jar",
+        "spring-boot-autoconfigure-3.5.6.jar",
+        "spring-boot-starter-3.5.6.jar",
+        "spring-boot-starter-data-jpa-3.5.6.jar",
+        "spring-boot-starter-jdbc-3.5.6.jar",
+        "spring-boot-starter-json-3.5.6.jar",
+        "spring-boot-starter-logging-3.5.6.jar",
+        "spring-boot-starter-tomcat-3.5.6.jar",
+        "spring-boot-starter-web-3.5.6.jar",
+        "spring-context-6.2.11.jar",
+        "spring-core-6.2.11.jar",
+        "spring-data-commons-3.5.4.jar",
+        "spring-data-jpa-3.5.4.jar",
+        "spring-expression-6.2.11.jar",
+        "spring-jcl-6.2.11.jar",
+        "spring-jdbc-6.2.11.jar",
+        "spring-orm-6.2.11.jar",
+        "spring-tx-6.2.11.jar",
+        "spring-web-6.2.11.jar",
+        "spring-webmvc-6.2.11.jar",
+        "tomcat-embed-core-10.1.46.jar",
+        "tomcat-embed-el-10.1.46.jar",
+        "tomcat-embed-websocket-10.1.46.jar"
+      ]
+    },
+    "runtimeClasspath": {
+      "modules": [
+        {
+          "key": "ch.qos.logback:logback-classic",
+          "version": "1.5.18"
+        },
+        {
+          "key": "ch.qos.logback:logback-core",
+          "version": "1.5.18"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-annotations",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-core",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.datatype:jackson-datatype-jdk8",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.datatype:jackson-datatype-jsr310",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.module:jackson-module-parameter-names",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson:jackson-bom",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml:classmate",
+          "version": "1.7.0"
+        },
+        {
+          "key": "com.h2database:h2",
+          "version": "2.3.232"
+        },
+        {
+          "key": "com.sun.istack:istack-commons-runtime",
+          "version": "4.1.2"
+        },
+        {
+          "key": "com.zaxxer:HikariCP",
+          "version": "6.3.3"
+        },
+        {
+          "key": "io.micrometer:micrometer-commons",
+          "version": "1.15.4"
+        },
+        {
+          "key": "io.micrometer:micrometer-observation",
+          "version": "1.15.4"
+        },
+        {
+          "key": "io.smallrye:jandex",
+          "version": "3.2.0"
+        },
+        {
+          "key": "jakarta.activation:jakarta.activation-api",
+          "version": "2.1.4"
+        },
+        {
+          "key": "jakarta.annotation:jakarta.annotation-api",
+          "version": "2.1.1"
+        },
+        {
+          "key": "jakarta.inject:jakarta.inject-api",
+          "version": "2.0.1"
+        },
+        {
+          "key": "jakarta.persistence:jakarta.persistence-api",
+          "version": "3.1.0"
+        },
+        {
+          "key": "jakarta.transaction:jakarta.transaction-api",
+          "version": "2.0.1"
+        },
+        {
+          "key": "jakarta.xml.bind:jakarta.xml.bind-api",
+          "version": "4.0.2"
+        },
+        {
+          "key": "net.bytebuddy:byte-buddy",
+          "version": "1.17.7"
+        },
+        {
+          "key": "org.antlr:antlr4-runtime",
+          "version": "4.13.0"
+        },
+        {
+          "key": "org.apache.logging.log4j:log4j-api",
+          "version": "2.24.3"
+        },
+        {
+          "key": "org.apache.logging.log4j:log4j-to-slf4j",
+          "version": "2.24.3"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.46"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-el",
+          "version": "10.1.46"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-websocket",
+          "version": "10.1.46"
+        },
+        {
+          "key": "org.aspectj:aspectjweaver",
+          "version": "1.9.24"
+        },
+        {
+          "key": "org.checkerframework:checker-qual",
+          "version": "3.49.3"
+        },
+        {
+          "key": "org.eclipse.angus:angus-activation",
+          "version": "2.0.2"
+        },
+        {
+          "key": "org.glassfish.jaxb:jaxb-core",
+          "version": "4.0.5"
+        },
+        {
+          "key": "org.glassfish.jaxb:jaxb-runtime",
+          "version": "4.0.5"
+        },
+        {
+          "key": "org.glassfish.jaxb:txw2",
+          "version": "4.0.5"
+        },
+        {
+          "key": "org.hibernate.common:hibernate-commons-annotations",
+          "version": "7.0.3.Final"
+        },
+        {
+          "key": "org.hibernate.orm:hibernate-core",
+          "version": "6.6.29.Final"
+        },
+        {
+          "key": "org.jboss.logging:jboss-logging",
+          "version": "3.6.1.Final"
+        },
+        {
+          "key": "org.postgresql:postgresql",
+          "version": "42.7.7"
+        },
+        {
+          "key": "org.slf4j:jul-to-slf4j",
+          "version": "2.0.17"
+        },
+        {
+          "key": "org.slf4j:slf4j-api",
+          "version": "2.0.17"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-autoconfigure",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-data-jpa",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-jdbc",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-json",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-logging",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-tomcat",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-web",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.data:spring-data-commons",
+          "version": "3.5.4"
+        },
+        {
+          "key": "org.springframework.data:spring-data-jpa",
+          "version": "3.5.4"
+        },
+        {
+          "key": "org.springframework:spring-aop",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-aspects",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-beans",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-context",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-core",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-expression",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-jcl",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-jdbc",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-orm",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-tx",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-web",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-webmvc",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.yaml:snakeyaml",
+          "version": "2.4"
+        }
+      ],
+      "unresolved": [],
+      "artifacts": [
+        "HikariCP-6.3.3.jar",
+        "angus-activation-2.0.2.jar",
+        "antlr4-runtime-4.13.0.jar",
+        "aspectjweaver-1.9.24.jar",
+        "byte-buddy-1.17.7.jar",
+        "checker-qual-3.49.3.jar",
+        "classmate-1.7.0.jar",
+        "h2-2.3.232.jar",
+        "hibernate-commons-annotations-7.0.3.Final.jar",
+        "hibernate-core-6.6.29.Final.jar",
+        "istack-commons-runtime-4.1.2.jar",
+        "jackson-annotations-2.19.2.jar",
+        "jackson-core-2.19.2.jar",
+        "jackson-databind-2.19.2.jar",
+        "jackson-datatype-jdk8-2.19.2.jar",
+        "jackson-datatype-jsr310-2.19.2.jar",
+        "jackson-module-parameter-names-2.19.2.jar",
+        "jakarta.activation-api-2.1.4.jar",
+        "jakarta.annotation-api-2.1.1.jar",
+        "jakarta.inject-api-2.0.1.jar",
+        "jakarta.persistence-api-3.1.0.jar",
+        "jakarta.transaction-api-2.0.1.jar",
+        "jakarta.xml.bind-api-4.0.2.jar",
+        "jandex-3.2.0.jar",
+        "jaxb-core-4.0.5.jar",
+        "jaxb-runtime-4.0.5.jar",
+        "jboss-logging-3.6.1.Final.jar",
+        "jul-to-slf4j-2.0.17.jar",
+        "log4j-api-2.24.3.jar",
+        "log4j-to-slf4j-2.24.3.jar",
+        "logback-classic-1.5.18.jar",
+        "logback-core-1.5.18.jar",
+        "micrometer-commons-1.15.4.jar",
+        "micrometer-observation-1.15.4.jar",
+        "postgresql-42.7.7.jar",
+        "slf4j-api-2.0.17.jar",
+        "snakeyaml-2.4.jar",
+        "spring-aop-6.2.11.jar",
+        "spring-aspects-6.2.11.jar",
+        "spring-beans-6.2.11.jar",
+        "spring-boot-3.5.6.jar",
+        "spring-boot-autoconfigure-3.5.6.jar",
+        "spring-boot-starter-3.5.6.jar",
+        "spring-boot-starter-data-jpa-3.5.6.jar",
+        "spring-boot-starter-jdbc-3.5.6.jar",
+        "spring-boot-starter-json-3.5.6.jar",
+        "spring-boot-starter-logging-3.5.6.jar",
+        "spring-boot-starter-tomcat-3.5.6.jar",
+        "spring-boot-starter-web-3.5.6.jar",
+        "spring-context-6.2.11.jar",
+        "spring-core-6.2.11.jar",
+        "spring-data-commons-3.5.4.jar",
+        "spring-data-jpa-3.5.4.jar",
+        "spring-expression-6.2.11.jar",
+        "spring-jcl-6.2.11.jar",
+        "spring-jdbc-6.2.11.jar",
+        "spring-orm-6.2.11.jar",
+        "spring-tx-6.2.11.jar",
+        "spring-web-6.2.11.jar",
+        "spring-webmvc-6.2.11.jar",
+        "tomcat-embed-core-10.1.46.jar",
+        "tomcat-embed-el-10.1.46.jar",
+        "tomcat-embed-websocket-10.1.46.jar",
+        "txw2-4.0.5.jar"
+      ]
+    },
+    "testCompileClasspath": {
+      "modules": [
+        {
+          "key": "au.com.dius.pact.consumer:junit5",
+          "version": "4.6.17"
+        },
+        {
+          "key": "au.com.dius.pact.core:matchers",
+          "version": "4.6.17"
+        },
+        {
+          "key": "au.com.dius.pact.core:model",
+          "version": "4.6.17"
+        },
+        {
+          "key": "au.com.dius.pact.core:pactbroker",
+          "version": "4.6.17"
+        },
+        {
+          "key": "au.com.dius.pact.core:support",
+          "version": "4.6.17"
+        },
+        {
+          "key": "au.com.dius.pact.provider:junit5",
+          "version": "4.6.17"
+        },
+        {
+          "key": "au.com.dius.pact.provider:junit5spring",
+          "version": "4.6.17"
+        },
+        {
+          "key": "au.com.dius.pact:consumer",
+          "version": "4.6.17"
+        },
+        {
+          "key": "au.com.dius.pact:provider",
+          "version": "4.6.17"
+        },
+        {
+          "key": "ch.qos.logback:logback-classic",
+          "version": "1.5.18"
+        },
+        {
+          "key": "ch.qos.logback:logback-core",
+          "version": "1.5.18"
+        },
+        {
+          "key": "com.ethlo.time:itu",
+          "version": "1.10.3"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-annotations",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-core",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.datatype:jackson-datatype-jdk8",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.datatype:jackson-datatype-jsr310",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.module:jackson-module-parameter-names",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson:jackson-bom",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.github.docker-java:docker-java",
+          "version": "3.6.0"
+        },
+        {
+          "key": "com.github.docker-java:docker-java-api",
+          "version": "3.6.0"
+        },
+        {
+          "key": "com.github.docker-java:docker-java-core",
+          "version": "3.6.0"
+        },
+        {
+          "key": "com.github.docker-java:docker-java-transport",
+          "version": "3.6.0"
+        },
+        {
+          "key": "com.github.docker-java:docker-java-transport-httpclient5",
+          "version": "3.6.0"
+        },
+        {
+          "key": "com.github.jknack:handlebars",
+          "version": "4.3.1"
+        },
+        {
+          "key": "com.github.jknack:handlebars-helpers",
+          "version": "4.3.1"
+        },
+        {
+          "key": "com.google.auto.service:auto-service-annotations",
+          "version": "1.1.1"
+        },
+        {
+          "key": "com.google.code.gson:gson",
+          "version": "2.13.2"
+        },
+        {
+          "key": "com.google.errorprone:error_prone_annotations",
+          "version": "2.41.0"
+        },
+        {
+          "key": "com.google.guava:failureaccess",
+          "version": "1.0.3"
+        },
+        {
+          "key": "com.google.guava:guava",
+          "version": "33.4.8-jre"
+        },
+        {
+          "key": "com.google.guava:listenablefuture",
+          "version": "9999.0-empty-to-avoid-conflict-with-guava"
+        },
+        {
+          "key": "com.google.j2objc:j2objc-annotations",
+          "version": "3.0.0"
+        },
+        {
+          "key": "com.jayway.jsonpath:json-path",
+          "version": "2.9.0"
+        },
+        {
+          "key": "com.networknt:json-schema-validator",
+          "version": "1.5.7"
+        },
+        {
+          "key": "com.vaadin.external.google:android-json",
+          "version": "0.0.20131108.vaadin1"
+        },
+        {
+          "key": "com.zaxxer:HikariCP",
+          "version": "6.3.3"
+        },
+        {
+          "key": "commons-codec:commons-codec",
+          "version": "1.18.0"
+        },
+        {
+          "key": "commons-fileupload:commons-fileupload",
+          "version": "1.6.0"
+        },
+        {
+          "key": "commons-io:commons-io",
+          "version": "2.20.0"
+        },
+        {
+          "key": "commons-logging:commons-logging",
+          "version": "1.2"
+        },
+        {
+          "key": "io.github.bonigarcia:webdrivermanager",
+          "version": "6.3.2"
+        },
+        {
+          "key": "io.github.classgraph:classgraph",
+          "version": "4.8.129"
+        },
+        {
+          "key": "io.github.oshai:kotlin-logging-jvm",
+          "version": "5.1.4"
+        },
+        {
+          "key": "io.micrometer:micrometer-commons",
+          "version": "1.15.4"
+        },
+        {
+          "key": "io.micrometer:micrometer-observation",
+          "version": "1.15.4"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-api",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-context",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-exporter-logging",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-sdk",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-sdk-common",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-sdk-extension-autoconfigure",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-sdk-extension-autoconfigure-spi",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-sdk-logs",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-sdk-metrics",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-sdk-trace",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.pact.plugin.driver:core",
+          "version": "0.5.1"
+        },
+        {
+          "key": "io.rest-assured:json-path",
+          "version": "5.5.6"
+        },
+        {
+          "key": "io.rest-assured:rest-assured",
+          "version": "5.5.6"
+        },
+        {
+          "key": "io.rest-assured:rest-assured-common",
+          "version": "5.5.6"
+        },
+        {
+          "key": "io.rest-assured:xml-path",
+          "version": "5.5.6"
+        },
+        {
+          "key": "jakarta.activation:jakarta.activation-api",
+          "version": "2.1.4"
+        },
+        {
+          "key": "jakarta.annotation:jakarta.annotation-api",
+          "version": "2.1.1"
+        },
+        {
+          "key": "jakarta.persistence:jakarta.persistence-api",
+          "version": "3.1.0"
+        },
+        {
+          "key": "jakarta.servlet:jakarta.servlet-api",
+          "version": "6.0.0"
+        },
+        {
+          "key": "jakarta.transaction:jakarta.transaction-api",
+          "version": "2.0.1"
+        },
+        {
+          "key": "jakarta.xml.bind:jakarta.xml.bind-api",
+          "version": "4.0.2"
+        },
+        {
+          "key": "net.bytebuddy:byte-buddy",
+          "version": "1.17.7"
+        },
+        {
+          "key": "net.bytebuddy:byte-buddy-agent",
+          "version": "1.17.7"
+        },
+        {
+          "key": "net.java.dev.jna:jna",
+          "version": "5.17.0"
+        },
+        {
+          "key": "net.javacrumbs.json-unit:json-unit-core",
+          "version": "2.40.1"
+        },
+        {
+          "key": "net.minidev:accessors-smart",
+          "version": "2.5.2"
+        },
+        {
+          "key": "net.minidev:json-smart",
+          "version": "2.5.2"
+        },
+        {
+          "key": "net.sf.jopt-simple:jopt-simple",
+          "version": "5.0.4"
+        },
+        {
+          "key": "org.antlr:antlr4-runtime",
+          "version": "4.13.0"
+        },
+        {
+          "key": "org.apache.commons:commons-compress",
+          "version": "1.28.0"
+        },
+        {
+          "key": "org.apache.commons:commons-exec",
+          "version": "1.4.0"
+        },
+        {
+          "key": "org.apache.commons:commons-lang3",
+          "version": "3.17.0"
+        },
+        {
+          "key": "org.apache.groovy:groovy",
+          "version": "4.0.28"
+        },
+        {
+          "key": "org.apache.groovy:groovy-bom",
+          "version": "4.0.28"
+        },
+        {
+          "key": "org.apache.groovy:groovy-json",
+          "version": "4.0.28"
+        },
+        {
+          "key": "org.apache.groovy:groovy-xml",
+          "version": "4.0.28"
+        },
+        {
+          "key": "org.apache.httpcomponents.client5:httpclient5",
+          "version": "5.5"
+        },
+        {
+          "key": "org.apache.httpcomponents.client5:httpclient5-fluent",
+          "version": "5.5"
+        },
+        {
+          "key": "org.apache.httpcomponents.core5:httpcore5",
+          "version": "5.3.5"
+        },
+        {
+          "key": "org.apache.httpcomponents.core5:httpcore5-h2",
+          "version": "5.3.5"
+        },
+        {
+          "key": "org.apache.httpcomponents:httpclient",
+          "version": "4.5.13"
+        },
+        {
+          "key": "org.apache.httpcomponents:httpcore",
+          "version": "4.4.16"
+        },
+        {
+          "key": "org.apache.httpcomponents:httpmime",
+          "version": "4.5.13"
+        },
+        {
+          "key": "org.apache.logging.log4j:log4j-api",
+          "version": "2.24.3"
+        },
+        {
+          "key": "org.apache.logging.log4j:log4j-to-slf4j",
+          "version": "2.24.3"
+        },
+        {
+          "key": "org.apache.tika:tika-core",
+          "version": "2.9.1"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.46"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-el",
+          "version": "10.1.46"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-websocket",
+          "version": "10.1.46"
+        },
+        {
+          "key": "org.apiguardian:apiguardian-api",
+          "version": "1.1.2"
+        },
+        {
+          "key": "org.aspectj:aspectjweaver",
+          "version": "1.9.24"
+        },
+        {
+          "key": "org.assertj:assertj-core",
+          "version": "3.27.4"
+        },
+        {
+          "key": "org.awaitility:awaitility",
+          "version": "4.2.2"
+        },
+        {
+          "key": "org.brotli:dec",
+          "version": "0.1.2"
+        },
+        {
+          "key": "org.ccil.cowan.tagsoup:tagsoup",
+          "version": "1.2.1"
+        },
+        {
+          "key": "org.eclipse.jetty.ee10:jetty-ee10-bom",
+          "version": "12.0.16"
+        },
+        {
+          "key": "org.eclipse.jetty.ee10:jetty-ee10-servlet",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty.ee10:jetty-ee10-servlets",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty.ee10:jetty-ee10-webapp",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty.http2:jetty-http2-common",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty.http2:jetty-http2-hpack",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty.http2:jetty-http2-server",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-alpn-client",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-alpn-java-client",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-alpn-java-server",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-alpn-server",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-bom",
+          "version": "12.0.16"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-client",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-ee",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-http",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-io",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-proxy",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-security",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-server",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-session",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-util",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-xml",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.hamcrest:hamcrest",
+          "version": "3.0"
+        },
+        {
+          "key": "org.hamcrest:hamcrest-core",
+          "version": "3.0"
+        },
+        {
+          "key": "org.hibernate.orm:hibernate-core",
+          "version": "6.6.29.Final"
+        },
+        {
+          "key": "org.jetbrains.kotlin:kotlin-stdlib",
+          "version": "1.9.25"
+        },
+        {
+          "key": "org.jetbrains.kotlin:kotlin-stdlib-common",
+          "version": "1.9.25"
+        },
+        {
+          "key": "org.jetbrains.kotlin:kotlin-stdlib-jdk7",
+          "version": "1.9.25"
+        },
+        {
+          "key": "org.jetbrains.kotlin:kotlin-stdlib-jdk8",
+          "version": "1.9.25"
+        },
+        {
+          "key": "org.jetbrains:annotations",
+          "version": "13.0"
+        },
+        {
+          "key": "org.json:json",
+          "version": "20240205"
+        },
+        {
+          "key": "org.jspecify:jspecify",
+          "version": "1.0.0"
+        },
+        {
+          "key": "org.junit.jupiter:junit-jupiter",
+          "version": "5.12.2"
+        },
+        {
+          "key": "org.junit.jupiter:junit-jupiter-api",
+          "version": "5.12.2"
+        },
+        {
+          "key": "org.junit.jupiter:junit-jupiter-params",
+          "version": "5.12.2"
+        },
+        {
+          "key": "org.junit.platform:junit-platform-commons",
+          "version": "1.12.2"
+        },
+        {
+          "key": "org.junit:junit-bom",
+          "version": "5.12.2"
+        },
+        {
+          "key": "org.mockito:mockito-core",
+          "version": "5.17.0"
+        },
+        {
+          "key": "org.mockito:mockito-junit-jupiter",
+          "version": "5.17.0"
+        },
+        {
+          "key": "org.opentest4j:opentest4j",
+          "version": "1.3.0"
+        },
+        {
+          "key": "org.ow2.asm:asm",
+          "version": "9.7.1"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-api",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-chrome-driver",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-chromium-driver",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-devtools-v133",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-devtools-v134",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-devtools-v135",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-edge-driver",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-firefox-driver",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-http",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-ie-driver",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-java",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-json",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-manager",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-os",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-remote-driver",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-safari-driver",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-support",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.skyscreamer:jsonassert",
+          "version": "1.5.3"
+        },
+        {
+          "key": "org.slf4j:jcl-over-slf4j",
+          "version": "2.0.17"
+        },
+        {
+          "key": "org.slf4j:jul-to-slf4j",
+          "version": "2.0.17"
+        },
+        {
+          "key": "org.slf4j:slf4j-api",
+          "version": "2.0.17"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-autoconfigure",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-data-jpa",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-jdbc",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-json",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-logging",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-test",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-tomcat",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-web",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-test",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-test-autoconfigure",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.data:spring-data-commons",
+          "version": "3.5.4"
+        },
+        {
+          "key": "org.springframework.data:spring-data-jpa",
+          "version": "3.5.4"
+        },
+        {
+          "key": "org.springframework:spring-aop",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-aspects",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-beans",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-context",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-core",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-expression",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-jcl",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-jdbc",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-orm",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-test",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-tx",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-web",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-webmvc",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.wiremock:wiremock",
+          "version": "3.13.1"
+        },
+        {
+          "key": "org.wiremock:wiremock-jetty12",
+          "version": "3.13.1"
+        },
+        {
+          "key": "org.xmlunit:xmlunit-core",
+          "version": "2.10.4"
+        },
+        {
+          "key": "org.xmlunit:xmlunit-legacy",
+          "version": "2.10.4"
+        },
+        {
+          "key": "org.xmlunit:xmlunit-placeholders",
+          "version": "2.10.4"
+        },
+        {
+          "key": "org.yaml:snakeyaml",
+          "version": "2.4"
+        }
+      ],
+      "unresolved": [],
+      "artifacts": [
+        "HikariCP-6.3.3.jar",
+        "accessors-smart-2.5.2.jar",
+        "android-json-0.0.20131108.vaadin1.jar",
+        "annotations-13.0.jar",
+        "antlr4-runtime-4.13.0.jar",
+        "apiguardian-api-1.1.2.jar",
+        "asm-9.7.1.jar",
+        "aspectjweaver-1.9.24.jar",
+        "assertj-core-3.27.4.jar",
+        "auto-service-annotations-1.1.1.jar",
+        "awaitility-4.2.2.jar",
+        "byte-buddy-1.17.7.jar",
+        "byte-buddy-agent-1.17.7.jar",
+        "classgraph-4.8.129.jar",
+        "commons-codec-1.18.0.jar",
+        "commons-compress-1.28.0.jar",
+        "commons-exec-1.4.0.jar",
+        "commons-fileupload-1.6.0.jar",
+        "commons-io-2.20.0.jar",
+        "commons-lang3-3.17.0.jar",
+        "commons-logging-1.2.jar",
+        "consumer-4.6.17.jar",
+        "core-0.5.1.jar",
+        "dec-0.1.2.jar",
+        "docker-java-3.6.0.jar",
+        "docker-java-api-3.6.0.jar",
+        "docker-java-core-3.6.0.jar",
+        "docker-java-transport-3.6.0.jar",
+        "docker-java-transport-httpclient5-3.6.0.jar",
+        "error_prone_annotations-2.41.0.jar",
+        "failureaccess-1.0.3.jar",
+        "groovy-4.0.28.jar",
+        "groovy-json-4.0.28.jar",
+        "groovy-xml-4.0.28.jar",
+        "gson-2.13.2.jar",
+        "guava-33.4.8-jre.jar",
+        "hamcrest-3.0.jar",
+        "hamcrest-core-3.0.jar",
+        "handlebars-4.3.1.jar",
+        "handlebars-helpers-4.3.1.jar",
+        "hibernate-core-6.6.29.Final.jar",
+        "httpclient-4.5.13.jar",
+        "httpclient5-5.5.jar",
+        "httpclient5-fluent-5.5.jar",
+        "httpcore-4.4.16.jar",
+        "httpcore5-5.3.5.jar",
+        "httpcore5-h2-5.3.5.jar",
+        "httpmime-4.5.13.jar",
+        "itu-1.10.3.jar",
+        "j2objc-annotations-3.0.0.jar",
+        "jackson-annotations-2.19.2.jar",
+        "jackson-core-2.19.2.jar",
+        "jackson-databind-2.19.2.jar",
+        "jackson-dataformat-yaml-2.19.2.jar",
+        "jackson-datatype-jdk8-2.19.2.jar",
+        "jackson-datatype-jsr310-2.19.2.jar",
+        "jackson-module-parameter-names-2.19.2.jar",
+        "jakarta.activation-api-2.1.4.jar",
+        "jakarta.annotation-api-2.1.1.jar",
+        "jakarta.persistence-api-3.1.0.jar",
+        "jakarta.servlet-api-6.0.0.jar",
+        "jakarta.transaction-api-2.0.1.jar",
+        "jakarta.xml.bind-api-4.0.2.jar",
+        "jcl-over-slf4j-2.0.17.jar",
+        "jetty-alpn-client-12.0.27.jar",
+        "jetty-alpn-java-client-12.0.27.jar",
+        "jetty-alpn-java-server-12.0.27.jar",
+        "jetty-alpn-server-12.0.27.jar",
+        "jetty-client-12.0.27.jar",
+        "jetty-ee-12.0.27.jar",
+        "jetty-ee10-servlet-12.0.27.jar",
+        "jetty-ee10-servlets-12.0.27.jar",
+        "jetty-ee10-webapp-12.0.27.jar",
+        "jetty-http-12.0.27.jar",
+        "jetty-http2-common-12.0.27.jar",
+        "jetty-http2-hpack-12.0.27.jar",
+        "jetty-http2-server-12.0.27.jar",
+        "jetty-io-12.0.27.jar",
+        "jetty-proxy-12.0.27.jar",
+        "jetty-security-12.0.27.jar",
+        "jetty-server-12.0.27.jar",
+        "jetty-session-12.0.27.jar",
+        "jetty-util-12.0.27.jar",
+        "jetty-xml-12.0.27.jar",
+        "jna-5.17.0.jar",
+        "jopt-simple-5.0.4.jar",
+        "json-20240205.jar",
+        "json-path-2.9.0.jar",
+        "json-path-5.5.6.jar",
+        "json-schema-validator-1.5.7.jar",
+        "json-smart-2.5.2.jar",
+        "json-unit-core-2.40.1.jar",
+        "jsonassert-1.5.3.jar",
+        "jspecify-1.0.0.jar",
+        "jul-to-slf4j-2.0.17.jar",
+        "junit-jupiter-5.12.2.jar",
+        "junit-jupiter-api-5.12.2.jar",
+        "junit-jupiter-params-5.12.2.jar",
+        "junit-platform-commons-1.12.2.jar",
+        "junit5-4.6.17.jar",
+        "junit5-4.6.17.jar",
+        "junit5spring-4.6.17.jar",
+        "kotlin-logging-jvm-5.1.4.jar",
+        "kotlin-stdlib-1.9.25.jar",
+        "kotlin-stdlib-jdk7-1.9.25.jar",
+        "kotlin-stdlib-jdk8-1.9.25.jar",
+        "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+        "log4j-api-2.24.3.jar",
+        "log4j-to-slf4j-2.24.3.jar",
+        "logback-classic-1.5.18.jar",
+        "logback-core-1.5.18.jar",
+        "matchers-4.6.17.jar",
+        "micrometer-commons-1.15.4.jar",
+        "micrometer-observation-1.15.4.jar",
+        "mockito-core-5.17.0.jar",
+        "mockito-junit-jupiter-5.17.0.jar",
+        "model-4.6.17.jar",
+        "opentelemetry-api-1.49.0.jar",
+        "opentelemetry-context-1.49.0.jar",
+        "opentelemetry-exporter-logging-1.49.0.jar",
+        "opentelemetry-sdk-1.49.0.jar",
+        "opentelemetry-sdk-common-1.49.0.jar",
+        "opentelemetry-sdk-extension-autoconfigure-1.49.0.jar",
+        "opentelemetry-sdk-extension-autoconfigure-spi-1.49.0.jar",
+        "opentelemetry-sdk-logs-1.49.0.jar",
+        "opentelemetry-sdk-metrics-1.49.0.jar",
+        "opentelemetry-sdk-trace-1.49.0.jar",
+        "opentest4j-1.3.0.jar",
+        "pactbroker-4.6.17.jar",
+        "provider-4.6.17.jar",
+        "rest-assured-5.5.6.jar",
+        "rest-assured-common-5.5.6.jar",
+        "selenium-api-4.31.0.jar",
+        "selenium-chrome-driver-4.31.0.jar",
+        "selenium-chromium-driver-4.31.0.jar",
+        "selenium-devtools-v133-4.31.0.jar",
+        "selenium-devtools-v134-4.31.0.jar",
+        "selenium-devtools-v135-4.31.0.jar",
+        "selenium-edge-driver-4.31.0.jar",
+        "selenium-firefox-driver-4.31.0.jar",
+        "selenium-http-4.31.0.jar",
+        "selenium-ie-driver-4.31.0.jar",
+        "selenium-java-4.31.0.jar",
+        "selenium-json-4.31.0.jar",
+        "selenium-manager-4.31.0.jar",
+        "selenium-os-4.31.0.jar",
+        "selenium-remote-driver-4.31.0.jar",
+        "selenium-safari-driver-4.31.0.jar",
+        "selenium-support-4.31.0.jar",
+        "slf4j-api-2.0.17.jar",
+        "snakeyaml-2.4.jar",
+        "spring-aop-6.2.11.jar",
+        "spring-aspects-6.2.11.jar",
+        "spring-beans-6.2.11.jar",
+        "spring-boot-3.5.6.jar",
+        "spring-boot-autoconfigure-3.5.6.jar",
+        "spring-boot-starter-3.5.6.jar",
+        "spring-boot-starter-data-jpa-3.5.6.jar",
+        "spring-boot-starter-jdbc-3.5.6.jar",
+        "spring-boot-starter-json-3.5.6.jar",
+        "spring-boot-starter-logging-3.5.6.jar",
+        "spring-boot-starter-test-3.5.6.jar",
+        "spring-boot-starter-tomcat-3.5.6.jar",
+        "spring-boot-starter-web-3.5.6.jar",
+        "spring-boot-test-3.5.6.jar",
+        "spring-boot-test-autoconfigure-3.5.6.jar",
+        "spring-context-6.2.11.jar",
+        "spring-core-6.2.11.jar",
+        "spring-data-commons-3.5.4.jar",
+        "spring-data-jpa-3.5.4.jar",
+        "spring-expression-6.2.11.jar",
+        "spring-jcl-6.2.11.jar",
+        "spring-jdbc-6.2.11.jar",
+        "spring-orm-6.2.11.jar",
+        "spring-test-6.2.11.jar",
+        "spring-tx-6.2.11.jar",
+        "spring-web-6.2.11.jar",
+        "spring-webmvc-6.2.11.jar",
+        "support-4.6.17.jar",
+        "tagsoup-1.2.1.jar",
+        "tika-core-2.9.1.jar",
+        "tomcat-embed-core-10.1.46.jar",
+        "tomcat-embed-el-10.1.46.jar",
+        "tomcat-embed-websocket-10.1.46.jar",
+        "webdrivermanager-6.3.2.jar",
+        "wiremock-3.13.1.jar",
+        "wiremock-jetty12-3.13.1.jar",
+        "xml-path-5.5.6.jar",
+        "xmlunit-core-2.10.4.jar",
+        "xmlunit-legacy-2.10.4.jar",
+        "xmlunit-placeholders-2.10.4.jar"
+      ]
+    },
+    "testRuntimeClasspath": {
+      "modules": [
+        {
+          "key": "au.com.dius.pact.consumer:junit5",
+          "version": "4.6.17"
+        },
+        {
+          "key": "au.com.dius.pact.core:matchers",
+          "version": "4.6.17"
+        },
+        {
+          "key": "au.com.dius.pact.core:model",
+          "version": "4.6.17"
+        },
+        {
+          "key": "au.com.dius.pact.core:pactbroker",
+          "version": "4.6.17"
+        },
+        {
+          "key": "au.com.dius.pact.core:support",
+          "version": "4.6.17"
+        },
+        {
+          "key": "au.com.dius.pact.provider:junit5",
+          "version": "4.6.17"
+        },
+        {
+          "key": "au.com.dius.pact.provider:junit5spring",
+          "version": "4.6.17"
+        },
+        {
+          "key": "au.com.dius.pact:consumer",
+          "version": "4.6.17"
+        },
+        {
+          "key": "au.com.dius.pact:provider",
+          "version": "4.6.17"
+        },
+        {
+          "key": "ch.qos.logback:logback-classic",
+          "version": "1.5.18"
+        },
+        {
+          "key": "ch.qos.logback:logback-core",
+          "version": "1.5.18"
+        },
+        {
+          "key": "com.ethlo.time:itu",
+          "version": "1.10.3"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-annotations",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-core",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.datatype:jackson-datatype-jdk8",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.datatype:jackson-datatype-jsr310",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson.module:jackson-module-parameter-names",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml.jackson:jackson-bom",
+          "version": "2.19.2"
+        },
+        {
+          "key": "com.fasterxml:classmate",
+          "version": "1.7.0"
+        },
+        {
+          "key": "com.github.ajalt:colormath",
+          "version": "1.2.0"
+        },
+        {
+          "key": "com.github.ajalt:mordant",
+          "version": "1.2.1"
+        },
+        {
+          "key": "com.github.docker-java:docker-java",
+          "version": "3.6.0"
+        },
+        {
+          "key": "com.github.docker-java:docker-java-api",
+          "version": "3.6.0"
+        },
+        {
+          "key": "com.github.docker-java:docker-java-core",
+          "version": "3.6.0"
+        },
+        {
+          "key": "com.github.docker-java:docker-java-transport",
+          "version": "3.6.0"
+        },
+        {
+          "key": "com.github.docker-java:docker-java-transport-httpclient5",
+          "version": "3.6.0"
+        },
+        {
+          "key": "com.github.jknack:handlebars",
+          "version": "4.3.1"
+        },
+        {
+          "key": "com.github.jknack:handlebars-helpers",
+          "version": "4.3.1"
+        },
+        {
+          "key": "com.github.mifmif:generex",
+          "version": "1.0.2"
+        },
+        {
+          "key": "com.github.zafarkhaja:java-semver",
+          "version": "0.9.0"
+        },
+        {
+          "key": "com.google.android:annotations",
+          "version": "4.1.1.4"
+        },
+        {
+          "key": "com.google.api.grpc:proto-google-common-protos",
+          "version": "2.41.0"
+        },
+        {
+          "key": "com.google.auto.service:auto-service-annotations",
+          "version": "1.1.1"
+        },
+        {
+          "key": "com.google.code.findbugs:jsr305",
+          "version": "3.0.2"
+        },
+        {
+          "key": "com.google.code.gson:gson",
+          "version": "2.13.2"
+        },
+        {
+          "key": "com.google.errorprone:error_prone_annotations",
+          "version": "2.41.0"
+        },
+        {
+          "key": "com.google.guava:failureaccess",
+          "version": "1.0.3"
+        },
+        {
+          "key": "com.google.guava:guava",
+          "version": "33.4.8-jre"
+        },
+        {
+          "key": "com.google.guava:listenablefuture",
+          "version": "9999.0-empty-to-avoid-conflict-with-guava"
+        },
+        {
+          "key": "com.google.j2objc:j2objc-annotations",
+          "version": "3.0.0"
+        },
+        {
+          "key": "com.google.protobuf:protobuf-java",
+          "version": "3.25.3"
+        },
+        {
+          "key": "com.googlecode.java-diff-utils:diffutils",
+          "version": "1.3.0"
+        },
+        {
+          "key": "com.h2database:h2",
+          "version": "2.3.232"
+        },
+        {
+          "key": "com.jayway.jsonpath:json-path",
+          "version": "2.9.0"
+        },
+        {
+          "key": "com.michael-bull.kotlin-result:kotlin-result",
+          "version": "1.1.14"
+        },
+        {
+          "key": "com.michael-bull.kotlin-result:kotlin-result-jvm",
+          "version": "1.1.14"
+        },
+        {
+          "key": "com.networknt:json-schema-validator",
+          "version": "1.5.7"
+        },
+        {
+          "key": "com.sun.istack:istack-commons-runtime",
+          "version": "4.1.2"
+        },
+        {
+          "key": "com.typesafe:config",
+          "version": "1.4.3"
+        },
+        {
+          "key": "com.vaadin.external.google:android-json",
+          "version": "0.0.20131108.vaadin1"
+        },
+        {
+          "key": "com.vdurmont:semver4j",
+          "version": "3.1.0"
+        },
+        {
+          "key": "com.vladsch.flexmark:flexmark",
+          "version": "0.62.2"
+        },
+        {
+          "key": "com.vladsch.flexmark:flexmark-ext-tables",
+          "version": "0.62.2"
+        },
+        {
+          "key": "com.vladsch.flexmark:flexmark-util",
+          "version": "0.62.2"
+        },
+        {
+          "key": "com.vladsch.flexmark:flexmark-util-ast",
+          "version": "0.62.2"
+        },
+        {
+          "key": "com.vladsch.flexmark:flexmark-util-builder",
+          "version": "0.62.2"
+        },
+        {
+          "key": "com.vladsch.flexmark:flexmark-util-collection",
+          "version": "0.62.2"
+        },
+        {
+          "key": "com.vladsch.flexmark:flexmark-util-data",
+          "version": "0.62.2"
+        },
+        {
+          "key": "com.vladsch.flexmark:flexmark-util-dependency",
+          "version": "0.62.2"
+        },
+        {
+          "key": "com.vladsch.flexmark:flexmark-util-format",
+          "version": "0.62.2"
+        },
+        {
+          "key": "com.vladsch.flexmark:flexmark-util-html",
+          "version": "0.62.2"
+        },
+        {
+          "key": "com.vladsch.flexmark:flexmark-util-misc",
+          "version": "0.62.2"
+        },
+        {
+          "key": "com.vladsch.flexmark:flexmark-util-options",
+          "version": "0.62.2"
+        },
+        {
+          "key": "com.vladsch.flexmark:flexmark-util-sequence",
+          "version": "0.62.2"
+        },
+        {
+          "key": "com.vladsch.flexmark:flexmark-util-visitor",
+          "version": "0.62.2"
+        },
+        {
+          "key": "com.zaxxer:HikariCP",
+          "version": "6.3.3"
+        },
+        {
+          "key": "commons-beanutils:commons-beanutils",
+          "version": "1.9.4"
+        },
+        {
+          "key": "commons-codec:commons-codec",
+          "version": "1.18.0"
+        },
+        {
+          "key": "commons-collections:commons-collections",
+          "version": "3.2.2"
+        },
+        {
+          "key": "commons-fileupload:commons-fileupload",
+          "version": "1.6.0"
+        },
+        {
+          "key": "commons-io:commons-io",
+          "version": "2.20.0"
+        },
+        {
+          "key": "commons-logging:commons-logging",
+          "version": "1.2"
+        },
+        {
+          "key": "dk.brics.automaton:automaton",
+          "version": "1.11-8"
+        },
+        {
+          "key": "io.github.bonigarcia:webdrivermanager",
+          "version": "6.3.2"
+        },
+        {
+          "key": "io.github.classgraph:classgraph",
+          "version": "4.8.129"
+        },
+        {
+          "key": "io.github.java-diff-utils:java-diff-utils",
+          "version": "4.12"
+        },
+        {
+          "key": "io.github.oshai:kotlin-logging-jvm",
+          "version": "6.0.9"
+        },
+        {
+          "key": "io.grpc:grpc-api",
+          "version": "1.66.0"
+        },
+        {
+          "key": "io.grpc:grpc-context",
+          "version": "1.66.0"
+        },
+        {
+          "key": "io.grpc:grpc-core",
+          "version": "1.66.0"
+        },
+        {
+          "key": "io.grpc:grpc-netty",
+          "version": "1.66.0"
+        },
+        {
+          "key": "io.grpc:grpc-protobuf",
+          "version": "1.66.0"
+        },
+        {
+          "key": "io.grpc:grpc-protobuf-lite",
+          "version": "1.66.0"
+        },
+        {
+          "key": "io.grpc:grpc-stub",
+          "version": "1.66.0"
+        },
+        {
+          "key": "io.grpc:grpc-util",
+          "version": "1.66.0"
+        },
+        {
+          "key": "io.hotmoka:toml4j",
+          "version": "0.7.3"
+        },
+        {
+          "key": "io.ktor:ktor-events",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-events-jvm",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-http",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-http-cio",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-http-cio-jvm",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-http-jvm",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-io",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-io-jvm",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-network",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-network-jvm",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-network-tls",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-network-tls-certificates",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-network-tls-certificates-jvm",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-network-tls-jvm",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-serialization",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-serialization-jvm",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-server-call-logging",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-server-call-logging-jvm",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-server-core",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-server-core-jvm",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-server-host-common",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-server-host-common-jvm",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-server-netty",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-server-netty-jvm",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-utils",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-utils-jvm",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-websockets",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.ktor:ktor-websockets-jvm",
+          "version": "2.3.8"
+        },
+        {
+          "key": "io.micrometer:micrometer-commons",
+          "version": "1.15.4"
+        },
+        {
+          "key": "io.micrometer:micrometer-observation",
+          "version": "1.15.4"
+        },
+        {
+          "key": "io.netty:netty-buffer",
+          "version": "4.1.127.Final"
+        },
+        {
+          "key": "io.netty:netty-codec",
+          "version": "4.1.127.Final"
+        },
+        {
+          "key": "io.netty:netty-codec-http",
+          "version": "4.1.127.Final"
+        },
+        {
+          "key": "io.netty:netty-codec-http2",
+          "version": "4.1.127.Final"
+        },
+        {
+          "key": "io.netty:netty-codec-socks",
+          "version": "4.1.127.Final"
+        },
+        {
+          "key": "io.netty:netty-common",
+          "version": "4.1.127.Final"
+        },
+        {
+          "key": "io.netty:netty-handler",
+          "version": "4.1.127.Final"
+        },
+        {
+          "key": "io.netty:netty-handler-proxy",
+          "version": "4.1.127.Final"
+        },
+        {
+          "key": "io.netty:netty-resolver",
+          "version": "4.1.127.Final"
+        },
+        {
+          "key": "io.netty:netty-transport",
+          "version": "4.1.127.Final"
+        },
+        {
+          "key": "io.netty:netty-transport-classes-epoll",
+          "version": "4.1.127.Final"
+        },
+        {
+          "key": "io.netty:netty-transport-classes-kqueue",
+          "version": "4.1.127.Final"
+        },
+        {
+          "key": "io.netty:netty-transport-native-epoll",
+          "version": "4.1.127.Final"
+        },
+        {
+          "key": "io.netty:netty-transport-native-kqueue",
+          "version": "4.1.127.Final"
+        },
+        {
+          "key": "io.netty:netty-transport-native-unix-common",
+          "version": "4.1.127.Final"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-api",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-context",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-exporter-logging",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-sdk",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-sdk-common",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-sdk-extension-autoconfigure",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-sdk-extension-autoconfigure-spi",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-sdk-logs",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-sdk-metrics",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.opentelemetry:opentelemetry-sdk-trace",
+          "version": "1.49.0"
+        },
+        {
+          "key": "io.pact.plugin.driver:core",
+          "version": "0.5.1"
+        },
+        {
+          "key": "io.perfmark:perfmark-api",
+          "version": "0.27.0"
+        },
+        {
+          "key": "io.projectreactor:reactor-core",
+          "version": "3.7.11"
+        },
+        {
+          "key": "io.rest-assured:json-path",
+          "version": "5.5.6"
+        },
+        {
+          "key": "io.rest-assured:rest-assured",
+          "version": "5.5.6"
+        },
+        {
+          "key": "io.rest-assured:rest-assured-common",
+          "version": "5.5.6"
+        },
+        {
+          "key": "io.rest-assured:xml-path",
+          "version": "5.5.6"
+        },
+        {
+          "key": "io.smallrye:jandex",
+          "version": "3.2.0"
+        },
+        {
+          "key": "jakarta.activation:jakarta.activation-api",
+          "version": "2.1.4"
+        },
+        {
+          "key": "jakarta.annotation:jakarta.annotation-api",
+          "version": "2.1.1"
+        },
+        {
+          "key": "jakarta.inject:jakarta.inject-api",
+          "version": "2.0.1"
+        },
+        {
+          "key": "jakarta.persistence:jakarta.persistence-api",
+          "version": "3.1.0"
+        },
+        {
+          "key": "jakarta.servlet:jakarta.servlet-api",
+          "version": "6.0.0"
+        },
+        {
+          "key": "jakarta.transaction:jakarta.transaction-api",
+          "version": "2.0.1"
+        },
+        {
+          "key": "jakarta.xml.bind:jakarta.xml.bind-api",
+          "version": "4.0.2"
+        },
+        {
+          "key": "javax.activation:activation",
+          "version": "1.1"
+        },
+        {
+          "key": "javax.mail:mail",
+          "version": "1.5.0-b01"
+        },
+        {
+          "key": "javax.servlet:javax.servlet-api",
+          "version": "3.1.0"
+        },
+        {
+          "key": "net.bytebuddy:byte-buddy",
+          "version": "1.17.7"
+        },
+        {
+          "key": "net.bytebuddy:byte-buddy-agent",
+          "version": "1.17.7"
+        },
+        {
+          "key": "net.java.dev.jna:jna",
+          "version": "5.17.0"
+        },
+        {
+          "key": "net.javacrumbs.json-unit:json-unit-core",
+          "version": "2.40.1"
+        },
+        {
+          "key": "net.minidev:accessors-smart",
+          "version": "2.5.2"
+        },
+        {
+          "key": "net.minidev:json-smart",
+          "version": "2.5.2"
+        },
+        {
+          "key": "net.sf.jopt-simple:jopt-simple",
+          "version": "5.0.4"
+        },
+        {
+          "key": "org.antlr:antlr4-runtime",
+          "version": "4.13.0"
+        },
+        {
+          "key": "org.apache.commons:commons-collections4",
+          "version": "4.4"
+        },
+        {
+          "key": "org.apache.commons:commons-compress",
+          "version": "1.28.0"
+        },
+        {
+          "key": "org.apache.commons:commons-exec",
+          "version": "1.4.0"
+        },
+        {
+          "key": "org.apache.commons:commons-io",
+          "version": "1.3.2"
+        },
+        {
+          "key": "org.apache.commons:commons-lang3",
+          "version": "3.17.0"
+        },
+        {
+          "key": "org.apache.commons:commons-text",
+          "version": "1.10.0"
+        },
+        {
+          "key": "org.apache.groovy:groovy",
+          "version": "4.0.28"
+        },
+        {
+          "key": "org.apache.groovy:groovy-bom",
+          "version": "4.0.28"
+        },
+        {
+          "key": "org.apache.groovy:groovy-json",
+          "version": "4.0.28"
+        },
+        {
+          "key": "org.apache.groovy:groovy-xml",
+          "version": "4.0.28"
+        },
+        {
+          "key": "org.apache.httpcomponents.client5:httpclient5",
+          "version": "5.5"
+        },
+        {
+          "key": "org.apache.httpcomponents.client5:httpclient5-fluent",
+          "version": "5.5"
+        },
+        {
+          "key": "org.apache.httpcomponents.core5:httpcore5",
+          "version": "5.3.5"
+        },
+        {
+          "key": "org.apache.httpcomponents.core5:httpcore5-h2",
+          "version": "5.3.5"
+        },
+        {
+          "key": "org.apache.httpcomponents:httpclient",
+          "version": "4.5.13"
+        },
+        {
+          "key": "org.apache.httpcomponents:httpcore",
+          "version": "4.4.16"
+        },
+        {
+          "key": "org.apache.httpcomponents:httpmime",
+          "version": "4.5.13"
+        },
+        {
+          "key": "org.apache.logging.log4j:log4j-api",
+          "version": "2.24.3"
+        },
+        {
+          "key": "org.apache.logging.log4j:log4j-to-slf4j",
+          "version": "2.24.3"
+        },
+        {
+          "key": "org.apache.tika:tika-core",
+          "version": "2.9.2"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "10.1.46"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-el",
+          "version": "10.1.46"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-websocket",
+          "version": "10.1.46"
+        },
+        {
+          "key": "org.aspectj:aspectjweaver",
+          "version": "1.9.24"
+        },
+        {
+          "key": "org.assertj:assertj-core",
+          "version": "3.27.4"
+        },
+        {
+          "key": "org.atteo:evo-inflector",
+          "version": "1.3"
+        },
+        {
+          "key": "org.awaitility:awaitility",
+          "version": "4.2.2"
+        },
+        {
+          "key": "org.brotli:dec",
+          "version": "0.1.2"
+        },
+        {
+          "key": "org.ccil.cowan.tagsoup:tagsoup",
+          "version": "1.2.1"
+        },
+        {
+          "key": "org.checkerframework:checker-qual",
+          "version": "3.49.3"
+        },
+        {
+          "key": "org.codehaus.mojo:animal-sniffer-annotations",
+          "version": "1.24"
+        },
+        {
+          "key": "org.eclipse.angus:angus-activation",
+          "version": "2.0.2"
+        },
+        {
+          "key": "org.eclipse.jetty.alpn:alpn-api",
+          "version": "1.1.3.v20160715"
+        },
+        {
+          "key": "org.eclipse.jetty.ee10:jetty-ee10-bom",
+          "version": "12.0.16"
+        },
+        {
+          "key": "org.eclipse.jetty.ee10:jetty-ee10-servlet",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty.ee10:jetty-ee10-servlets",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty.ee10:jetty-ee10-webapp",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty.http2:jetty-http2-common",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty.http2:jetty-http2-hpack",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty.http2:jetty-http2-server",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-alpn-client",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-alpn-java-client",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-alpn-java-server",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-alpn-server",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-bom",
+          "version": "12.0.16"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-client",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-ee",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-http",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-io",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-proxy",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-security",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-server",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-session",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-util",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.eclipse.jetty:jetty-xml",
+          "version": "12.0.27"
+        },
+        {
+          "key": "org.fusesource.jansi:jansi",
+          "version": "2.4.1"
+        },
+        {
+          "key": "org.glassfish.jaxb:jaxb-core",
+          "version": "4.0.5"
+        },
+        {
+          "key": "org.glassfish.jaxb:jaxb-runtime",
+          "version": "4.0.5"
+        },
+        {
+          "key": "org.glassfish.jaxb:txw2",
+          "version": "4.0.5"
+        },
+        {
+          "key": "org.hamcrest:hamcrest",
+          "version": "3.0"
+        },
+        {
+          "key": "org.hamcrest:hamcrest-core",
+          "version": "3.0"
+        },
+        {
+          "key": "org.hibernate.common:hibernate-commons-annotations",
+          "version": "7.0.3.Final"
+        },
+        {
+          "key": "org.hibernate.orm:hibernate-core",
+          "version": "6.6.29.Final"
+        },
+        {
+          "key": "org.jboss.logging:jboss-logging",
+          "version": "3.6.1.Final"
+        },
+        {
+          "key": "org.jetbrains.kotlin:kotlin-bom",
+          "version": "1.8.22"
+        },
+        {
+          "key": "org.jetbrains.kotlin:kotlin-reflect",
+          "version": "1.9.25"
+        },
+        {
+          "key": "org.jetbrains.kotlin:kotlin-stdlib",
+          "version": "1.9.25"
+        },
+        {
+          "key": "org.jetbrains.kotlin:kotlin-stdlib-common",
+          "version": "1.9.25"
+        },
+        {
+          "key": "org.jetbrains.kotlin:kotlin-stdlib-jdk7",
+          "version": "1.9.25"
+        },
+        {
+          "key": "org.jetbrains.kotlin:kotlin-stdlib-jdk8",
+          "version": "1.9.25"
+        },
+        {
+          "key": "org.jetbrains.kotlinx:kotlinx-coroutines-bom",
+          "version": "1.8.1"
+        },
+        {
+          "key": "org.jetbrains.kotlinx:kotlinx-coroutines-core",
+          "version": "1.8.1"
+        },
+        {
+          "key": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm",
+          "version": "1.8.1"
+        },
+        {
+          "key": "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8",
+          "version": "1.8.1"
+        },
+        {
+          "key": "org.jetbrains.kotlinx:kotlinx-coroutines-slf4j",
+          "version": "1.8.1"
+        },
+        {
+          "key": "org.jetbrains:annotations",
+          "version": "23.0.0"
+        },
+        {
+          "key": "org.json:json",
+          "version": "20240205"
+        },
+        {
+          "key": "org.jspecify:jspecify",
+          "version": "1.0.0"
+        },
+        {
+          "key": "org.junit.jupiter:junit-jupiter",
+          "version": "5.12.2"
+        },
+        {
+          "key": "org.junit.jupiter:junit-jupiter-api",
+          "version": "5.12.2"
+        },
+        {
+          "key": "org.junit.jupiter:junit-jupiter-engine",
+          "version": "5.12.2"
+        },
+        {
+          "key": "org.junit.jupiter:junit-jupiter-params",
+          "version": "5.12.2"
+        },
+        {
+          "key": "org.junit.platform:junit-platform-commons",
+          "version": "1.12.2"
+        },
+        {
+          "key": "org.junit.platform:junit-platform-engine",
+          "version": "1.12.2"
+        },
+        {
+          "key": "org.junit.platform:junit-platform-launcher",
+          "version": "1.12.2"
+        },
+        {
+          "key": "org.junit:junit-bom",
+          "version": "5.12.2"
+        },
+        {
+          "key": "org.mockito:mockito-core",
+          "version": "5.17.0"
+        },
+        {
+          "key": "org.mockito:mockito-junit-jupiter",
+          "version": "5.17.0"
+        },
+        {
+          "key": "org.objenesis:objenesis",
+          "version": "3.3"
+        },
+        {
+          "key": "org.opentest4j:opentest4j",
+          "version": "1.3.0"
+        },
+        {
+          "key": "org.ow2.asm:asm",
+          "version": "9.7.1"
+        },
+        {
+          "key": "org.postgresql:postgresql",
+          "version": "42.7.7"
+        },
+        {
+          "key": "org.rauschig:jarchivelib",
+          "version": "1.2.0"
+        },
+        {
+          "key": "org.reactivestreams:reactive-streams",
+          "version": "1.0.4"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-api",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-chrome-driver",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-chromium-driver",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-devtools-v133",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-devtools-v134",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-devtools-v135",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-edge-driver",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-firefox-driver",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-http",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-ie-driver",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-java",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-json",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-manager",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-os",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-remote-driver",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-safari-driver",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.seleniumhq.selenium:selenium-support",
+          "version": "4.31.0"
+        },
+        {
+          "key": "org.skyscreamer:jsonassert",
+          "version": "1.5.3"
+        },
+        {
+          "key": "org.slf4j:jcl-over-slf4j",
+          "version": "2.0.17"
+        },
+        {
+          "key": "org.slf4j:jul-to-slf4j",
+          "version": "2.0.17"
+        },
+        {
+          "key": "org.slf4j:slf4j-api",
+          "version": "2.0.17"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-autoconfigure",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-data-jpa",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-jdbc",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-json",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-logging",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-test",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-tomcat",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-web",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-test",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-test-autoconfigure",
+          "version": "3.5.6"
+        },
+        {
+          "key": "org.springframework.data:spring-data-commons",
+          "version": "3.5.4"
+        },
+        {
+          "key": "org.springframework.data:spring-data-jpa",
+          "version": "3.5.4"
+        },
+        {
+          "key": "org.springframework:spring-aop",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-aspects",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-beans",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-context",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-core",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-expression",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-jcl",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-jdbc",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-orm",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-test",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-tx",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-web",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-webflux",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.springframework:spring-webmvc",
+          "version": "6.2.11"
+        },
+        {
+          "key": "org.wiremock:wiremock",
+          "version": "3.13.1"
+        },
+        {
+          "key": "org.wiremock:wiremock-jetty12",
+          "version": "3.13.1"
+        },
+        {
+          "key": "org.xmlunit:xmlunit-core",
+          "version": "2.10.4"
+        },
+        {
+          "key": "org.xmlunit:xmlunit-legacy",
+          "version": "2.10.4"
+        },
+        {
+          "key": "org.xmlunit:xmlunit-placeholders",
+          "version": "2.10.4"
+        },
+        {
+          "key": "org.yaml:snakeyaml",
+          "version": "2.4"
+        }
+      ],
+      "unresolved": [],
+      "artifacts": [
+        "HikariCP-6.3.3.jar",
+        "accessors-smart-2.5.2.jar",
+        "activation-1.1.jar",
+        "alpn-api-1.1.3.v20160715.jar",
+        "android-json-0.0.20131108.vaadin1.jar",
+        "angus-activation-2.0.2.jar",
+        "animal-sniffer-annotations-1.24.jar",
+        "annotations-23.0.0.jar",
+        "annotations-4.1.1.4.jar",
+        "antlr4-runtime-4.13.0.jar",
+        "asm-9.7.1.jar",
+        "aspectjweaver-1.9.24.jar",
+        "assertj-core-3.27.4.jar",
+        "auto-service-annotations-1.1.1.jar",
+        "automaton-1.11-8.jar",
+        "awaitility-4.2.2.jar",
+        "byte-buddy-1.17.7.jar",
+        "byte-buddy-agent-1.17.7.jar",
+        "checker-qual-3.49.3.jar",
+        "classgraph-4.8.129.jar",
+        "classmate-1.7.0.jar",
+        "colormath-1.2.0.jar",
+        "commons-beanutils-1.9.4.jar",
+        "commons-codec-1.18.0.jar",
+        "commons-collections-3.2.2.jar",
+        "commons-collections4-4.4.jar",
+        "commons-compress-1.28.0.jar",
+        "commons-exec-1.4.0.jar",
+        "commons-fileupload-1.6.0.jar",
+        "commons-io-2.20.0.jar",
+        "commons-lang3-3.17.0.jar",
+        "commons-logging-1.2.jar",
+        "commons-text-1.10.0.jar",
+        "config-1.4.3.jar",
+        "consumer-4.6.17.jar",
+        "core-0.5.1.jar",
+        "dec-0.1.2.jar",
+        "diffutils-1.3.0.jar",
+        "docker-java-3.6.0.jar",
+        "docker-java-api-3.6.0.jar",
+        "docker-java-core-3.6.0.jar",
+        "docker-java-transport-3.6.0.jar",
+        "docker-java-transport-httpclient5-3.6.0.jar",
+        "error_prone_annotations-2.41.0.jar",
+        "evo-inflector-1.3.jar",
+        "failureaccess-1.0.3.jar",
+        "flexmark-0.62.2.jar",
+        "flexmark-ext-tables-0.62.2.jar",
+        "flexmark-util-0.62.2.jar",
+        "flexmark-util-ast-0.62.2.jar",
+        "flexmark-util-builder-0.62.2.jar",
+        "flexmark-util-collection-0.62.2.jar",
+        "flexmark-util-data-0.62.2.jar",
+        "flexmark-util-dependency-0.62.2.jar",
+        "flexmark-util-format-0.62.2.jar",
+        "flexmark-util-html-0.62.2.jar",
+        "flexmark-util-misc-0.62.2.jar",
+        "flexmark-util-options-0.62.2.jar",
+        "flexmark-util-sequence-0.62.2.jar",
+        "flexmark-util-visitor-0.62.2.jar",
+        "generex-1.0.2.jar",
+        "groovy-4.0.28.jar",
+        "groovy-json-4.0.28.jar",
+        "groovy-xml-4.0.28.jar",
+        "grpc-api-1.66.0.jar",
+        "grpc-context-1.66.0.jar",
+        "grpc-core-1.66.0.jar",
+        "grpc-netty-1.66.0.jar",
+        "grpc-protobuf-1.66.0.jar",
+        "grpc-protobuf-lite-1.66.0.jar",
+        "grpc-stub-1.66.0.jar",
+        "grpc-util-1.66.0.jar",
+        "gson-2.13.2.jar",
+        "guava-33.4.8-jre.jar",
+        "h2-2.3.232.jar",
+        "hamcrest-3.0.jar",
+        "hamcrest-core-3.0.jar",
+        "handlebars-4.3.1.jar",
+        "handlebars-helpers-4.3.1.jar",
+        "hibernate-commons-annotations-7.0.3.Final.jar",
+        "hibernate-core-6.6.29.Final.jar",
+        "httpclient-4.5.13.jar",
+        "httpclient5-5.5.jar",
+        "httpclient5-fluent-5.5.jar",
+        "httpcore-4.4.16.jar",
+        "httpcore5-5.3.5.jar",
+        "httpcore5-h2-5.3.5.jar",
+        "httpmime-4.5.13.jar",
+        "istack-commons-runtime-4.1.2.jar",
+        "itu-1.10.3.jar",
+        "j2objc-annotations-3.0.0.jar",
+        "jackson-annotations-2.19.2.jar",
+        "jackson-core-2.19.2.jar",
+        "jackson-databind-2.19.2.jar",
+        "jackson-dataformat-yaml-2.19.2.jar",
+        "jackson-datatype-jdk8-2.19.2.jar",
+        "jackson-datatype-jsr310-2.19.2.jar",
+        "jackson-module-parameter-names-2.19.2.jar",
+        "jakarta.activation-api-2.1.4.jar",
+        "jakarta.annotation-api-2.1.1.jar",
+        "jakarta.inject-api-2.0.1.jar",
+        "jakarta.persistence-api-3.1.0.jar",
+        "jakarta.servlet-api-6.0.0.jar",
+        "jakarta.transaction-api-2.0.1.jar",
+        "jakarta.xml.bind-api-4.0.2.jar",
+        "jandex-3.2.0.jar",
+        "jansi-2.4.1.jar",
+        "jarchivelib-1.2.0.jar",
+        "java-diff-utils-4.12.jar",
+        "java-semver-0.9.0.jar",
+        "javax.servlet-api-3.1.0.jar",
+        "jaxb-core-4.0.5.jar",
+        "jaxb-runtime-4.0.5.jar",
+        "jboss-logging-3.6.1.Final.jar",
+        "jcl-over-slf4j-2.0.17.jar",
+        "jetty-alpn-client-12.0.27.jar",
+        "jetty-alpn-java-client-12.0.27.jar",
+        "jetty-alpn-java-server-12.0.27.jar",
+        "jetty-alpn-server-12.0.27.jar",
+        "jetty-client-12.0.27.jar",
+        "jetty-ee-12.0.27.jar",
+        "jetty-ee10-servlet-12.0.27.jar",
+        "jetty-ee10-servlets-12.0.27.jar",
+        "jetty-ee10-webapp-12.0.27.jar",
+        "jetty-http-12.0.27.jar",
+        "jetty-http2-common-12.0.27.jar",
+        "jetty-http2-hpack-12.0.27.jar",
+        "jetty-http2-server-12.0.27.jar",
+        "jetty-io-12.0.27.jar",
+        "jetty-proxy-12.0.27.jar",
+        "jetty-security-12.0.27.jar",
+        "jetty-server-12.0.27.jar",
+        "jetty-session-12.0.27.jar",
+        "jetty-util-12.0.27.jar",
+        "jetty-xml-12.0.27.jar",
+        "jna-5.17.0.jar",
+        "jopt-simple-5.0.4.jar",
+        "json-20240205.jar",
+        "json-path-2.9.0.jar",
+        "json-path-5.5.6.jar",
+        "json-schema-validator-1.5.7.jar",
+        "json-smart-2.5.2.jar",
+        "json-unit-core-2.40.1.jar",
+        "jsonassert-1.5.3.jar",
+        "jspecify-1.0.0.jar",
+        "jsr305-3.0.2.jar",
+        "jul-to-slf4j-2.0.17.jar",
+        "junit-jupiter-5.12.2.jar",
+        "junit-jupiter-api-5.12.2.jar",
+        "junit-jupiter-engine-5.12.2.jar",
+        "junit-jupiter-params-5.12.2.jar",
+        "junit-platform-commons-1.12.2.jar",
+        "junit-platform-engine-1.12.2.jar",
+        "junit-platform-launcher-1.12.2.jar",
+        "junit5-4.6.17.jar",
+        "junit5-4.6.17.jar",
+        "junit5spring-4.6.17.jar",
+        "kotlin-logging-jvm-6.0.9.jar",
+        "kotlin-reflect-1.9.25.jar",
+        "kotlin-result-jvm-1.1.14.jar",
+        "kotlin-stdlib-1.9.25.jar",
+        "kotlin-stdlib-jdk7-1.9.25.jar",
+        "kotlin-stdlib-jdk8-1.9.25.jar",
+        "kotlinx-coroutines-core-jvm-1.8.1.jar",
+        "kotlinx-coroutines-jdk8-1.8.1.jar",
+        "kotlinx-coroutines-slf4j-1.8.1.jar",
+        "ktor-events-jvm-2.3.8.jar",
+        "ktor-http-cio-jvm-2.3.8.jar",
+        "ktor-http-jvm-2.3.8.jar",
+        "ktor-io-jvm-2.3.8.jar",
+        "ktor-network-jvm-2.3.8.jar",
+        "ktor-network-tls-certificates-jvm-2.3.8.jar",
+        "ktor-network-tls-jvm-2.3.8.jar",
+        "ktor-serialization-jvm-2.3.8.jar",
+        "ktor-server-call-logging-jvm-2.3.8.jar",
+        "ktor-server-core-jvm-2.3.8.jar",
+        "ktor-server-host-common-jvm-2.3.8.jar",
+        "ktor-server-netty-jvm-2.3.8.jar",
+        "ktor-utils-jvm-2.3.8.jar",
+        "ktor-websockets-jvm-2.3.8.jar",
+        "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+        "log4j-api-2.24.3.jar",
+        "log4j-to-slf4j-2.24.3.jar",
+        "logback-classic-1.5.18.jar",
+        "logback-core-1.5.18.jar",
+        "mail-1.5.0-b01.jar",
+        "matchers-4.6.17.jar",
+        "micrometer-commons-1.15.4.jar",
+        "micrometer-observation-1.15.4.jar",
+        "mockito-core-5.17.0.jar",
+        "mockito-junit-jupiter-5.17.0.jar",
+        "model-4.6.17.jar",
+        "mordant-1.2.1.jar",
+        "netty-buffer-4.1.127.Final.jar",
+        "netty-codec-4.1.127.Final.jar",
+        "netty-codec-http-4.1.127.Final.jar",
+        "netty-codec-http2-4.1.127.Final.jar",
+        "netty-codec-socks-4.1.127.Final.jar",
+        "netty-common-4.1.127.Final.jar",
+        "netty-handler-4.1.127.Final.jar",
+        "netty-handler-proxy-4.1.127.Final.jar",
+        "netty-resolver-4.1.127.Final.jar",
+        "netty-transport-4.1.127.Final.jar",
+        "netty-transport-classes-epoll-4.1.127.Final.jar",
+        "netty-transport-classes-kqueue-4.1.127.Final.jar",
+        "netty-transport-native-epoll-4.1.127.Final.jar",
+        "netty-transport-native-kqueue-4.1.127.Final.jar",
+        "netty-transport-native-unix-common-4.1.127.Final.jar",
+        "objenesis-3.3.jar",
+        "opentelemetry-api-1.49.0.jar",
+        "opentelemetry-context-1.49.0.jar",
+        "opentelemetry-exporter-logging-1.49.0.jar",
+        "opentelemetry-sdk-1.49.0.jar",
+        "opentelemetry-sdk-common-1.49.0.jar",
+        "opentelemetry-sdk-extension-autoconfigure-1.49.0.jar",
+        "opentelemetry-sdk-extension-autoconfigure-spi-1.49.0.jar",
+        "opentelemetry-sdk-logs-1.49.0.jar",
+        "opentelemetry-sdk-metrics-1.49.0.jar",
+        "opentelemetry-sdk-trace-1.49.0.jar",
+        "opentest4j-1.3.0.jar",
+        "pactbroker-4.6.17.jar",
+        "perfmark-api-0.27.0.jar",
+        "postgresql-42.7.7.jar",
+        "proto-google-common-protos-2.41.0.jar",
+        "protobuf-java-3.25.3.jar",
+        "provider-4.6.17.jar",
+        "reactive-streams-1.0.4.jar",
+        "reactor-core-3.7.11.jar",
+        "rest-assured-5.5.6.jar",
+        "rest-assured-common-5.5.6.jar",
+        "selenium-api-4.31.0.jar",
+        "selenium-chrome-driver-4.31.0.jar",
+        "selenium-chromium-driver-4.31.0.jar",
+        "selenium-devtools-v133-4.31.0.jar",
+        "selenium-devtools-v134-4.31.0.jar",
+        "selenium-devtools-v135-4.31.0.jar",
+        "selenium-edge-driver-4.31.0.jar",
+        "selenium-firefox-driver-4.31.0.jar",
+        "selenium-http-4.31.0.jar",
+        "selenium-ie-driver-4.31.0.jar",
+        "selenium-java-4.31.0.jar",
+        "selenium-json-4.31.0.jar",
+        "selenium-manager-4.31.0.jar",
+        "selenium-os-4.31.0.jar",
+        "selenium-remote-driver-4.31.0.jar",
+        "selenium-safari-driver-4.31.0.jar",
+        "selenium-support-4.31.0.jar",
+        "semver4j-3.1.0.jar",
+        "slf4j-api-2.0.17.jar",
+        "snakeyaml-2.4.jar",
+        "spring-aop-6.2.11.jar",
+        "spring-aspects-6.2.11.jar",
+        "spring-beans-6.2.11.jar",
+        "spring-boot-3.5.6.jar",
+        "spring-boot-autoconfigure-3.5.6.jar",
+        "spring-boot-starter-3.5.6.jar",
+        "spring-boot-starter-data-jpa-3.5.6.jar",
+        "spring-boot-starter-jdbc-3.5.6.jar",
+        "spring-boot-starter-json-3.5.6.jar",
+        "spring-boot-starter-logging-3.5.6.jar",
+        "spring-boot-starter-test-3.5.6.jar",
+        "spring-boot-starter-tomcat-3.5.6.jar",
+        "spring-boot-starter-web-3.5.6.jar",
+        "spring-boot-test-3.5.6.jar",
+        "spring-boot-test-autoconfigure-3.5.6.jar",
+        "spring-context-6.2.11.jar",
+        "spring-core-6.2.11.jar",
+        "spring-data-commons-3.5.4.jar",
+        "spring-data-jpa-3.5.4.jar",
+        "spring-expression-6.2.11.jar",
+        "spring-jcl-6.2.11.jar",
+        "spring-jdbc-6.2.11.jar",
+        "spring-orm-6.2.11.jar",
+        "spring-test-6.2.11.jar",
+        "spring-tx-6.2.11.jar",
+        "spring-web-6.2.11.jar",
+        "spring-webflux-6.2.11.jar",
+        "spring-webmvc-6.2.11.jar",
+        "support-4.6.17.jar",
+        "tagsoup-1.2.1.jar",
+        "tika-core-2.9.2.jar",
+        "tomcat-embed-core-10.1.46.jar",
+        "tomcat-embed-el-10.1.46.jar",
+        "tomcat-embed-websocket-10.1.46.jar",
+        "toml4j-0.7.3.jar",
+        "txw2-4.0.5.jar",
+        "webdrivermanager-6.3.2.jar",
+        "wiremock-3.13.1.jar",
+        "wiremock-jetty12-3.13.1.jar",
+        "xml-path-5.5.6.jar",
+        "xmlunit-core-2.10.4.jar",
+        "xmlunit-legacy-2.10.4.jar",
+        "xmlunit-placeholders-2.10.4.jar"
+      ]
+    }
+  },
+  "result.json": {
+    "id": 47,
+    "repo": "hamvocke/spring-testing",
+    "sha": "9cff812e1a71e399bc231ce8323107d1283b9505",
+    "build_root": "build.gradle",
+    "build_tool": "Gradle",
+    "tier_proposed": "Medium",
+    "boot_version": "native BOM unknown (declared 3.5.6)",
+    "previous_outcome": "ENV_BLOCKED",
+    "wrapper": "9.1.0",
+    "target": ":",
+    "jdk": "temurin21",
+    "runs": [
+      {
+        "label": "wrapper-native",
+        "exit": 0,
+        "elapsed_s": 38.891
+      },
+      {
+        "label": "guard-warning",
+        "exit": 0,
+        "elapsed_s": 10.609
+      },
+      {
+        "label": "guard-strict",
+        "exit": 1,
+        "elapsed_s": 9.344
+      },
+      {
+        "label": "guard-repeat-offline",
+        "exit": 0,
+        "elapsed_s": 9.907
+      }
+    ],
+    "outcome": "EXPECTED_UNSUPPORTED",
+    "native_boot_versions": [
+      "3.5.6"
+    ],
+    "baseline": "NATIVE_METADATA_AND_ARTIFACTS_PASSED",
+    "warning_exit": 0,
+    "strict_exit": 1,
+    "summaries": [
+      [
+        "WARN",
+        "0",
+        "0",
+        "1"
+      ],
+      [
+        "WARN",
+        "0",
+        "0",
+        "1"
+      ],
+      [
+        "WARN",
+        "0",
+        "0",
+        "1"
+      ],
+      [
+        "WARN",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "boundary": "Original dependency-management DSL has no native Boot platform",
+    "boundary_verified": true,
+    "repeat_identical": true
+  },
+  "wrapper-native.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-revisit-47-wrapper-native",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\047-hamvocke--spring-testing,target=/work",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-revisit-20261026\\047,target=/out",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-revisit-20261026\\guard,target=/guard,readonly",
+      "--mount",
+      "type=volume,source=bbg-revisit-gradle-20261026,target=/cache",
+      "--mount",
+      "type=volume,source=bbg-revisit-toolchains-20261026,target=/toolchains,readonly",
+      "-e",
+      "GRADLE_USER_HOME=/cache",
+      "-e",
+      "CI=true",
+      "-w",
+      "/work",
+      "gradle@sha256:21bd311ed01360c189b8870c6b6e988199ff10f72d445d02fb39d3cff9da91d7",
+      "/opt/java/openjdk/bin/java",
+      "-cp",
+      "/work/gradle/wrapper/gradle-wrapper.jar",
+      "org.gradle.wrapper.GradleWrapperMain",
+      "--no-daemon",
+      "--console=plain",
+      "--max-workers=2",
+      "-Dorg.gradle.jvmargs=-Xmx1536m",
+      "-Porg.gradle.java.installations.paths=/toolchains/jdk8,/toolchains/jdk17,/toolchains/jdk25,/toolchains/zulu17",
+      "-Dbbg.target=:",
+      "-I",
+      "/out/native.init.gradle",
+      ":bbgRevisitNative"
+    ],
+    "cwd": "E:\\tmp\\bbg-revisit-20261026",
+    "exit": 0,
+    "elapsed_s": 38.891,
+    "timeout_s": 600
+  }
+}

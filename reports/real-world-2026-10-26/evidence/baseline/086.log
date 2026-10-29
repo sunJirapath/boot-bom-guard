@@ -1,0 +1,152 @@
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------< org.geoserver.cloud.apps:gs-cloud-gateway-webmvc >----------
+[INFO] Building API gateway service (MVC) 3.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ gs-cloud-gateway-webmvc ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] ----------< org.geoserver.cloud.apps:gs-cloud-gateway-webmvc >----------
+[INFO] Building API gateway service (MVC) 3.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for org.geoserver.cloud:gs-cloud-spring-boot-starter:jar:3.1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for org.geoserver.cloud:gs-cloud-starter-observability:jar:3.1.0-SNAPSHOT is missing, no dependency information available
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ gs-cloud-gateway-webmvc ---
+[INFO] Wrote dependency tree to: /work/.bbg/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  38.957 s
+[INFO] Finished at: 2026-10-25T13:38:15Z
+[INFO] ------------------------------------------------------------------------
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\086-geoserver--geoserver-cloud'...
+Updating files:  61% (943/1539)
+Updating files:  62% (955/1539)
+Updating files:  63% (970/1539)
+Updating files:  64% (985/1539)
+Updating files:  65% (1001/1539)
+Updating files:  66% (1016/1539)
+Updating files:  67% (1032/1539)
+Updating files:  68% (1047/1539)
+Updating files:  69% (1062/1539)
+Updating files:  70% (1078/1539)
+Updating files:  71% (1093/1539)
+Updating files:  72% (1109/1539)
+Updating files:  73% (1124/1539)
+Updating files:  74% (1139/1539)
+Updating files:  75% (1155/1539)
+Updating files:  76% (1170/1539)
+Updating files:  77% (1186/1539)
+Updating files:  78% (1201/1539)
+Updating files:  79% (1216/1539)
+Updating files:  80% (1232/1539)
+Updating files:  81% (1247/1539)
+Updating files:  82% (1262/1539)
+Updating files:  83% (1278/1539)
+Updating files:  84% (1293/1539)
+Updating files:  85% (1309/1539)
+Updating files:  86% (1324/1539)
+Updating files:  87% (1339/1539)
+Updating files:  88% (1355/1539)
+Updating files:  89% (1370/1539)
+Updating files:  90% (1386/1539)
+Updating files:  91% (1401/1539)
+Updating files:  92% (1416/1539)
+Updating files:  93% (1432/1539)
+Updating files:  94% (1447/1539)
+Updating files:  95% (1463/1539)
+Updating files:  96% (1478/1539)
+Updating files:  97% (1493/1539)
+Updating files:  98% (1509/1539)
+Updating files:  99% (1524/1539)
+Updating files: 100% (1539/1539)
+Updating files: 100% (1539/1539), done.
+
+===== native-artifact-control.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------< org.geoserver.cloud.apps:gs-cloud-gateway-webmvc >----------
+[INFO] Building API gateway service (MVC) 3.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for org.geoserver.cloud:gs-cloud-spring-boot-starter:jar:3.1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for org.geoserver.cloud:gs-cloud-starter-observability:jar:3.1.0-SNAPSHOT is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.069 s
+[INFO] Finished at: 2026-10-25T15:59:45Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project gs-cloud-gateway-webmvc: Could not resolve dependencies for project org.geoserver.cloud.apps:gs-cloud-gateway-webmvc:jar:3.1.0-SNAPSHOT
+[ERROR] dependency: org.geoserver.cloud:gs-cloud-spring-boot-starter:jar:3.1.0-SNAPSHOT (compile)
+[ERROR] 	Cannot access osgeo-snapshots (https://repo.osgeo.org/repository/snapshot/) in offline mode and the artifact org.geoserver.cloud:gs-cloud-spring-boot-starter:jar:3.1.0-SNAPSHOT has not been downloaded from it before.
+[ERROR] 	Cannot access central-portal-snapshots (https://central.sonatype.com/repository/maven-snapshots/) in offline mode and the artifact org.geoserver.cloud:gs-cloud-spring-boot-starter:jar:3.1.0-SNAPSHOT has not been downloaded from it before.
+[ERROR] dependency: org.geoserver.cloud:gs-cloud-starter-observability:jar:3.1.0-SNAPSHOT (compile)
+[ERROR] 	Cannot access osgeo-snapshots (https://repo.osgeo.org/repository/snapshot/) in offline mode and the artifact org.geoserver.cloud:gs-cloud-starter-observability:jar:3.1.0-SNAPSHOT has not been downloaded from it before.
+[ERROR] 	Cannot access central-portal-snapshots (https://central.sonatype.com/repository/maven-snapshots/) in offline mode and the artifact org.geoserver.cloud:gs-cloud-starter-observability:jar:3.1.0-SNAPSHOT has not been downloaded from it before.
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+
+===== original-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------< org.geoserver.cloud.apps:gs-cloud-gateway-webmvc >----------
+[INFO] Building API gateway service (MVC) 3.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ gs-cloud-gateway-webmvc ---
+[WARNING] The POM for org.geoserver.cloud:gs-cloud-spring-boot-starter:jar:3.1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for org.geoserver.cloud:gs-cloud-starter-observability:jar:3.1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.917 s
+[INFO] Finished at: 2026-10-25T13:39:01Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project gs-cloud-gateway-webmvc: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------< org.geoserver.cloud.apps:gs-cloud-gateway-webmvc >----------
+[INFO] Building API gateway service (MVC) 3.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ gs-cloud-gateway-webmvc ---
+[WARNING] The POM for org.geoserver.cloud:gs-cloud-spring-boot-starter:jar:3.1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for org.geoserver.cloud:gs-cloud-starter-observability:jar:3.1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.1
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  19.713 s
+[INFO] Finished at: 2026-10-25T13:38:46Z
+[INFO] ------------------------------------------------------------------------
+
+===== sha.log =====
+ce6eeb08b761de819bbb0f6b42f79e2acc19d6b2

@@ -1,0 +1,45 @@
+===== baseline.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+A problem occurred configuring project ':buildSrc'.
+> Could not resolve all artifacts for configuration 'classpath'.
+   > Could not resolve org.jetbrains.kotlin:kotlin-stdlib:2.0.21.
+     Required by:
+         project :buildSrc
+      > Could not resolve org.jetbrains.kotlin:kotlin-stdlib:2.0.21.
+         > Could not get resource 'https://plugins.gradle.org/m2/org/jetbrains/kotlin/kotlin-stdlib/2.0.21/kotlin-stdlib-2.0.21.pom'.
+            > Could not GET 'https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/2.0.21/kotlin-stdlib-2.0.21.pom'. Received status code 429 from server: Too Many Requests
+   > Could not resolve org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.21.
+     Required by:
+         project :buildSrc > org.gradle.kotlin.kotlin-dsl:org.gradle.kotlin.kotlin-dsl.gradle.plugin:5.2.0 > org.gradle.kotlin:gradle-kotlin-dsl-plugins:5.2.0
+      > Could not resolve org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.21.
+         > Could not parse POM https://plugins.gradle.org/m2/org/jetbrains/kotlin/kotlin-gradle-plugin/2.0.21/kotlin-gradle-plugin-2.0.21.pom
+            > Could not resolve org.jetbrains.kotlin:kotlin-gradle-plugins-bom:2.0.21.
+               > Could not resolve org.jetbrains.kotlin:kotlin-gradle-plugins-bom:2.0.21.
+                  > Could not get resource 'https://plugins.gradle.org/m2/org/jetbrains/kotlin/kotlin-gradle-plugins-bom/2.0.21/kotlin-gradle-plugins-bom-2.0.21.pom'.
+                     > Could not GET 'https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-gradle-plugins-bom/2.0.21/kotlin-gradle-plugins-bom-2.0.21.pom'. Received status code 429 from server: Too Many Requests
+   > Could not resolve org.jetbrains.kotlin:kotlin-gradle-plugin-api:2.0.21.
+     Required by:
+         project :buildSrc > org.gradle.kotlin.kotlin-dsl:org.gradle.kotlin.kotlin-dsl.gradle.plugin:5.2.0 > org.gradle.kotlin:gradle-kotlin-dsl-plugins:5.2.0
+      > Could not resolve org.jetbrains.kotlin:kotlin-gradle-plugin-api:2.0.21.
+         > Could not get resource 'https://plugins.gradle.org/m2/org/jetbrains/kotlin/kotlin-gradle-plugin-api/2.0.21/kotlin-gradle-plugin-api-2.0.21.pom'.
+            > Could not GET 'https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-gradle-plugin-api/2.0.21/kotlin-gradle-plugin-api-2.0.21.pom'. Received status code 429 from server: Too Many Requests
+> There are 3 more failures with identical causes.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 25s
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\049-istonikula--realworld-api'...
+
+===== sha.log =====
+b2edba2eba1db685ad1489c5a4fe34dcdcab940f

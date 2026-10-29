@@ -1,0 +1,194 @@
+{
+  "baseline.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-137b-47-baseline",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\047-hamvocke--spring-testing,target=/work",
+      "-w",
+      "/work",
+      "-e",
+      "CI=true",
+      "--mount",
+      "type=volume,source=bbg-campaign-gradle-137b,target=/cache",
+      "-e",
+      "GRADLE_USER_HOME=/cache",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\guard,target=/guard",
+      "--mount",
+      "type=volume,source=bbg-campaign-toolchains-137b,target=/toolchains,readonly",
+      "gradle@sha256:21bd311ed01360c189b8870c6b6e988199ff10f72d445d02fb39d3cff9da91d7",
+      "gradle",
+      "--no-daemon",
+      "--console=plain",
+      "--max-workers=2",
+      "-Dorg.gradle.jvmargs=-Xmx1536m",
+      "-Porg.gradle.java.installations.paths=/toolchains/jdk17,/toolchains/jdk25",
+      "-p",
+      "/work/.",
+      "dependencies",
+      "--configuration",
+      "runtimeClasspath"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 1,
+    "elapsed_s": 16.062,
+    "timeout_s": 240
+  },
+  "clone.command.json": {
+    "command": [
+      "git",
+      "-c",
+      "credential.helper=",
+      "-c",
+      "core.hooksPath=NUL",
+      "-c",
+      "core.longpaths=true",
+      "clone",
+      "--depth=1",
+      "--no-tags",
+      "https://github.com/hamvocke/spring-testing.git",
+      "E:\\tmp\\bbg-campaign-137b0026\\clones\\047-hamvocke--spring-testing"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 0,
+    "elapsed_s": 1.265,
+    "timeout_s": 300
+  },
+  "inspection.json": {
+    "repo": "hamvocke/spring-testing",
+    "sha": "9cff812e1a71e399bc231ce8323107d1283b9505",
+    "selected_build": "build.gradle",
+    "wrappers": [
+      {
+        "path": "gradle/wrapper/gradle-wrapper.properties",
+        "distribution": [
+          "distributionUrl=https\\://services.gradle.org/distributions/gradle-9.1.0-bin.zip"
+        ]
+      }
+    ],
+    "declared_build_files": 1,
+    "maven_pom_files": 0,
+    "gradle_build_scripts": 1,
+    "selected_scope_project_count": 1,
+    "scope_note": "Inventory includes independent examples, BOMs, buildSrc and aggregation projects; this is not a resolved whole-repository project count.",
+    "structure": [
+      {
+        "path": "build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "3.5.6",
+            ""
+          ]
+        ],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      }
+    ]
+  },
+  "inventory.json": {
+    "id": 47,
+    "repo": "hamvocke/spring-testing",
+    "tier_proposed": "Medium",
+    "catalog_tool": "Gradle Groovy",
+    "pilot": false,
+    "sha": "9cff812e1a71e399bc231ce8323107d1283b9505",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\047-hamvocke--spring-testing",
+    "build_file_count": 1,
+    "builds": [
+      {
+        "path": "build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "3.5.6",
+            ""
+          ]
+        ],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      }
+    ],
+    "extensions": [],
+    "outcome": "NOT_RUN",
+    "baseline_status": "NOT_RUN"
+  },
+  "result.json": {
+    "id": 47,
+    "repo": "hamvocke/spring-testing",
+    "tier_proposed": "Medium",
+    "catalog_tool": "Gradle Groovy",
+    "pilot": false,
+    "sha": "9cff812e1a71e399bc231ce8323107d1283b9505",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\047-hamvocke--spring-testing",
+    "build_file_count": 1,
+    "builds": [
+      {
+        "path": "build.gradle",
+        "tool": "Gradle",
+        "boot": [
+          [
+            "3.5.6",
+            ""
+          ]
+        ],
+        "jdk": [
+          "25"
+        ],
+        "native_platform": false,
+        "dependency_management_dsl": true
+      }
+    ],
+    "extensions": [],
+    "outcome": "ENV_BLOCKED",
+    "baseline_status": "FAILED_OR_INCOMPLETE",
+    "build_tool": "Gradle",
+    "build_root": "build.gradle",
+    "tier_measured": "UNMEASURED",
+    "scenario": "unmodified-resolution",
+    "elapsed_s": 16.062,
+    "selected_scope": "One selected consumer project; additional reactors/controlled projects are separate experiments",
+    "jdk": "25",
+    "boot_version": "native BOM unknown (declared 3.5.6)",
+    "module_count": 1,
+    "declared_module_count": 1
+  },
+  "runs.json": [
+    {
+      "label": "baseline",
+      "exit": 1,
+      "elapsed_s": 16.062
+    }
+  ],
+  "sha.command.json": {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "E:\\tmp\\bbg-campaign-137b0026\\clones\\047-hamvocke--spring-testing",
+    "exit": 0,
+    "elapsed_s": 0.063,
+    "timeout_s": 240
+  }
+}

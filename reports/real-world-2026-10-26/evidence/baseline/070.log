@@ -1,0 +1,448 @@
+===== allowed-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ api-gateway ---
+[INFO] Wrote dependency tree to: /work/.bbg/allowed-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.854 s
+[INFO] Finished at: 2026-10-25T16:22:43Z
+[INFO] ------------------------------------------------------------------------
+
+===== allowed-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ api-gateway ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.redis:testcontainers-redis expected=2.2.4 resolved=3.0.0 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+ALLOWED org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct reason=Campaign intentional exception
+WARN checked=185 drift=2 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.584 s
+[INFO] Finished at: 2026-10-25T16:22:50Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project api-gateway: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== allowed-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ api-gateway ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.redis:testcontainers-redis expected=2.2.4 resolved=3.0.0 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+ALLOWED org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct reason=Campaign intentional exception
+WARN checked=185 drift=2 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.502 s
+[INFO] Finished at: 2026-10-25T16:22:46Z
+[INFO] ------------------------------------------------------------------------
+
+===== allowed.patch =====
+--- api-gateway/pom.xml
++++ api-gateway/pom.xml
+@@ -446,4 +446,8 @@
+         </pluginRepository>
+     </pluginRepositories>
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.19</version></dependency></dependencies><build><plugins><plugin><groupId>io.github.bootbomguard</groupId><artifactId>boot-bom-guard-maven-plugin</artifactId><version>0.1.0-SNAPSHOT</version><configuration><exceptions><exception><dependency>org.slf4j:slf4j-api</dependency><reason>Campaign intentional exception</reason></exception></exceptions></configuration></plugin></plugins></build></profile>
++</profiles>
+ </project>
+
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ api-gateway ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ api-gateway ---
+[INFO] Wrote dependency tree to: /work/.bbg/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  45.234 s
+[INFO] Finished at: 2026-10-25T13:33:45Z
+[INFO] ------------------------------------------------------------------------
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\070-rajadilipkolli--spring-boot-microservices-series-v2'...
+
+===== determinism.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ api-gateway ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.redis:testcontainers-redis expected=2.2.4 resolved=3.0.0 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+WARN checked=185 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.407 s
+[INFO] Finished at: 2026-10-25T16:23:02Z
+[INFO] ------------------------------------------------------------------------
+
+===== direct-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ api-gateway ---
+[INFO] Wrote dependency tree to: /work/.bbg/direct-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.580 s
+[INFO] Finished at: 2026-10-25T16:22:20Z
+[INFO] ------------------------------------------------------------------------
+
+===== direct-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ api-gateway ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.redis:testcontainers-redis expected=2.2.4 resolved=3.0.0 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+WARN checked=185 drift=2 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.676 s
+[INFO] Finished at: 2026-10-25T16:22:28Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project api-gateway: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== direct-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ api-gateway ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.redis:testcontainers-redis expected=2.2.4 resolved=3.0.0 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+WARN checked=185 drift=2 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.897 s
+[INFO] Finished at: 2026-10-25T16:22:24Z
+[INFO] ------------------------------------------------------------------------
+
+===== direct.patch =====
+--- api-gateway/pom.xml
++++ api-gateway/pom.xml
+@@ -446,4 +446,8 @@
+         </pluginRepository>
+     </pluginRepositories>
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.19</version></dependency></dependencies></profile>
++</profiles>
+ </project>
+
+===== incomplete-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.275 s
+[INFO] Finished at: 2026-10-25T16:22:53Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project api-gateway: Could not resolve dependencies for project com.example.microservices:api-gateway:jar:0.0.1-SNAPSHOT
+[ERROR] dependency: guard.audit:deliberately-missing:jar:1 (compile)
+[ERROR] 	Cannot access spring-milestones (https://repo.spring.io/milestone) in offline mode and the artifact guard.audit:deliberately-missing:jar:1 has not been downloaded from it before.
+[ERROR] 	Cannot access jitpack (https://jitpack.io) in offline mode and the artifact guard.audit:deliberately-missing:jar:1 has not been downloaded from it before.
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact guard.audit:deliberately-missing:jar:1 has not been downloaded from it before.
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+
+===== incomplete-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ api-gateway ---
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.482 s
+[INFO] Finished at: 2026-10-25T16:22:59Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project api-gateway: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== incomplete-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ api-gateway ---
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.446 s
+[INFO] Finished at: 2026-10-25T16:22:56Z
+[INFO] ------------------------------------------------------------------------
+
+===== incomplete.patch =====
+--- api-gateway/pom.xml
++++ api-gateway/pom.xml
+@@ -446,4 +446,8 @@
+         </pluginRepository>
+     </pluginRepositories>
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>guard.audit</groupId><artifactId>deliberately-missing</artifactId><version>1</version></dependency></dependencies></profile>
++</profiles>
+ </project>
+
+===== managed-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ api-gateway ---
+[INFO] Wrote dependency tree to: /work/.bbg/managed-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.018 s
+[INFO] Finished at: 2026-10-25T16:22:32Z
+[INFO] ------------------------------------------------------------------------
+
+===== managed-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ api-gateway ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.redis:testcontainers-redis expected=2.2.4 resolved=3.0.0 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.19; declaration source unknown; path=transitive
+WARN checked=185 drift=2 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.420 s
+[INFO] Finished at: 2026-10-25T16:22:39Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project api-gateway: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== managed-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ api-gateway ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.redis:testcontainers-redis expected=2.2.4 resolved=3.0.0 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.19; declaration source unknown; path=transitive
+WARN checked=185 drift=2 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.775 s
+[INFO] Finished at: 2026-10-25T16:22:36Z
+[INFO] ------------------------------------------------------------------------
+
+===== managed.patch =====
+--- api-gateway/pom.xml
++++ api-gateway/pom.xml
+@@ -446,4 +446,8 @@
+         </pluginRepository>
+     </pluginRepositories>
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencyManagement><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.19</version></dependency></dependencies></dependencyManagement></profile>
++</profiles>
+ </project>
+
+===== offline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ api-gateway ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.redis:testcontainers-redis expected=2.2.4 resolved=3.0.0 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+WARN checked=185 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.669 s
+[INFO] Finished at: 2026-10-25T16:23:06Z
+[INFO] ------------------------------------------------------------------------
+
+===== original-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ api-gateway ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.redis:testcontainers-redis expected=2.2.4 resolved=3.0.0 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+WARN checked=185 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.711 s
+[INFO] Finished at: 2026-10-25T13:34:12Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project api-gateway: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------< com.example.microservices:api-gateway >----------------
+[INFO] Building api-gateway 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ api-gateway ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT com.redis:testcontainers-redis expected=2.2.4 resolved=3.0.0 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+WARN checked=185 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  15.354 s
+[INFO] Finished at: 2026-10-25T13:34:05Z
+[INFO] ------------------------------------------------------------------------
+
+===== pristine-bom.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------< org.springframework.boot:spring-boot-dependencies >----------
+[INFO] Building spring-boot-dependencies 4.1.2
+[INFO]   from spring-boot-dependencies-4.1.2.pom
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ spring-boot-dependencies ---
+[INFO] Effective-POM written to: /work/.bbg/pristine.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.080 s
+[INFO] Finished at: 2026-10-25T13:38:47Z
+[INFO] ------------------------------------------------------------------------
+
+===== sha.log =====
+e681204933a6324e8ac13db88ccad6b0528a0c5c

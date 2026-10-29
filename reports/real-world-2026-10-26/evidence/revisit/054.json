@@ -1,0 +1,2798 @@
+{
+  "history/20261025-174042/result.json": {
+    "id": 54,
+    "repo": "rohitghatol/spring-boot-microservices",
+    "sha": "a3c9df9350a07578df281949e6018d01ac37238e",
+    "build_root": "api-gateway/build.gradle",
+    "build_tool": "Gradle",
+    "tier_proposed": "Large",
+    "boot_version": "native BOM unknown",
+    "previous_outcome": "ENV_BLOCKED",
+    "wrapper": "2.10",
+    "target": ":",
+    "jdk": "jdk8",
+    "runs": [
+      {
+        "label": "wrapper-native",
+        "exit": 1,
+        "elapsed_s": 50.062
+      }
+    ],
+    "outcome": "BASELINE_BLOCKED",
+    "blocker": "/ribbon/ribbon-loadbalancer/2.0-RC13/ribbon-loadbalancer-2.0-RC13.pom\nDownload https://repo1.maven.org/maven2/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.pom\nDownload https://repo1.maven.org/maven2/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.pom\nDownload https://repo1.maven.org/maven2/com/netflix/hystrix/hystrix-metrics-event-stream/1.4.0-RC6/hystrix-metrics-event-stream-1.4.0-RC6.pom\nDownload https://repo1.maven.org/maven2/com/netflix/hystrix/hystrix-javanica/1.4.0-RC6/hystrix-javanica-1.4.0-RC6.pom\nDownload https://repo1.maven.org/maven2/com/netflix/rxjava/rxjava-core/0.20.7/rxjava-core-0.20.7.pom\nDownload https://repo1.maven.org/maven2/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.pom\nDownload https://repo1.maven.org/maven2/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.pom\nDownload https://repo1.maven.org/maven2/org/apache/tomcat/tomcat-juli/8.0.20/tomcat-juli-8.0.20.pom\nDownload https://repo1.maven.org/maven2/antlr/antlr/2.7.7/antlr-2.7.7.pom\nDownload https://repo1.maven.org/maven2/org/jboss/jandex/1.1.0.Final/jandex-1.1.0.Final.pom\nDownload https://repo1.maven.org/maven2/org/jboss/jboss-parent/5/jboss-parent-5.pom\nDownload https://repo1.maven.org/maven2/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.pom\nDownload https://repo1.maven.org/maven2/org/yaml/snakeyaml/1.14/snakeyaml-1.14.pom\nDownload https://repo1.maven.org/maven2/com/netflix/rxnetty/rx-netty/0.3.17/rx-netty-0.3.17.pom\nDownload https://repo1.maven.org/maven2/com/netflix/rxnetty/rx-netty-servo/0.3.17/rx-netty-servo-0.3.17.pom\nDownload https://repo1.maven.org/maven2/com/netflix/rxnetty/rx-netty-contexts/0.3.17/rx-netty-contexts-0.3.17.pom\nDownload https://repo1.maven.org/maven2/com/netflix/netflix-commons/netflix-statistics/0.1.1/netflix-statistics-0.1.1.pom\nDownload https://repo1.maven.org/maven2/io/reactivex/rxjava/1.0.0-rc.7/rxjava-1.0.0-rc.7.pom\nDownload https://repo1.maven.org/maven2/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.pom\nDownload https://repo1.maven.org/maven2/org/apache/commons/commons-parent/9/commons-parent-9.pom\nDownload https://repo1.maven.org/maven2/org/apache/apache/4/apache-4.pom\nDownload https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/2.0.0/jsr305-2.0.0.pom\nDownload https://repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.pom\nDownload https://repo1.maven.org/maven2/io/netty/netty-codec-http/4.0.21.Final/netty-codec-http-4.0.21.Final.pom\nDownload https://repo1.maven.org/maven2/io/netty/netty-parent/4.0.21.Final/netty-parent-4.0.21.Final.pom\nDownload https://repo1.maven.org/maven2/io/netty/netty-transport-native-epoll/4.0.21.Final/netty-transport-native-epoll-4.0.21.Final.pom\nDownload https://repo1.maven.org/maven2/com/google/code/findbugs/annotations/2.0.0/annotations-2.0.0.pom\nDownload https://repo1.maven.org/maven2/io/netty/netty-codec/4.0.21.Final/netty-codec-4.0.21.Final.pom\nDownload https://repo1.maven.org/maven2/io/netty/netty-handler/4.0.21.Final/netty-handler-4.0.21.Final.pom\nDownload https://repo1.maven.org/maven2/io/netty/netty-common/4.0.21.Final/netty-common-4.0.21.Final.pom\nDownload https://repo1.maven.org/maven2/io/netty/netty-buffer/4.0.21.Final/netty-buffer-4.0.21.Final.pom\nDownload https://repo1.maven.org/maven2/io/netty/netty-transport/4.0.21.Final/netty-transport-4.0.21.Final.pom\nDownload https://repo1.maven.org/maven2/org/springframework/boot/spring-boot-starter-logging/1.2.3.RELEASE/spring-boot-starter-logging-1.2.3.RELEASE.pom\nDownload https://repo1.maven.org/maven2/org/slf4j/jul-to-slf4j/1.7.11/jul-to-slf4j-1.7.11.pom\nDownload https://repo1.maven.org/maven2/org/slf4j/slf4j-parent/1.7.11/slf4j-parent-1.7.11.pom\nDownload https://repo1.maven.org/maven2/org/slf4j/log4j-over-slf4j/1.7.11/log4j-over-slf4j-1.7.11.pom\nDownload https://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.1.3/logback-classic-1.1.3.pom\nDownload https://repo1.maven.org/maven2/ch/qos/logback/logback-parent/1.1.3/logback-parent-1.1.3.pom\nDownload https://repo1.maven.org/maven2/ch/qos/logback/logback-core/1.1.3/logback-core-1.1.3.pom\nDownload https://repo1.maven.org/maven2/org/apache/tomcat/embed/tomcat-embed-core/8.0.20/tomcat-embed-core-8.0.20.pom\nDownload https://repo1.maven.org/maven2/org/apache/tomcat/embed/tomcat-embed-el/8.0.20/tomcat-embed-el-8.0.20.pom\nDownload https://repo1.maven.org/maven2/org/apache/tomcat/embed/tomcat-embed-logging-juli/8.0.20/tomcat-embed-logging-juli-8.0.20.pom\nDownload https://repo1.maven.org/maven2/org/apache/tomcat/embed/tomcat-embed-websocket/8.0.20/tomcat-embed-websocket-8.0.20.pom\nDownload https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.4.0/jackson-annotations-2.4.0.pom\nDownload https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.4.5/jackson-core-2.4.5.pom\nDownload https://repo1.maven.org/maven2/com/fasterxml/classmate/1.0.0/classmate-1.0.0.pom\nDownload https://repo1.maven.org/maven2/commons-configuration/commons-configuration/1.8/commons-configuration-1.8.pom\nDownload https://repo1.maven.org/maven2/org/apache/commons/commons-parent/23/commons-parent-23.pom\nDownload https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.11/slf4j-api-1.7.11.pom\nDownload https://repo1.maven.org/maven2/stax/stax-api/1.0.1/stax-api-1.0.1.pom\nDownload https://repo1.maven.org/maven2/org/apache/commons/commons-math/2.2/commons-math-2.2.pom\nDownload https://repo1.maven.org/maven2/org/apache/commons/commons-parent/18/commons-parent-18.pom\nDownload https://repo1.maven.org/maven2/com/netflix/netflix-commons/netflix-infix/0.1.2/netflix-infix-0.1.2.pom\nDownload https://repo1.maven.org/maven2/com/google/inject/extensions/guice-grapher/3.0/guice-grapher-3.0.pom\nDownload https://repo1.maven.org/maven2/com/google/inject/extensions/extensions-parent/3.0/extensions-parent-3.0.pom\nDownload https://repo1.maven.org/maven2/com/google/inject/guice-parent/3.0/guice-parent-3.0.pom\nDownload https://repo1.maven.org/maven2/org/codehaus/jsr166-mirror/jsr166y/1.7.0/jsr166y-1.7.0.pom\nDownload https://repo1.maven.org/maven2/com/google/inject/guice/3.0/guice-3.0.pom\nDownload https://repo1.maven.org/maven2/org/apache/xbean/xbean-finder/3.11.1/xbean-finder-3.11.1.pom\nDownload https://repo1.maven.org/maven2/org/apache/xbean/xbean/3.11.1/xbean-3.11.1.pom\nDownload https://repo1.maven.org/maven2/org/apache/geronimo/genesis/genesis-java5-flava/2.0/genesis-java5-flava-2.0.pom\nDownload https://repo1.maven.org/maven2/org/apache/geronimo/genesis/genesis-default-flava/2.0/genesis-default-flava-2.0.pom\nDownload https://repo1.maven.org/maven2/org/apache/geronimo/genesis/genesis/2.0/genesis-2.0.pom\nDownload https://repo1.maven.org/maven2/org/apache/apache/6/apache-6.pom\nDownload https://repo1.maven.org/maven2/asm/asm-all/3.2/asm-all-3.2.pom\nDownload https://repo1.maven.org/maven2/asm/asm-parent/3.2/asm-parent-3.2.pom\nDownload https://repo1.maven.org/maven2/com/google/inject/extensions/guice-multibindings/3.0/guice-multibindings-3.0.pom\nDownload https://repo1.maven.org/maven2/org/apache/xbean/xbean-bundleutils/3.11.1/xbean-bundleutils-3.11.1.pom\nDownload https://repo1.maven.org/maven2/joda-time/joda-time/2.3/joda-time-2.3.pom\nDownload https://repo1.maven.org/maven2/commons-jxpath/commons-jxpath/1.3/commons-jxpath-1.3.pom\nDownload https://repo1.maven.org/maven2/org/apache/commons/commons-parent/11/commons-parent-11.pom\nDownload https://repo1.maven.org/maven2/org/antlr/antlr-runtime/3.4/antlr-runtime-3.4.pom\nDownload https://repo1.maven.org/maven2/org/antlr/antlr-master/3.4/antlr-master-3.4.pom\nDownload https://repo1.maven.org/maven2/com/google/code/gson/gson/2.1/gson-2.1.pom\nDownload https://repo1.maven.org/maven2/com/google/inject/extensions/guice-assistedinject/3.0/guice-assistedinject-3.0.pom\nDownload https://repo1.maven.org/maven2/org/sonatype/sisu/inject/cglib/2.2.1-v20090111/cglib-2.2.1-v20090111.pom\nDownload https://repo1.maven.org/maven2/org/sonatype/forge/forge-parent/6/forge-parent-6.pom\nDownload https://repo1.maven.org/maven2/org/antlr/stringtemplate/3.2.1/stringtemplate-3.2.1.pom\nDownload https://repo1.maven.org/maven2/asm/asm/3.1/asm-3.1.pom\nDownload https://repo1.maven.org/maven2/asm/asm-parent/3.1/asm-parent-3.1.pom\nDownload https://repo1.maven.org/maven2/com/netflix/hystrix/hystrix-core/1.4.0-RC6/hystrix-core-1.4.0-RC6.pom\nDownload https://repo1.maven.org/maven2/com/netflix/ribbon/ribbon-httpclient/2.0-RC13/ribbon-httpclient-2.0-RC13.pom\nDownload https://repo1.maven.org/maven2/com/netflix/servo/servo-core/0.7.5/servo-core-0.7.5.pom\nDownload https://repo1.maven.org/maven2/com/google/guava/guava/15.0/guava-15.0.pom\nDownload https://repo1.maven.org/maven2/com/google/guava/guava-parent/15.0/guava-parent-15.0.pom\nDownload https://repo1.maven.org/maven2/org/springframework/boot/spring-boot/1.2.3.RELEASE/spring-boot-1.2.3.RELEASE.pom\nDownload https://repo1.maven.org/maven2/org/springframework/boot/spring-boot-autoconfigure/1.2.3.RELEASE/spring-boot-autoconfigure-1.2.3.RELEASE.pom\nDownload https://repo1.maven.org/maven2/org/slf4j/jcl-over-slf4j/1.7.11/jcl-over-slf4j-1.7.11.pom\nDownload https://repo1.maven.org/maven2/org/springframework/security/spring-security-core/3.2.7.RELEASE/spring-security-core-3.2.7.RELEASE.pom\nDownload https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.2.1/httpcore-4.2.1.pom\nDownload https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcomponents-core/4.2.1/httpcomponents-core-4.2.1.pom\nDownload https://repo1.maven.org/maven2/io/reactivex/rxjava/1.0.4/rxjava-1.0.4.pom\n:bbgRevisitNative FAILED\n\nFAILURE: Build failed with an exception.\n\n* Where:\nInitialization script '/out/native.init.gradle' line: 24\n\n* What went wrong:\nExecution failed for task ':bbgRevisitNative'.\n> No such property: artifacts for class: org.gradle.api.internal.artifacts.ivyservice.ErrorHandlingConfigurationResolver$ErrorHandlingLenientConfiguration\n\n* Try:\nRun with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.\n\nBUILD FAILED\n\nTotal time: 48.464 secs"
+  },
+  "history/20261025-174042/wrapper-native.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-revisit-54-wrapper-native",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\054-rohitghatol--spring-boot-microservices,target=/work",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-revisit-20261026\\054,target=/out",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-revisit-20261026\\guard,target=/guard,readonly",
+      "--mount",
+      "type=volume,source=bbg-revisit-gradle-20261026,target=/cache",
+      "--mount",
+      "type=volume,source=bbg-revisit-toolchains-20261026,target=/toolchains,readonly",
+      "-e",
+      "GRADLE_USER_HOME=/cache",
+      "-e",
+      "CI=true",
+      "-w",
+      "/work/api-gateway",
+      "-e",
+      "JAVA_HOME=/toolchains/jdk8",
+      "gradle@sha256:21bd311ed01360c189b8870c6b6e988199ff10f72d445d02fb39d3cff9da91d7",
+      "/cache/native-distributions/gradle-2.10/bin/gradle",
+      "--no-daemon",
+      "--console=plain",
+      "--max-workers=2",
+      "-Dorg.gradle.jvmargs=-Xmx1536m",
+      "-Porg.gradle.java.installations.paths=/toolchains/jdk8,/toolchains/jdk17,/toolchains/jdk25,/toolchains/zulu17",
+      "-Dbbg.target=:",
+      "-I",
+      "/out/native.init.gradle",
+      ":bbgRevisitNative"
+    ],
+    "cwd": "E:\\tmp\\bbg-revisit-20261026",
+    "exit": 1,
+    "elapsed_s": 50.062,
+    "timeout_s": 600
+  },
+  "native.json": {
+    "compile": {
+      "modules": [
+        {
+          "key": "antlr:antlr",
+          "version": "2.7.7"
+        },
+        {
+          "key": "aopalliance:aopalliance",
+          "version": "1.0"
+        },
+        {
+          "key": "ch.qos.logback:logback-classic",
+          "version": "1.1.3"
+        },
+        {
+          "key": "ch.qos.logback:logback-core",
+          "version": "1.1.3"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-annotations",
+          "version": "2.4.0"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-core",
+          "version": "2.4.5"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.4.5"
+        },
+        {
+          "key": "com.fasterxml:classmate",
+          "version": "1.0.0"
+        },
+        {
+          "key": "com.google.code.findbugs:annotations",
+          "version": "2.0.0"
+        },
+        {
+          "key": "com.google.code.findbugs:jsr305",
+          "version": "2.0.0"
+        },
+        {
+          "key": "com.google.guava:guava",
+          "version": "15.0"
+        },
+        {
+          "key": "com.netflix.archaius:archaius-core",
+          "version": "0.6.0"
+        },
+        {
+          "key": "com.netflix.eureka:eureka-client",
+          "version": "1.1.147"
+        },
+        {
+          "key": "com.netflix.hystrix:hystrix-core",
+          "version": "1.4.0-RC6"
+        },
+        {
+          "key": "com.netflix.hystrix:hystrix-javanica",
+          "version": "1.4.0-RC6"
+        },
+        {
+          "key": "com.netflix.hystrix:hystrix-metrics-event-stream",
+          "version": "1.4.0-RC6"
+        },
+        {
+          "key": "com.netflix.netflix-commons:netflix-commons-util",
+          "version": "0.1.1"
+        },
+        {
+          "key": "com.netflix.netflix-commons:netflix-statistics",
+          "version": "0.1.1"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-core",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-eureka",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-httpclient",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-loadbalancer",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-transport",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.rxjava:rxjava-core",
+          "version": "0.20.7"
+        },
+        {
+          "key": "com.netflix.rxnetty:rx-netty",
+          "version": "0.3.17"
+        },
+        {
+          "key": "com.netflix.rxnetty:rx-netty-contexts",
+          "version": "0.3.17"
+        },
+        {
+          "key": "com.netflix.rxnetty:rx-netty-servo",
+          "version": "0.3.17"
+        },
+        {
+          "key": "com.netflix.servo:servo-core",
+          "version": "0.7.5"
+        },
+        {
+          "key": "com.netflix.zuul:zuul-core",
+          "version": "1.0.28"
+        },
+        {
+          "key": "com.sun.jersey.contribs:jersey-apache-client4",
+          "version": "1.11"
+        },
+        {
+          "key": "com.sun.jersey:jersey-client",
+          "version": "1.11"
+        },
+        {
+          "key": "com.sun.jersey:jersey-core",
+          "version": "1.11"
+        },
+        {
+          "key": "com.thoughtworks.xstream:xstream",
+          "version": "1.4.2"
+        },
+        {
+          "key": "commons-codec:commons-codec",
+          "version": "1.6"
+        },
+        {
+          "key": "commons-collections:commons-collections",
+          "version": "3.2.1"
+        },
+        {
+          "key": "commons-configuration:commons-configuration",
+          "version": "1.8"
+        },
+        {
+          "key": "commons-io:commons-io",
+          "version": "2.4"
+        },
+        {
+          "key": "commons-lang:commons-lang",
+          "version": "2.6"
+        },
+        {
+          "key": "commons-logging:commons-logging",
+          "version": "1.2"
+        },
+        {
+          "key": "dom4j:dom4j",
+          "version": "1.6.1"
+        },
+        {
+          "key": "io.netty:netty-buffer",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-codec",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-codec-http",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-common",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-handler",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-transport",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-transport-native-epoll",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.reactivex:rxjava",
+          "version": "1.0.4"
+        },
+        {
+          "key": "javax.inject:javax.inject",
+          "version": "1"
+        },
+        {
+          "key": "javax.transaction:javax.transaction-api",
+          "version": "1.2"
+        },
+        {
+          "key": "javax.validation:validation-api",
+          "version": "1.1.0.Final"
+        },
+        {
+          "key": "javax.ws.rs:jsr311-api",
+          "version": "1.1.1"
+        },
+        {
+          "key": "mysql:mysql-connector-java",
+          "version": "5.1.30"
+        },
+        {
+          "key": "org.apache.commons:commons-lang3",
+          "version": "3.1"
+        },
+        {
+          "key": "org.apache.httpcomponents:httpclient",
+          "version": "4.2.1"
+        },
+        {
+          "key": "org.apache.httpcomponents:httpcore",
+          "version": "4.2.1"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-el",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-logging-juli",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-websocket",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat:tomcat-jdbc",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat:tomcat-juli",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.aspectj:aspectjrt",
+          "version": "1.8.5"
+        },
+        {
+          "key": "org.aspectj:aspectjweaver",
+          "version": "1.8.5"
+        },
+        {
+          "key": "org.codehaus.jackson:jackson-core-asl",
+          "version": "1.9.13"
+        },
+        {
+          "key": "org.codehaus.jackson:jackson-mapper-asl",
+          "version": "1.9.13"
+        },
+        {
+          "key": "org.hibernate.common:hibernate-commons-annotations",
+          "version": "4.0.5.Final"
+        },
+        {
+          "key": "org.hibernate.javax.persistence:hibernate-jpa-2.1-api",
+          "version": "1.0.0.Final"
+        },
+        {
+          "key": "org.hibernate:hibernate-core",
+          "version": "4.3.8.Final"
+        },
+        {
+          "key": "org.hibernate:hibernate-entitymanager",
+          "version": "4.3.8.Final"
+        },
+        {
+          "key": "org.hibernate:hibernate-validator",
+          "version": "5.1.3.Final"
+        },
+        {
+          "key": "org.javassist:javassist",
+          "version": "3.18.1-GA"
+        },
+        {
+          "key": "org.jboss.logging:jboss-logging",
+          "version": "3.1.3.GA"
+        },
+        {
+          "key": "org.jboss.logging:jboss-logging-annotations",
+          "version": "1.2.0.Beta1"
+        },
+        {
+          "key": "org.jboss:jandex",
+          "version": "1.1.0.Final"
+        },
+        {
+          "key": "org.mockito:mockito-all",
+          "version": "1.9.5"
+        },
+        {
+          "key": "org.slf4j:jcl-over-slf4j",
+          "version": "1.7.11"
+        },
+        {
+          "key": "org.slf4j:jul-to-slf4j",
+          "version": "1.7.11"
+        },
+        {
+          "key": "org.slf4j:log4j-over-slf4j",
+          "version": "1.7.11"
+        },
+        {
+          "key": "org.slf4j:slf4j-api",
+          "version": "1.7.11"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-actuator",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-autoconfigure",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-actuator",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-aop",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-data-jpa",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-jdbc",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-logging",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-security",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-tomcat",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-web",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-commons",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-config-client",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-netflix-core",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-security",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-eureka",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-hystrix",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-ribbon",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-security",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-zuul",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.data:spring-data-commons",
+          "version": "1.9.2.RELEASE"
+        },
+        {
+          "key": "org.springframework.data:spring-data-jpa",
+          "version": "1.7.2.RELEASE"
+        },
+        {
+          "key": "org.springframework.security.oauth:spring-security-oauth2",
+          "version": "2.0.7.RELEASE"
+        },
+        {
+          "key": "org.springframework.security:spring-security-config",
+          "version": "3.2.7.RELEASE"
+        },
+        {
+          "key": "org.springframework.security:spring-security-core",
+          "version": "3.2.7.RELEASE"
+        },
+        {
+          "key": "org.springframework.security:spring-security-crypto",
+          "version": "3.2.6.RELEASE"
+        },
+        {
+          "key": "org.springframework.security:spring-security-web",
+          "version": "3.2.7.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-aop",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-aspects",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-beans",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-context",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-core",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-expression",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-jdbc",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-orm",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-tx",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-web",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-webmvc",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.yaml:snakeyaml",
+          "version": "1.14"
+        },
+        {
+          "key": "xml-apis:xml-apis",
+          "version": "1.0.b2"
+        },
+        {
+          "key": "xmlpull:xmlpull",
+          "version": "1.1.3.1"
+        },
+        {
+          "key": "xpp3:xpp3_min",
+          "version": "1.1.4c"
+        }
+      ],
+      "unresolved": [],
+      "artifacts": [
+        "annotations-2.0.0.jar",
+        "antlr-2.7.7.jar",
+        "antlr-runtime-3.4.jar",
+        "aopalliance-1.0.jar",
+        "archaius-core-0.6.0.jar",
+        "asm-3.1.jar",
+        "asm-all-3.2.jar",
+        "aspectjrt-1.8.5.jar",
+        "aspectjweaver-1.8.5.jar",
+        "cglib-2.2.1-v20090111.jar",
+        "classmate-1.0.0.jar",
+        "commons-codec-1.6.jar",
+        "commons-collections-3.2.1.jar",
+        "commons-configuration-1.8.jar",
+        "commons-io-2.4.jar",
+        "commons-jxpath-1.3.jar",
+        "commons-lang-2.6.jar",
+        "commons-lang3-3.1.jar",
+        "commons-logging-1.2.jar",
+        "commons-math-2.2.jar",
+        "dom4j-1.6.1.jar",
+        "eureka-client-1.1.147.jar",
+        "governator-1.2.10.jar",
+        "gson-2.1.jar",
+        "guava-15.0.jar",
+        "guice-3.0.jar",
+        "guice-assistedinject-3.0.jar",
+        "guice-grapher-3.0.jar",
+        "guice-multibindings-3.0.jar",
+        "hibernate-commons-annotations-4.0.5.Final.jar",
+        "hibernate-core-4.3.8.Final.jar",
+        "hibernate-entitymanager-4.3.8.Final.jar",
+        "hibernate-jpa-2.1-api-1.0.0.Final.jar",
+        "hibernate-validator-5.1.3.Final.jar",
+        "httpclient-4.2.1.jar",
+        "httpcore-4.2.1.jar",
+        "hystrix-core-1.4.0-RC6.jar",
+        "hystrix-javanica-1.4.0-RC6.jar",
+        "hystrix-metrics-event-stream-1.4.0-RC6.jar",
+        "jackson-annotations-2.4.0.jar",
+        "jackson-core-2.4.5.jar",
+        "jackson-core-asl-1.9.13.jar",
+        "jackson-databind-2.4.5.jar",
+        "jackson-mapper-asl-1.9.13.jar",
+        "jandex-1.1.0.Final.jar",
+        "javassist-3.18.1-GA.jar",
+        "javax.inject-1.jar",
+        "javax.transaction-api-1.2.jar",
+        "jboss-logging-3.1.3.GA.jar",
+        "jboss-logging-annotations-1.2.0.Beta1.jar",
+        "jcl-over-slf4j-1.7.11.jar",
+        "jersey-apache-client4-1.11.jar",
+        "jersey-client-1.11.jar",
+        "jersey-core-1.11.jar",
+        "jettison-1.2.jar",
+        "joda-time-2.3.jar",
+        "jsr166y-1.7.0.jar",
+        "jsr305-2.0.0.jar",
+        "jsr311-api-1.1.1.jar",
+        "jul-to-slf4j-1.7.11.jar",
+        "log4j-over-slf4j-1.7.11.jar",
+        "logback-classic-1.1.3.jar",
+        "logback-core-1.1.3.jar",
+        "mockito-all-1.9.5.jar",
+        "mysql-connector-java-5.1.30.jar",
+        "netflix-commons-util-0.1.1.jar",
+        "netflix-eventbus-0.1.2.jar",
+        "netflix-infix-0.1.2.jar",
+        "netflix-statistics-0.1.1.jar",
+        "netty-buffer-4.0.21.Final.jar",
+        "netty-codec-4.0.21.Final.jar",
+        "netty-codec-http-4.0.21.Final.jar",
+        "netty-common-4.0.21.Final.jar",
+        "netty-handler-4.0.21.Final.jar",
+        "netty-transport-4.0.21.Final.jar",
+        "netty-transport-native-epoll-4.0.21.Final.jar",
+        "ribbon-2.0-RC13.jar",
+        "ribbon-core-2.0-RC13.jar",
+        "ribbon-eureka-2.0-RC13.jar",
+        "ribbon-httpclient-2.0-RC13.jar",
+        "ribbon-loadbalancer-2.0-RC13.jar",
+        "ribbon-transport-2.0-RC13.jar",
+        "rx-netty-0.3.17.jar",
+        "rx-netty-contexts-0.3.17.jar",
+        "rx-netty-servo-0.3.17.jar",
+        "rxjava-1.0.4.jar",
+        "rxjava-core-0.20.7.jar",
+        "servo-core-0.7.5.jar",
+        "slf4j-api-1.7.11.jar",
+        "snakeyaml-1.14.jar",
+        "spring-aop-4.1.6.RELEASE.jar",
+        "spring-aspects-4.1.6.RELEASE.jar",
+        "spring-beans-4.1.6.RELEASE.jar",
+        "spring-boot-1.2.3.RELEASE.jar",
+        "spring-boot-actuator-1.2.3.RELEASE.jar",
+        "spring-boot-autoconfigure-1.2.3.RELEASE.jar",
+        "spring-boot-starter-1.2.3.RELEASE.jar",
+        "spring-boot-starter-actuator-1.2.3.RELEASE.jar",
+        "spring-boot-starter-aop-1.2.3.RELEASE.jar",
+        "spring-boot-starter-data-jpa-1.2.3.RELEASE.jar",
+        "spring-boot-starter-jdbc-1.2.3.RELEASE.jar",
+        "spring-boot-starter-logging-1.2.3.RELEASE.jar",
+        "spring-boot-starter-security-1.2.3.RELEASE.jar",
+        "spring-boot-starter-tomcat-1.2.3.RELEASE.jar",
+        "spring-boot-starter-web-1.2.3.RELEASE.jar",
+        "spring-cloud-commons-1.0.0.RELEASE.jar",
+        "spring-cloud-config-client-1.0.0.RELEASE.jar",
+        "spring-cloud-netflix-core-1.0.0.RELEASE.jar",
+        "spring-cloud-security-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-eureka-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-hystrix-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-ribbon-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-security-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-zuul-1.0.0.RELEASE.jar",
+        "spring-context-4.1.6.RELEASE.jar",
+        "spring-core-4.1.6.RELEASE.jar",
+        "spring-data-commons-1.9.2.RELEASE.jar",
+        "spring-data-jpa-1.7.2.RELEASE.jar",
+        "spring-expression-4.1.6.RELEASE.jar",
+        "spring-jdbc-4.1.6.RELEASE.jar",
+        "spring-orm-4.1.6.RELEASE.jar",
+        "spring-security-config-3.2.7.RELEASE.jar",
+        "spring-security-core-3.2.7.RELEASE.jar",
+        "spring-security-crypto-3.2.6.RELEASE.jar",
+        "spring-security-oauth2-2.0.7.RELEASE.jar",
+        "spring-security-web-3.2.7.RELEASE.jar",
+        "spring-tx-4.1.6.RELEASE.jar",
+        "spring-web-4.1.6.RELEASE.jar",
+        "spring-webmvc-4.1.6.RELEASE.jar",
+        "stax-api-1.0.1.jar",
+        "stringtemplate-3.2.1.jar",
+        "tomcat-embed-core-8.0.20.jar",
+        "tomcat-embed-el-8.0.20.jar",
+        "tomcat-embed-logging-juli-8.0.20.jar",
+        "tomcat-embed-websocket-8.0.20.jar",
+        "tomcat-jdbc-8.0.20.jar",
+        "tomcat-juli-8.0.20.jar",
+        "validation-api-1.1.0.Final.jar",
+        "xbean-bundleutils-3.11.1.jar",
+        "xbean-finder-3.11.1.jar",
+        "xml-apis-1.0.b2.jar",
+        "xmlpull-1.1.3.1.jar",
+        "xpp3_min-1.1.4c.jar",
+        "xstream-1.4.2.jar",
+        "zuul-core-1.0.28.jar"
+      ]
+    },
+    "runtime": {
+      "modules": [
+        {
+          "key": "antlr:antlr",
+          "version": "2.7.7"
+        },
+        {
+          "key": "aopalliance:aopalliance",
+          "version": "1.0"
+        },
+        {
+          "key": "ch.qos.logback:logback-classic",
+          "version": "1.1.3"
+        },
+        {
+          "key": "ch.qos.logback:logback-core",
+          "version": "1.1.3"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-annotations",
+          "version": "2.4.0"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-core",
+          "version": "2.4.5"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.4.5"
+        },
+        {
+          "key": "com.fasterxml:classmate",
+          "version": "1.0.0"
+        },
+        {
+          "key": "com.google.code.findbugs:annotations",
+          "version": "2.0.0"
+        },
+        {
+          "key": "com.google.code.findbugs:jsr305",
+          "version": "2.0.0"
+        },
+        {
+          "key": "com.google.guava:guava",
+          "version": "15.0"
+        },
+        {
+          "key": "com.netflix.archaius:archaius-core",
+          "version": "0.6.0"
+        },
+        {
+          "key": "com.netflix.eureka:eureka-client",
+          "version": "1.1.147"
+        },
+        {
+          "key": "com.netflix.hystrix:hystrix-core",
+          "version": "1.4.0-RC6"
+        },
+        {
+          "key": "com.netflix.hystrix:hystrix-javanica",
+          "version": "1.4.0-RC6"
+        },
+        {
+          "key": "com.netflix.hystrix:hystrix-metrics-event-stream",
+          "version": "1.4.0-RC6"
+        },
+        {
+          "key": "com.netflix.netflix-commons:netflix-commons-util",
+          "version": "0.1.1"
+        },
+        {
+          "key": "com.netflix.netflix-commons:netflix-statistics",
+          "version": "0.1.1"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-core",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-eureka",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-httpclient",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-loadbalancer",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-transport",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.rxjava:rxjava-core",
+          "version": "0.20.7"
+        },
+        {
+          "key": "com.netflix.rxnetty:rx-netty",
+          "version": "0.3.17"
+        },
+        {
+          "key": "com.netflix.rxnetty:rx-netty-contexts",
+          "version": "0.3.17"
+        },
+        {
+          "key": "com.netflix.rxnetty:rx-netty-servo",
+          "version": "0.3.17"
+        },
+        {
+          "key": "com.netflix.servo:servo-core",
+          "version": "0.7.5"
+        },
+        {
+          "key": "com.netflix.zuul:zuul-core",
+          "version": "1.0.28"
+        },
+        {
+          "key": "com.sun.jersey.contribs:jersey-apache-client4",
+          "version": "1.11"
+        },
+        {
+          "key": "com.sun.jersey:jersey-client",
+          "version": "1.11"
+        },
+        {
+          "key": "com.sun.jersey:jersey-core",
+          "version": "1.11"
+        },
+        {
+          "key": "com.thoughtworks.xstream:xstream",
+          "version": "1.4.2"
+        },
+        {
+          "key": "commons-codec:commons-codec",
+          "version": "1.6"
+        },
+        {
+          "key": "commons-collections:commons-collections",
+          "version": "3.2.1"
+        },
+        {
+          "key": "commons-configuration:commons-configuration",
+          "version": "1.8"
+        },
+        {
+          "key": "commons-io:commons-io",
+          "version": "2.4"
+        },
+        {
+          "key": "commons-lang:commons-lang",
+          "version": "2.6"
+        },
+        {
+          "key": "commons-logging:commons-logging",
+          "version": "1.2"
+        },
+        {
+          "key": "dom4j:dom4j",
+          "version": "1.6.1"
+        },
+        {
+          "key": "io.netty:netty-buffer",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-codec",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-codec-http",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-common",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-handler",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-transport",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-transport-native-epoll",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.reactivex:rxjava",
+          "version": "1.0.4"
+        },
+        {
+          "key": "javax.inject:javax.inject",
+          "version": "1"
+        },
+        {
+          "key": "javax.transaction:javax.transaction-api",
+          "version": "1.2"
+        },
+        {
+          "key": "javax.validation:validation-api",
+          "version": "1.1.0.Final"
+        },
+        {
+          "key": "javax.ws.rs:jsr311-api",
+          "version": "1.1.1"
+        },
+        {
+          "key": "mysql:mysql-connector-java",
+          "version": "5.1.30"
+        },
+        {
+          "key": "org.apache.commons:commons-lang3",
+          "version": "3.1"
+        },
+        {
+          "key": "org.apache.httpcomponents:httpclient",
+          "version": "4.2.1"
+        },
+        {
+          "key": "org.apache.httpcomponents:httpcore",
+          "version": "4.2.1"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-el",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-logging-juli",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-websocket",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat:tomcat-jdbc",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat:tomcat-juli",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.aspectj:aspectjrt",
+          "version": "1.8.5"
+        },
+        {
+          "key": "org.aspectj:aspectjweaver",
+          "version": "1.8.5"
+        },
+        {
+          "key": "org.codehaus.jackson:jackson-core-asl",
+          "version": "1.9.13"
+        },
+        {
+          "key": "org.codehaus.jackson:jackson-mapper-asl",
+          "version": "1.9.13"
+        },
+        {
+          "key": "org.hibernate.common:hibernate-commons-annotations",
+          "version": "4.0.5.Final"
+        },
+        {
+          "key": "org.hibernate.javax.persistence:hibernate-jpa-2.1-api",
+          "version": "1.0.0.Final"
+        },
+        {
+          "key": "org.hibernate:hibernate-core",
+          "version": "4.3.8.Final"
+        },
+        {
+          "key": "org.hibernate:hibernate-entitymanager",
+          "version": "4.3.8.Final"
+        },
+        {
+          "key": "org.hibernate:hibernate-validator",
+          "version": "5.1.3.Final"
+        },
+        {
+          "key": "org.javassist:javassist",
+          "version": "3.18.1-GA"
+        },
+        {
+          "key": "org.jboss.logging:jboss-logging",
+          "version": "3.1.3.GA"
+        },
+        {
+          "key": "org.jboss.logging:jboss-logging-annotations",
+          "version": "1.2.0.Beta1"
+        },
+        {
+          "key": "org.jboss:jandex",
+          "version": "1.1.0.Final"
+        },
+        {
+          "key": "org.mockito:mockito-all",
+          "version": "1.9.5"
+        },
+        {
+          "key": "org.slf4j:jcl-over-slf4j",
+          "version": "1.7.11"
+        },
+        {
+          "key": "org.slf4j:jul-to-slf4j",
+          "version": "1.7.11"
+        },
+        {
+          "key": "org.slf4j:log4j-over-slf4j",
+          "version": "1.7.11"
+        },
+        {
+          "key": "org.slf4j:slf4j-api",
+          "version": "1.7.11"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-actuator",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-autoconfigure",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-actuator",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-aop",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-data-jpa",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-jdbc",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-logging",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-security",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-tomcat",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-web",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-commons",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-config-client",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-netflix-core",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-security",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-eureka",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-hystrix",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-ribbon",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-security",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-zuul",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.data:spring-data-commons",
+          "version": "1.9.2.RELEASE"
+        },
+        {
+          "key": "org.springframework.data:spring-data-jpa",
+          "version": "1.7.2.RELEASE"
+        },
+        {
+          "key": "org.springframework.security.oauth:spring-security-oauth2",
+          "version": "2.0.7.RELEASE"
+        },
+        {
+          "key": "org.springframework.security:spring-security-config",
+          "version": "3.2.7.RELEASE"
+        },
+        {
+          "key": "org.springframework.security:spring-security-core",
+          "version": "3.2.7.RELEASE"
+        },
+        {
+          "key": "org.springframework.security:spring-security-crypto",
+          "version": "3.2.6.RELEASE"
+        },
+        {
+          "key": "org.springframework.security:spring-security-web",
+          "version": "3.2.7.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-aop",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-aspects",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-beans",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-context",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-core",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-expression",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-jdbc",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-orm",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-tx",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-web",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-webmvc",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.yaml:snakeyaml",
+          "version": "1.14"
+        },
+        {
+          "key": "xml-apis:xml-apis",
+          "version": "1.0.b2"
+        },
+        {
+          "key": "xmlpull:xmlpull",
+          "version": "1.1.3.1"
+        },
+        {
+          "key": "xpp3:xpp3_min",
+          "version": "1.1.4c"
+        }
+      ],
+      "unresolved": [],
+      "artifacts": [
+        "annotations-2.0.0.jar",
+        "antlr-2.7.7.jar",
+        "antlr-runtime-3.4.jar",
+        "aopalliance-1.0.jar",
+        "archaius-core-0.6.0.jar",
+        "asm-3.1.jar",
+        "asm-all-3.2.jar",
+        "aspectjrt-1.8.5.jar",
+        "aspectjweaver-1.8.5.jar",
+        "cglib-2.2.1-v20090111.jar",
+        "classmate-1.0.0.jar",
+        "commons-codec-1.6.jar",
+        "commons-collections-3.2.1.jar",
+        "commons-configuration-1.8.jar",
+        "commons-io-2.4.jar",
+        "commons-jxpath-1.3.jar",
+        "commons-lang-2.6.jar",
+        "commons-lang3-3.1.jar",
+        "commons-logging-1.2.jar",
+        "commons-math-2.2.jar",
+        "dom4j-1.6.1.jar",
+        "eureka-client-1.1.147.jar",
+        "governator-1.2.10.jar",
+        "gson-2.1.jar",
+        "guava-15.0.jar",
+        "guice-3.0.jar",
+        "guice-assistedinject-3.0.jar",
+        "guice-grapher-3.0.jar",
+        "guice-multibindings-3.0.jar",
+        "hibernate-commons-annotations-4.0.5.Final.jar",
+        "hibernate-core-4.3.8.Final.jar",
+        "hibernate-entitymanager-4.3.8.Final.jar",
+        "hibernate-jpa-2.1-api-1.0.0.Final.jar",
+        "hibernate-validator-5.1.3.Final.jar",
+        "httpclient-4.2.1.jar",
+        "httpcore-4.2.1.jar",
+        "hystrix-core-1.4.0-RC6.jar",
+        "hystrix-javanica-1.4.0-RC6.jar",
+        "hystrix-metrics-event-stream-1.4.0-RC6.jar",
+        "jackson-annotations-2.4.0.jar",
+        "jackson-core-2.4.5.jar",
+        "jackson-core-asl-1.9.13.jar",
+        "jackson-databind-2.4.5.jar",
+        "jackson-mapper-asl-1.9.13.jar",
+        "jandex-1.1.0.Final.jar",
+        "javassist-3.18.1-GA.jar",
+        "javax.inject-1.jar",
+        "javax.transaction-api-1.2.jar",
+        "jboss-logging-3.1.3.GA.jar",
+        "jboss-logging-annotations-1.2.0.Beta1.jar",
+        "jcl-over-slf4j-1.7.11.jar",
+        "jersey-apache-client4-1.11.jar",
+        "jersey-client-1.11.jar",
+        "jersey-core-1.11.jar",
+        "jettison-1.2.jar",
+        "joda-time-2.3.jar",
+        "jsr166y-1.7.0.jar",
+        "jsr305-2.0.0.jar",
+        "jsr311-api-1.1.1.jar",
+        "jul-to-slf4j-1.7.11.jar",
+        "log4j-over-slf4j-1.7.11.jar",
+        "logback-classic-1.1.3.jar",
+        "logback-core-1.1.3.jar",
+        "mockito-all-1.9.5.jar",
+        "mysql-connector-java-5.1.30.jar",
+        "netflix-commons-util-0.1.1.jar",
+        "netflix-eventbus-0.1.2.jar",
+        "netflix-infix-0.1.2.jar",
+        "netflix-statistics-0.1.1.jar",
+        "netty-buffer-4.0.21.Final.jar",
+        "netty-codec-4.0.21.Final.jar",
+        "netty-codec-http-4.0.21.Final.jar",
+        "netty-common-4.0.21.Final.jar",
+        "netty-handler-4.0.21.Final.jar",
+        "netty-transport-4.0.21.Final.jar",
+        "netty-transport-native-epoll-4.0.21.Final.jar",
+        "ribbon-2.0-RC13.jar",
+        "ribbon-core-2.0-RC13.jar",
+        "ribbon-eureka-2.0-RC13.jar",
+        "ribbon-httpclient-2.0-RC13.jar",
+        "ribbon-loadbalancer-2.0-RC13.jar",
+        "ribbon-transport-2.0-RC13.jar",
+        "rx-netty-0.3.17.jar",
+        "rx-netty-contexts-0.3.17.jar",
+        "rx-netty-servo-0.3.17.jar",
+        "rxjava-1.0.4.jar",
+        "rxjava-core-0.20.7.jar",
+        "servo-core-0.7.5.jar",
+        "slf4j-api-1.7.11.jar",
+        "snakeyaml-1.14.jar",
+        "spring-aop-4.1.6.RELEASE.jar",
+        "spring-aspects-4.1.6.RELEASE.jar",
+        "spring-beans-4.1.6.RELEASE.jar",
+        "spring-boot-1.2.3.RELEASE.jar",
+        "spring-boot-actuator-1.2.3.RELEASE.jar",
+        "spring-boot-autoconfigure-1.2.3.RELEASE.jar",
+        "spring-boot-starter-1.2.3.RELEASE.jar",
+        "spring-boot-starter-actuator-1.2.3.RELEASE.jar",
+        "spring-boot-starter-aop-1.2.3.RELEASE.jar",
+        "spring-boot-starter-data-jpa-1.2.3.RELEASE.jar",
+        "spring-boot-starter-jdbc-1.2.3.RELEASE.jar",
+        "spring-boot-starter-logging-1.2.3.RELEASE.jar",
+        "spring-boot-starter-security-1.2.3.RELEASE.jar",
+        "spring-boot-starter-tomcat-1.2.3.RELEASE.jar",
+        "spring-boot-starter-web-1.2.3.RELEASE.jar",
+        "spring-cloud-commons-1.0.0.RELEASE.jar",
+        "spring-cloud-config-client-1.0.0.RELEASE.jar",
+        "spring-cloud-netflix-core-1.0.0.RELEASE.jar",
+        "spring-cloud-security-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-eureka-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-hystrix-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-ribbon-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-security-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-zuul-1.0.0.RELEASE.jar",
+        "spring-context-4.1.6.RELEASE.jar",
+        "spring-core-4.1.6.RELEASE.jar",
+        "spring-data-commons-1.9.2.RELEASE.jar",
+        "spring-data-jpa-1.7.2.RELEASE.jar",
+        "spring-expression-4.1.6.RELEASE.jar",
+        "spring-jdbc-4.1.6.RELEASE.jar",
+        "spring-orm-4.1.6.RELEASE.jar",
+        "spring-security-config-3.2.7.RELEASE.jar",
+        "spring-security-core-3.2.7.RELEASE.jar",
+        "spring-security-crypto-3.2.6.RELEASE.jar",
+        "spring-security-oauth2-2.0.7.RELEASE.jar",
+        "spring-security-web-3.2.7.RELEASE.jar",
+        "spring-tx-4.1.6.RELEASE.jar",
+        "spring-web-4.1.6.RELEASE.jar",
+        "spring-webmvc-4.1.6.RELEASE.jar",
+        "stax-api-1.0.1.jar",
+        "stringtemplate-3.2.1.jar",
+        "tomcat-embed-core-8.0.20.jar",
+        "tomcat-embed-el-8.0.20.jar",
+        "tomcat-embed-logging-juli-8.0.20.jar",
+        "tomcat-embed-websocket-8.0.20.jar",
+        "tomcat-jdbc-8.0.20.jar",
+        "tomcat-juli-8.0.20.jar",
+        "validation-api-1.1.0.Final.jar",
+        "xbean-bundleutils-3.11.1.jar",
+        "xbean-finder-3.11.1.jar",
+        "xml-apis-1.0.b2.jar",
+        "xmlpull-1.1.3.1.jar",
+        "xpp3_min-1.1.4c.jar",
+        "xstream-1.4.2.jar",
+        "zuul-core-1.0.28.jar"
+      ]
+    },
+    "testCompile": {
+      "modules": [
+        {
+          "key": "antlr:antlr",
+          "version": "2.7.7"
+        },
+        {
+          "key": "aopalliance:aopalliance",
+          "version": "1.0"
+        },
+        {
+          "key": "ch.qos.logback:logback-classic",
+          "version": "1.1.3"
+        },
+        {
+          "key": "ch.qos.logback:logback-core",
+          "version": "1.1.3"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-annotations",
+          "version": "2.4.0"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-core",
+          "version": "2.4.5"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.4.5"
+        },
+        {
+          "key": "com.fasterxml:classmate",
+          "version": "1.0.0"
+        },
+        {
+          "key": "com.google.code.findbugs:annotations",
+          "version": "2.0.0"
+        },
+        {
+          "key": "com.google.code.findbugs:jsr305",
+          "version": "2.0.0"
+        },
+        {
+          "key": "com.google.guava:guava",
+          "version": "15.0"
+        },
+        {
+          "key": "com.netflix.archaius:archaius-core",
+          "version": "0.6.0"
+        },
+        {
+          "key": "com.netflix.eureka:eureka-client",
+          "version": "1.1.147"
+        },
+        {
+          "key": "com.netflix.hystrix:hystrix-core",
+          "version": "1.4.0-RC6"
+        },
+        {
+          "key": "com.netflix.hystrix:hystrix-javanica",
+          "version": "1.4.0-RC6"
+        },
+        {
+          "key": "com.netflix.hystrix:hystrix-metrics-event-stream",
+          "version": "1.4.0-RC6"
+        },
+        {
+          "key": "com.netflix.netflix-commons:netflix-commons-util",
+          "version": "0.1.1"
+        },
+        {
+          "key": "com.netflix.netflix-commons:netflix-statistics",
+          "version": "0.1.1"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-core",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-eureka",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-httpclient",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-loadbalancer",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-transport",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.rxjava:rxjava-core",
+          "version": "0.20.7"
+        },
+        {
+          "key": "com.netflix.rxnetty:rx-netty",
+          "version": "0.3.17"
+        },
+        {
+          "key": "com.netflix.rxnetty:rx-netty-contexts",
+          "version": "0.3.17"
+        },
+        {
+          "key": "com.netflix.rxnetty:rx-netty-servo",
+          "version": "0.3.17"
+        },
+        {
+          "key": "com.netflix.servo:servo-core",
+          "version": "0.7.5"
+        },
+        {
+          "key": "com.netflix.zuul:zuul-core",
+          "version": "1.0.28"
+        },
+        {
+          "key": "com.sun.jersey.contribs:jersey-apache-client4",
+          "version": "1.11"
+        },
+        {
+          "key": "com.sun.jersey:jersey-client",
+          "version": "1.11"
+        },
+        {
+          "key": "com.sun.jersey:jersey-core",
+          "version": "1.11"
+        },
+        {
+          "key": "com.thoughtworks.xstream:xstream",
+          "version": "1.4.2"
+        },
+        {
+          "key": "commons-codec:commons-codec",
+          "version": "1.6"
+        },
+        {
+          "key": "commons-collections:commons-collections",
+          "version": "3.2.1"
+        },
+        {
+          "key": "commons-configuration:commons-configuration",
+          "version": "1.8"
+        },
+        {
+          "key": "commons-io:commons-io",
+          "version": "2.4"
+        },
+        {
+          "key": "commons-lang:commons-lang",
+          "version": "2.6"
+        },
+        {
+          "key": "commons-logging:commons-logging",
+          "version": "1.2"
+        },
+        {
+          "key": "dom4j:dom4j",
+          "version": "1.6.1"
+        },
+        {
+          "key": "io.netty:netty-buffer",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-codec",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-codec-http",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-common",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-handler",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-transport",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-transport-native-epoll",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.reactivex:rxjava",
+          "version": "1.0.4"
+        },
+        {
+          "key": "javax.inject:javax.inject",
+          "version": "1"
+        },
+        {
+          "key": "javax.transaction:javax.transaction-api",
+          "version": "1.2"
+        },
+        {
+          "key": "javax.validation:validation-api",
+          "version": "1.1.0.Final"
+        },
+        {
+          "key": "javax.ws.rs:jsr311-api",
+          "version": "1.1.1"
+        },
+        {
+          "key": "junit:junit",
+          "version": "4.13.2"
+        },
+        {
+          "key": "mysql:mysql-connector-java",
+          "version": "5.1.30"
+        },
+        {
+          "key": "org.apache.commons:commons-lang3",
+          "version": "3.1"
+        },
+        {
+          "key": "org.apache.httpcomponents:httpclient",
+          "version": "4.2.1"
+        },
+        {
+          "key": "org.apache.httpcomponents:httpcore",
+          "version": "4.2.1"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-el",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-logging-juli",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-websocket",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat:tomcat-jdbc",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat:tomcat-juli",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.aspectj:aspectjrt",
+          "version": "1.8.5"
+        },
+        {
+          "key": "org.aspectj:aspectjweaver",
+          "version": "1.8.5"
+        },
+        {
+          "key": "org.codehaus.jackson:jackson-core-asl",
+          "version": "1.9.13"
+        },
+        {
+          "key": "org.codehaus.jackson:jackson-mapper-asl",
+          "version": "1.9.13"
+        },
+        {
+          "key": "org.hamcrest:hamcrest-core",
+          "version": "1.3"
+        },
+        {
+          "key": "org.hibernate.common:hibernate-commons-annotations",
+          "version": "4.0.5.Final"
+        },
+        {
+          "key": "org.hibernate.javax.persistence:hibernate-jpa-2.1-api",
+          "version": "1.0.0.Final"
+        },
+        {
+          "key": "org.hibernate:hibernate-core",
+          "version": "4.3.8.Final"
+        },
+        {
+          "key": "org.hibernate:hibernate-entitymanager",
+          "version": "4.3.8.Final"
+        },
+        {
+          "key": "org.hibernate:hibernate-validator",
+          "version": "5.1.3.Final"
+        },
+        {
+          "key": "org.javassist:javassist",
+          "version": "3.18.1-GA"
+        },
+        {
+          "key": "org.jboss.logging:jboss-logging",
+          "version": "3.1.3.GA"
+        },
+        {
+          "key": "org.jboss.logging:jboss-logging-annotations",
+          "version": "1.2.0.Beta1"
+        },
+        {
+          "key": "org.jboss:jandex",
+          "version": "1.1.0.Final"
+        },
+        {
+          "key": "org.mockito:mockito-all",
+          "version": "1.9.5"
+        },
+        {
+          "key": "org.slf4j:jcl-over-slf4j",
+          "version": "1.7.11"
+        },
+        {
+          "key": "org.slf4j:jul-to-slf4j",
+          "version": "1.7.11"
+        },
+        {
+          "key": "org.slf4j:log4j-over-slf4j",
+          "version": "1.7.11"
+        },
+        {
+          "key": "org.slf4j:slf4j-api",
+          "version": "1.7.11"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-actuator",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-autoconfigure",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-actuator",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-aop",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-data-jpa",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-jdbc",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-logging",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-security",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-tomcat",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-web",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-commons",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-config-client",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-netflix-core",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-security",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-eureka",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-hystrix",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-ribbon",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-security",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-zuul",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.data:spring-data-commons",
+          "version": "1.9.2.RELEASE"
+        },
+        {
+          "key": "org.springframework.data:spring-data-jpa",
+          "version": "1.7.2.RELEASE"
+        },
+        {
+          "key": "org.springframework.security.oauth:spring-security-oauth2",
+          "version": "2.0.7.RELEASE"
+        },
+        {
+          "key": "org.springframework.security:spring-security-config",
+          "version": "3.2.7.RELEASE"
+        },
+        {
+          "key": "org.springframework.security:spring-security-core",
+          "version": "3.2.7.RELEASE"
+        },
+        {
+          "key": "org.springframework.security:spring-security-crypto",
+          "version": "3.2.6.RELEASE"
+        },
+        {
+          "key": "org.springframework.security:spring-security-web",
+          "version": "3.2.7.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-aop",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-aspects",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-beans",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-context",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-core",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-expression",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-jdbc",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-orm",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-test",
+          "version": "4.0.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-tx",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-web",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-webmvc",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.yaml:snakeyaml",
+          "version": "1.14"
+        },
+        {
+          "key": "xml-apis:xml-apis",
+          "version": "1.0.b2"
+        },
+        {
+          "key": "xmlpull:xmlpull",
+          "version": "1.1.3.1"
+        },
+        {
+          "key": "xpp3:xpp3_min",
+          "version": "1.1.4c"
+        }
+      ],
+      "unresolved": [],
+      "artifacts": [
+        "annotations-2.0.0.jar",
+        "antlr-2.7.7.jar",
+        "antlr-runtime-3.4.jar",
+        "aopalliance-1.0.jar",
+        "archaius-core-0.6.0.jar",
+        "asm-3.1.jar",
+        "asm-all-3.2.jar",
+        "aspectjrt-1.8.5.jar",
+        "aspectjweaver-1.8.5.jar",
+        "cglib-2.2.1-v20090111.jar",
+        "classmate-1.0.0.jar",
+        "commons-codec-1.6.jar",
+        "commons-collections-3.2.1.jar",
+        "commons-configuration-1.8.jar",
+        "commons-io-2.4.jar",
+        "commons-jxpath-1.3.jar",
+        "commons-lang-2.6.jar",
+        "commons-lang3-3.1.jar",
+        "commons-logging-1.2.jar",
+        "commons-math-2.2.jar",
+        "dom4j-1.6.1.jar",
+        "eureka-client-1.1.147.jar",
+        "governator-1.2.10.jar",
+        "gson-2.1.jar",
+        "guava-15.0.jar",
+        "guice-3.0.jar",
+        "guice-assistedinject-3.0.jar",
+        "guice-grapher-3.0.jar",
+        "guice-multibindings-3.0.jar",
+        "hamcrest-core-1.3.jar",
+        "hibernate-commons-annotations-4.0.5.Final.jar",
+        "hibernate-core-4.3.8.Final.jar",
+        "hibernate-entitymanager-4.3.8.Final.jar",
+        "hibernate-jpa-2.1-api-1.0.0.Final.jar",
+        "hibernate-validator-5.1.3.Final.jar",
+        "httpclient-4.2.1.jar",
+        "httpcore-4.2.1.jar",
+        "hystrix-core-1.4.0-RC6.jar",
+        "hystrix-javanica-1.4.0-RC6.jar",
+        "hystrix-metrics-event-stream-1.4.0-RC6.jar",
+        "jackson-annotations-2.4.0.jar",
+        "jackson-core-2.4.5.jar",
+        "jackson-core-asl-1.9.13.jar",
+        "jackson-databind-2.4.5.jar",
+        "jackson-mapper-asl-1.9.13.jar",
+        "jandex-1.1.0.Final.jar",
+        "javassist-3.18.1-GA.jar",
+        "javax.inject-1.jar",
+        "javax.transaction-api-1.2.jar",
+        "jboss-logging-3.1.3.GA.jar",
+        "jboss-logging-annotations-1.2.0.Beta1.jar",
+        "jcl-over-slf4j-1.7.11.jar",
+        "jersey-apache-client4-1.11.jar",
+        "jersey-client-1.11.jar",
+        "jersey-core-1.11.jar",
+        "jettison-1.2.jar",
+        "joda-time-2.3.jar",
+        "jsr166y-1.7.0.jar",
+        "jsr305-2.0.0.jar",
+        "jsr311-api-1.1.1.jar",
+        "jul-to-slf4j-1.7.11.jar",
+        "junit-4.13.2.jar",
+        "log4j-over-slf4j-1.7.11.jar",
+        "logback-classic-1.1.3.jar",
+        "logback-core-1.1.3.jar",
+        "mockito-all-1.9.5.jar",
+        "mysql-connector-java-5.1.30.jar",
+        "netflix-commons-util-0.1.1.jar",
+        "netflix-eventbus-0.1.2.jar",
+        "netflix-infix-0.1.2.jar",
+        "netflix-statistics-0.1.1.jar",
+        "netty-buffer-4.0.21.Final.jar",
+        "netty-codec-4.0.21.Final.jar",
+        "netty-codec-http-4.0.21.Final.jar",
+        "netty-common-4.0.21.Final.jar",
+        "netty-handler-4.0.21.Final.jar",
+        "netty-transport-4.0.21.Final.jar",
+        "netty-transport-native-epoll-4.0.21.Final.jar",
+        "ribbon-2.0-RC13.jar",
+        "ribbon-core-2.0-RC13.jar",
+        "ribbon-eureka-2.0-RC13.jar",
+        "ribbon-httpclient-2.0-RC13.jar",
+        "ribbon-loadbalancer-2.0-RC13.jar",
+        "ribbon-transport-2.0-RC13.jar",
+        "rx-netty-0.3.17.jar",
+        "rx-netty-contexts-0.3.17.jar",
+        "rx-netty-servo-0.3.17.jar",
+        "rxjava-1.0.4.jar",
+        "rxjava-core-0.20.7.jar",
+        "servo-core-0.7.5.jar",
+        "slf4j-api-1.7.11.jar",
+        "snakeyaml-1.14.jar",
+        "spring-aop-4.1.6.RELEASE.jar",
+        "spring-aspects-4.1.6.RELEASE.jar",
+        "spring-beans-4.1.6.RELEASE.jar",
+        "spring-boot-1.2.3.RELEASE.jar",
+        "spring-boot-actuator-1.2.3.RELEASE.jar",
+        "spring-boot-autoconfigure-1.2.3.RELEASE.jar",
+        "spring-boot-starter-1.2.3.RELEASE.jar",
+        "spring-boot-starter-actuator-1.2.3.RELEASE.jar",
+        "spring-boot-starter-aop-1.2.3.RELEASE.jar",
+        "spring-boot-starter-data-jpa-1.2.3.RELEASE.jar",
+        "spring-boot-starter-jdbc-1.2.3.RELEASE.jar",
+        "spring-boot-starter-logging-1.2.3.RELEASE.jar",
+        "spring-boot-starter-security-1.2.3.RELEASE.jar",
+        "spring-boot-starter-tomcat-1.2.3.RELEASE.jar",
+        "spring-boot-starter-web-1.2.3.RELEASE.jar",
+        "spring-cloud-commons-1.0.0.RELEASE.jar",
+        "spring-cloud-config-client-1.0.0.RELEASE.jar",
+        "spring-cloud-netflix-core-1.0.0.RELEASE.jar",
+        "spring-cloud-security-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-eureka-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-hystrix-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-ribbon-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-security-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-zuul-1.0.0.RELEASE.jar",
+        "spring-context-4.1.6.RELEASE.jar",
+        "spring-core-4.1.6.RELEASE.jar",
+        "spring-data-commons-1.9.2.RELEASE.jar",
+        "spring-data-jpa-1.7.2.RELEASE.jar",
+        "spring-expression-4.1.6.RELEASE.jar",
+        "spring-jdbc-4.1.6.RELEASE.jar",
+        "spring-orm-4.1.6.RELEASE.jar",
+        "spring-security-config-3.2.7.RELEASE.jar",
+        "spring-security-core-3.2.7.RELEASE.jar",
+        "spring-security-crypto-3.2.6.RELEASE.jar",
+        "spring-security-oauth2-2.0.7.RELEASE.jar",
+        "spring-security-web-3.2.7.RELEASE.jar",
+        "spring-test-4.0.6.RELEASE.jar",
+        "spring-tx-4.1.6.RELEASE.jar",
+        "spring-web-4.1.6.RELEASE.jar",
+        "spring-webmvc-4.1.6.RELEASE.jar",
+        "stax-api-1.0.1.jar",
+        "stringtemplate-3.2.1.jar",
+        "tomcat-embed-core-8.0.20.jar",
+        "tomcat-embed-el-8.0.20.jar",
+        "tomcat-embed-logging-juli-8.0.20.jar",
+        "tomcat-embed-websocket-8.0.20.jar",
+        "tomcat-jdbc-8.0.20.jar",
+        "tomcat-juli-8.0.20.jar",
+        "validation-api-1.1.0.Final.jar",
+        "xbean-bundleutils-3.11.1.jar",
+        "xbean-finder-3.11.1.jar",
+        "xml-apis-1.0.b2.jar",
+        "xmlpull-1.1.3.1.jar",
+        "xpp3_min-1.1.4c.jar",
+        "xstream-1.4.2.jar",
+        "zuul-core-1.0.28.jar"
+      ]
+    },
+    "testRuntime": {
+      "modules": [
+        {
+          "key": "antlr:antlr",
+          "version": "2.7.7"
+        },
+        {
+          "key": "aopalliance:aopalliance",
+          "version": "1.0"
+        },
+        {
+          "key": "ch.qos.logback:logback-classic",
+          "version": "1.1.3"
+        },
+        {
+          "key": "ch.qos.logback:logback-core",
+          "version": "1.1.3"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-annotations",
+          "version": "2.4.0"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-core",
+          "version": "2.4.5"
+        },
+        {
+          "key": "com.fasterxml.jackson.core:jackson-databind",
+          "version": "2.4.5"
+        },
+        {
+          "key": "com.fasterxml:classmate",
+          "version": "1.0.0"
+        },
+        {
+          "key": "com.google.code.findbugs:annotations",
+          "version": "2.0.0"
+        },
+        {
+          "key": "com.google.code.findbugs:jsr305",
+          "version": "2.0.0"
+        },
+        {
+          "key": "com.google.guava:guava",
+          "version": "15.0"
+        },
+        {
+          "key": "com.netflix.archaius:archaius-core",
+          "version": "0.6.0"
+        },
+        {
+          "key": "com.netflix.eureka:eureka-client",
+          "version": "1.1.147"
+        },
+        {
+          "key": "com.netflix.hystrix:hystrix-core",
+          "version": "1.4.0-RC6"
+        },
+        {
+          "key": "com.netflix.hystrix:hystrix-javanica",
+          "version": "1.4.0-RC6"
+        },
+        {
+          "key": "com.netflix.hystrix:hystrix-metrics-event-stream",
+          "version": "1.4.0-RC6"
+        },
+        {
+          "key": "com.netflix.netflix-commons:netflix-commons-util",
+          "version": "0.1.1"
+        },
+        {
+          "key": "com.netflix.netflix-commons:netflix-statistics",
+          "version": "0.1.1"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-core",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-eureka",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-httpclient",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-loadbalancer",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.ribbon:ribbon-transport",
+          "version": "2.0-RC13"
+        },
+        {
+          "key": "com.netflix.rxjava:rxjava-core",
+          "version": "0.20.7"
+        },
+        {
+          "key": "com.netflix.rxnetty:rx-netty",
+          "version": "0.3.17"
+        },
+        {
+          "key": "com.netflix.rxnetty:rx-netty-contexts",
+          "version": "0.3.17"
+        },
+        {
+          "key": "com.netflix.rxnetty:rx-netty-servo",
+          "version": "0.3.17"
+        },
+        {
+          "key": "com.netflix.servo:servo-core",
+          "version": "0.7.5"
+        },
+        {
+          "key": "com.netflix.zuul:zuul-core",
+          "version": "1.0.28"
+        },
+        {
+          "key": "com.sun.jersey.contribs:jersey-apache-client4",
+          "version": "1.11"
+        },
+        {
+          "key": "com.sun.jersey:jersey-client",
+          "version": "1.11"
+        },
+        {
+          "key": "com.sun.jersey:jersey-core",
+          "version": "1.11"
+        },
+        {
+          "key": "com.thoughtworks.xstream:xstream",
+          "version": "1.4.2"
+        },
+        {
+          "key": "commons-codec:commons-codec",
+          "version": "1.6"
+        },
+        {
+          "key": "commons-collections:commons-collections",
+          "version": "3.2.1"
+        },
+        {
+          "key": "commons-configuration:commons-configuration",
+          "version": "1.8"
+        },
+        {
+          "key": "commons-io:commons-io",
+          "version": "2.4"
+        },
+        {
+          "key": "commons-lang:commons-lang",
+          "version": "2.6"
+        },
+        {
+          "key": "commons-logging:commons-logging",
+          "version": "1.2"
+        },
+        {
+          "key": "dom4j:dom4j",
+          "version": "1.6.1"
+        },
+        {
+          "key": "io.netty:netty-buffer",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-codec",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-codec-http",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-common",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-handler",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-transport",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.netty:netty-transport-native-epoll",
+          "version": "4.0.21.Final"
+        },
+        {
+          "key": "io.reactivex:rxjava",
+          "version": "1.0.4"
+        },
+        {
+          "key": "javax.inject:javax.inject",
+          "version": "1"
+        },
+        {
+          "key": "javax.transaction:javax.transaction-api",
+          "version": "1.2"
+        },
+        {
+          "key": "javax.validation:validation-api",
+          "version": "1.1.0.Final"
+        },
+        {
+          "key": "javax.ws.rs:jsr311-api",
+          "version": "1.1.1"
+        },
+        {
+          "key": "junit:junit",
+          "version": "4.13.2"
+        },
+        {
+          "key": "mysql:mysql-connector-java",
+          "version": "5.1.30"
+        },
+        {
+          "key": "org.apache.commons:commons-lang3",
+          "version": "3.1"
+        },
+        {
+          "key": "org.apache.httpcomponents:httpclient",
+          "version": "4.2.1"
+        },
+        {
+          "key": "org.apache.httpcomponents:httpcore",
+          "version": "4.2.1"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-core",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-el",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-logging-juli",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat.embed:tomcat-embed-websocket",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat:tomcat-jdbc",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.apache.tomcat:tomcat-juli",
+          "version": "8.0.20"
+        },
+        {
+          "key": "org.aspectj:aspectjrt",
+          "version": "1.8.5"
+        },
+        {
+          "key": "org.aspectj:aspectjweaver",
+          "version": "1.8.5"
+        },
+        {
+          "key": "org.codehaus.jackson:jackson-core-asl",
+          "version": "1.9.13"
+        },
+        {
+          "key": "org.codehaus.jackson:jackson-mapper-asl",
+          "version": "1.9.13"
+        },
+        {
+          "key": "org.hamcrest:hamcrest-core",
+          "version": "1.3"
+        },
+        {
+          "key": "org.hibernate.common:hibernate-commons-annotations",
+          "version": "4.0.5.Final"
+        },
+        {
+          "key": "org.hibernate.javax.persistence:hibernate-jpa-2.1-api",
+          "version": "1.0.0.Final"
+        },
+        {
+          "key": "org.hibernate:hibernate-core",
+          "version": "4.3.8.Final"
+        },
+        {
+          "key": "org.hibernate:hibernate-entitymanager",
+          "version": "4.3.8.Final"
+        },
+        {
+          "key": "org.hibernate:hibernate-validator",
+          "version": "5.1.3.Final"
+        },
+        {
+          "key": "org.javassist:javassist",
+          "version": "3.18.1-GA"
+        },
+        {
+          "key": "org.jboss.logging:jboss-logging",
+          "version": "3.1.3.GA"
+        },
+        {
+          "key": "org.jboss.logging:jboss-logging-annotations",
+          "version": "1.2.0.Beta1"
+        },
+        {
+          "key": "org.jboss:jandex",
+          "version": "1.1.0.Final"
+        },
+        {
+          "key": "org.mockito:mockito-all",
+          "version": "1.9.5"
+        },
+        {
+          "key": "org.slf4j:jcl-over-slf4j",
+          "version": "1.7.11"
+        },
+        {
+          "key": "org.slf4j:jul-to-slf4j",
+          "version": "1.7.11"
+        },
+        {
+          "key": "org.slf4j:log4j-over-slf4j",
+          "version": "1.7.11"
+        },
+        {
+          "key": "org.slf4j:slf4j-api",
+          "version": "1.7.11"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-actuator",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-autoconfigure",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-actuator",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-aop",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-data-jpa",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-jdbc",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-logging",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-security",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-tomcat",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.boot:spring-boot-starter-web",
+          "version": "1.2.3.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-commons",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-config-client",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-netflix-core",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-security",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-eureka",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-hystrix",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-ribbon",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-security",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.cloud:spring-cloud-starter-zuul",
+          "version": "1.0.0.RELEASE"
+        },
+        {
+          "key": "org.springframework.data:spring-data-commons",
+          "version": "1.9.2.RELEASE"
+        },
+        {
+          "key": "org.springframework.data:spring-data-jpa",
+          "version": "1.7.2.RELEASE"
+        },
+        {
+          "key": "org.springframework.security.oauth:spring-security-oauth2",
+          "version": "2.0.7.RELEASE"
+        },
+        {
+          "key": "org.springframework.security:spring-security-config",
+          "version": "3.2.7.RELEASE"
+        },
+        {
+          "key": "org.springframework.security:spring-security-core",
+          "version": "3.2.7.RELEASE"
+        },
+        {
+          "key": "org.springframework.security:spring-security-crypto",
+          "version": "3.2.6.RELEASE"
+        },
+        {
+          "key": "org.springframework.security:spring-security-web",
+          "version": "3.2.7.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-aop",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-aspects",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-beans",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-context",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-core",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-expression",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-jdbc",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-orm",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-test",
+          "version": "4.0.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-tx",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-web",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.springframework:spring-webmvc",
+          "version": "4.1.6.RELEASE"
+        },
+        {
+          "key": "org.yaml:snakeyaml",
+          "version": "1.14"
+        },
+        {
+          "key": "xml-apis:xml-apis",
+          "version": "1.0.b2"
+        },
+        {
+          "key": "xmlpull:xmlpull",
+          "version": "1.1.3.1"
+        },
+        {
+          "key": "xpp3:xpp3_min",
+          "version": "1.1.4c"
+        }
+      ],
+      "unresolved": [],
+      "artifacts": [
+        "annotations-2.0.0.jar",
+        "antlr-2.7.7.jar",
+        "antlr-runtime-3.4.jar",
+        "aopalliance-1.0.jar",
+        "archaius-core-0.6.0.jar",
+        "asm-3.1.jar",
+        "asm-all-3.2.jar",
+        "aspectjrt-1.8.5.jar",
+        "aspectjweaver-1.8.5.jar",
+        "cglib-2.2.1-v20090111.jar",
+        "classmate-1.0.0.jar",
+        "commons-codec-1.6.jar",
+        "commons-collections-3.2.1.jar",
+        "commons-configuration-1.8.jar",
+        "commons-io-2.4.jar",
+        "commons-jxpath-1.3.jar",
+        "commons-lang-2.6.jar",
+        "commons-lang3-3.1.jar",
+        "commons-logging-1.2.jar",
+        "commons-math-2.2.jar",
+        "dom4j-1.6.1.jar",
+        "eureka-client-1.1.147.jar",
+        "governator-1.2.10.jar",
+        "gson-2.1.jar",
+        "guava-15.0.jar",
+        "guice-3.0.jar",
+        "guice-assistedinject-3.0.jar",
+        "guice-grapher-3.0.jar",
+        "guice-multibindings-3.0.jar",
+        "hamcrest-core-1.3.jar",
+        "hibernate-commons-annotations-4.0.5.Final.jar",
+        "hibernate-core-4.3.8.Final.jar",
+        "hibernate-entitymanager-4.3.8.Final.jar",
+        "hibernate-jpa-2.1-api-1.0.0.Final.jar",
+        "hibernate-validator-5.1.3.Final.jar",
+        "httpclient-4.2.1.jar",
+        "httpcore-4.2.1.jar",
+        "hystrix-core-1.4.0-RC6.jar",
+        "hystrix-javanica-1.4.0-RC6.jar",
+        "hystrix-metrics-event-stream-1.4.0-RC6.jar",
+        "jackson-annotations-2.4.0.jar",
+        "jackson-core-2.4.5.jar",
+        "jackson-core-asl-1.9.13.jar",
+        "jackson-databind-2.4.5.jar",
+        "jackson-mapper-asl-1.9.13.jar",
+        "jandex-1.1.0.Final.jar",
+        "javassist-3.18.1-GA.jar",
+        "javax.inject-1.jar",
+        "javax.transaction-api-1.2.jar",
+        "jboss-logging-3.1.3.GA.jar",
+        "jboss-logging-annotations-1.2.0.Beta1.jar",
+        "jcl-over-slf4j-1.7.11.jar",
+        "jersey-apache-client4-1.11.jar",
+        "jersey-client-1.11.jar",
+        "jersey-core-1.11.jar",
+        "jettison-1.2.jar",
+        "joda-time-2.3.jar",
+        "jsr166y-1.7.0.jar",
+        "jsr305-2.0.0.jar",
+        "jsr311-api-1.1.1.jar",
+        "jul-to-slf4j-1.7.11.jar",
+        "junit-4.13.2.jar",
+        "log4j-over-slf4j-1.7.11.jar",
+        "logback-classic-1.1.3.jar",
+        "logback-core-1.1.3.jar",
+        "mockito-all-1.9.5.jar",
+        "mysql-connector-java-5.1.30.jar",
+        "netflix-commons-util-0.1.1.jar",
+        "netflix-eventbus-0.1.2.jar",
+        "netflix-infix-0.1.2.jar",
+        "netflix-statistics-0.1.1.jar",
+        "netty-buffer-4.0.21.Final.jar",
+        "netty-codec-4.0.21.Final.jar",
+        "netty-codec-http-4.0.21.Final.jar",
+        "netty-common-4.0.21.Final.jar",
+        "netty-handler-4.0.21.Final.jar",
+        "netty-transport-4.0.21.Final.jar",
+        "netty-transport-native-epoll-4.0.21.Final.jar",
+        "ribbon-2.0-RC13.jar",
+        "ribbon-core-2.0-RC13.jar",
+        "ribbon-eureka-2.0-RC13.jar",
+        "ribbon-httpclient-2.0-RC13.jar",
+        "ribbon-loadbalancer-2.0-RC13.jar",
+        "ribbon-transport-2.0-RC13.jar",
+        "rx-netty-0.3.17.jar",
+        "rx-netty-contexts-0.3.17.jar",
+        "rx-netty-servo-0.3.17.jar",
+        "rxjava-1.0.4.jar",
+        "rxjava-core-0.20.7.jar",
+        "servo-core-0.7.5.jar",
+        "slf4j-api-1.7.11.jar",
+        "snakeyaml-1.14.jar",
+        "spring-aop-4.1.6.RELEASE.jar",
+        "spring-aspects-4.1.6.RELEASE.jar",
+        "spring-beans-4.1.6.RELEASE.jar",
+        "spring-boot-1.2.3.RELEASE.jar",
+        "spring-boot-actuator-1.2.3.RELEASE.jar",
+        "spring-boot-autoconfigure-1.2.3.RELEASE.jar",
+        "spring-boot-starter-1.2.3.RELEASE.jar",
+        "spring-boot-starter-actuator-1.2.3.RELEASE.jar",
+        "spring-boot-starter-aop-1.2.3.RELEASE.jar",
+        "spring-boot-starter-data-jpa-1.2.3.RELEASE.jar",
+        "spring-boot-starter-jdbc-1.2.3.RELEASE.jar",
+        "spring-boot-starter-logging-1.2.3.RELEASE.jar",
+        "spring-boot-starter-security-1.2.3.RELEASE.jar",
+        "spring-boot-starter-tomcat-1.2.3.RELEASE.jar",
+        "spring-boot-starter-web-1.2.3.RELEASE.jar",
+        "spring-cloud-commons-1.0.0.RELEASE.jar",
+        "spring-cloud-config-client-1.0.0.RELEASE.jar",
+        "spring-cloud-netflix-core-1.0.0.RELEASE.jar",
+        "spring-cloud-security-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-eureka-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-hystrix-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-ribbon-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-security-1.0.0.RELEASE.jar",
+        "spring-cloud-starter-zuul-1.0.0.RELEASE.jar",
+        "spring-context-4.1.6.RELEASE.jar",
+        "spring-core-4.1.6.RELEASE.jar",
+        "spring-data-commons-1.9.2.RELEASE.jar",
+        "spring-data-jpa-1.7.2.RELEASE.jar",
+        "spring-expression-4.1.6.RELEASE.jar",
+        "spring-jdbc-4.1.6.RELEASE.jar",
+        "spring-orm-4.1.6.RELEASE.jar",
+        "spring-security-config-3.2.7.RELEASE.jar",
+        "spring-security-core-3.2.7.RELEASE.jar",
+        "spring-security-crypto-3.2.6.RELEASE.jar",
+        "spring-security-oauth2-2.0.7.RELEASE.jar",
+        "spring-security-web-3.2.7.RELEASE.jar",
+        "spring-test-4.0.6.RELEASE.jar",
+        "spring-tx-4.1.6.RELEASE.jar",
+        "spring-web-4.1.6.RELEASE.jar",
+        "spring-webmvc-4.1.6.RELEASE.jar",
+        "stax-api-1.0.1.jar",
+        "stringtemplate-3.2.1.jar",
+        "tomcat-embed-core-8.0.20.jar",
+        "tomcat-embed-el-8.0.20.jar",
+        "tomcat-embed-logging-juli-8.0.20.jar",
+        "tomcat-embed-websocket-8.0.20.jar",
+        "tomcat-jdbc-8.0.20.jar",
+        "tomcat-juli-8.0.20.jar",
+        "validation-api-1.1.0.Final.jar",
+        "xbean-bundleutils-3.11.1.jar",
+        "xbean-finder-3.11.1.jar",
+        "xml-apis-1.0.b2.jar",
+        "xmlpull-1.1.3.1.jar",
+        "xpp3_min-1.1.4c.jar",
+        "xstream-1.4.2.jar",
+        "zuul-core-1.0.28.jar"
+      ]
+    }
+  },
+  "result.json": {
+    "id": 54,
+    "repo": "rohitghatol/spring-boot-microservices",
+    "sha": "a3c9df9350a07578df281949e6018d01ac37238e",
+    "build_root": "api-gateway/build.gradle",
+    "build_tool": "Gradle",
+    "tier_proposed": "Large",
+    "boot_version": "native BOM unknown",
+    "previous_outcome": "ENV_BLOCKED",
+    "wrapper": "2.10",
+    "target": ":",
+    "jdk": "jdk8",
+    "runs": [
+      {
+        "label": "wrapper-native",
+        "exit": 0,
+        "elapsed_s": 32.469
+      }
+    ],
+    "outcome": "EXPECTED_UNSUPPORTED",
+    "native_boot_versions": [
+      "1.2.3.RELEASE"
+    ],
+    "baseline": "NATIVE_METADATA_AND_ARTIFACTS_PASSED",
+    "guard_execution": "NOT_RUN: original Boot/Gradle/JVM outside supported boundary"
+  },
+  "wrapper-native.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-revisit-54-wrapper-native",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\054-rohitghatol--spring-boot-microservices,target=/work",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-revisit-20261026\\054,target=/out",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-revisit-20261026\\guard,target=/guard,readonly",
+      "--mount",
+      "type=volume,source=bbg-revisit-gradle-20261026,target=/cache",
+      "--mount",
+      "type=volume,source=bbg-revisit-toolchains-20261026,target=/toolchains,readonly",
+      "-e",
+      "GRADLE_USER_HOME=/cache",
+      "-e",
+      "CI=true",
+      "-w",
+      "/work/api-gateway",
+      "-e",
+      "JAVA_HOME=/toolchains/jdk8",
+      "gradle@sha256:21bd311ed01360c189b8870c6b6e988199ff10f72d445d02fb39d3cff9da91d7",
+      "/cache/native-distributions/gradle-2.10/bin/gradle",
+      "--no-daemon",
+      "--console=plain",
+      "--max-workers=2",
+      "-Dorg.gradle.jvmargs=-Xmx1536m",
+      "-Porg.gradle.java.installations.paths=/toolchains/jdk8,/toolchains/jdk17,/toolchains/jdk25,/toolchains/azul17",
+      "-Dbbg.target=:",
+      "-I",
+      "/out/native.init.gradle",
+      ":bbgRevisitNative"
+    ],
+    "cwd": "E:\\tmp\\bbg-revisit-20261026",
+    "exit": 0,
+    "elapsed_s": 32.469,
+    "timeout_s": 600
+  }
+}

@@ -1,0 +1,75 @@
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< com.in28minutes.rest.webservices:restful-web-services >--------
+[INFO] Building restful-web-services 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ restful-web-services ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] -------< com.in28minutes.rest.webservices:restful-web-services >--------
+[INFO] Building restful-web-services 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ restful-web-services ---
+[INFO] Wrote dependency tree to: /work/.bbg/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:01 min
+[INFO] Finished at: 2026-10-25T13:35:10Z
+[INFO] ------------------------------------------------------------------------
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\075-in28minutes--spring-microservices'...
+
+===== original-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< com.in28minutes.rest.webservices:restful-web-services >--------
+[INFO] Building restful-web-services 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ restful-web-services ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:2.5.0
+UNKNOWN Unsupported Spring Boot BOM 2.5.0; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.650 s
+[INFO] Finished at: 2026-10-25T13:35:16Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project restful-web-services: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------< com.in28minutes.rest.webservices:restful-web-services >--------
+[INFO] Building restful-web-services 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ restful-web-services ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:2.5.0
+UNKNOWN Unsupported Spring Boot BOM 2.5.0; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.365 s
+[INFO] Finished at: 2026-10-25T13:35:13Z
+[INFO] ------------------------------------------------------------------------
+
+===== sha.log =====
+b88121cffa5a70a72880bc084db0bb35fa3756e5

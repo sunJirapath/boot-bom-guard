@@ -1,0 +1,458 @@
+===== allowed-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ springboot-boilerplate ---
+[INFO] Wrote dependency tree to: /work/.bbg/allowed-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.914 s
+[INFO] Finished at: 2026-10-25T16:19:32Z
+[INFO] ------------------------------------------------------------------------
+
+===== allowed-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ springboot-boilerplate ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT org.apache.commons:commons-lang3 expected=3.20.0 resolved=3.21.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=3.21.0; declaration source unknown; path=direct
+ALLOWED org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct reason=Campaign intentional exception
+WARN checked=116 drift=2 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.302 s
+[INFO] Finished at: 2026-10-25T16:19:39Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project springboot-boilerplate: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== allowed-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ springboot-boilerplate ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT org.apache.commons:commons-lang3 expected=3.20.0 resolved=3.21.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=3.21.0; declaration source unknown; path=direct
+ALLOWED org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct reason=Campaign intentional exception
+WARN checked=116 drift=2 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.059 s
+[INFO] Finished at: 2026-10-25T16:19:35Z
+[INFO] ------------------------------------------------------------------------
+
+===== allowed.patch =====
+--- pom.xml
++++ pom.xml
+@@ -188,4 +188,8 @@
+
+
+     </build>
+
+
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.19</version></dependency></dependencies><build><plugins><plugin><groupId>io.github.bootbomguard</groupId><artifactId>boot-bom-guard-maven-plugin</artifactId><version>0.1.0-SNAPSHOT</version><configuration><exceptions><exception><dependency>org.slf4j:slf4j-api</dependency><reason>Campaign intentional exception</reason></exception></exceptions></configuration></plugin></plugins></build></profile>
++</profiles>
+ </project>
+
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ springboot-boilerplate ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ springboot-boilerplate ---
+[INFO] Wrote dependency tree to: /work/.bbg/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  14.071 s
+[INFO] Finished at: 2026-10-25T13:15:04Z
+[INFO] ------------------------------------------------------------------------
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\001-Genc--spring-boot-boilerplate'...
+
+===== determinism.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ springboot-boilerplate ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT org.apache.commons:commons-lang3 expected=3.20.0 resolved=3.21.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=3.21.0; declaration source unknown; path=direct
+WARN checked=116 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.464 s
+[INFO] Finished at: 2026-10-25T16:19:54Z
+[INFO] ------------------------------------------------------------------------
+
+===== direct-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ springboot-boilerplate ---
+[INFO] Wrote dependency tree to: /work/.bbg/direct-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.226 s
+[INFO] Finished at: 2026-10-25T16:19:04Z
+[INFO] ------------------------------------------------------------------------
+
+===== direct-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ springboot-boilerplate ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT org.apache.commons:commons-lang3 expected=3.20.0 resolved=3.21.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=3.21.0; declaration source unknown; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+WARN checked=116 drift=2 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.009 s
+[INFO] Finished at: 2026-10-25T16:19:13Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project springboot-boilerplate: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== direct-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ springboot-boilerplate ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT org.apache.commons:commons-lang3 expected=3.20.0 resolved=3.21.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=3.21.0; declaration source unknown; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+WARN checked=116 drift=2 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.378 s
+[INFO] Finished at: 2026-10-25T16:19:08Z
+[INFO] ------------------------------------------------------------------------
+
+===== direct.patch =====
+--- pom.xml
++++ pom.xml
+@@ -188,4 +188,8 @@
+
+
+     </build>
+
+
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.19</version></dependency></dependencies></profile>
++</profiles>
+ </project>
+
+===== incomplete-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.203 s
+[INFO] Finished at: 2026-10-25T16:19:42Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project springboot-boilerplate: Could not resolve dependencies for project com.farukgenc:springboot-boilerplate:jar:4.1.2
+[ERROR] dependency: guard.audit:deliberately-missing:jar:1 (compile)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact guard.audit:deliberately-missing:jar:1 has not been downloaded from it before.
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+
+===== incomplete-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ springboot-boilerplate ---
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.196 s
+[INFO] Finished at: 2026-10-25T16:19:50Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project springboot-boilerplate: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== incomplete-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ springboot-boilerplate ---
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.027 s
+[INFO] Finished at: 2026-10-25T16:19:46Z
+[INFO] ------------------------------------------------------------------------
+
+===== incomplete.patch =====
+--- pom.xml
++++ pom.xml
+@@ -188,4 +188,8 @@
+
+
+     </build>
+
+
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>guard.audit</groupId><artifactId>deliberately-missing</artifactId><version>1</version></dependency></dependencies></profile>
++</profiles>
+ </project>
+
+===== managed-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ springboot-boilerplate ---
+[INFO] Wrote dependency tree to: /work/.bbg/managed-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.298 s
+[INFO] Finished at: 2026-10-25T16:19:18Z
+[INFO] ------------------------------------------------------------------------
+
+===== managed-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ springboot-boilerplate ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT org.apache.commons:commons-lang3 expected=3.20.0 resolved=3.21.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=3.21.0; declaration source unknown; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.19; declaration source unknown; path=transitive
+WARN checked=116 drift=2 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.684 s
+[INFO] Finished at: 2026-10-25T16:19:27Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project springboot-boilerplate: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== managed-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ springboot-boilerplate ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT org.apache.commons:commons-lang3 expected=3.20.0 resolved=3.21.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=3.21.0; declaration source unknown; path=direct
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.19; declaration source unknown; path=transitive
+WARN checked=116 drift=2 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.505 s
+[INFO] Finished at: 2026-10-25T16:19:22Z
+[INFO] ------------------------------------------------------------------------
+
+===== managed.patch =====
+--- pom.xml
++++ pom.xml
+@@ -188,4 +188,8 @@
+
+
+     </build>
+
+
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencyManagement><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.19</version></dependency></dependencies></dependencyManagement></profile>
++</profiles>
+ </project>
+
+===== offline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ springboot-boilerplate ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT org.apache.commons:commons-lang3 expected=3.20.0 resolved=3.21.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=3.21.0; declaration source unknown; path=direct
+WARN checked=116 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.182 s
+[INFO] Finished at: 2026-10-25T16:19:57Z
+[INFO] ------------------------------------------------------------------------
+
+===== original-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ springboot-boilerplate ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT org.apache.commons:commons-lang3 expected=3.20.0 resolved=3.21.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=3.21.0; declaration source unknown; path=direct
+WARN checked=116 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.385 s
+[INFO] Finished at: 2026-10-25T13:15:18Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project springboot-boilerplate: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< com.farukgenc:springboot-boilerplate >----------------
+[INFO] Building spring-boot-boilerplate 4.1.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ springboot-boilerplate ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT org.apache.commons:commons-lang3 expected=3.20.0 resolved=3.21.0 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=3.21.0; declaration source unknown; path=direct
+WARN checked=116 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.893 s
+[INFO] Finished at: 2026-10-25T13:15:14Z
+[INFO] ------------------------------------------------------------------------
+
+===== pristine-bom.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------< org.springframework.boot:spring-boot-dependencies >----------
+[INFO] Building spring-boot-dependencies 4.1.2
+[INFO]   from spring-boot-dependencies-4.1.2.pom
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ spring-boot-dependencies ---
+[INFO] Effective-POM written to: /work/.bbg/pristine.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.658 s
+[INFO] Finished at: 2026-10-25T13:19:56Z
+[INFO] ------------------------------------------------------------------------
+
+===== sha.log =====
+792695068d95e0a82eee931568e94301eef23942

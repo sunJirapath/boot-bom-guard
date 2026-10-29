@@ -1,0 +1,42 @@
+===== baseline.log =====
+[INFO] Scanning for projects...
+[ERROR] [ERROR] Some problems were encountered while processing the POMs:
+[ERROR] Non-resolvable import POM: The following artifacts could not be resolved: com.alibaba.cloud:spring-cloud-alibaba-dependencies:pom:2025.1.0.1-SNAPSHOT (absent): Could not find artifact com.alibaba.cloud:spring-cloud-alibaba-dependencies:pom:2025.1.0.1-SNAPSHOT @ com.alibaba.cloud:spring-cloud-alibaba:${revision}, /work/pom.xml, line 147, column 25
+[ERROR] 'dependencies.dependency.version' for com.alibaba.csp:sentinel-transport-simple-http:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 96, column 21
+[ERROR] 'dependencies.dependency.version' for com.alibaba.csp:sentinel-annotation-aspectj:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 101, column 21
+[ERROR] 'dependencies.dependency.version' for com.alibaba.cloud:spring-cloud-circuitbreaker-sentinel:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 106, column 21
+[ERROR] 'dependencies.dependency.version' for com.alibaba.csp:sentinel-spring-webflux-adapter:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 111, column 21
+[ERROR] 'dependencies.dependency.version' for com.alibaba.csp:sentinel-spring-webmvc-v6x-adapter:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 116, column 21
+[ERROR] 'dependencies.dependency.version' for com.alibaba.csp:sentinel-parameter-flow-control:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 121, column 21
+[ERROR] 'dependencies.dependency.version' for com.alibaba.csp:sentinel-api-gateway-adapter-common:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 126, column 21
+[ERROR] 'dependencies.dependency.version' for com.alibaba.csp:sentinel-cluster-server-default:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 132, column 21
+[ERROR] 'dependencies.dependency.version' for com.alibaba.csp:sentinel-cluster-client-default:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 137, column 21
+[ERROR] 'dependencies.dependency.version' for com.alibaba.cloud:spring-cloud-alibaba-sentinel-datasource:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 142, column 21
+ @
+[ERROR] The build could not read 1 project -> [Help 1]
+[ERROR]
+[ERROR]   The project com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:2025.1.0.1-SNAPSHOT (/work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml) has 11 errors
+[ERROR]     Non-resolvable import POM: The following artifacts could not be resolved: com.alibaba.cloud:spring-cloud-alibaba-dependencies:pom:2025.1.0.1-SNAPSHOT (absent): Could not find artifact com.alibaba.cloud:spring-cloud-alibaba-dependencies:pom:2025.1.0.1-SNAPSHOT @ com.alibaba.cloud:spring-cloud-alibaba:${revision}, /work/pom.xml, line 147, column 25 -> [Help 2]
+[ERROR]     'dependencies.dependency.version' for com.alibaba.csp:sentinel-transport-simple-http:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 96, column 21
+[ERROR]     'dependencies.dependency.version' for com.alibaba.csp:sentinel-annotation-aspectj:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 101, column 21
+[ERROR]     'dependencies.dependency.version' for com.alibaba.cloud:spring-cloud-circuitbreaker-sentinel:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 106, column 21
+[ERROR]     'dependencies.dependency.version' for com.alibaba.csp:sentinel-spring-webflux-adapter:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 111, column 21
+[ERROR]     'dependencies.dependency.version' for com.alibaba.csp:sentinel-spring-webmvc-v6x-adapter:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 116, column 21
+[ERROR]     'dependencies.dependency.version' for com.alibaba.csp:sentinel-parameter-flow-control:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 121, column 21
+[ERROR]     'dependencies.dependency.version' for com.alibaba.csp:sentinel-api-gateway-adapter-common:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 126, column 21
+[ERROR]     'dependencies.dependency.version' for com.alibaba.csp:sentinel-cluster-server-default:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 132, column 21
+[ERROR]     'dependencies.dependency.version' for com.alibaba.csp:sentinel-cluster-client-default:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 137, column 21
+[ERROR]     'dependencies.dependency.version' for com.alibaba.cloud:spring-cloud-alibaba-sentinel-datasource:jar is missing. @ com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:${revision}, /work/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-sentinel/pom.xml, line 142, column 21
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/ProjectBuildingException
+[ERROR] [Help 2] http://cwiki.apache.org/confluence/display/MAVEN/UnresolvableModelException
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\083-alibaba--spring-cloud-alibaba'...
+
+===== sha.log =====
+858aa8d58d2e902770ac4c6f5598808e125e695e

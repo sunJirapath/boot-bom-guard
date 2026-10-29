@@ -1,0 +1,103 @@
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< pl.piomin.services:customer-service >-----------------
+[INFO] Building customer-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ customer-service ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] ----------------< pl.piomin.services:customer-service >-----------------
+[INFO] Building customer-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for pl.piomin.services:common:jar:1.0-SNAPSHOT is missing, no dependency information available
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ customer-service ---
+[INFO] Wrote dependency tree to: /work/.bbg/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  14.667 s
+[INFO] Finished at: 2026-10-25T13:26:41Z
+[INFO] ------------------------------------------------------------------------
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\018-piomin--sample-spring-reactive'...
+
+===== native-artifact-control.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< pl.piomin.services:customer-service >-----------------
+[INFO] Building customer-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for pl.piomin.services:common:jar:1.0-SNAPSHOT is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.680 s
+[INFO] Finished at: 2026-10-25T15:59:36Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project customer-service: Could not resolve dependencies for project pl.piomin.services:customer-service:jar:1.0-SNAPSHOT
+[ERROR] dependency: pl.piomin.services:common:jar:1.0-SNAPSHOT (compile)
+[ERROR] 	Could not find artifact pl.piomin.services:common:jar:1.0-SNAPSHOT
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+
+===== original-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< pl.piomin.services:customer-service >-----------------
+[INFO] Building customer-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ customer-service ---
+[WARNING] The POM for pl.piomin.services:common:jar:1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.3
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.297 s
+[INFO] Finished at: 2026-10-25T13:27:19Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project customer-service: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------< pl.piomin.services:customer-service >-----------------
+[INFO] Building customer-service 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ customer-service ---
+[WARNING] The POM for pl.piomin.services:common:jar:1.0-SNAPSHOT is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.0.3
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  24.881 s
+[INFO] Finished at: 2026-10-25T13:27:11Z
+[INFO] ------------------------------------------------------------------------
+
+===== sha.log =====
+a3338559767512f932c8439d96ec0d5cd2449fbb

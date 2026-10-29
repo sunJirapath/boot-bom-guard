@@ -1,0 +1,815 @@
+===== artifacts-online.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< com.github.wxiaoqi:ace-admin >--------------------
+[INFO] Building ace-admin 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] 2 problems were encountered while building the effective model for com.alibaba:druid:jar:1.1.10 during dependency collection step for project (use -X to see details)
+[WARNING] 1 problem was encountered while building the effective model for org.javassist:javassist:jar:3.21.0-GA during dependency collection step for project (use -X to see details)
+[WARNING] Could not transfer metadata com.google.guava:guava/maven-metadata.xml from/to spring-milestones (https://repo.spring.io/libs-milestone): status code: 401, reason phrase:  (401)
+[INFO]
+[INFO] --- dependency:3.10.0:resolve (default-cli) @ ace-admin ---
+[INFO] Can't extract module name from sentinel-cluster-server-default-1.8.0.jar: sentinel.cluster.server.default: Invalid module name: 'default' is not a Java identifier
+[INFO] Can't extract module name from sentinel-cluster-common-default-1.8.0.jar: sentinel.cluster.common.default: Invalid module name: 'default' is not a Java identifier
+[INFO] Can't extract module name from sentinel-cluster-client-default-1.8.0.jar: sentinel.cluster.client.default: Invalid module name: 'default' is not a Java identifier
+[INFO] Can't extract module name from lombok-1.16.14.jar: Provider class lombok.eclipse.handlers.HandleAccessors not in JAR file lombok-1.16.14.jar
+[INFO]
+[INFO] The following files have been resolved:
+[INFO]    com.github.wxiaoqi:ace-common:jar:2.0-SNAPSHOT:compile -- module ace.common (auto)
+[INFO]    commons-io:commons-io:jar:1.3.2:compile -- module commons.io (auto)
+[INFO]    tk.mybatis:mapper:jar:3.4.0:compile -- module mapper (auto)
+[INFO]    javax.persistence:persistence-api:jar:1.0:compile -- module persistence.api (auto)
+[INFO]    org.springframework:spring-beans:jar:5.3.2:compile -- module spring.beans [auto]
+[INFO]    com.github.pagehelper:pagehelper:jar:5.0.3:compile -- module pagehelper (auto)
+[INFO]    com.github.jsqlparser:jsqlparser:jar:1.0:compile -- module jsqlparser (auto)
+[INFO]    org.springframework:spring-web:jar:5.3.2:compile -- module spring.web [auto]
+[INFO]    io.jsonwebtoken:jjwt:jar:0.7.0:compile -- module jjwt (auto)
+[INFO]    com.fasterxml.jackson.core:jackson-databind:jar:2.11.3:compile -- module com.fasterxml.jackson.databind
+[INFO]    com.fasterxml.jackson.core:jackson-annotations:jar:2.11.3:compile -- module com.fasterxml.jackson.annotation
+[INFO]    joda-time:joda-time:jar:2.9.5:compile -- module joda.time (auto)
+[INFO]    commons-lang:commons-lang:jar:2.6:compile -- module commons.lang (auto)
+[INFO]    org.springframework.boot:spring-boot-starter-undertow:jar:2.4.1:compile -- module spring.boot.starter.undertow [auto]
+[INFO]    io.undertow:undertow-core:jar:2.2.3.Final:compile -- module undertow.core (auto)
+[INFO]    org.jboss.logging:jboss-logging:jar:3.4.1.Final:compile -- module org.jboss.logging [auto]
+[INFO]    org.jboss.xnio:xnio-api:jar:3.8.0.Final:compile -- module xnio.api (auto)
+[INFO]    org.wildfly.common:wildfly-common:jar:1.5.2.Final:compile -- module wildfly.common (auto)
+[INFO]    org.wildfly.client:wildfly-client-config:jar:1.0.1.Final:compile -- module wildfly.client.config (auto)
+[INFO]    org.jboss.xnio:xnio-nio:jar:3.8.0.Final:runtime -- module xnio.nio (auto)
+[INFO]    org.jboss.threads:jboss-threads:jar:3.1.0.Final:compile -- module jboss.threads (auto)
+[INFO]    io.undertow:undertow-servlet:jar:2.2.3.Final:compile -- module undertow.servlet (auto)
+[INFO]    org.jboss.spec.javax.annotation:jboss-annotations-api_1.3_spec:jar:2.0.1.Final:compile -- module java.annotation [auto]
+[INFO]    io.undertow:undertow-websockets-jsr:jar:2.2.3.Final:compile -- module undertow.websockets.jsr (auto)
+[INFO]    org.jboss.spec.javax.websocket:jboss-websocket-api_1.1_spec:jar:2.0.0.Final:compile -- module beta.jboss.websocket.api_1_1 [auto]
+[INFO]    jakarta.servlet:jakarta.servlet-api:jar:4.0.4:compile -- module java.servlet [auto]
+[INFO]    org.glassfish:jakarta.el:jar:3.0.3:compile -- module jakarta.el (auto)
+[INFO]    org.springframework.cloud:spring-cloud-starter-openfeign:jar:3.0.0:compile -- module spring.cloud.starter.openfeign (auto)
+[INFO]    org.springframework.cloud:spring-cloud-starter:jar:3.0.0:compile -- module spring.cloud.starter (auto)
+[INFO]    org.springframework.security:spring-security-rsa:jar:1.0.9.RELEASE:compile -- module spring.security.rsa (auto)
+[INFO]    org.bouncycastle:bcpkix-jdk15on:jar:1.64:compile -- module org.bouncycastle.pkix
+[INFO]    org.bouncycastle:bcprov-jdk15on:jar:1.64:compile -- module org.bouncycastle.provider
+[INFO]    org.springframework.cloud:spring-cloud-openfeign-core:jar:3.0.0:compile -- module spring.cloud.openfeign.core (auto)
+[INFO]    org.springframework.boot:spring-boot-autoconfigure:jar:2.4.1:compile -- module spring.boot.autoconfigure [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-aop:jar:2.4.1:compile -- module spring.boot.starter.aop [auto]
+[INFO]    io.github.openfeign.form:feign-form-spring:jar:3.8.0:compile -- module feign.form.spring (auto)
+[INFO]    io.github.openfeign.form:feign-form:jar:3.8.0:compile -- module feign.form (auto)
+[INFO]    commons-fileupload:commons-fileupload:jar:1.4:compile -- module commons.fileupload (auto)
+[INFO]    org.springframework.cloud:spring-cloud-commons:jar:3.0.0:compile -- module spring.cloud.commons (auto)
+[INFO]    org.springframework.security:spring-security-crypto:jar:5.4.2:compile -- module spring.security.crypto [auto]
+[INFO]    io.github.openfeign:feign-core:jar:10.10.1:compile -- module feign.core (auto)
+[INFO]    io.github.openfeign:feign-slf4j:jar:10.10.1:compile -- module feign.slf4j (auto)
+[INFO]    org.springframework.cloud:spring-cloud-sleuth-zipkin:jar:3.0.0:compile -- module spring.cloud.sleuth.zipkin (auto)
+[INFO]    org.springframework.cloud:spring-cloud-sleuth-instrumentation:jar:3.0.0:compile -- module spring.cloud.sleuth.instrumentation (auto)
+[INFO]    org.springframework.cloud:spring-cloud-sleuth-api:jar:3.0.0:compile -- module spring.cloud.sleuth.api (auto)
+[INFO]    org.aspectj:aspectjrt:jar:1.9.6:compile -- module org.aspectj.runtime [auto]
+[INFO]    io.zipkin.zipkin2:zipkin:jar:2.23.0:compile -- module zipkin2 [auto]
+[INFO]    io.zipkin.reporter2:zipkin-reporter:jar:2.16.1:compile -- module zipkin2.reporter [auto]
+[INFO]    io.zipkin.reporter2:zipkin-reporter-brave:jar:2.16.1:compile -- module zipkin2.reporter.brave [auto]
+[INFO]    io.zipkin.reporter2:zipkin-sender-kafka:jar:2.16.1:compile -- module zipkin2.reporter.kafka [auto]
+[INFO]    io.zipkin.reporter2:zipkin-sender-activemq-client:jar:2.16.1:compile -- module zipkin2.reporter.activemq [auto]
+[INFO]    io.zipkin.reporter2:zipkin-sender-amqp-client:jar:2.16.1:compile -- module zipkin2.reporter.amqp [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-test:jar:2.4.1:test -- module spring.boot.starter.test [auto]
+[INFO]    org.springframework.boot:spring-boot-starter:jar:2.4.1:compile -- module spring.boot.starter [auto]
+[INFO]    org.springframework.boot:spring-boot:jar:2.4.1:compile -- module spring.boot [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-logging:jar:2.4.1:compile -- module spring.boot.starter.logging [auto]
+[INFO]    ch.qos.logback:logback-classic:jar:1.2.3:compile -- module logback.classic (auto)
+[INFO]    ch.qos.logback:logback-core:jar:1.2.3:compile -- module logback.core (auto)
+[INFO]    org.apache.logging.log4j:log4j-to-slf4j:jar:2.13.3:compile -- module org.apache.logging.slf4j [auto]
+[INFO]    org.apache.logging.log4j:log4j-api:jar:2.13.3:compile -- module org.apache.logging.log4j
+[INFO]    org.slf4j:jul-to-slf4j:jar:1.7.30:compile -- module jul.to.slf4j (auto)
+[INFO]    jakarta.annotation:jakarta.annotation-api:jar:1.3.5:compile -- module java.annotation [auto]
+[INFO]    org.yaml:snakeyaml:jar:1.27:compile -- module org.yaml.snakeyaml [auto]
+[INFO]    org.springframework.boot:spring-boot-test:jar:2.4.1:test -- module spring.boot.test [auto]
+[INFO]    org.springframework.boot:spring-boot-test-autoconfigure:jar:2.4.1:test -- module spring.boot.test.autoconfigure [auto]
+[INFO]    com.jayway.jsonpath:json-path:jar:2.4.0:test -- module json.path (auto)
+[INFO]    net.minidev:json-smart:jar:2.3:test -- module json.smart (auto)
+[INFO]    net.minidev:accessors-smart:jar:1.2:test -- module accessors.smart (auto)
+[INFO]    org.ow2.asm:asm:jar:5.0.4:test -- module asm (auto)
+[INFO]    jakarta.xml.bind:jakarta.xml.bind-api:jar:2.3.3:test -- module java.xml.bind
+[INFO]    jakarta.activation:jakarta.activation-api:jar:1.2.2:test -- module jakarta.activation
+[INFO]    org.assertj:assertj-core:jar:3.18.1:test -- module org.assertj.core
+[INFO]    org.hamcrest:hamcrest:jar:2.2:test -- module org.hamcrest [auto]
+[INFO]    org.junit.jupiter:junit-jupiter:jar:5.7.0:test -- module org.junit.jupiter
+[INFO]    org.junit.jupiter:junit-jupiter-api:jar:5.7.0:test -- module org.junit.jupiter.api
+[INFO]    org.apiguardian:apiguardian-api:jar:1.1.0:test -- module org.apiguardian.api
+[INFO]    org.opentest4j:opentest4j:jar:1.2.0:test -- module org.opentest4j
+[INFO]    org.junit.platform:junit-platform-commons:jar:1.7.0:test -- module org.junit.platform.commons
+[INFO]    org.junit.jupiter:junit-jupiter-params:jar:5.7.0:test -- module org.junit.jupiter.params
+[INFO]    org.junit.jupiter:junit-jupiter-engine:jar:5.7.0:test -- module org.junit.jupiter.engine
+[INFO]    org.junit.platform:junit-platform-engine:jar:1.7.0:test -- module org.junit.platform.engine
+[INFO]    org.mockito:mockito-core:jar:3.6.28:test -- module org.mockito [auto]
+[INFO]    net.bytebuddy:byte-buddy:jar:1.10.18:compile -- module net.bytebuddy
+[INFO]    net.bytebuddy:byte-buddy-agent:jar:1.10.18:test -- module net.bytebuddy.agent
+[INFO]    org.objenesis:objenesis:jar:3.1:test -- module org.objenesis [auto]
+[INFO]    org.mockito:mockito-junit-jupiter:jar:3.6.28:test -- module mockito.junit.jupiter (auto)
+[INFO]    org.skyscreamer:jsonassert:jar:1.5.0:test -- module jsonassert (auto)
+[INFO]    com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test -- module android.json (auto)
+[INFO]    org.springframework:spring-core:jar:5.3.2:compile -- module spring.core [auto]
+[INFO]    org.springframework:spring-jcl:jar:5.3.2:compile -- module spring.jcl [auto]
+[INFO]    org.springframework:spring-test:jar:5.3.2:test -- module spring.test [auto]
+[INFO]    org.xmlunit:xmlunit-core:jar:2.7.0:test -- module org.xmlunit [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-actuator:jar:2.4.1:compile -- module spring.boot.starter.actuator [auto]
+[INFO]    org.springframework.boot:spring-boot-actuator-autoconfigure:jar:2.4.1:compile -- module spring.boot.actuator.autoconfigure [auto]
+[INFO]    org.springframework.boot:spring-boot-actuator:jar:2.4.1:compile -- module spring.boot.actuator [auto]
+[INFO]    com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.11.3:runtime -- module com.fasterxml.jackson.datatype.jsr310
+[INFO]    io.micrometer:micrometer-core:jar:1.6.2:compile -- module micrometer.core [auto]
+[INFO]    org.hdrhistogram:HdrHistogram:jar:2.1.12:compile -- module HdrHistogram (auto)
+[INFO]    org.latencyutils:LatencyUtils:jar:2.0.3:runtime -- module LatencyUtils (auto)
+[INFO]    com.github.wxiaoqi:ace-api:jar:2.0-SNAPSHOT:compile -- module ace.api (auto)
+[INFO]    com.github.drtrang:druid-spring-boot2-starter:jar:1.1.10:compile -- module druid.spring.boot2.starter (auto)
+[INFO]    com.github.drtrang:druid-spring-boot2-autoconfigure:jar:1.1.10:compile -- module druid.spring.boot2.autoconfigure (auto)
+[INFO]    org.slf4j:slf4j-api:jar:1.7.30:compile -- module org.slf4j [auto]
+[INFO]    org.springframework:spring-jdbc:jar:5.3.2:compile -- module spring.jdbc [auto]
+[INFO]    org.springframework:spring-tx:jar:5.3.2:compile -- module spring.tx [auto]
+[INFO]    com.alibaba:druid:jar:1.1.10:compile -- module druid (auto)
+[INFO]    org.springframework.boot:spring-boot-starter-jdbc:jar:2.4.1:compile -- module spring.boot.starter.jdbc [auto]
+[INFO]    com.zaxxer:HikariCP:jar:3.4.5:compile -- module com.zaxxer.hikari
+[INFO]    mysql:mysql-connector-java:jar:8.0.22:compile -- module mysql.connector.java (auto)
+[INFO]    tk.mybatis:mapper-spring-boot-starter:jar:1.1.2:compile -- module mapper.spring.boot.starter (auto)
+[INFO]    org.mybatis.spring.boot:mybatis-spring-boot-starter:jar:1.3.0:compile -- module mybatis.spring.boot.starter (auto)
+[INFO]    org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure:jar:1.3.0:compile -- module mybatis.spring.boot.autoconfigure (auto)
+[INFO]    org.mybatis:mybatis:jar:3.4.4:compile -- module mybatis (auto)
+[INFO]    org.mybatis:mybatis-spring:jar:1.3.1:compile -- module mybatis.spring (auto)
+[INFO]    tk.mybatis:mapper-spring-boot-autoconfigure:jar:1.1.2:compile -- module mapper.spring.boot.autoconfigure (auto)
+[INFO]    com.github.pagehelper:pagehelper-spring-boot-starter:jar:1.2.3:compile -- module pagehelper.spring.boot.starter (auto)
+[INFO]    com.github.pagehelper:pagehelper-spring-boot-autoconfigure:jar:1.2.3:compile -- module pagehelper.spring.boot.autoconfigure (auto)
+[INFO]    com.spring4all:swagger-spring-boot-starter:jar:1.6.0.RELEASE:compile -- module swagger.spring.boot.starter (auto)
+[INFO]    io.springfox:springfox-swagger-ui:jar:2.7.0:compile -- module springfox.swagger.ui (auto)
+[INFO]    io.springfox:springfox-spring-web:jar:2.7.0:compile -- module springfox.spring.web (auto)
+[INFO]    org.reflections:reflections:jar:0.9.11:compile -- module reflections (auto)
+[INFO]    org.javassist:javassist:jar:3.21.0-GA:compile -- module javassist (auto)
+[INFO]    io.springfox:springfox-swagger2:jar:2.7.0:compile -- module springfox.swagger2 (auto)
+[INFO]    io.swagger:swagger-annotations:jar:1.5.13:compile -- module swagger.annotations (auto)
+[INFO]    io.swagger:swagger-models:jar:1.5.13:compile -- module swagger.models (auto)
+[INFO]    io.springfox:springfox-spi:jar:2.7.0:compile -- module springfox.spi (auto)
+[INFO]    io.springfox:springfox-core:jar:2.7.0:compile -- module springfox.core (auto)
+[INFO]    io.springfox:springfox-schema:jar:2.7.0:compile -- module springfox.schema (auto)
+[INFO]    io.springfox:springfox-swagger-common:jar:2.7.0:compile -- module springfox.swagger.common (auto)
+[INFO]    com.fasterxml:classmate:jar:1.5.1:compile -- module com.fasterxml.classmate
+[INFO]    org.springframework.plugin:spring-plugin-core:jar:1.2.0.RELEASE:compile -- module spring.plugin.core (auto)
+[INFO]    org.springframework.plugin:spring-plugin-metadata:jar:1.2.0.RELEASE:compile -- module spring.plugin.metadata (auto)
+[INFO]    org.mapstruct:mapstruct:jar:1.1.0.Final:compile -- module mapstruct (auto)
+[INFO]    io.springfox:springfox-bean-validators:jar:2.7.0:compile -- module springfox.bean.validators (auto)
+[INFO]    org.apache.commons:commons-lang3:jar:3.4:compile -- module commons.lang3 (auto)
+[INFO]    com.alibaba:fastjson:jar:1.2.33:compile -- module fastjson (auto)
+[INFO]    javax.servlet:javax.servlet-api:jar:3.1.0:compile -- module javax.servlet.api (auto)
+[INFO]    com.google.guava:guava:jar:33.7.2-jre:compile -- module com.google.common
+[INFO]    com.google.guava:failureaccess:jar:1.0.3:compile -- module com.google.common.util.concurrent.internal
+[INFO]    com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile -- module listenablefuture (auto)
+[INFO]    org.jspecify:jspecify:jar:1.0.1:compile -- module org.jspecify
+[INFO]    com.google.errorprone:error_prone_annotations:jar:2.50.0:compile -- module com.google.errorprone.annotations
+[INFO]    com.google.j2objc:j2objc-annotations:jar:3.1:compile -- module com.google.j2objc.annotations
+[INFO]    com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:jar:2.2.4.RELEASE:compile -- module spring.cloud.starter.alibaba.sentinel (auto)
+[INFO]    com.alibaba.csp:sentinel-transport-simple-http:jar:1.8.0:compile -- module sentinel.transport.simple.http (auto)
+[INFO]    com.alibaba.csp:sentinel-transport-common:jar:1.8.0:compile -- module sentinel.transport.common (auto)
+[INFO]    com.alibaba.csp:sentinel-datasource-extension:jar:1.8.0:compile -- module sentinel.datasource.extension (auto)
+[INFO]    com.alibaba.csp:sentinel-annotation-aspectj:jar:1.8.0:compile -- module sentinel.annotation.aspectj (auto)
+[INFO]    com.alibaba.csp:sentinel-core:jar:1.8.0:compile -- module sentinel.core (auto)
+[INFO]    org.aspectj:aspectjweaver:jar:1.9.6:compile -- module org.aspectj.weaver [auto]
+[INFO]    com.alibaba.cloud:spring-cloud-circuitbreaker-sentinel:jar:2.2.4.RELEASE:compile -- module spring.cloud.circuitbreaker.sentinel (auto)
+[INFO]    com.alibaba.csp:sentinel-reactor-adapter:jar:1.8.0:compile -- module sentinel.reactor.adapter (auto)
+[INFO]    com.alibaba.csp:sentinel-spring-webflux-adapter:jar:1.8.0:compile -- module sentinel.spring.webflux.adapter (auto)
+[INFO]    com.alibaba.csp:sentinel-spring-webmvc-adapter:jar:1.8.0:compile -- module sentinel.spring.webmvc.adapter (auto)
+[INFO]    com.alibaba.csp:sentinel-parameter-flow-control:jar:1.8.0:compile -- module sentinel.parameter.flow.control (auto)
+[INFO]    com.googlecode.concurrentlinkedhashmap:concurrentlinkedhashmap-lru:jar:1.4.2:compile -- module concurrentlinkedhashmap.lru (auto)
+[INFO]    com.alibaba.csp:sentinel-cluster-server-default:jar:1.8.0:compile
+[INFO]    com.alibaba.csp:sentinel-cluster-common-default:jar:1.8.0:compile
+[INFO]    io.netty:netty-handler:jar:4.1.55.Final:compile -- module io.netty.handler [auto]
+[INFO]    io.netty:netty-resolver:jar:4.1.55.Final:compile -- module io.netty.resolver [auto]
+[INFO]    io.netty:netty-buffer:jar:4.1.55.Final:compile -- module io.netty.buffer [auto]
+[INFO]    io.netty:netty-codec:jar:4.1.55.Final:compile -- module io.netty.codec [auto]
+[INFO]    com.alibaba.csp:sentinel-cluster-client-default:jar:1.8.0:compile
+[INFO]    com.alibaba.cloud:spring-cloud-alibaba-sentinel-datasource:jar:2.2.4.RELEASE:compile -- module spring.cloud.alibaba.sentinel.datasource (auto)
+[INFO]    org.springframework.cloud:spring-cloud-starter-loadbalancer:jar:3.0.0:compile -- module spring.cloud.starter.loadbalancer (auto)
+[INFO]    org.springframework.cloud:spring-cloud-loadbalancer:jar:3.0.0:compile -- module spring.cloud.loadbalancer (auto)
+[INFO]    org.springframework.boot:spring-boot-starter-validation:jar:2.4.1:compile -- module spring.boot.starter.validation [auto]
+[INFO]    org.hibernate.validator:hibernate-validator:jar:6.1.6.Final:compile -- module org.hibernate.validator [auto]
+[INFO]    jakarta.validation:jakarta.validation-api:jar:2.0.2:compile -- module java.validation [auto]
+[INFO]    io.projectreactor:reactor-core:jar:3.4.1:compile -- module reactor.core [auto]
+[INFO]    org.reactivestreams:reactive-streams:jar:1.0.3:compile -- module org.reactivestreams [auto]
+[INFO]    io.projectreactor.addons:reactor-extra:jar:3.4.1:compile -- module reactor.extra [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-cache:jar:2.4.1:compile -- module spring.boot.starter.cache [auto]
+[INFO]    org.springframework:spring-context-support:jar:5.3.2:compile -- module spring.context.support [auto]
+[INFO]    com.stoyanr:evictor:jar:1.0.0:compile -- module evictor (auto)
+[INFO]    com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:jar:2.2.4.RELEASE:compile -- module spring.cloud.starter.alibaba.nacos.discovery (auto)
+[INFO]    com.alibaba.nacos:nacos-client:jar:1.4.1:compile -- module nacos.client (auto)
+[INFO]    com.alibaba.nacos:nacos-common:jar:1.4.1:compile -- module nacos.common (auto)
+[INFO]    org.apache.httpcomponents:httpasyncclient:jar:4.1.4:compile -- module org.apache.httpcomponents.httpasyncclient [auto]
+[INFO]    org.apache.httpcomponents:httpcore:jar:4.4.14:compile -- module org.apache.httpcomponents.httpcore [auto]
+[INFO]    org.apache.httpcomponents:httpcore-nio:jar:4.4.14:compile -- module org.apache.httpcomponents.httpcore.nio [auto]
+[INFO]    org.apache.httpcomponents:httpclient:jar:4.5.13:compile -- module org.apache.httpcomponents.httpclient [auto]
+[INFO]    com.alibaba.nacos:nacos-api:jar:1.4.1:compile -- module nacos.api (auto)
+[INFO]    commons-codec:commons-codec:jar:1.15:compile -- module org.apache.commons.codec [auto]
+[INFO]    com.fasterxml.jackson.core:jackson-core:jar:2.11.3:compile -- module com.fasterxml.jackson.core
+[INFO]    io.prometheus:simpleclient:jar:0.5.0:compile -- module simpleclient (auto)
+[INFO]    com.alibaba.spring:spring-context-support:jar:1.0.10:compile -- module spring.context.support (auto)
+[INFO]    org.springframework.cloud:spring-cloud-context:jar:3.0.0:compile -- module spring.cloud.context (auto)
+[INFO]    de.codecentric:spring-boot-admin-starter-client:jar:2.4.0:compile -- module de.codecentric.spring.boot.admin.starter.client [auto]
+[INFO]    de.codecentric:spring-boot-admin-client:jar:2.4.0:compile -- module de.codecentric.spring.boot.admin.client [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-data-redis:jar:2.4.1:compile -- module spring.boot.starter.data.redis [auto]
+[INFO]    org.springframework.data:spring-data-redis:jar:2.4.2:compile -- module spring.data.redis [auto]
+[INFO]    org.springframework.data:spring-data-keyvalue:jar:2.4.2:compile -- module spring.data.keyvalue [auto]
+[INFO]    org.springframework.data:spring-data-commons:jar:2.4.2:compile -- module spring.data.commons [auto]
+[INFO]    org.springframework:spring-oxm:jar:5.3.2:compile -- module spring.oxm [auto]
+[INFO]    io.lettuce:lettuce-core:jar:6.0.1.RELEASE:compile -- module lettuce.core [auto]
+[INFO]    io.netty:netty-common:jar:4.1.55.Final:compile -- module io.netty.common [auto]
+[INFO]    io.netty:netty-transport:jar:4.1.55.Final:compile -- module io.netty.transport [auto]
+[INFO]    org.springframework:spring-webmvc:jar:5.3.2:compile -- module spring.webmvc [auto]
+[INFO]    org.springframework:spring-aop:jar:5.3.2:compile -- module spring.aop [auto]
+[INFO]    org.springframework:spring-context:jar:5.3.2:compile -- module spring.context [auto]
+[INFO]    org.springframework:spring-expression:jar:5.3.2:compile -- module spring.expression [auto]
+[INFO]    com.github.whvcse:easy-captcha:jar:1.6.2:compile -- module easy.captcha (auto)
+[INFO]    eu.bitwalker:UserAgentUtils:jar:1.19:compile -- module UserAgentUtils (auto)
+[INFO]    org.projectlombok:lombok:jar:1.16.14:provided
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.658 s
+[INFO] Finished at: 2026-10-25T17:47:54Z
+[INFO] ------------------------------------------------------------------------
+
+===== bootstrap-individual-1.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------< com.github.wxiaoqi:ace-security >-------------------
+[INFO] Building ace-security 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- source:2.4:jar-no-fork (attach-sources) @ ace-security ---
+[INFO]
+[INFO] --- install:2.5.2:install (default-install) @ ace-security ---
+[INFO] Installing /work/pom.xml to /root/.m2/repository/com/github/wxiaoqi/ace-security/2.0-SNAPSHOT/ace-security-2.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.968 s
+[INFO] Finished at: 2026-10-25T17:46:42Z
+[INFO] ------------------------------------------------------------------------
+
+===== bootstrap-individual-2.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------< com.github.wxiaoqi:ace-dev-base >-------------------
+[INFO] Building ace-dev-base 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- source:2.4:jar-no-fork (attach-sources) @ ace-dev-base ---
+[INFO]
+[INFO] --- install:2.5.2:install (default-install) @ ace-dev-base ---
+[INFO] Installing /work/ace-dev-base/pom.xml to /root/.m2/repository/com/github/wxiaoqi/ace-dev-base/2.0-SNAPSHOT/ace-dev-base-2.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.953 s
+[INFO] Finished at: 2026-10-25T17:46:45Z
+[INFO] ------------------------------------------------------------------------
+
+===== bootstrap-individual-3.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------------< com.github.wxiaoqi:ace-common >--------------------
+[INFO] Building ace-common 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact org.apache.commons:commons-io:jar:1.3.2 has been relocated to commons-io:commons-io:jar:1.3.2: https://issues.sonatype.org/browse/MVNCENTRAL-244
+[INFO]
+[INFO] --- resources:3.2.0:resources (default-resources) @ ace-common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /work/ace-dev-base/ace-common/src/main/resources
+[INFO] skip non existing resourceDirectory /work/ace-dev-base/ace-common/src/main/resources
+[INFO]
+[INFO] --- compiler:3.8.1:compile (default-compile) @ ace-common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 39 source files to /work/ace-dev-base/ace-common/target/classes
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[3,16] sun.misc.BASE64Decoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[4,16] sun.misc.BASE64Encoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[3,16] sun.misc.BASE64Decoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[4,16] sun.misc.BASE64Encoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[3,16] sun.misc.BASE64Decoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[4,16] sun.misc.BASE64Encoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[3,16] sun.misc.BASE64Decoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[4,16] sun.misc.BASE64Encoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[150,21] sun.misc.BASE64Encoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[154,21] sun.misc.BASE64Decoder is internal proprietary API and may be removed in a future release
+[INFO] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/EntityUtils.java: /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/EntityUtils.java uses or overrides a deprecated API.
+[INFO] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/EntityUtils.java: Recompile with -Xlint:deprecation for details.
+[INFO] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/rest/BaseController.java: Some input files use unchecked or unsafe operations.
+[INFO] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/rest/BaseController.java: Recompile with -Xlint:unchecked for details.
+[INFO]
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ ace-common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /work/ace-dev-base/ace-common/src/test/resources
+[INFO]
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ ace-common ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:2.22.2:test (default-test) @ ace-common ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.2.0:jar (default-jar) @ ace-common ---
+[INFO] Building jar: /work/ace-dev-base/ace-common/target/ace-common-2.0-SNAPSHOT.jar
+[INFO]
+[INFO] --- source:2.4:jar-no-fork (attach-sources) @ ace-common ---
+[INFO] Building jar: /work/ace-dev-base/ace-common/target/ace-common-2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --- install:2.5.2:install (default-install) @ ace-common ---
+[INFO] Installing /work/ace-dev-base/ace-common/target/ace-common-2.0-SNAPSHOT.jar to /root/.m2/repository/com/github/wxiaoqi/ace-common/2.0-SNAPSHOT/ace-common-2.0-SNAPSHOT.jar
+[INFO] Installing /work/ace-dev-base/ace-common/pom.xml to /root/.m2/repository/com/github/wxiaoqi/ace-common/2.0-SNAPSHOT/ace-common-2.0-SNAPSHOT.pom
+[INFO] Installing /work/ace-dev-base/ace-common/target/ace-common-2.0-SNAPSHOT-sources.jar to /root/.m2/repository/com/github/wxiaoqi/ace-common/2.0-SNAPSHOT/ace-common-2.0-SNAPSHOT-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  44.791 s
+[INFO] Finished at: 2026-10-25T17:47:31Z
+[INFO] ------------------------------------------------------------------------
+
+===== bootstrap-individual-4.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.github.wxiaoqi:ace-api >---------------------
+[INFO] Building ace-api 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.2.0:resources (default-resources) @ ace-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /work/ace-api/src/main/resources
+[INFO] skip non existing resourceDirectory /work/ace-api/src/main/resources
+[INFO]
+[INFO] --- compiler:3.8.1:compile (default-compile) @ ace-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /work/ace-api/target/classes
+[INFO]
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ ace-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /work/ace-api/src/test/resources
+[INFO]
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ ace-api ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:2.22.2:test (default-test) @ ace-api ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.2.0:jar (default-jar) @ ace-api ---
+[INFO] Building jar: /work/ace-api/target/ace-api-2.0-SNAPSHOT.jar
+[INFO]
+[INFO] --- source:2.4:jar-no-fork (attach-sources) @ ace-api ---
+[INFO] Building jar: /work/ace-api/target/ace-api-2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --- install:2.5.2:install (default-install) @ ace-api ---
+[INFO] Installing /work/ace-api/target/ace-api-2.0-SNAPSHOT.jar to /root/.m2/repository/com/github/wxiaoqi/ace-api/2.0-SNAPSHOT/ace-api-2.0-SNAPSHOT.jar
+[INFO] Installing /work/ace-api/pom.xml to /root/.m2/repository/com/github/wxiaoqi/ace-api/2.0-SNAPSHOT/ace-api-2.0-SNAPSHOT.pom
+[INFO] Installing /work/ace-api/target/ace-api-2.0-SNAPSHOT-sources.jar to /root/.m2/repository/com/github/wxiaoqi/ace-api/2.0-SNAPSHOT/ace-api-2.0-SNAPSHOT-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.839 s
+[INFO] Finished at: 2026-10-25T17:47:44Z
+[INFO] ------------------------------------------------------------------------
+
+===== bootstrap-native-reactor.log =====
+[INFO] Scanning for projects...
+[ERROR] [ERROR] Some problems were encountered while processing the POMs:
+[FATAL] Non-resolvable parent POM for com.github.wxiaoqi:ace-nlp:2.0-SNAPSHOT: The following artifacts could not be resolved: com.github.wxiaoqi:ace-security:pom:2.0-SNAPSHOT (absent): Could not find artifact com.github.wxiaoqi:ace-security:pom:2.0-SNAPSHOT and 'parent.relativePath' points at wrong local POM @ line 5, column 13
+ @
+[ERROR] The build could not read 1 project -> [Help 1]
+[ERROR]
+[ERROR]   The project com.github.wxiaoqi:ace-nlp:2.0-SNAPSHOT (/work/ace-modules/ace-nlp/pom.xml) has 1 error
+[ERROR]     Non-resolvable parent POM for com.github.wxiaoqi:ace-nlp:2.0-SNAPSHOT: The following artifacts could not be resolved: com.github.wxiaoqi:ace-security:pom:2.0-SNAPSHOT (absent): Could not find artifact com.github.wxiaoqi:ace-security:pom:2.0-SNAPSHOT and 'parent.relativePath' points at wrong local POM @ line 5, column 13 -> [Help 2]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/ProjectBuildingException
+[ERROR] [Help 2] http://cwiki.apache.org/confluence/display/MAVEN/UnresolvableModelException
+
+===== boundary-offline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< com.github.wxiaoqi:ace-admin >--------------------
+[INFO] Building ace-admin 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ ace-admin ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:2.4.1
+UNKNOWN Unsupported Spring Boot BOM 2.4.1; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.344 s
+[INFO] Finished at: 2026-10-25T17:53:30Z
+[INFO] ------------------------------------------------------------------------
+
+===== history/20261025-173955/artifacts-online.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< com.github.wxiaoqi:ace-admin >--------------------
+[INFO] Building ace-admin 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for com.github.wxiaoqi:ace-common:jar:2.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for com.github.wxiaoqi:ace-api:jar:2.0-SNAPSHOT is missing, no dependency information available
+[WARNING] 2 problems were encountered while building the effective model for com.alibaba:druid:jar:1.1.10 during dependency collection step for project (use -X to see details)
+[WARNING] 1 problem was encountered while building the effective model for org.javassist:javassist:jar:3.21.0-GA during dependency collection step for project (use -X to see details)
+[WARNING] Could not transfer metadata com.google.guava:guava/maven-metadata.xml from/to spring-milestones (https://repo.spring.io/libs-milestone): status code: 401, reason phrase:  (401)
+[INFO] Artifact io.github.openfeign.form:feign-form-spring:jar:3.8.0 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact io.github.openfeign.form:feign-form:jar:3.8.0 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.hamcrest:hamcrest:jar:2.2 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.opentest4j:opentest4j:jar:1.2.0 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.hdrhistogram:HdrHistogram:jar:2.1.12 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact com.fasterxml:classmate:jar:1.5.1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact com.google.guava:guava:jar:33.7.2-jre is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots)]
+[INFO] Artifact com.googlecode.concurrentlinkedhashmap:concurrentlinkedhashmap-lru:jar:1.4.2 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact commons-codec:commons-codec:jar:1.15 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact io.github.openfeign.form:feign-form-spring:jar:3.8.0 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact io.github.openfeign.form:feign-form:jar:3.8.0 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.hamcrest:hamcrest:jar:2.2 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.opentest4j:opentest4j:jar:1.2.0 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.hdrhistogram:HdrHistogram:jar:2.1.12 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact com.fasterxml:classmate:jar:1.5.1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact com.google.guava:guava:jar:33.7.2-jre is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots)]
+[INFO] Artifact com.googlecode.concurrentlinkedhashmap:concurrentlinkedhashmap-lru:jar:1.4.2 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact commons-codec:commons-codec:jar:1.15 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.274 s
+[INFO] Finished at: 2026-10-25T17:26:22Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project ace-admin: Could not resolve dependencies for project com.github.wxiaoqi:ace-admin:jar:2.0-SNAPSHOT
+[ERROR] dependency: com.github.wxiaoqi:ace-common:jar:2.0-SNAPSHOT (compile)
+[ERROR] 	Could not find artifact com.github.wxiaoqi:ace-common:jar:2.0-SNAPSHOT in oss (https://oss.sonatype.org/content/groups/public)
+[ERROR] 	Could not find artifact com.github.wxiaoqi:ace-common:jar:2.0-SNAPSHOT in sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/)
+[ERROR] dependency: com.github.wxiaoqi:ace-api:jar:2.0-SNAPSHOT (compile)
+[ERROR] 	Could not find artifact com.github.wxiaoqi:ace-api:jar:2.0-SNAPSHOT in oss (https://oss.sonatype.org/content/groups/public)
+[ERROR] 	Could not find artifact com.github.wxiaoqi:ace-api:jar:2.0-SNAPSHOT in sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/)
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+
+===== history/20261025-173955/bootstrap-native-reactor.log =====
+[INFO] Scanning for projects...
+[ERROR] [ERROR] Some problems were encountered while processing the POMs:
+[FATAL] Non-resolvable parent POM for com.github.wxiaoqi:ace-nlp:2.0-SNAPSHOT: The following artifacts could not be resolved: com.github.wxiaoqi:ace-security:pom:2.0-SNAPSHOT (absent): Could not find artifact com.github.wxiaoqi:ace-security:pom:2.0-SNAPSHOT and 'parent.relativePath' points at wrong local POM @ line 5, column 13
+ @
+[ERROR] The build could not read 1 project -> [Help 1]
+[ERROR]
+[ERROR]   The project com.github.wxiaoqi:ace-nlp:2.0-SNAPSHOT (/work/ace-modules/ace-nlp/pom.xml) has 1 error
+[ERROR]     Non-resolvable parent POM for com.github.wxiaoqi:ace-nlp:2.0-SNAPSHOT: The following artifacts could not be resolved: com.github.wxiaoqi:ace-security:pom:2.0-SNAPSHOT (absent): Could not find artifact com.github.wxiaoqi:ace-security:pom:2.0-SNAPSHOT and 'parent.relativePath' points at wrong local POM @ line 5, column 13 -> [Help 2]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/ProjectBuildingException
+[ERROR] [Help 2] http://cwiki.apache.org/confluence/display/MAVEN/UnresolvableModelException
+
+===== history/20261025-173955/native-online.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< com.github.wxiaoqi:ace-admin >--------------------
+[INFO] Building ace-admin 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ ace-admin ---
+[INFO] Effective-POM written to: /out/effective.xml
+[INFO]
+[INFO] --------------------< com.github.wxiaoqi:ace-admin >--------------------
+[INFO] Building ace-admin 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for com.github.wxiaoqi:ace-common:jar:2.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for com.github.wxiaoqi:ace-api:jar:2.0-SNAPSHOT is missing, no dependency information available
+[WARNING] 2 problems were encountered while building the effective model for com.alibaba:druid:jar:1.1.10 during dependency collection step for project (use -X to see details)
+[WARNING] 1 problem was encountered while building the effective model for org.javassist:javassist:jar:3.21.0-GA during dependency collection step for project (use -X to see details)
+[WARNING] Could not transfer metadata com.google.guava:guava/maven-metadata.xml from/to spring-milestones (https://repo.spring.io/libs-milestone): status code: 401, reason phrase:  (401)
+[INFO] Artifact com.google.guava:guava:pom:33.7.2-jre is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact com.google.guava:guava:pom:33.7.2-jre is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact com.google.guava:guava-parent:pom:33.7.2-jre is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact com.google.guava:guava-parent:pom:33.7.2-jre is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact com.googlecode.concurrentlinkedhashmap:concurrentlinkedhashmap-lru:pom:1.4.2 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact com.googlecode.concurrentlinkedhashmap:concurrentlinkedhashmap-lru:pom:1.4.2 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact com.github.whvcse:easy-captcha:pom:1.6.2 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact com.github.whvcse:easy-captcha:pom:1.6.2 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [oss (https://oss.sonatype.org/content/groups/public, default, releases+snapshots), spring-milestones (https://repo.spring.io/libs-milestone, default, releases), sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ ace-admin ---
+[INFO] Wrote dependency tree to: /out/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  47.965 s
+[INFO] Finished at: 2026-10-25T17:25:59Z
+[INFO] ------------------------------------------------------------------------
+
+===== history/20261025-174744/artifacts-online.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< com.github.wxiaoqi:ace-admin >--------------------
+[INFO] Building ace-admin 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for com.github.wxiaoqi:ace-common:jar:2.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for com.github.wxiaoqi:ace-api:jar:2.0-SNAPSHOT is missing, no dependency information available
+[WARNING] 2 problems were encountered while building the effective model for com.alibaba:druid:jar:1.1.10 during dependency collection step for project (use -X to see details)
+[WARNING] 1 problem was encountered while building the effective model for org.javassist:javassist:jar:3.21.0-GA during dependency collection step for project (use -X to see details)
+[WARNING] Could not transfer metadata com.google.guava:guava/maven-metadata.xml from/to spring-milestones (https://repo.spring.io/libs-milestone): status code: 401, reason phrase:  (401)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.711 s
+[INFO] Finished at: 2026-10-25T17:40:05Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project ace-admin: Could not resolve dependencies for project com.github.wxiaoqi:ace-admin:jar:2.0-SNAPSHOT
+[ERROR] dependency: com.github.wxiaoqi:ace-common:jar:2.0-SNAPSHOT (compile)
+[ERROR] 	com.github.wxiaoqi:ace-common:jar:2.0-SNAPSHOT was not found in https://oss.sonatype.org/content/groups/public during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of oss has elapsed or updates are forced
+[ERROR] 	com.github.wxiaoqi:ace-common:jar:2.0-SNAPSHOT was not found in https://oss.sonatype.org/content/repositories/snapshots/ during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[ERROR] dependency: com.github.wxiaoqi:ace-api:jar:2.0-SNAPSHOT (compile)
+[ERROR] 	com.github.wxiaoqi:ace-api:jar:2.0-SNAPSHOT was not found in https://oss.sonatype.org/content/groups/public during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of oss has elapsed or updates are forced
+[ERROR] 	com.github.wxiaoqi:ace-api:jar:2.0-SNAPSHOT was not found in https://oss.sonatype.org/content/repositories/snapshots/ during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+
+===== history/20261025-174744/bootstrap-individual-1.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------< com.github.wxiaoqi:ace-security >-------------------
+[INFO] Building ace-security 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- source:2.4:jar-no-fork (attach-sources) @ ace-security ---
+[INFO]
+[INFO] --- install:2.5.2:install (default-install) @ ace-security ---
+[INFO] Installing /work/pom.xml to /root/.m2/repository/com/github/wxiaoqi/ace-security/2.0-SNAPSHOT/ace-security-2.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.968 s
+[INFO] Finished at: 2026-10-25T17:46:42Z
+[INFO] ------------------------------------------------------------------------
+
+===== history/20261025-174744/bootstrap-individual-2.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------< com.github.wxiaoqi:ace-dev-base >-------------------
+[INFO] Building ace-dev-base 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- source:2.4:jar-no-fork (attach-sources) @ ace-dev-base ---
+[INFO]
+[INFO] --- install:2.5.2:install (default-install) @ ace-dev-base ---
+[INFO] Installing /work/ace-dev-base/pom.xml to /root/.m2/repository/com/github/wxiaoqi/ace-dev-base/2.0-SNAPSHOT/ace-dev-base-2.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.953 s
+[INFO] Finished at: 2026-10-25T17:46:45Z
+[INFO] ------------------------------------------------------------------------
+
+===== history/20261025-174744/bootstrap-individual-3.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -------------------< com.github.wxiaoqi:ace-common >--------------------
+[INFO] Building ace-common 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact org.apache.commons:commons-io:jar:1.3.2 has been relocated to commons-io:commons-io:jar:1.3.2: https://issues.sonatype.org/browse/MVNCENTRAL-244
+[INFO]
+[INFO] --- resources:3.2.0:resources (default-resources) @ ace-common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /work/ace-dev-base/ace-common/src/main/resources
+[INFO] skip non existing resourceDirectory /work/ace-dev-base/ace-common/src/main/resources
+[INFO]
+[INFO] --- compiler:3.8.1:compile (default-compile) @ ace-common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 39 source files to /work/ace-dev-base/ace-common/target/classes
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[3,16] sun.misc.BASE64Decoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[4,16] sun.misc.BASE64Encoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[3,16] sun.misc.BASE64Decoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[4,16] sun.misc.BASE64Encoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[3,16] sun.misc.BASE64Decoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[4,16] sun.misc.BASE64Encoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[3,16] sun.misc.BASE64Decoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[4,16] sun.misc.BASE64Encoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[150,21] sun.misc.BASE64Encoder is internal proprietary API and may be removed in a future release
+[WARNING] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/jwt/RsaKeyHelper.java:[154,21] sun.misc.BASE64Decoder is internal proprietary API and may be removed in a future release
+[INFO] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/EntityUtils.java: /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/EntityUtils.java uses or overrides a deprecated API.
+[INFO] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/util/EntityUtils.java: Recompile with -Xlint:deprecation for details.
+[INFO] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/rest/BaseController.java: Some input files use unchecked or unsafe operations.
+[INFO] /work/ace-dev-base/ace-common/src/main/java/com/github/wxiaoqi/security/common/rest/BaseController.java: Recompile with -Xlint:unchecked for details.
+[INFO]
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ ace-common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /work/ace-dev-base/ace-common/src/test/resources
+[INFO]
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ ace-common ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:2.22.2:test (default-test) @ ace-common ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.2.0:jar (default-jar) @ ace-common ---
+[INFO] Building jar: /work/ace-dev-base/ace-common/target/ace-common-2.0-SNAPSHOT.jar
+[INFO]
+[INFO] --- source:2.4:jar-no-fork (attach-sources) @ ace-common ---
+[INFO] Building jar: /work/ace-dev-base/ace-common/target/ace-common-2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --- install:2.5.2:install (default-install) @ ace-common ---
+[INFO] Installing /work/ace-dev-base/ace-common/target/ace-common-2.0-SNAPSHOT.jar to /root/.m2/repository/com/github/wxiaoqi/ace-common/2.0-SNAPSHOT/ace-common-2.0-SNAPSHOT.jar
+[INFO] Installing /work/ace-dev-base/ace-common/pom.xml to /root/.m2/repository/com/github/wxiaoqi/ace-common/2.0-SNAPSHOT/ace-common-2.0-SNAPSHOT.pom
+[INFO] Installing /work/ace-dev-base/ace-common/target/ace-common-2.0-SNAPSHOT-sources.jar to /root/.m2/repository/com/github/wxiaoqi/ace-common/2.0-SNAPSHOT/ace-common-2.0-SNAPSHOT-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  44.791 s
+[INFO] Finished at: 2026-10-25T17:47:31Z
+[INFO] ------------------------------------------------------------------------
+
+===== history/20261025-174744/bootstrap-individual-4.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------------------< com.github.wxiaoqi:ace-api >---------------------
+[INFO] Building ace-api 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.2.0:resources (default-resources) @ ace-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /work/ace-api/src/main/resources
+[INFO] skip non existing resourceDirectory /work/ace-api/src/main/resources
+[INFO]
+[INFO] --- compiler:3.8.1:compile (default-compile) @ ace-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /work/ace-api/target/classes
+[INFO]
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ ace-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /work/ace-api/src/test/resources
+[INFO]
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ ace-api ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:2.22.2:test (default-test) @ ace-api ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.2.0:jar (default-jar) @ ace-api ---
+[INFO] Building jar: /work/ace-api/target/ace-api-2.0-SNAPSHOT.jar
+[INFO]
+[INFO] --- source:2.4:jar-no-fork (attach-sources) @ ace-api ---
+[INFO] Building jar: /work/ace-api/target/ace-api-2.0-SNAPSHOT-sources.jar
+[INFO]
+[INFO] --- install:2.5.2:install (default-install) @ ace-api ---
+[INFO] Installing /work/ace-api/target/ace-api-2.0-SNAPSHOT.jar to /root/.m2/repository/com/github/wxiaoqi/ace-api/2.0-SNAPSHOT/ace-api-2.0-SNAPSHOT.jar
+[INFO] Installing /work/ace-api/pom.xml to /root/.m2/repository/com/github/wxiaoqi/ace-api/2.0-SNAPSHOT/ace-api-2.0-SNAPSHOT.pom
+[INFO] Installing /work/ace-api/target/ace-api-2.0-SNAPSHOT-sources.jar to /root/.m2/repository/com/github/wxiaoqi/ace-api/2.0-SNAPSHOT/ace-api-2.0-SNAPSHOT-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.839 s
+[INFO] Finished at: 2026-10-25T17:47:44Z
+[INFO] ------------------------------------------------------------------------
+
+===== history/20261025-174744/bootstrap-native-reactor.log =====
+[INFO] Scanning for projects...
+[ERROR] [ERROR] Some problems were encountered while processing the POMs:
+[FATAL] Non-resolvable parent POM for com.github.wxiaoqi:ace-nlp:2.0-SNAPSHOT: The following artifacts could not be resolved: com.github.wxiaoqi:ace-security:pom:2.0-SNAPSHOT (absent): Could not find artifact com.github.wxiaoqi:ace-security:pom:2.0-SNAPSHOT and 'parent.relativePath' points at wrong local POM @ line 5, column 13
+ @
+[ERROR] The build could not read 1 project -> [Help 1]
+[ERROR]
+[ERROR]   The project com.github.wxiaoqi:ace-nlp:2.0-SNAPSHOT (/work/ace-modules/ace-nlp/pom.xml) has 1 error
+[ERROR]     Non-resolvable parent POM for com.github.wxiaoqi:ace-nlp:2.0-SNAPSHOT: The following artifacts could not be resolved: com.github.wxiaoqi:ace-security:pom:2.0-SNAPSHOT (absent): Could not find artifact com.github.wxiaoqi:ace-security:pom:2.0-SNAPSHOT and 'parent.relativePath' points at wrong local POM @ line 5, column 13 -> [Help 2]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/ProjectBuildingException
+[ERROR] [Help 2] http://cwiki.apache.org/confluence/display/MAVEN/UnresolvableModelException
+
+===== history/20261025-174744/native-online.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< com.github.wxiaoqi:ace-admin >--------------------
+[INFO] Building ace-admin 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ ace-admin ---
+[INFO] Effective-POM written to: /out/effective.xml
+[INFO]
+[INFO] --------------------< com.github.wxiaoqi:ace-admin >--------------------
+[INFO] Building ace-admin 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for com.github.wxiaoqi:ace-common:jar:2.0-SNAPSHOT is missing, no dependency information available
+[WARNING] The POM for com.github.wxiaoqi:ace-api:jar:2.0-SNAPSHOT is missing, no dependency information available
+[WARNING] 2 problems were encountered while building the effective model for com.alibaba:druid:jar:1.1.10 during dependency collection step for project (use -X to see details)
+[WARNING] 1 problem was encountered while building the effective model for org.javassist:javassist:jar:3.21.0-GA during dependency collection step for project (use -X to see details)
+[WARNING] Could not transfer metadata com.google.guava:guava/maven-metadata.xml from/to spring-milestones (https://repo.spring.io/libs-milestone): status code: 401, reason phrase:  (401)
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ ace-admin ---
+[INFO] Wrote dependency tree to: /out/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.470 s
+[INFO] Finished at: 2026-10-25T17:40:00Z
+[INFO] ------------------------------------------------------------------------
+
+===== native-online.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< com.github.wxiaoqi:ace-admin >--------------------
+[INFO] Building ace-admin 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ ace-admin ---
+[INFO] Effective-POM written to: /out/effective.xml
+[INFO]
+[INFO] --------------------< com.github.wxiaoqi:ace-admin >--------------------
+[INFO] Building ace-admin 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] 2 problems were encountered while building the effective model for com.alibaba:druid:jar:1.1.10 during dependency collection step for project (use -X to see details)
+[WARNING] 1 problem was encountered while building the effective model for org.javassist:javassist:jar:3.21.0-GA during dependency collection step for project (use -X to see details)
+[WARNING] Could not transfer metadata com.google.guava:guava/maven-metadata.xml from/to spring-milestones (https://repo.spring.io/libs-milestone): status code: 401, reason phrase:  (401)
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ ace-admin ---
+[INFO] Wrote dependency tree to: /out/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.408 s
+[INFO] Finished at: 2026-10-25T17:47:49Z
+[INFO] ------------------------------------------------------------------------
+
+===== strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< com.github.wxiaoqi:ace-admin >--------------------
+[INFO] Building ace-admin 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ ace-admin ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:2.4.1
+UNKNOWN Unsupported Spring Boot BOM 2.4.1; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.321 s
+[INFO] Finished at: 2026-10-25T17:47:59Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project ace-admin: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< com.github.wxiaoqi:ace-admin >--------------------
+[INFO] Building ace-admin 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ ace-admin ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:2.4.1
+UNKNOWN Unsupported Spring Boot BOM 2.4.1; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.427 s
+[INFO] Finished at: 2026-10-25T17:47:57Z
+[INFO] ------------------------------------------------------------------------

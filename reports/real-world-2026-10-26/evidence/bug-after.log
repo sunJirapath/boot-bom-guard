@@ -1,0 +1,118 @@
+===== native-artifacts.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< guard.audit:aligned-snapshot >--------------------
+[INFO] Building aligned-snapshot 1
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:resolve (default-cli) @ aligned-snapshot ---
+[INFO]
+[INFO] The following files have been resolved:
+[INFO]    org.springframework.boot:spring-boot-starter:jar:4.2.0-SNAPSHOT:compile -- module spring.boot.starter [auto]
+[INFO]    org.springframework.boot:spring-boot-starter-logging:jar:4.2.0-SNAPSHOT:compile -- module spring.boot.starter.logging [auto]
+[INFO]    ch.qos.logback:logback-classic:jar:1.6.5:compile -- module ch.qos.logback.classic
+[INFO]    ch.qos.logback:logback-core:jar:1.6.5:compile -- module ch.qos.logback.core
+[INFO]    org.slf4j:slf4j-api:jar:2.0.20:compile -- module org.slf4j
+[INFO]    org.apache.logging.log4j:log4j-to-slf4j:jar:2.26.1:compile -- module org.apache.logging.log4j.to.slf4j
+[INFO]    org.apache.logging.log4j:log4j-api:jar:2.26.1:compile -- module org.apache.logging.log4j
+[INFO]    org.slf4j:jul-to-slf4j:jar:2.0.20:compile -- module jul.to.slf4j
+[INFO]    org.springframework.boot:spring-boot-autoconfigure:jar:4.2.0-SNAPSHOT:compile -- module spring.boot.autoconfigure [auto]
+[INFO]    org.springframework.boot:spring-boot:jar:4.2.0-SNAPSHOT:compile -- module spring.boot [auto]
+[INFO]    org.springframework:spring-core:jar:7.1.0-RC1:compile -- module spring.core [auto]
+[INFO]    commons-logging:commons-logging:jar:1.4.0:compile -- module org.apache.commons.logging
+[INFO]    org.jspecify:jspecify:jar:1.0.1:compile -- module org.jspecify
+[INFO]    org.springframework:spring-context:jar:7.1.0-RC1:compile -- module spring.context [auto]
+[INFO]    org.springframework:spring-aop:jar:7.1.0-RC1:compile -- module spring.aop [auto]
+[INFO]    org.springframework:spring-beans:jar:7.1.0-RC1:compile -- module spring.beans [auto]
+[INFO]    org.springframework:spring-expression:jar:7.1.0-RC1:compile -- module spring.expression [auto]
+[INFO]    io.micrometer:micrometer-observation:jar:1.18.0-RC1:compile -- module micrometer.observation [auto]
+[INFO]    io.micrometer:micrometer-commons:jar:1.18.0-RC1:compile -- module micrometer.commons [auto]
+[INFO]    jakarta.annotation:jakarta.annotation-api:jar:3.0.0:compile -- module jakarta.annotation
+[INFO]    org.yaml:snakeyaml:jar:2.7:compile -- module org.yaml.snakeyaml
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.955 s
+[INFO] Finished at: 2026-10-25T16:42:44Z
+[INFO] ------------------------------------------------------------------------
+
+===== native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< guard.audit:aligned-snapshot >--------------------
+[INFO] Building aligned-snapshot 1
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ aligned-snapshot ---
+[INFO] Effective-POM written to: /out/effective.xml
+[INFO]
+[INFO] --------------------< guard.audit:aligned-snapshot >--------------------
+[INFO] Building aligned-snapshot 1
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ aligned-snapshot ---
+[INFO] Wrote dependency tree to: /out/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.160 s
+[INFO] Finished at: 2026-10-25T16:42:41Z
+[INFO] ------------------------------------------------------------------------
+
+===== repeat.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< guard.audit:aligned-snapshot >--------------------
+[INFO] Building aligned-snapshot 1
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ aligned-snapshot ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.2.0-SNAPSHOT
+PASS checked=21 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.547 s
+[INFO] Finished at: 2026-10-25T16:42:50Z
+[INFO] ------------------------------------------------------------------------
+
+===== strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< guard.audit:aligned-snapshot >--------------------
+[INFO] Building aligned-snapshot 1
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ aligned-snapshot ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.2.0-SNAPSHOT
+PASS checked=21 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.506 s
+[INFO] Finished at: 2026-10-25T16:42:48Z
+[INFO] ------------------------------------------------------------------------
+
+===== warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< guard.audit:aligned-snapshot >--------------------
+[INFO] Building aligned-snapshot 1
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ aligned-snapshot ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.2.0-SNAPSHOT
+PASS checked=21 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.467 s
+[INFO] Finished at: 2026-10-25T16:42:46Z
+[INFO] ------------------------------------------------------------------------

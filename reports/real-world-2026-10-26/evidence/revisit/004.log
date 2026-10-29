@@ -1,0 +1,414 @@
+===== history/20261025-173837/wrapper-native.log =====
+Downloading https://services.gradle.org/distributions/gradle-2.13-bin.zip
+..................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+Unzipping /cache/wrapper/dists/gradle-2.13-bin/4xsgxlfjcxvrea7akf941nvc7/gradle-2.13-bin.zip to /cache/wrapper/dists/gradle-2.13-bin/4xsgxlfjcxvrea7akf941nvc7
+Set executable permissions for: /cache/wrapper/dists/gradle-2.13-bin/4xsgxlfjcxvrea7akf941nvc7/gradle-2.13/bin/gradle
+To honour the JVM settings for this build a new JVM will be forked. Please consider using the daemon: https://docs.gradle.org/2.13/userguide/gradle_daemon.html.
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-gradle-plugin/1.4.0.M3/spring-boot-gradle-plugin-1.4.0.M3.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-tools/1.4.0.M3/spring-boot-tools-1.4.0.M3.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-parent/1.4.0.M3/spring-boot-parent-1.4.0.M3.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-dependencies/1.4.0.M3/spring-boot-dependencies-1.4.0.M3.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/spring-framework-bom/4.3.0.RC2/spring-framework-bom-4.3.0.RC2.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/springframework/data/spring-data-releasetrain/Hopper-SR1/spring-data-releasetrain-Hopper-SR1.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/springframework/data/build/spring-data-build/1.8.1.RELEASE/spring-data-build-1.8.1.RELEASE.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/integration/spring-integration-bom/4.3.0.RC1/spring-integration-bom-4.3.0.RC1.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/springframework/security/spring-security-bom/4.1.0.RELEASE/spring-security-bom-4.1.0.RELEASE.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-gradle-plugin/1.0.2/kotlin-gradle-plugin-1.0.2.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-project/1.0.2/kotlin-project-1.0.2.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-loader-tools/1.4.0.M3/spring-boot-loader-tools-1.4.0.M3.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/io/spring/gradle/dependency-management-plugin/0.5.6.RELEASE/dependency-management-plugin-0.5.6.RELEASE.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.0.2/kotlin-stdlib-1.0.2.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-android-extensions/1.0.2/kotlin-android-extensions-1.0.2.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-gradle-plugin-core/1.0.2/kotlin-gradle-plugin-core-1.0.2.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-gradle-plugin-api/1.0.2/kotlin-gradle-plugin-api-1.0.2.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/spring-core/4.3.0.RC2/spring-core-4.3.0.RC2.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-runtime/1.0.2/kotlin-runtime-1.0.2.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/commons-io/commons-io/2.4/commons-io-2.4.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/apache/commons/commons-parent/25/commons-parent-25.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/apache/apache/9/apache-9.pom
+[cookie header omitted]
+[cookie header omitted]
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-compiler-embeddable/1.0.2/kotlin-compiler-embeddable-1.0.2.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-annotation-processing/1.0.2/kotlin-annotation-processing-1.0.2.pom
+[cookie header omitted]
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-gradle-plugin/1.4.0.M3/spring-boot-gradle-plugin-1.4.0.M3.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-gradle-plugin/1.0.2/kotlin-gradle-plugin-1.0.2.jar
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-loader-tools/1.4.0.M3/spring-boot-loader-tools-1.4.0.M3.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/io/spring/gradle/dependency-management-plugin/0.5.6.RELEASE/dependency-management-plugin-0.5.6.RELEASE.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.0.2/kotlin-stdlib-1.0.2.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-android-extensions/1.0.2/kotlin-android-extensions-1.0.2.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-gradle-plugin-core/1.0.2/kotlin-gradle-plugin-core-1.0.2.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-gradle-plugin-api/1.0.2/kotlin-gradle-plugin-api-1.0.2.jar
+Download https://repo.spring.io/milestone/org/springframework/spring-core/4.3.0.RC2/spring-core-4.3.0.RC2.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-runtime/1.0.2/kotlin-runtime-1.0.2.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/commons-io/commons-io/2.4/commons-io-2.4.jar
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-compiler-embeddable/1.0.2/kotlin-compiler-embeddable-1.0.2.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-annotation-processing/1.0.2/kotlin-annotation-processing-1.0.2.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+:bbgRevisitNative
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-starter-parent/1.4.0.M3/spring-boot-starter-parent-1.4.0.M3.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-starter-data-rest/1.4.0.M3/spring-boot-starter-data-rest-1.4.0.M3.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-starters/1.4.0.M3/spring-boot-starters-1.4.0.M3.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-kotlin/2.7.4/jackson-module-kotlin-2.7.4.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/com/fasterxml/jackson/jackson-parent/2.7/jackson-parent-2.7.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/com/fasterxml/oss-parent/25/oss-parent-25.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-starter/1.4.0.M3/spring-boot-starter-1.4.0.M3.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-starter-web/1.4.0.M3/spring-boot-starter-web-1.4.0.M3.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.7.4/jackson-annotations-2.7.4.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/springframework/data/spring-data-rest-webmvc/2.5.1.RELEASE/spring-data-rest-webmvc-2.5.1.RELEASE.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/springframework/data/spring-data-rest-parent/2.5.1.RELEASE/spring-data-rest-parent-2.5.1.RELEASE.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/springframework/data/build/spring-data-parent/1.8.1.RELEASE/spring-data-parent-1.8.1.RELEASE.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/springframework/spring-framework-bom/4.2.5.RELEASE/spring-framework-bom-4.2.5.RELEASE.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-reflect/1.0.0/kotlin-reflect-1.0.0.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-project/1.0.0/kotlin-project-1.0.0.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot/1.4.0.M3/spring-boot-1.4.0.M3.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-autoconfigure/1.4.0.M3/spring-boot-autoconfigure-1.4.0.M3.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-starter-logging/1.4.0.M3/spring-boot-starter-logging-1.4.0.M3.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/yaml/snakeyaml/1.17/snakeyaml-1.17.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-starter-tomcat/1.4.0.M3/spring-boot-starter-tomcat-1.4.0.M3.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/hibernate/hibernate-validator/5.2.4.Final/hibernate-validator-5.2.4.Final.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/hibernate/hibernate-validator-parent/5.2.4.Final/hibernate-validator-parent-5.2.4.Final.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jboss/arquillian/arquillian-bom/1.1.9.Final/arquillian-bom-1.1.9.Final.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jboss/shrinkwrap/shrinkwrap-bom/1.2.2/shrinkwrap-bom-1.2.2.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jboss/shrinkwrap/resolver/shrinkwrap-resolver-bom/2.1.1/shrinkwrap-resolver-bom-2.1.1.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jboss/shrinkwrap/descriptors/shrinkwrap-descriptors-bom/2.0.0-alpha-7/shrinkwrap-descriptors-bom-2.0.0-alpha-7.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/spring-web/4.3.0.RC2/spring-web-4.3.0.RC2.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/spring-webmvc/4.3.0.RC2/spring-webmvc-4.3.0.RC2.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/springframework/data/spring-data-rest-core/2.5.1.RELEASE/spring-data-rest-core-2.5.1.RELEASE.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/slf4j/slf4j-parent/1.7.21/slf4j-parent-1.7.21.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/slf4j/jcl-over-slf4j/1.7.21/jcl-over-slf4j-1.7.21.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/spring-context/4.3.0.RC2/spring-context-4.3.0.RC2.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/ch/qos/logback/logback-parent/1.1.7/logback-parent-1.1.7.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/slf4j/jul-to-slf4j/1.7.21/jul-to-slf4j-1.7.21.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/slf4j/log4j-over-slf4j/1.7.21/log4j-over-slf4j-1.7.21.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/apache/tomcat/embed/tomcat-embed-core/8.0.33/tomcat-embed-core-8.0.33.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/apache/tomcat/embed/tomcat-embed-el/8.0.33/tomcat-embed-el-8.0.33.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/apache/tomcat/embed/tomcat-embed-logging-juli/8.0.33/tomcat-embed-logging-juli-8.0.33.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/apache/tomcat/embed/tomcat-embed-websocket/8.0.33/tomcat-embed-websocket-8.0.33.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jboss/logging/jboss-logging/3.3.0.Final/jboss-logging-3.3.0.Final.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jboss/jboss-parent/15/jboss-parent-15.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/com/fasterxml/classmate/1.3.1/classmate-1.3.1.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/com/fasterxml/oss-parent/24/oss-parent-24.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/spring-aop/4.3.0.RC2/spring-aop-4.3.0.RC2.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/spring-beans/4.3.0.RC2/spring-beans-4.3.0.RC2.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/spring-expression/4.3.0.RC2/spring-expression-4.3.0.RC2.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/spring-tx/4.3.0.RC2/spring-tx-4.3.0.RC2.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/springframework/hateoas/spring-hateoas/0.19.0.RELEASE/spring-hateoas-0.19.0.RELEASE.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/springframework/data/spring-data-commons/1.12.1.RELEASE/spring-data-commons-1.12.1.RELEASE.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/springframework/plugin/spring-plugin/1.2.0.RELEASE/spring-plugin-1.2.0.RELEASE.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/atteo/evo-inflector/1.2.1/evo-inflector-1.2.1.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/atteo/parent/1.11/parent-1.11.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/ch/qos/logback/logback-core/1.1.7/logback-core-1.1.7.pom
+:bbgRevisitNative FAILED
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Initialization script '/out/native.init.gradle' line: 11
+
+* What went wrong:
+Execution failed for task ':bbgRevisitNative'.
+> No such property: allModuleDependencies for class: org.gradle.api.internal.artifacts.ivyservice.ErrorHandlingConfigurationResolver$ErrorHandlingLenientConfiguration
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 1 mins 17.771 secs
+
+===== history/20261025-174002/wrapper-native.log =====
+To honour the JVM settings for this build a new JVM will be forked. Please consider using the daemon: https://docs.gradle.org/2.13/userguide/gradle_daemon.html.
+:bbgRevisitNative FAILED
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Initialization script '/out/native.init.gradle' line: 24
+
+* What went wrong:
+Execution failed for task ':bbgRevisitNative'.
+> No such property: artifacts for class: org.gradle.api.internal.artifacts.ivyservice.ErrorHandlingConfigurationResolver$ErrorHandlingLenientConfiguration
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 5.58 secs
+
+===== wrapper-native.log =====
+To honour the JVM settings for this build a new JVM will be forked. Please consider using the daemon: https://docs.gradle.org/2.13/userguide/gradle_daemon.html.
+:bbgRevisitNative
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-starter-data-rest/1.4.0.M3/spring-boot-starter-data-rest-1.4.0.M3.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-kotlin/2.7.4/jackson-module-kotlin-2.7.4.jar
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-starter/1.4.0.M3/spring-boot-starter-1.4.0.M3.jar
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-starter-web/1.4.0.M3/spring-boot-starter-web-1.4.0.M3.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.7.4/jackson-annotations-2.7.4.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/springframework/data/spring-data-rest-webmvc/2.5.1.RELEASE/spring-data-rest-webmvc-2.5.1.RELEASE.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-reflect/1.0.0/kotlin-reflect-1.0.0.jar
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot/1.4.0.M3/spring-boot-1.4.0.M3.jar
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-autoconfigure/1.4.0.M3/spring-boot-autoconfigure-1.4.0.M3.jar
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-starter-logging/1.4.0.M3/spring-boot-starter-logging-1.4.0.M3.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/yaml/snakeyaml/1.17/snakeyaml-1.17.jar
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-starter-tomcat/1.4.0.M3/spring-boot-starter-tomcat-1.4.0.M3.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/hibernate/hibernate-validator/5.2.4.Final/hibernate-validator-5.2.4.Final.jar
+Download https://repo.spring.io/milestone/org/springframework/spring-web/4.3.0.RC2/spring-web-4.3.0.RC2.jar
+Download https://repo.spring.io/milestone/org/springframework/spring-webmvc/4.3.0.RC2/spring-webmvc-4.3.0.RC2.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/springframework/data/spring-data-rest-core/2.5.1.RELEASE/spring-data-rest-core-2.5.1.RELEASE.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/slf4j/jcl-over-slf4j/1.7.21/jcl-over-slf4j-1.7.21.jar
+Download https://repo.spring.io/milestone/org/springframework/spring-context/4.3.0.RC2/spring-context-4.3.0.RC2.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/slf4j/jul-to-slf4j/1.7.21/jul-to-slf4j-1.7.21.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/slf4j/log4j-over-slf4j/1.7.21/log4j-over-slf4j-1.7.21.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/apache/tomcat/embed/tomcat-embed-core/8.0.33/tomcat-embed-core-8.0.33.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/apache/tomcat/embed/tomcat-embed-el/8.0.33/tomcat-embed-el-8.0.33.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/apache/tomcat/embed/tomcat-embed-logging-juli/8.0.33/tomcat-embed-logging-juli-8.0.33.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/apache/tomcat/embed/tomcat-embed-websocket/8.0.33/tomcat-embed-websocket-8.0.33.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/jboss/logging/jboss-logging/3.3.0.Final/jboss-logging-3.3.0.Final.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/com/fasterxml/classmate/1.3.1/classmate-1.3.1.jar
+Download https://repo.spring.io/milestone/org/springframework/spring-aop/4.3.0.RC2/spring-aop-4.3.0.RC2.jar
+Download https://repo.spring.io/milestone/org/springframework/spring-beans/4.3.0.RC2/spring-beans-4.3.0.RC2.jar
+Download https://repo.spring.io/milestone/org/springframework/spring-expression/4.3.0.RC2/spring-expression-4.3.0.RC2.jar
+Download https://repo.spring.io/milestone/org/springframework/spring-tx/4.3.0.RC2/spring-tx-4.3.0.RC2.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/springframework/hateoas/spring-hateoas/0.19.0.RELEASE/spring-hateoas-0.19.0.RELEASE.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/springframework/data/spring-data-commons/1.12.1.RELEASE/spring-data-commons-1.12.1.RELEASE.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/atteo/evo-inflector/1.2.1/evo-inflector-1.2.1.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/ch/qos/logback/logback-core/1.1.7/logback-core-1.1.7.jar
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-starter-test/1.4.0.M3/spring-boot-starter-test-1.4.0.M3.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-test/1.4.0.M3/spring-boot-test-1.4.0.M3.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-test-autoconfigure/1.4.0.M3/spring-boot-test-autoconfigure-1.4.0.M3.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/com/jayway/jsonpath/json-path/2.2.0/json-path-2.2.0.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/junit/junit/4.12/junit-4.12.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/assertj/assertj-core/2.4.1/assertj-core-2.4.1.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/assertj/assertj-parent-pom/2.1.4/assertj-parent-pom-2.1.4.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/hamcrest/hamcrest-parent/1.3/hamcrest-parent-1.3.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/skyscreamer/jsonassert/1.3.0/jsonassert-1.3.0.pom
+[cookie header omitted]
+[cookie header omitted]
+Download https://repo.spring.io/milestone/org/springframework/spring-test/4.3.0.RC2/spring-test-4.3.0.RC2.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/net/minidev/json-smart/2.2.1/json-smart-2.2.1.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/objenesis/objenesis/2.1/objenesis-2.1.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/objenesis/objenesis-parent/2.1/objenesis-parent-2.1.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/json/json/20140107/json-20140107.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/net/minidev/accessors-smart/1.1/accessors-smart-1.1.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/net/minidev/minidev-parent/2.2/minidev-parent-2.2.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/ow2/asm/asm/5.0.3/asm-5.0.3.pom
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/ow2/asm/asm-parent/5.0.3/asm-parent-5.0.3.pom
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-starter-test/1.4.0.M3/spring-boot-starter-test-1.4.0.M3.jar
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-test/1.4.0.M3/spring-boot-test-1.4.0.M3.jar
+Download https://repo.spring.io/milestone/org/springframework/boot/spring-boot-test-autoconfigure/1.4.0.M3/spring-boot-test-autoconfigure-1.4.0.M3.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/com/jayway/jsonpath/json-path/2.2.0/json-path-2.2.0.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/junit/junit/4.12/junit-4.12.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/assertj/assertj-core/2.4.1/assertj-core-2.4.1.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/skyscreamer/jsonassert/1.3.0/jsonassert-1.3.0.jar
+Download https://repo.spring.io/milestone/org/springframework/spring-test/4.3.0.RC2/spring-test-4.3.0.RC2.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/net/minidev/json-smart/2.2.1/json-smart-2.2.1.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/objenesis/objenesis/2.1/objenesis-2.1.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/json/json/20140107/json-20140107.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/net/minidev/accessors-smart/1.1/accessors-smart-1.1.jar
+[cookie header omitted]
+Download https://repo1.maven.org/maven2/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar
+
+BUILD SUCCESSFUL
+
+Total time: 38.295 secs

@@ -1,0 +1,19 @@
+===== baseline.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+
+> Task :dependencies
+
+------------------------------------------------------------
+Root project 'chat-service'
+------------------------------------------------------------
+
+runtimeClasspath - Runtime classpath of source set 'main'.
+
+CAMPAIGN_TIMEOUT
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\035-ThomasVitale--spring-boot-multitenancy'...
+
+===== sha.log =====
+0dcbd4fb84f9c7fb9dfa4fc146adc2e8b7e6334c

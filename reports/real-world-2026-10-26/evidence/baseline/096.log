@@ -1,0 +1,80 @@
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< ltd.newbee.mall:newbee-mall >---------------------
+[INFO] Building newbee-mall 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ newbee-mall ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] --------------------< ltd.newbee.mall:newbee-mall >---------------------
+[INFO] Building newbee-mall 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] 1 problem was encountered while building the effective model for org.javassist:javassist:jar:3.20.0-GA during dependency collection step for project (use -X to see details)
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.31 has been relocated to com.mysql:mysql-connector-j:jar:8.0.31: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ newbee-mall ---
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.31 has been relocated to com.mysql:mysql-connector-j:jar:8.0.31: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] Wrote dependency tree to: /work/.bbg/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.784 s
+[INFO] Finished at: 2026-10-25T13:42:27Z
+[INFO] ------------------------------------------------------------------------
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\096-newbee-ltd--newbee-mall'...
+Updating files: 100% (506/506)
+Updating files: 100% (506/506), done.
+
+===== original-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< ltd.newbee.mall:newbee-mall >---------------------
+[INFO] Building newbee-mall 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ newbee-mall ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:2.7.5
+UNKNOWN Unsupported Spring Boot BOM 2.7.5; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.892 s
+[INFO] Finished at: 2026-10-25T13:42:46Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project newbee-mall: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< ltd.newbee.mall:newbee-mall >---------------------
+[INFO] Building newbee-mall 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ newbee-mall ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:2.7.5
+UNKNOWN Unsupported Spring Boot BOM 2.7.5; MVP supports Boot 4.x.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.602 s
+[INFO] Finished at: 2026-10-25T13:42:39Z
+[INFO] ------------------------------------------------------------------------
+
+===== sha.log =====
+a069069b07027613bf0e7f571736be86f431faee

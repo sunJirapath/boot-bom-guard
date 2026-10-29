@@ -1,0 +1,499 @@
+===== allowed-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ camel-example-spring-boot ---
+[INFO] Wrote dependency tree to: /work/.bbg/allowed-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.771 s
+[INFO] Finished at: 2026-10-25T16:22:40Z
+[INFO] ------------------------------------------------------------------------
+
+===== allowed-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ camel-example-spring-boot ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+ALLOWED org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct reason=Campaign intentional exception
+PASS checked=76 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.275 s
+[INFO] Finished at: 2026-10-25T16:22:47Z
+[INFO] ------------------------------------------------------------------------
+
+===== allowed-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ camel-example-spring-boot ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+ALLOWED org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct reason=Campaign intentional exception
+PASS checked=76 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.393 s
+[INFO] Finished at: 2026-10-25T16:22:43Z
+[INFO] ------------------------------------------------------------------------
+
+===== allowed.patch =====
+--- spring-boot/pom.xml
++++ spring-boot/pom.xml
+@@ -133,4 +133,8 @@
+             </plugin>
+
+         </plugins>
+
+     </build>
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.19</version></dependency></dependencies><build><plugins><plugin><groupId>io.github.bootbomguard</groupId><artifactId>boot-bom-guard-maven-plugin</artifactId><version>0.1.0-SNAPSHOT</version><configuration><exceptions><exception><dependency>org.slf4j:slf4j-api</dependency><reason>Campaign intentional exception</reason></exception></exceptions></configuration></plugin></plugins></build></profile>
++</profiles>
+ </project>
+
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ camel-example-spring-boot ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ camel-example-spring-boot ---
+[INFO] Wrote dependency tree to: /work/.bbg/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:20 min
+[INFO] Finished at: 2026-10-25T13:21:57Z
+[INFO] ------------------------------------------------------------------------
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\068-apache--camel-spring-boot-examples'...
+Updating files:  39% (309/789)
+Updating files:  40% (316/789)
+Updating files:  41% (324/789)
+Updating files:  42% (332/789)
+Updating files:  43% (340/789)
+Updating files:  44% (348/789)
+Updating files:  45% (356/789)
+Updating files:  46% (363/789)
+Updating files:  47% (371/789)
+Updating files:  48% (379/789)
+Updating files:  49% (387/789)
+Updating files:  50% (395/789)
+Updating files:  51% (403/789)
+Updating files:  52% (411/789)
+Updating files:  53% (419/789)
+Updating files:  54% (427/789)
+Updating files:  55% (434/789)
+Updating files:  56% (442/789)
+Updating files:  57% (450/789)
+Updating files:  57% (452/789)
+Updating files:  58% (458/789)
+Updating files:  59% (466/789)
+Updating files:  60% (474/789)
+Updating files:  61% (482/789)
+Updating files:  62% (490/789)
+Updating files:  63% (498/789)
+Updating files:  64% (505/789)
+Updating files:  65% (513/789)
+Updating files:  66% (521/789)
+Updating files:  67% (529/789)
+Updating files:  68% (537/789)
+Updating files:  69% (545/789)
+Updating files:  70% (553/789)
+Updating files:  71% (561/789)
+Updating files:  72% (569/789)
+Updating files:  73% (576/789)
+Updating files:  74% (584/789)
+Updating files:  75% (592/789)
+Updating files:  76% (600/789)
+Updating files:  77% (608/789)
+Updating files:  78% (616/789)
+Updating files:  79% (624/789)
+Updating files:  80% (632/789)
+Updating files:  81% (640/789)
+Updating files:  82% (647/789)
+Updating files:  83% (655/789)
+Updating files:  84% (663/789)
+Updating files:  85% (671/789)
+Updating files:  86% (679/789)
+Updating files:  87% (687/789)
+Updating files:  88% (695/789)
+Updating files:  89% (703/789)
+Updating files:  90% (711/789)
+Updating files:  91% (718/789)
+Updating files:  91% (723/789)
+Updating files:  92% (726/789)
+Updating files:  93% (734/789)
+Updating files:  94% (742/789)
+Updating files:  95% (750/789)
+Updating files:  96% (758/789)
+Updating files:  97% (766/789)
+Updating files:  98% (774/789)
+Updating files:  99% (782/789)
+Updating files: 100% (789/789)
+Updating files: 100% (789/789), done.
+
+===== determinism.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ camel-example-spring-boot ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+PASS checked=76 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.202 s
+[INFO] Finished at: 2026-10-25T16:22:59Z
+[INFO] ------------------------------------------------------------------------
+
+===== direct-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ camel-example-spring-boot ---
+[INFO] Wrote dependency tree to: /work/.bbg/direct-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.436 s
+[INFO] Finished at: 2026-10-25T16:22:19Z
+[INFO] ------------------------------------------------------------------------
+
+===== direct-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ camel-example-spring-boot ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+WARN checked=76 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.721 s
+[INFO] Finished at: 2026-10-25T16:22:26Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project camel-example-spring-boot: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== direct-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ camel-example-spring-boot ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+WARN checked=76 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.460 s
+[INFO] Finished at: 2026-10-25T16:22:22Z
+[INFO] ------------------------------------------------------------------------
+
+===== direct.patch =====
+--- spring-boot/pom.xml
++++ spring-boot/pom.xml
+@@ -133,4 +133,8 @@
+             </plugin>
+
+         </plugins>
+
+     </build>
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.19</version></dependency></dependencies></profile>
++</profiles>
+ </project>
+
+===== incomplete-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.232 s
+[INFO] Finished at: 2026-10-25T16:22:50Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project camel-example-spring-boot: Could not resolve dependencies for project org.apache.camel.springboot.example:camel-example-spring-boot:jar:4.24.0-SNAPSHOT
+[ERROR] dependency: guard.audit:deliberately-missing:jar:1 (compile)
+[ERROR] 	Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact guard.audit:deliberately-missing:jar:1 has not been downloaded from it before.
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+
+===== incomplete-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ camel-example-spring-boot ---
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.249 s
+[INFO] Finished at: 2026-10-25T16:22:56Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project camel-example-spring-boot: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== incomplete-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ camel-example-spring-boot ---
+[WARNING] The POM for guard.audit:deliberately-missing:jar:1 is missing, no dependency information available
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException); inspect Maven diagnostics and configured repositories/offline cache.
+WARN checked=0 drift=0 unknown=1
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.220 s
+[INFO] Finished at: 2026-10-25T16:22:53Z
+[INFO] ------------------------------------------------------------------------
+
+===== incomplete.patch =====
+--- spring-boot/pom.xml
++++ spring-boot/pom.xml
+@@ -133,4 +133,8 @@
+             </plugin>
+
+         </plugins>
+
+     </build>
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencies><dependency><groupId>guard.audit</groupId><artifactId>deliberately-missing</artifactId><version>1</version></dependency></dependencies></profile>
++</profiles>
+ </project>
+
+===== managed-native.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ camel-example-spring-boot ---
+[INFO] Wrote dependency tree to: /work/.bbg/managed-tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.180 s
+[INFO] Finished at: 2026-10-25T16:22:30Z
+[INFO] ------------------------------------------------------------------------
+
+===== managed-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ camel-example-spring-boot ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.19; declaration source unknown; path=transitive
+WARN checked=76 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.546 s
+[INFO] Finished at: 2026-10-25T16:22:37Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project camel-example-spring-boot: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== managed-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ camel-example-spring-boot ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+DRIFT org.slf4j:slf4j-api expected=2.0.20 resolved=2.0.19 classification=MANAGED_OVERRIDE evidence=effective dependencyManagement=2.0.19; declaration source unknown; path=transitive
+WARN checked=76 drift=1 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.474 s
+[INFO] Finished at: 2026-10-25T16:22:33Z
+[INFO] ------------------------------------------------------------------------
+
+===== managed.patch =====
+--- spring-boot/pom.xml
++++ spring-boot/pom.xml
+@@ -133,4 +133,8 @@
+             </plugin>
+
+         </plugins>
+
+     </build>
+
++
++<profiles>
++<profile><id>bbg-audit</id><dependencyManagement><dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>2.0.19</version></dependency></dependencies></dependencyManagement></profile>
++</profiles>
+ </project>
+
+===== offline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ camel-example-spring-boot ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+PASS checked=76 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.261 s
+[INFO] Finished at: 2026-10-25T16:23:02Z
+[INFO] ------------------------------------------------------------------------
+
+===== original-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ camel-example-spring-boot ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+PASS checked=76 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.707 s
+[INFO] Finished at: 2026-10-25T13:22:18Z
+[INFO] ------------------------------------------------------------------------
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---< org.apache.camel.springboot.example:camel-example-spring-boot >----
+[INFO] Building Camel SB Examples :: Spring Boot 4.24.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ camel-example-spring-boot ---
+[INFO] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.1.2
+PASS checked=76 drift=0 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.454 s
+[INFO] Finished at: 2026-10-25T13:22:11Z
+[INFO] ------------------------------------------------------------------------
+
+===== pristine-bom.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------< org.springframework.boot:spring-boot-dependencies >----------
+[INFO] Building spring-boot-dependencies 4.1.2
+[INFO]   from spring-boot-dependencies-4.1.2.pom
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ spring-boot-dependencies ---
+[INFO] Effective-POM written to: /work/.bbg/pristine.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.608 s
+[INFO] Finished at: 2026-10-25T13:24:33Z
+[INFO] ------------------------------------------------------------------------
+
+===== sha.log =====
+c0b9389bea512ac15d0376cc922bc94a7ba3b9d3

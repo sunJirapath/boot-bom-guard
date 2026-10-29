@@ -1,0 +1,162 @@
+===== gradle-check.log =====
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+> Task :core:compileJava
+> Task :core:processResources NO-SOURCE
+> Task :core:classes
+> Task :core:jar
+> Task :core:compileTestJava
+> Task :core:processTestResources NO-SOURCE
+> Task :core:testClasses
+> Task :core:test
+> Task :core:check
+> Task :gradle-plugin:compileJava
+> Task :gradle-plugin:pluginDescriptors
+> Task :gradle-plugin:processResources
+> Task :gradle-plugin:classes
+> Task :gradle-plugin:compileTestJava
+> Task :gradle-plugin:pluginUnderTestMetadata
+> Task :gradle-plugin:processTestResources NO-SOURCE
+> Task :gradle-plugin:testClasses
+> Task :gradle-plugin:test
+> Task :gradle-plugin:validatePlugins
+> Task :gradle-plugin:check
+
+BUILD SUCCESSFUL in 53s
+11 actionable tasks: 11 executed
+
+===== maven-install.log =====
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO]
+[INFO] boot-bom-guard-parent                                              [pom]
+[INFO] boot-bom-guard-core                                                [jar]
+[INFO] boot-bom-guard-maven-plugin                               [maven-plugin]
+[INFO]
+[INFO] ------------< io.github.bootbomguard:boot-bom-guard-parent >------------
+[INFO] Building boot-bom-guard-parent 0.1.0-SNAPSHOT                      [1/3]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ boot-bom-guard-parent ---
+[INFO] Installing C:\Users\Sun\.codex\worktrees\fix-maven-snapshot-identity\boot-bom-guard\pom.xml to C:\Users\Sun\.m2\repository\io\github\bootbomguard\boot-bom-guard-parent\0.1.0-SNAPSHOT\boot-bom-guard-parent-0.1.0-SNAPSHOT.pom
+[INFO]
+[INFO] -------------< io.github.bootbomguard:boot-bom-guard-core >-------------
+[INFO] Building boot-bom-guard-core 0.1.0-SNAPSHOT                        [2/3]
+[INFO]   from core\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ boot-bom-guard-core ---
+[INFO] skip non existing resourceDirectory C:\Users\Sun\.codex\worktrees\fix-maven-snapshot-identity\boot-bom-guard\core\src\main\resources
+[INFO]
+[INFO] --- compiler:3.14.1:compile (default-compile) @ boot-bom-guard-core ---
+[INFO] Recompiling the module because of added or removed source files.
+[INFO] Compiling 2 source files with javac [debug release 21] to target\classes
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ boot-bom-guard-core ---
+[INFO] skip non existing resourceDirectory C:\Users\Sun\.codex\worktrees\fix-maven-snapshot-identity\boot-bom-guard\core\src\test\resources
+[INFO]
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ boot-bom-guard-core ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug release 21] to target\test-classes
+[INFO]
+[INFO] --- surefire:3.5.3:test (default-test) @ boot-bom-guard-core ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.github.bootbomguard.core.GuardTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.070 s -- in io.github.bootbomguard.core.GuardTest
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ boot-bom-guard-core ---
+[INFO] Building jar: C:\Users\Sun\.codex\worktrees\fix-maven-snapshot-identity\boot-bom-guard\core\target\boot-bom-guard-core-0.1.0-SNAPSHOT.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ boot-bom-guard-core ---
+[INFO] Installing C:\Users\Sun\.codex\worktrees\fix-maven-snapshot-identity\boot-bom-guard\core\pom.xml to C:\Users\Sun\.m2\repository\io\github\bootbomguard\boot-bom-guard-core\0.1.0-SNAPSHOT\boot-bom-guard-core-0.1.0-SNAPSHOT.pom
+[INFO] Installing C:\Users\Sun\.codex\worktrees\fix-maven-snapshot-identity\boot-bom-guard\core\target\boot-bom-guard-core-0.1.0-SNAPSHOT.jar to C:\Users\Sun\.m2\repository\io\github\bootbomguard\boot-bom-guard-core\0.1.0-SNAPSHOT\boot-bom-guard-core-0.1.0-SNAPSHOT.jar
+[INFO]
+[INFO] ---------< io.github.bootbomguard:boot-bom-guard-maven-plugin >---------
+[INFO] Building boot-bom-guard-maven-plugin 0.1.0-SNAPSHOT                [3/3]
+[INFO]   from maven-plugin\pom.xml
+[INFO] ----------------------------[ maven-plugin ]----------------------------
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ boot-bom-guard-maven-plugin ---
+[INFO] skip non existing resourceDirectory C:\Users\Sun\.codex\worktrees\fix-maven-snapshot-identity\boot-bom-guard\maven-plugin\src\main\resources
+[INFO]
+[INFO] --- compiler:3.14.1:compile (default-compile) @ boot-bom-guard-maven-plugin ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug release 21] to target\classes
+[INFO] /C:/Users/Sun/.codex/worktrees/fix-maven-snapshot-identity/boot-bom-guard/maven-plugin/src/main/java/io/github/bootbomguard/maven/CheckMojo.java: C:\Users\Sun\.codex\worktrees\fix-maven-snapshot-identity\boot-bom-guard\maven-plugin\src\main\java\io\github\bootbomguard\maven\CheckMojo.java uses or overrides a deprecated API.
+[INFO] /C:/Users/Sun/.codex/worktrees/fix-maven-snapshot-identity/boot-bom-guard/maven-plugin/src/main/java/io/github/bootbomguard/maven/CheckMojo.java: Recompile with -Xlint:deprecation for details.
+[INFO]
+[INFO] --- plugin:3.16.0:descriptor (default-descriptor) @ boot-bom-guard-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo source files.
+[INFO] java-annotations mojo extractor found 1 mojo descriptor.
+[INFO] java-javadoc mojo extractor found 0 mojo descriptor.
+[INFO] ant mojo extractor found 0 mojo descriptor.
+[INFO] bsh mojo extractor found 0 mojo descriptor.
+[WARNING] Mojo check uses Plexus Component requirements (@Component annotation) for fields: [dependenciesResolver, projectBuilder, repositorySystem]
+[WARNING] Use JSR 330 annotations to inject dependencies instead.
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ boot-bom-guard-maven-plugin ---
+[INFO] skip non existing resourceDirectory C:\Users\Sun\.codex\worktrees\fix-maven-snapshot-identity\boot-bom-guard\maven-plugin\src\test\resources
+[INFO]
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ boot-bom-guard-maven-plugin ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- surefire:3.5.3:test (default-test) @ boot-bom-guard-maven-plugin ---
+[INFO] No tests to run.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ boot-bom-guard-maven-plugin ---
+[INFO] Building jar: C:\Users\Sun\.codex\worktrees\fix-maven-snapshot-identity\boot-bom-guard\maven-plugin\target\boot-bom-guard-maven-plugin-0.1.0-SNAPSHOT.jar
+[INFO]
+[INFO] --- install:3.1.4:install (default-install) @ boot-bom-guard-maven-plugin ---
+[INFO] Installing C:\Users\Sun\.codex\worktrees\fix-maven-snapshot-identity\boot-bom-guard\maven-plugin\pom.xml to C:\Users\Sun\.m2\repository\io\github\bootbomguard\boot-bom-guard-maven-plugin\0.1.0-SNAPSHOT\boot-bom-guard-maven-plugin-0.1.0-SNAPSHOT.pom
+[INFO] Installing C:\Users\Sun\.codex\worktrees\fix-maven-snapshot-identity\boot-bom-guard\maven-plugin\target\boot-bom-guard-maven-plugin-0.1.0-SNAPSHOT.jar to C:\Users\Sun\.m2\repository\io\github\bootbomguard\boot-bom-guard-maven-plugin\0.1.0-SNAPSHOT\boot-bom-guard-maven-plugin-0.1.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for boot-bom-guard-parent 0.1.0-SNAPSHOT:
+[INFO]
+[INFO] boot-bom-guard-parent .............................. SUCCESS [  0.517 s]
+[INFO] boot-bom-guard-core ................................ SUCCESS [  5.394 s]
+[INFO] boot-bom-guard-maven-plugin ........................ SUCCESS [  4.653 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.701 s
+[INFO] Finished at: 2569-10-29T14:38:05+07:00
+[INFO] ------------------------------------------------------------------------
+
+===== maven-integration.log =====
+test_aligned (__main__.MavenIntegrationTest.test_aligned) ... ok
+test_ambiguous_effective_sources (__main__.MavenIntegrationTest.test_ambiguous_effective_sources) ... ok
+test_blank_reason_rejected (__main__.MavenIntegrationTest.test_blank_reason_rejected) ... ok
+test_boot_parent_property_override_uses_pristine_bom (__main__.MavenIntegrationTest.test_boot_parent_property_override_uses_pristine_bom) ... ok
+test_ci_failure (__main__.MavenIntegrationTest.test_ci_failure) ... ok
+test_duplicate_normalized_exception_is_rejected (__main__.MavenIntegrationTest.test_duplicate_normalized_exception_is_rejected) ... ok
+test_explicit_override_warning (__main__.MavenIntegrationTest.test_explicit_override_warning) ... ok
+test_intentional_exception (__main__.MavenIntegrationTest.test_intentional_exception) ... ok
+test_managed_override (__main__.MavenIntegrationTest.test_managed_override) ... ok
+test_missing_bom (__main__.MavenIntegrationTest.test_missing_bom) ... ok
+test_profile_override_selects_effective_bom (__main__.MavenIntegrationTest.test_profile_override_selects_effective_bom) ... ok
+test_transitive_override (__main__.MavenIntegrationTest.test_transitive_override) ... ok
+test_unknown_fails_ci (__main__.MavenIntegrationTest.test_unknown_fails_ci) ... ok
+test_unresolved_dependency_warns_and_fails_ci (__main__.MavenIntegrationTest.test_unresolved_dependency_warns_and_fails_ci) ... ok
+test_verbose_graph_omits_conflict_losers (__main__.MavenIntegrationTest.test_verbose_graph_omits_conflict_losers) ... ok
+test_aligned_aliases_include_direct_and_transitive_artifacts (__main__.MavenSnapshotIntegrationTest.test_aligned_aliases_include_direct_and_transitive_artifacts) ... ok
+test_explicit_current_timestamp_is_the_selected_alias (__main__.MavenSnapshotIntegrationTest.test_explicit_current_timestamp_is_the_selected_alias) ... ok
+test_explicit_older_timestamp_remains_direct_drift (__main__.MavenSnapshotIntegrationTest.test_explicit_older_timestamp_remains_direct_drift) ... ok
+test_managed_older_timestamp_remains_managed_drift (__main__.MavenSnapshotIntegrationTest.test_managed_older_timestamp_remains_managed_drift) ... ok
+test_managed_snapshot_override_keeps_native_origin (__main__.MavenSnapshotIntegrationTest.test_managed_snapshot_override_keeps_native_origin) ... ok
+test_mixed_graph_reports_only_genuine_release_drift (__main__.MavenSnapshotIntegrationTest.test_mixed_graph_reports_only_genuine_release_drift) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 83.792s
+
+OK

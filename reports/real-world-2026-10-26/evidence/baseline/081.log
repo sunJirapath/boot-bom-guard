@@ -1,0 +1,14 @@
+===== baseline.log =====
+[INFO] Scanning for projects...
+
+CAMPAIGN_TIMEOUT
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\081-spring-cloud--spring-cloud-config'...
+Updating files:  98% (955/971)
+Updating files:  99% (962/971)
+Updating files: 100% (971/971)
+Updating files: 100% (971/971), done.
+
+===== sha.log =====
+ab3fdc663d81fff1bd6885e6fbd2e574eee028bd

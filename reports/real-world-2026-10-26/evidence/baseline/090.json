@@ -1,0 +1,984 @@
+{
+  "baseline.command.json": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "bbg-137b-90-baseline",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "3g",
+      "--cpus",
+      "2",
+      "--pids-limit",
+      "512",
+      "--mount",
+      "type=bind,source=E:\\tmp\\bbg-campaign-137b0026\\clones\\090-wxiaoqi--Spring-Cloud-Platform,target=/work",
+      "-w",
+      "/work",
+      "-e",
+      "CI=true",
+      "--mount",
+      "type=volume,source=bbg-campaign-m2-137b,target=/root/.m2",
+      "-e",
+      "MAVEN_OPTS=-Xmx2g",
+      "maven@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320",
+      "mvn",
+      "-B",
+      "-ntp",
+      "-N",
+      "-f",
+      "/work/ace-modules/ace-admin/pom.xml",
+      "-Daether.connector.connectTimeout=10000",
+      "-Daether.connector.requestTimeout=20000",
+      "org.apache.maven.plugins:maven-help-plugin:3.5.1:effective-pom",
+      "org.apache.maven.plugins:maven-dependency-plugin:3.10.0:tree",
+      "-Doutput=/work/.bbg/effective.xml",
+      "-DoutputFile=/work/.bbg/tree.json",
+      "-DoutputType=json"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 124,
+    "elapsed_s": 180.25,
+    "timeout_s": 180
+  },
+  "clone.command.json": {
+    "command": [
+      "git",
+      "-c",
+      "credential.helper=",
+      "-c",
+      "core.hooksPath=NUL",
+      "-c",
+      "core.longpaths=true",
+      "clone",
+      "--depth=1",
+      "--no-tags",
+      "https://github.com/wxiaoqi/Spring-Cloud-Platform.git",
+      "E:\\tmp\\bbg-campaign-137b0026\\clones\\090-wxiaoqi--Spring-Cloud-Platform"
+    ],
+    "cwd": "E:\\boot-bom-guard\\reports\\real-world-2026-10-25",
+    "exit": 0,
+    "elapsed_s": 8.219,
+    "timeout_s": 300
+  },
+  "inspection.json": {
+    "repo": "wxiaoqi/Spring-Cloud-Platform",
+    "sha": "349ad0d6a54670698f0c2a08b17aa4db426f8109",
+    "selected_build": "ace-modules/ace-admin/pom.xml",
+    "wrappers": [],
+    "declared_build_files": 14,
+    "maven_pom_files": 14,
+    "gradle_build_scripts": 0,
+    "selected_scope_project_count": 1,
+    "scope_note": "Inventory includes independent examples, BOMs, buildSrc and aggregation projects; this is not a resolved whole-repository project count.",
+    "structure": [
+      {
+        "path": "ace-api/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "ace-dev-base/ace-auth-sdk/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-dev-base",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "ace-dev-base/ace-common/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-dev-base",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {
+          "mapper.version": "3.4.0"
+        },
+        "modules": [],
+        "plugins": [
+          "org.apache.maven.plugins:maven-compiler-plugin"
+        ]
+      },
+      {
+        "path": "ace-dev-base/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [
+          "ace-common",
+          "ace-auth-sdk"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "ace-gate/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [
+          "1.8"
+        ],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {
+          "project.build.sourceEncoding": "UTF-8",
+          "project.reporting.outputEncoding": "UTF-8",
+          "java.version": "1.8",
+          "kotlin.version": "1.4.20"
+        },
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "org.apache.maven.plugins:maven-compiler-plugin"
+        ]
+      },
+      {
+        "path": "ace-infrastructure/ace-monitor/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-infrastructure",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {
+          "boot.admin.version": "2.4.0"
+        },
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "ace-infrastructure/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [
+          "ace-monitor"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "ace-modules/ace-admin/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-modules",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {
+          "targetJavaProject": "${basedir}/src/main/java",
+          "targetMapperPackage": "com.github.wxiaoqi.security.admin.modules.mapper",
+          "targetModelPackage": "com.github.wxiaoqi.security.admin.modules.entity",
+          "targetResourcesProject": "${basedir}/src/main/resources",
+          "targetXMLPackage": "mapper",
+          "mapper.version": "3.4.0",
+          "mybatis.version": "3.3.1",
+          "mybatis.spring.version": "1.2.4",
+          "pagehelper.version": "4.1.1"
+        },
+        "modules": [],
+        "plugins": [
+          "org.mybatis.generator:mybatis-generator-maven-plugin",
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "org.apache.maven.plugins:maven-compiler-plugin"
+        ]
+      },
+      {
+        "path": "ace-modules/ace-generator/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-modules",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "org.apache.maven.plugins:maven-compiler-plugin"
+        ]
+      },
+      {
+        "path": "ace-modules/ace-nlp/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "ace-modules/ace-sample/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-modules",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "org.apache.maven.plugins:maven-compiler-plugin"
+        ]
+      },
+      {
+        "path": "ace-modules/ace-tool/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-modules",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {
+          "qiniu.version": "[7.2.0, 7.2.99]",
+          "aliyun.oss.version": "2.5.0",
+          "qcloud.cos.version": "4.4"
+        },
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "ace-modules/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [
+          "ace-admin",
+          "ace-generator",
+          "ace-tool",
+          "ace-nlp",
+          "ace-sample"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "pom.xml",
+        "tool": "Maven",
+        "boot": [
+          "2.4.1"
+        ],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter-parent",
+          "version": "2.4.1"
+        },
+        "properties": {
+          "docker.image.prefix": "ace",
+          "docker.plugin.version": "0.4.13",
+          "mapper.version": "3.4.0",
+          "maven.compile.source": "1.8",
+          "maven.compile.target": "1.8",
+          "boot.admin.client": "2.4.0"
+        },
+        "modules": [
+          "ace-gate",
+          "ace-api",
+          "ace-infrastructure",
+          "ace-modules",
+          "ace-dev-base"
+        ],
+        "plugins": [
+          "org.apache.maven.plugins:maven-compiler-plugin",
+          "org.apache.maven.plugins:maven-source-plugin",
+          "org.apache.maven.plugins:maven-deploy-plugin"
+        ]
+      }
+    ]
+  },
+  "inventory.json": {
+    "id": 90,
+    "repo": "wxiaoqi/Spring-Cloud-Platform",
+    "tier_proposed": "Huge",
+    "catalog_tool": "Maven",
+    "pilot": false,
+    "sha": "349ad0d6a54670698f0c2a08b17aa4db426f8109",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\090-wxiaoqi--Spring-Cloud-Platform",
+    "build_file_count": 14,
+    "builds": [
+      {
+        "path": "ace-api/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "ace-dev-base/ace-auth-sdk/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-dev-base",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "ace-dev-base/ace-common/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-dev-base",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {
+          "mapper.version": "3.4.0"
+        },
+        "modules": [],
+        "plugins": [
+          "org.apache.maven.plugins:maven-compiler-plugin"
+        ]
+      },
+      {
+        "path": "ace-dev-base/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [
+          "ace-common",
+          "ace-auth-sdk"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "ace-gate/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [
+          "1.8"
+        ],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {
+          "project.build.sourceEncoding": "UTF-8",
+          "project.reporting.outputEncoding": "UTF-8",
+          "java.version": "1.8",
+          "kotlin.version": "1.4.20"
+        },
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "org.apache.maven.plugins:maven-compiler-plugin"
+        ]
+      },
+      {
+        "path": "ace-infrastructure/ace-monitor/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-infrastructure",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {
+          "boot.admin.version": "2.4.0"
+        },
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "ace-infrastructure/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [
+          "ace-monitor"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "ace-modules/ace-admin/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-modules",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {
+          "targetJavaProject": "${basedir}/src/main/java",
+          "targetMapperPackage": "com.github.wxiaoqi.security.admin.modules.mapper",
+          "targetModelPackage": "com.github.wxiaoqi.security.admin.modules.entity",
+          "targetResourcesProject": "${basedir}/src/main/resources",
+          "targetXMLPackage": "mapper",
+          "mapper.version": "3.4.0",
+          "mybatis.version": "3.3.1",
+          "mybatis.spring.version": "1.2.4",
+          "pagehelper.version": "4.1.1"
+        },
+        "modules": [],
+        "plugins": [
+          "org.mybatis.generator:mybatis-generator-maven-plugin",
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "org.apache.maven.plugins:maven-compiler-plugin"
+        ]
+      },
+      {
+        "path": "ace-modules/ace-generator/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-modules",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "org.apache.maven.plugins:maven-compiler-plugin"
+        ]
+      },
+      {
+        "path": "ace-modules/ace-nlp/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "ace-modules/ace-sample/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-modules",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "org.apache.maven.plugins:maven-compiler-plugin"
+        ]
+      },
+      {
+        "path": "ace-modules/ace-tool/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-modules",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {
+          "qiniu.version": "[7.2.0, 7.2.99]",
+          "aliyun.oss.version": "2.5.0",
+          "qcloud.cos.version": "4.4"
+        },
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "ace-modules/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [
+          "ace-admin",
+          "ace-generator",
+          "ace-tool",
+          "ace-nlp",
+          "ace-sample"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "pom.xml",
+        "tool": "Maven",
+        "boot": [
+          "2.4.1"
+        ],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter-parent",
+          "version": "2.4.1"
+        },
+        "properties": {
+          "docker.image.prefix": "ace",
+          "docker.plugin.version": "0.4.13",
+          "mapper.version": "3.4.0",
+          "maven.compile.source": "1.8",
+          "maven.compile.target": "1.8",
+          "boot.admin.client": "2.4.0"
+        },
+        "modules": [
+          "ace-gate",
+          "ace-api",
+          "ace-infrastructure",
+          "ace-modules",
+          "ace-dev-base"
+        ],
+        "plugins": [
+          "org.apache.maven.plugins:maven-compiler-plugin",
+          "org.apache.maven.plugins:maven-source-plugin",
+          "org.apache.maven.plugins:maven-deploy-plugin"
+        ]
+      }
+    ],
+    "extensions": [],
+    "outcome": "NOT_RUN",
+    "baseline_status": "NOT_RUN"
+  },
+  "result.json": {
+    "id": 90,
+    "repo": "wxiaoqi/Spring-Cloud-Platform",
+    "tier_proposed": "Huge",
+    "catalog_tool": "Maven",
+    "pilot": false,
+    "sha": "349ad0d6a54670698f0c2a08b17aa4db426f8109",
+    "clone_path": "E:\\tmp\\bbg-campaign-137b0026\\clones\\090-wxiaoqi--Spring-Cloud-Platform",
+    "build_file_count": 14,
+    "builds": [
+      {
+        "path": "ace-api/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "ace-dev-base/ace-auth-sdk/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-dev-base",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "ace-dev-base/ace-common/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-dev-base",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {
+          "mapper.version": "3.4.0"
+        },
+        "modules": [],
+        "plugins": [
+          "org.apache.maven.plugins:maven-compiler-plugin"
+        ]
+      },
+      {
+        "path": "ace-dev-base/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [
+          "ace-common",
+          "ace-auth-sdk"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "ace-gate/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [
+          "1.8"
+        ],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {
+          "project.build.sourceEncoding": "UTF-8",
+          "project.reporting.outputEncoding": "UTF-8",
+          "java.version": "1.8",
+          "kotlin.version": "1.4.20"
+        },
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "org.apache.maven.plugins:maven-compiler-plugin"
+        ]
+      },
+      {
+        "path": "ace-infrastructure/ace-monitor/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-infrastructure",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {
+          "boot.admin.version": "2.4.0"
+        },
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin"
+        ]
+      },
+      {
+        "path": "ace-infrastructure/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [
+          "ace-monitor"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "ace-modules/ace-admin/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-modules",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {
+          "targetJavaProject": "${basedir}/src/main/java",
+          "targetMapperPackage": "com.github.wxiaoqi.security.admin.modules.mapper",
+          "targetModelPackage": "com.github.wxiaoqi.security.admin.modules.entity",
+          "targetResourcesProject": "${basedir}/src/main/resources",
+          "targetXMLPackage": "mapper",
+          "mapper.version": "3.4.0",
+          "mybatis.version": "3.3.1",
+          "mybatis.spring.version": "1.2.4",
+          "pagehelper.version": "4.1.1"
+        },
+        "modules": [],
+        "plugins": [
+          "org.mybatis.generator:mybatis-generator-maven-plugin",
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "org.apache.maven.plugins:maven-compiler-plugin"
+        ]
+      },
+      {
+        "path": "ace-modules/ace-generator/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-modules",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "org.apache.maven.plugins:maven-compiler-plugin"
+        ]
+      },
+      {
+        "path": "ace-modules/ace-nlp/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "ace-modules/ace-sample/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-modules",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [],
+        "plugins": [
+          "org.springframework.boot:spring-boot-maven-plugin",
+          "org.apache.maven.plugins:maven-compiler-plugin"
+        ]
+      },
+      {
+        "path": "ace-modules/ace-tool/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-modules",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {
+          "qiniu.version": "[7.2.0, 7.2.99]",
+          "aliyun.oss.version": "2.5.0",
+          "qcloud.cos.version": "4.4"
+        },
+        "modules": [],
+        "plugins": []
+      },
+      {
+        "path": "ace-modules/pom.xml",
+        "tool": "Maven",
+        "boot": [],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "artifactId": "ace-security",
+          "groupId": "com.github.wxiaoqi",
+          "version": "2.0-SNAPSHOT"
+        },
+        "properties": {},
+        "modules": [
+          "ace-admin",
+          "ace-generator",
+          "ace-tool",
+          "ace-nlp",
+          "ace-sample"
+        ],
+        "plugins": []
+      },
+      {
+        "path": "pom.xml",
+        "tool": "Maven",
+        "boot": [
+          "2.4.1"
+        ],
+        "jdk": [],
+        "native_platform": false,
+        "parent": {
+          "groupId": "org.springframework.boot",
+          "artifactId": "spring-boot-starter-parent",
+          "version": "2.4.1"
+        },
+        "properties": {
+          "docker.image.prefix": "ace",
+          "docker.plugin.version": "0.4.13",
+          "mapper.version": "3.4.0",
+          "maven.compile.source": "1.8",
+          "maven.compile.target": "1.8",
+          "boot.admin.client": "2.4.0"
+        },
+        "modules": [
+          "ace-gate",
+          "ace-api",
+          "ace-infrastructure",
+          "ace-modules",
+          "ace-dev-base"
+        ],
+        "plugins": [
+          "org.apache.maven.plugins:maven-compiler-plugin",
+          "org.apache.maven.plugins:maven-source-plugin",
+          "org.apache.maven.plugins:maven-deploy-plugin"
+        ]
+      }
+    ],
+    "extensions": [],
+    "outcome": "ENV_BLOCKED",
+    "baseline_status": "TIMEOUT",
+    "build_tool": "Maven",
+    "build_root": "ace-modules/ace-admin/pom.xml",
+    "tier_measured": "UNMEASURED",
+    "scenario": "unmodified-resolution",
+    "elapsed_s": 180.25,
+    "selected_scope": "One selected consumer project; additional reactors/controlled projects are separate experiments",
+    "declared_module_count": null,
+    "module_count": 1
+  },
+  "runs.json": [
+    {
+      "label": "baseline",
+      "exit": 124,
+      "elapsed_s": 180.25
+    }
+  ],
+  "sha.command.json": {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "E:\\tmp\\bbg-campaign-137b0026\\clones\\090-wxiaoqi--Spring-Cloud-Platform",
+    "exit": 0,
+    "elapsed_s": 0.093,
+    "timeout_s": 240
+  }
+}

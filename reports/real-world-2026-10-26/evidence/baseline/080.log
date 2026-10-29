@@ -1,0 +1,204 @@
+===== baseline.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----< org.springframework.cloud:kubernetes-leader-election-example >----
+[INFO] Building Spring Cloud Kubernetes :: Examples :: Leader Election 5.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ kubernetes-leader-election-example ---
+[INFO] Effective-POM written to: /work/.bbg/effective.xml
+[INFO]
+[INFO] ----< org.springframework.cloud:kubernetes-leader-election-example >----
+[INFO] Building Spring Cloud Kubernetes :: Examples :: Leader Election 5.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.10.0:tree (default-cli) @ kubernetes-leader-election-example ---
+[INFO] Wrote dependency tree to: /work/.bbg/tree.json
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:05 min
+[INFO] Finished at: 2026-10-25T13:35:26Z
+[INFO] ------------------------------------------------------------------------
+
+===== clone.log =====
+Cloning into 'E:\tmp\bbg-campaign-137b0026\clones\080-spring-cloud--spring-cloud-kubernetes'...
+Updating files:  39% (568/1455)
+Updating files:  40% (582/1455)
+Updating files:  41% (597/1455)
+Updating files:  42% (612/1455)
+Updating files:  43% (626/1455)
+Updating files:  44% (641/1455)
+Updating files:  45% (655/1455)
+Updating files:  46% (670/1455)
+Updating files:  47% (684/1455)
+Updating files:  48% (699/1455)
+Updating files:  49% (713/1455)
+Updating files:  50% (728/1455)
+Updating files:  51% (743/1455)
+Updating files:  52% (757/1455)
+Updating files:  53% (772/1455)
+Updating files:  54% (786/1455)
+Updating files:  55% (801/1455)
+Updating files:  56% (815/1455)
+Updating files:  57% (830/1455)
+Updating files:  58% (844/1455)
+Updating files:  59% (859/1455)
+Updating files:  60% (873/1455)
+Updating files:  61% (888/1455)
+Updating files:  62% (903/1455)
+Updating files:  63% (917/1455)
+Updating files:  64% (932/1455)
+Updating files:  65% (946/1455)
+Updating files:  66% (961/1455)
+Updating files:  67% (975/1455)
+Updating files:  68% (990/1455)
+Updating files:  69% (1004/1455)
+Updating files:  70% (1019/1455)
+Updating files:  71% (1034/1455)
+Updating files:  72% (1048/1455)
+Updating files:  73% (1063/1455)
+Updating files:  74% (1077/1455)
+Updating files:  75% (1092/1455)
+Updating files:  76% (1106/1455)
+Updating files:  77% (1121/1455)
+Updating files:  78% (1135/1455)
+Updating files:  79% (1150/1455)
+Updating files:  80% (1164/1455)
+Updating files:  81% (1179/1455)
+Updating files:  82% (1194/1455)
+Updating files:  83% (1208/1455)
+Updating files:  84% (1223/1455)
+Updating files:  85% (1237/1455)
+Updating files:  86% (1252/1455)
+Updating files:  87% (1266/1455)
+Updating files:  88% (1281/1455)
+Updating files:  89% (1295/1455)
+Updating files:  90% (1310/1455)
+Updating files:  91% (1325/1455)
+Updating files:  92% (1339/1455)
+Updating files:  92% (1341/1455)
+Updating files:  93% (1354/1455)
+Updating files:  94% (1368/1455)
+Updating files:  95% (1383/1455)
+Updating files:  96% (1397/1455)
+Updating files:  97% (1412/1455)
+Updating files:  98% (1426/1455)
+Updating files:  99% (1441/1455)
+Updating files: 100% (1455/1455)
+Updating files: 100% (1455/1455), done.
+
+===== original-strict.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----< org.springframework.cloud:kubernetes-leader-election-example >----
+[INFO] Building Spring Cloud Kubernetes :: Examples :: Leader Election 5.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ kubernetes-leader-election-example ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.2.0-SNAPSHOT
+DRIFT org.springframework.boot:spring-boot expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-actuator expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-actuator-autoconfigure expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-autoconfigure expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-health expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-http-converter expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-jackson expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-micrometer-metrics expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-micrometer-observation expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-servlet expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-starter expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-starter-actuator expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+DRIFT org.springframework.boot:spring-boot-starter-jackson expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-starter-json expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-starter-logging expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-starter-micrometer-metrics expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-starter-test expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+DRIFT org.springframework.boot:spring-boot-starter-tomcat expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-starter-tomcat-runtime expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-starter-web expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+DRIFT org.springframework.boot:spring-boot-test expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-test-autoconfigure expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-tomcat expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-web-server expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-webmvc expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+WARN checked=103 drift=25 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.731 s
+[INFO] Finished at: 2026-10-25T13:36:12Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check (default-cli) on project kubernetes-leader-election-example: boot-bom-guard policy failed: drift or incomplete analysis -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+===== original-warning.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----< org.springframework.cloud:kubernetes-leader-election-example >----
+[INFO] Building Spring Cloud Kubernetes :: Examples :: Leader Election 5.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- boot-bom-guard:0.1.0-SNAPSHOT:check (default-cli) @ kubernetes-leader-election-example ---
+[WARNING] boot-bom-guard BOM=org.springframework.boot:spring-boot-dependencies:4.2.0-SNAPSHOT
+DRIFT org.springframework.boot:spring-boot expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-actuator expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-actuator-autoconfigure expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-autoconfigure expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-health expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-http-converter expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-jackson expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-micrometer-metrics expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-micrometer-observation expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-servlet expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-starter expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-starter-actuator expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+DRIFT org.springframework.boot:spring-boot-starter-jackson expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-starter-json expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-starter-logging expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-starter-micrometer-metrics expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-starter-test expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+DRIFT org.springframework.boot:spring-boot-starter-tomcat expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-starter-tomcat-runtime expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-starter-web expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=DIRECT_OVERRIDE evidence=direct dependency selected by Maven; managed=false; path=direct
+DRIFT org.springframework.boot:spring-boot-test expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-test-autoconfigure expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-tomcat expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-web-server expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+DRIFT org.springframework.boot:spring-boot-webmvc expected=4.2.0-SNAPSHOT resolved=4.2.0-20261023.172449-288 classification=TRANSITIVE_DRIFT evidence=transitive dependency selected by Maven mediation; managed=true; path=transitive
+WARN checked=103 drift=25 unknown=0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  30.619 s
+[INFO] Finished at: 2026-10-25T13:36:02Z
+[INFO] ------------------------------------------------------------------------
+
+===== pristine-bom.log =====
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ---------< org.springframework.boot:spring-boot-dependencies >----------
+[INFO] Building spring-boot-dependencies 4.2.0-SNAPSHOT
+[INFO]   from spring-boot-dependencies-4.2.0-SNAPSHOT.pom
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO]
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ spring-boot-dependencies ---
+[INFO] Effective-POM written to: /work/.bbg/pristine.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.404 s
+[INFO] Finished at: 2026-10-25T13:39:30Z
+[INFO] ------------------------------------------------------------------------
+
+===== sha.log =====
+5d653390555abbef31abeb2c0e3d36d955dc2e6f
