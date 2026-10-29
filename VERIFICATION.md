@@ -1,6 +1,22 @@
 # Verification
 
-## Adversarial follow-up, 2026-10-29
+## Coverage-gap closure, 2026-10-29
+
+This follow-up fixes five additional reproduced defects: Maven adapter stack overflow and shared-node origin, Gradle local-file false passes, fully erased BOM-constraint false passes, and exact preferred-only constraints incorrectly reported as unsupported. Incoming Gradle graph edges are indexed once. See [ADVERSARIAL-AUDIT.md](ADVERSARIAL-AUDIT.md) for before/fix/regression evidence and explicit remaining contracts.
+
+Fresh Windows/JDK 21.0.11 verification: **89 distinct tests** (12 core, 3 Maven adapter, 31 native Maven integration, 43 Gradle TestKit). Full Maven install/unit/integration suites pass separately with **3.9.16, 3.10.0 and 4.0.0-rc-7**; Maven 4 is preview compatibility for that exact release candidate. Gradle **8.14.3 and 9.8.2** each pass full forced `check` reruns, including plugin validation. Tests have zero failures/errors/skips in final runs. New regressions account for 13 tests beyond the previous 76-test pass.
+
+Bounded probes now cover native Gradle resolution of 2,048 managed modules (2,050 components, a 128-module chain, broad fan-out and a diamond), native Maven four-module parallel execution with `-T2 --fail-at-end`, loopback Basic Auth / Maven settings mirrors, library metadata and init-script rules, and safe configuration-cache discard with strict enforcement. The separate Maven depth test constructs 20,000 real Resolver nodes and invokes only the adapter traversal; it is not a native Resolver load claim. Synthetic repository fixtures publish checksums rather than disabling Maven 4 checksum validation.
+
+Clean-cache installation with external Maven, Groovy and Kotlin consumers passes 15 checked commands using Maven 3.9.16 and both Gradle versions. Source/plugin/JUnit artifacts are consumed from fresh caches; the external Gradle consumers use composite builds, not TestKit injection. Evidence is retained under ignored `build/adversarial/` and `build/install-smoke-*`.
+
+The five pinned Spring Cloud consumers, minimal Boot starter and stable Spring guide were replayed using the current plugin in a new copied Docker volume `bbg-gaps-m2-20261029`. Native graphs match historical trees, source SHAs/tracked files are unchanged, and native-tree/BOM oracles match warning/strict/repeat reports. All 202 historical false findings remain absent across the five Cloud projects' 792 comparable coordinates, while all three real Gateway drifts remain. The starter checks 21 coordinates and the guide 75. Raw scripts/results are in ignored `build/gaps-replay/`. The full 100-candidate campaign and every enterprise reactor were not rerun.
+
+CI now has five jobs per event: Ubuntu Maven 3.9.16 with Gradle 8.14.3/9.8.2, macOS 15 with Maven 3.9.16/Gradle 8.14.3 (all including clean-cache consumers), plus separate Ubuntu Maven 3.10.0 and 4.0.0-rc-7 source-install/integration jobs. Actions and distributions are pinned, checksums verified, permissions read-only. Persisted [PR checks](https://github.com/sunJirapath/boot-bom-guard/pull/8/checks) determine hosted status for the actual head; workflow configuration alone is not success evidence.
+
+Remaining boundaries are deliberate and documented: shared project/settings BOM metadata rules can partially rewrite the baseline; configuration-cache reuse/Gradle 10, non-JVM platform targets and arbitrary local binaries are unsupported; native Basic Auth/mirrors do not establish corporate TLS/SSO/proxy compatibility; no unlimited scale or runtime/security compatibility guarantee follows from version equality. The source-install snapshot remains unpublished.
+
+## Earlier adversarial pass (067166c), 2026-10-29
 
 The [adversarial audit](ADVERSARIAL-AUDIT.md) records four reproduced false-pass defects, their fixes and the remaining coverage boundaries. It adds native Maven relocation/type/classifier/system/range probes and Gradle composite, incomplete-baseline, rich-constraint, selection-rule, project-substitution and transitive-platform probes.
 
@@ -8,7 +24,7 @@ Fresh Windows/JDK 21.0.11/Maven 3.9.16 checks passed: Maven offline install (12 
 
 Fresh empty-cache source-install/external-consumer verification passed **15 commands** across Maven and both Gradle versions, including Groovy and Kotlin DSL. Evidence is in ignored `build/adversarial/` and `build/install-smoke-fbjy_j6u/`. The final commit is submitted to the same hosted CI matrix; its persisted check status is authoritative. The earlier real-project replays were not repeated for this change.
 
-## P1-P2 readiness follow-up, 2026-10-29
+## Historical P1-P2 readiness follow-up, 2026-10-29
 
 This follow-up builds on PR #6 at `4ba376a1212f0305ec8fa6fd19f9a6272fe4ae47`. The changes below were freshly checked on Windows with JDK 21.0.11 and Maven 3.9.16. Earlier campaign/online results in the following sections remain historical unless explicitly rerun here.
 
@@ -119,7 +135,7 @@ Three bounded smaller-model agents handled repository exploration, test-gap anal
 | Cached/offline Maven and Gradle integration suites | Passed, no skipped tests; exact run scope recorded below |
 | Hosted Ubuntu 24.04 CI | Passed for both push and PR events on `8564065`; Java 21, Maven 3.9.16 and Gradle 8.14.3 |
 
-The matrix uses the real published Spring Boot 4.0.0 BOM, its imported BOMs and resolved library metadata/artifacts. BOM-selection cases also use Boot 4.0.1 and 4.1.0. No mocked dependency graphs satisfy any matrix row.
+The matrix uses the real published Spring Boot 4.0.0 BOM, its imported BOMs and resolved library metadata/artifacts. BOM-selection cases also use Boot 4.0.1 and 4.1.0. These historical integration rows use native resolution. The later traversal-only adapter unit tests are identified separately above.
 
 | Required case | Maven | Gradle |
 | --- | --- | --- |
@@ -194,7 +210,9 @@ The Maven integration suite separately asserts Maven's nonzero CI exit. Both int
 
 The last two links point to generated, ignored local artifacts and are recreated by the verification commands.
 
-## Limits and unverified cases
+## Historical PR #3 limits and unverified cases
+
+The following limits describe the PR #3 revision, not the current head. Reactor, cold-cache, additional Maven and CI coverage have since expanded as recorded above.
 
 ### CI and badges
 

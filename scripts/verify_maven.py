@@ -1,10 +1,13 @@
 """Real Maven resolution checks. Run `mvn install` first; --offline reuses Maven's cache."""
+import base64
 import hashlib
+import http.server
 import pathlib
 import shutil
 import subprocess
 import sys
 import tempfile
+import threading
 import unittest
 import uuid
 import zipfile
@@ -243,6 +246,9 @@ class MavenSnapshotIntegrationTest(unittest.TestCase):
         managed = dependency("direct", "1.0-SNAPSHOT") + dependency("transitive", "1.0-SNAPSHOT") + dependency("release", "1.0") + dependency("legacy", "1.0") + "".join(dependency("typed", "1.0", variant) for variant in variants)
         publish("org.springframework.boot", "spring-boot-dependencies", cls.bom,
                 dependencies='<dependencyManagement><dependencies>' + managed + '</dependencies></dependencyManagement>', packaging="pom")
+        for file in list(cls.repository.rglob("*")):
+            if file.is_file():
+                file.with_name(file.name + ".sha1").write_text(hashlib.sha1(file.read_bytes()).hexdigest(), encoding="ascii")
         profiles = []
         for name, artifact, version, management in [("older", "direct", cls.old, False),
                                                     ("latest", "direct", cls.current, False),
@@ -344,11 +350,120 @@ class MavenSnapshotIntegrationTest(unittest.TestCase):
         self.assertIn(f"DRIFT {self.group}:release expected=1.0 resolved=2.0", out)
         self.guard("range", strict=True, expected_exit=1)
 
+    def test_parallel_reactor_checks_each_module_and_fails_only_real_drift(self):
+        reactor = self.directory / "reactor"
+        reactor.mkdir()
+        parent = "boundary-reactor-" + uuid.uuid4().hex
+        plugin = '<groupId>io.github.bootbomguard</groupId><artifactId>boot-bom-guard-maven-plugin</artifactId><version>0.1.0-SNAPSHOT</version>'
+        (reactor / "pom.xml").write_text(
+            '<project><modelVersion>4.0.0</modelVersion><groupId>guard.fixture</groupId><artifactId>' + parent + '</artifactId><version>1</version><packaging>pom</packaging>'
+            '<modules><module>aligned</module><module>drift</module><module>allowed</module></modules>'
+            '<repositories><repository><id>bbg-frozen-snapshots</id><url>' + self.repository.as_uri() + '</url></repository></repositories>'
+            '<dependencyManagement><dependencies><dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-dependencies</artifactId><version>' + self.bom + '</version><type>pom</type><scope>import</scope></dependency></dependencies></dependencyManagement>'
+            '<build><plugins><plugin>' + plugin + '</plugin></plugins></build></project>', encoding="utf-8")
+        for name, version in [("aligned", "1.0"), ("drift", "2.0"), ("allowed", "2.0")]:
+            module = reactor / name
+            module.mkdir()
+            exception = ('<build><plugins><plugin>' + plugin + '<configuration><exceptions><exception><dependency>' + self.group + ':release</dependency><reason>Reviewed reactor override</reason></exception></exceptions></configuration></plugin></plugins></build>') if name == "allowed" else ""
+            (module / "pom.xml").write_text(
+                '<project><modelVersion>4.0.0</modelVersion><parent><groupId>guard.fixture</groupId><artifactId>' + parent + '</artifactId><version>1</version></parent><artifactId>' + name + '</artifactId><packaging>pom</packaging>'
+                '<dependencies><dependency><groupId>' + self.group + '</groupId><artifactId>release</artifactId><version>' + version + '</version></dependency></dependencies>' + exception + '</project>', encoding="utf-8")
+        def run(goal, strict=False):
+            args = [MAVEN, "-B", "-ntp", "--offline", "-T2", "--fail-at-end", "-f", str(reactor / "pom.xml"), goal]
+            if strict:
+                args.append("-DbootBomGuard.failOnDrift=true")
+            return subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace", timeout=180)
+        native = run("org.apache.maven.plugins:maven-dependency-plugin:3.10.0:tree")
+        self.assertEqual(0, native.returncode, native.stdout)
+        self.assertIn(self.group + ":release:jar:1.0:compile", native.stdout)
+        self.assertIn(self.group + ":release:jar:2.0:compile", native.stdout)
+        goal = "io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check"
+        warning = run(goal)
+        self.assertEqual(0, warning.returncode, warning.stdout)
+        self.assertEqual(4, warning.stdout.count("boot-bom-guard BOM="), warning.stdout)
+        self.assertIn("PASS checked=1 drift=0 unknown=0", warning.stdout)
+        self.assertIn("WARN checked=1 drift=1 unknown=0", warning.stdout)
+        self.assertIn("PASS checked=1 drift=1 unknown=0", warning.stdout)
+        self.assertNotIn("UNKNOWN ", warning.stdout)
+        strict = run(goal, strict=True)
+        self.assertEqual(1, strict.returncode, strict.stdout)
+        self.assertEqual(4, strict.stdout.count("boot-bom-guard BOM="), strict.stdout)
+        self.assertIn("policy failed", strict.stdout)
+        self.assertIn("PASS checked=1 drift=1 unknown=0", strict.stdout)
+
     def test_mixed_graph_reports_only_genuine_release_drift(self):
         out = self.guard("mixed")
         self.assertIn(f"DRIFT {self.group}:release expected=1.0 resolved=2.0 classification=DIRECT_OVERRIDE", out)
         self.assertIn("WARN checked=3 drift=1 unknown=0", out)
         self.guard("mixed", strict=True, expected_exit=1)
+
+
+class MavenTransportIntegrationTest(unittest.TestCase):
+    def test_native_mirror_and_basic_auth_keep_the_same_bom_policy(self):
+        with tempfile.TemporaryDirectory(prefix="bbg-mirror-") as temporary:
+            root = pathlib.Path(temporary)
+            repository = root / "repository"
+            identity = uuid.uuid4().hex
+            group = "guard.transport." + identity
+            version = "4.0.0-mirror-" + identity
+            def dependency(selected):
+                return '<dependency><groupId>' + group + '</groupId><artifactId>library</artifactId><version>' + selected + '</version></dependency>'
+            def publish(g, name, v, body):
+                folder = repository / g.replace(".", "/") / name / v
+                folder.mkdir(parents=True)
+                (folder / (name + "-" + v + ".pom")).write_text('<project><modelVersion>4.0.0</modelVersion><groupId>' + g + '</groupId><artifactId>' + name + '</artifactId><version>' + v + '</version>' + body + '</project>', encoding="utf-8")
+                with zipfile.ZipFile(folder / (name + "-" + v + ".jar"), "w"):
+                    pass
+            publish("org.springframework.boot", "spring-boot-dependencies", version,
+                    '<packaging>pom</packaging><dependencyManagement><dependencies>' + dependency("1") + '</dependencies></dependencyManagement>')
+            for selected in ["1", "2"]:
+                publish(group, "library", selected, "")
+            for file in list(repository.rglob("*")):
+                if file.is_file():
+                    file.with_name(file.name + ".sha1").write_text(hashlib.sha1(file.read_bytes()).hexdigest(), encoding="ascii")
+            hits = []
+            expected_auth = "Basic " + base64.b64encode(b"fixture-user:fixture-password").decode("ascii")
+            class Handler(http.server.SimpleHTTPRequestHandler):
+                def __init__(self, *args, **kwargs):
+                    super().__init__(*args, directory=str(repository), **kwargs)
+                def do_GET(self):
+                    if self.headers.get("Authorization") != expected_auth:
+                        self.send_response(401)
+                        self.send_header("WWW-Authenticate", 'Basic realm="fixture"')
+                        self.end_headers()
+                        return
+                    hits.append(self.path)
+                    super().do_GET()
+                def log_message(self, *args):
+                    pass
+            server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Handler)
+            thread = threading.Thread(target=server.serve_forever, daemon=True)
+            thread.start()
+            try:
+                (root / "settings.xml").write_text('<settings><mirrors><mirror><id>authenticated-fixture</id><mirrorOf>original-fixture</mirrorOf><url>http://127.0.0.1:' + str(server.server_port) + '/</url></mirror></mirrors><servers><server><id>authenticated-fixture</id><username>fixture-user</username><password>fixture-password</password></server></servers></settings>', encoding="utf-8")
+                (root / "pom.xml").write_text('<project><modelVersion>4.0.0</modelVersion><groupId>guard.fixture</groupId><artifactId>transport-consumer</artifactId><version>1</version>'
+                    '<repositories><repository><id>original-fixture</id><url>https://unused.invalid/mirror-required</url></repository></repositories>'
+                    '<dependencyManagement><dependencies><dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-dependencies</artifactId><version>' + version + '</version><type>pom</type><scope>import</scope></dependency></dependencies></dependencyManagement><dependencies>' + dependency("2") + '</dependencies></project>', encoding="utf-8")
+                def run(goal, strict=False, offline=False):
+                    args = [MAVEN, "-B", "-ntp", "-s", str(root / "settings.xml"), "-f", str(root / "pom.xml"), goal]
+                    if strict: args.append("-DbootBomGuard.failOnDrift=true")
+                    if offline: args.append("--offline")
+                    return subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace", timeout=180)
+                native = run("org.apache.maven.plugins:maven-dependency-plugin:3.10.0:resolve")
+                self.assertEqual(0, native.returncode, native.stdout)
+                self.assertTrue(hits, "Native Maven did not reach authenticated mirror")
+                self.assertIn(group + ":library:jar:2:compile", native.stdout)
+                goal = "io.github.bootbomguard:boot-bom-guard-maven-plugin:0.1.0-SNAPSHOT:check"
+                for strict in [False, True]:
+                    result = run(goal, strict=strict, offline=OFFLINE)
+                    self.assertEqual(int(strict), result.returncode, result.stdout)
+                    self.assertIn("DRIFT " + group + ":library expected=1 resolved=2", result.stdout)
+                    self.assertIn("WARN checked=1 drift=1 unknown=0", result.stdout)
+                    self.assertNotIn("fixture-password", result.stdout)
+            finally:
+                server.shutdown()
+                server.server_close()
+                thread.join(timeout=5)
 
 
 if __name__ == "__main__":

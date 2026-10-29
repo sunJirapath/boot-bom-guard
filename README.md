@@ -24,8 +24,9 @@ optional CI failure · Maven, Gradle Groovy DSL and Gradle Kotlin DSL.
 Current version: **0.1.0-SNAPSHOT**, available from this source checkout only. Nothing has been published to
 Maven Central or the Gradle Plugin Portal.
 
-**Supported and tested:** JDK 21, Maven 3.9.16, Gradle 8.14.3 and 9.8.2, Spring Boot 4. The wrapper pins Gradle
-8.14.3 with a distribution checksum. Maven requires 3.9.16 or newer; unlisted versions are unverified.
+**Supported and tested:** JDK 21, Maven 3.9.16 / 3.10.0, Gradle 8.14.3 / 9.8.2, Spring Boot 4. The wrapper pins Gradle
+8.14.3 with a distribution checksum. Maven requires 3.9.16 or newer; unlisted versions are unverified. Maven
+4.0.0-rc-7 also passes the full Maven suite as preview compatibility, without a stable Maven 4 support guarantee.
 See [VERIFICATION.md](VERIFICATION.md) for exact commands and test coverage.
 
 Build and install the Maven plugin and its core dependency from the repository root:
@@ -110,7 +111,7 @@ For comparable Maven snapshots, Resolver translates BOM and effective managed ve
 
 When a project effectively combines managed entries sourced from multiple Boot BOM versions, analysis reports `UNKNOWN` rather than choosing one. If effective source locations are unavailable, BOM identification is unsupported and reports unknown. Maven may itself reject an invalid effective project before any goal can execute.
 
-Maven dependency relocations report `UNKNOWN` because renamed coordinates cannot be compared reliably against the original BOM entry; strict mode fails.
+Maven dependency relocations report `UNKNOWN` because renamed coordinates cannot be compared reliably against the original BOM entry; strict mode fails. Reactor execution checks each module independently and supports parallel `-T` execution; it does not produce an aggregated reactor report. The adapter walks graphs iteratively and retains shortest direct paths for shared nodes.
 
 ### Gradle — Groovy DSL
 
@@ -186,9 +187,9 @@ The task is registered lazily and resolves graphs during task execution. Apply i
 
 Gradle's selected Boot platform version is authoritative. Multiple requested versions can resolve to one selected version; the report records the requests and selected platform categories. A regular `platform` recommends versions and permits other dependencies/constraints to select a higher version. `enforcedPlatform` forces platform versions and can align an otherwise overriding request. Conflicting strict requirements can leave the graph unresolved; this is incomplete analysis, never an aligned pass.
 
-The baseline is a separate Gradle configuration containing the exact selected Boot platform plus versionless, non-transitive requests for actual library modules. Gradle resolves the platform's imported constraints. Library transitive requests, source configuration forces and source constraints cannot contaminate that baseline. Versions are module-level in Gradle; Maven's type/classifier management semantics are not imposed on it.
+The baseline is a separate Gradle configuration containing the exact selected Boot platform plus versionless, non-transitive requests for actual library modules. Gradle resolves the platform's imported constraints. Library transitive requests, source configuration forces and source constraints are excluded from that baseline. Project/settings-wide component metadata rules still apply: do not rewrite the Boot BOM or its imported BOMs when using this policy gate; partial rewrites can change expected versions. A detached configuration is not an independent metadata environment. Versions are module-level in Gradle; Maven's type/classifier management semantics are not imposed on it.
 
-MVP boundaries: native platforms only (including a platform brought in transitively), external JVM modules and exact BOM versions/constraints. Spring's separate `io.spring.dependency-management` DSL without a native Boot platform is unsupported and reports missing BOM. Dependency substitutions report `UNKNOWN`. The isolated baseline disables global composite-build substitutions and must resolve the selected Boot platform and its nested platforms; missing baseline metadata cannot produce an aligned pass. Arbitrary component-metadata rewriting plugins are outside the supported contract. Configuration cache and Gradle 10 are unsupported: execution-time native Project access is deprecated for removal in Gradle 10. Configuration remains lazy and no application compilation is required.
+MVP boundaries: native platforms only (including a platform brought in transitively), external JVM modules and exact BOM versions/constraints. Spring's separate `io.spring.dependency-management` DSL without a native Boot platform is unsupported and reports missing BOM. Dependency substitutions report `UNKNOWN`. The isolated baseline disables global composite-build substitutions and must resolve the selected Boot platform and its nested platforms; missing baseline metadata or removal of every managed constraint reports incomplete analysis. Exact preferred-only constraints are supported. Local file dependencies declared/inherited on an inspected configuration report `UNKNOWN` because they have no comparable module identity. Checks apply per JVM project; they do not audit every transitive project’s local files. Arbitrary BOM metadata rewriting remains outside the supported contract. Configuration-cache reuse is unsupported; requesting `--configuration-cache` safely discards the incompatible entry and still executes warning/strict policy on both tested versions. Gradle 10 is unsupported: execution-time native Project access is deprecated for removal in Gradle 10. Configuration remains lazy and no application compilation is required.
 
 ### Modules
 
@@ -241,9 +242,9 @@ python scripts/verify_install.py --gradle /path/to/gradle-8.14.3/bin/gradle --gr
 
 This downloads dependencies into fresh Maven/Gradle caches, copies the consumer fixtures to an OS temporary directory outside the checkout, and checks aligned, warning, strict-failure and reasoned-exception scenarios. Kotlin DSL covers a strict allowed exception; Groovy DSL and Maven cover all four policies. Logs and caches are retained under ignored `build/install-smoke-*`; the command prints the consumer directory.
 
-The suites exercise real Spring Boot 4 dependency resolution, not mocked graphs. Gradle uses TestKit's plugin
-classpath; consumer examples use a composite build. The completed verification has 12 core tests, 29 Maven
-integration tests and 35 Gradle integration tests; see [VERIFICATION.md](VERIFICATION.md) and the [adversarial audit](ADVERSARIAL-AUDIT.md).
+The integration suites exercise real Spring Boot 4 dependency resolution and frozen synthetic metadata. A separate Maven adapter unit suite uses native Resolver node objects to test traversal limits without publishing 20,000 artifacts. Gradle uses TestKit's plugin
+classpath; consumer examples use a composite build. The completed verification has 12 core tests, 3 Maven adapter tests, 31 Maven
+integration tests and 43 Gradle integration tests (89 distinct); see [VERIFICATION.md](VERIFICATION.md) and the [adversarial audit](ADVERSARIAL-AUDIT.md).
 
 After the first resolution, test with cached remote dependencies:
 
@@ -252,11 +253,11 @@ python scripts/verify_maven.py --offline
 ./gradlew --offline check -PtestOffline=true
 ```
 
-The Maven snapshot regressions generate a frozen local file repository and prime it through native resolution in online Resolver mode, including when `--offline` is set. The guard invocations then honor `--offline`; the dependency plugin must already be cached to run without network access. No mutable public snapshots are used by these regressions.
+The Maven snapshot regressions generate a frozen local file repository and prime it through native resolution in online Resolver mode, including when `--offline` is set. The guard invocations then honor `--offline`; the dependency plugin must already be cached to run without network access. No mutable public snapshots are used by these regressions. Repository-authentication tests use loopback HTTP and dummy credentials; the Gradle transport probe intentionally runs online even when TestKit offline mode is requested.
 
 `-PtestOffline=true` also passes `--offline` to the nested TestKit builds. A new machine needs the Gradle
 distribution and dependencies cached first. The [CI workflow](.github/workflows/ci.yml) runs the full Maven and Gradle suites
-on Ubuntu with Java 21, Maven 3.9.16 and a Gradle 8.14.3 / 9.8.2 matrix. Each matrix job also checks a source install with empty caches and external Maven/Groovy/Kotlin consumers. Pull requests run the same checks; the README
+on Ubuntu with Java 21, Maven 3.9.16 and a Gradle 8.14.3 / 9.8.2 matrix, plus macOS 15 with Gradle 8.14.3. Each of these jobs also checks a source install with empty caches and external Maven/Groovy/Kotlin consumers. Separate Ubuntu jobs run the full Maven suites with 3.10.0 and preview 4.0.0-rc-7. Pull requests run the same checks; the README
 status badge follows `main` and shows its result after the workflow is merged and runs there.
 Coverage and license badges are omitted: no coverage service or license file is configured.
 
@@ -272,7 +273,7 @@ and remaining limitations are in [VERIFICATION.md](VERIFICATION.md).
 ### ติดตั้ง
 
 เวอร์ชันปัจจุบัน **0.1.0-SNAPSHOT** ต้อง build จาก source ยังไม่ได้เผยแพร่บน Maven Central หรือ Gradle Plugin Portal
-ใช้ JDK 21 และ Maven 3.9.16 ขึ้นไป ส่วน Gradle ทดสอบแล้วบน 8.14.3 และ 9.8.2
+ใช้ JDK 21 ทดสอบ Maven 3.9.16 / 3.10.0 และ Gradle 8.14.3 / 9.8.2 แล้ว ส่วน Maven 4.0.0-rc-7 ผ่านชุดทดสอบในฐานะ preview เท่านั้น
 
 รันจากโฟลเดอร์ repository เพื่อติดตั้ง Maven plugin และ core ลง local repository:
 
@@ -311,7 +312,8 @@ mvn boot-bom-guard:check
 ### ข้อจำกัด
 
 Gradle รองรับ native `platform` และ `enforcedPlatform` โดยแยกความหมายของทั้งสองแบบ ไม่เดาที่มาของ constraint
-เมื่อไม่มีหลักฐานเพียงพอ ยังไม่รองรับ configuration cache และ Gradle 10 ทดสอบแล้วบน Windows และ Ubuntu 24.04 ส่วน Maven 4 และ macOS ยังไม่ได้ทดสอบ
+เมื่อไม่มีหลักฐานเพียงพอ ยังไม่รองรับ configuration-cache reuse และ Gradle 10 แต่ทดสอบแล้วว่าการขอ configuration cache ยังรันการตรวจและ strict policy โดย discard cache ที่ใช้ไม่ได้ CI ครอบคลุม Ubuntu และเพิ่ม macOS 15 ตาม matrix ข้างต้น
+ห้าม rewrite metadata ของ Boot BOM หรือ BOM ที่ import หากต้องการ baseline ที่เชื่อถือได้ ส่วน local file dependencies บน configuration ที่ตรวจจะแสดง UNKNOWN
 การ resolve อาจดาวน์โหลดข้อมูลผ่าน repository ที่ build tool ตั้งค่าไว้ ใช้ `--offline` ได้เมื่อมี cache ครบแล้ว
 
 คำสั่งทดสอบอยู่ใน [Build and contribute](#build-and-contribute) และหลักฐานผลทดสอบอยู่ใน [VERIFICATION.md](VERIFICATION.md)

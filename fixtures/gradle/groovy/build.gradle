@@ -125,3 +125,10 @@ if (scenario in ['rich-strict', 'rich-reject', 'bounded-range']) {
         }
     }
 }
+
+if (scenario == 'local-files') dependencies { implementation files('unversioned.jar') }
+if (scenario == 'empty-metadata') {
+    dependencies.components.withModule('org.springframework.boot:spring-boot-dependencies') {
+        allVariants { withDependencyConstraints { removeAll { true } } }
+    }
+}

@@ -1,12 +1,12 @@
 # Adversarial dependency-resolution audit — 2026-10-29
 
-Four reproduced defects could report `PASS` after losing part of the comparison. Each now either detects the real drift or reports incomplete analysis (`UNKNOWN`); strict mode fails. No new runtime dependency or public API was added.
+Nine reproduced defects have been fixed across this audit and its follow-up: four original false passes, two further false passes, a stack overflow, an incorrect origin, and a false incomplete-analysis result. No runtime dependency or public API was added.
 
 This audit targets unusual build semantics beyond a repository corpus. It does not claim that arbitrary build plugins or application libraries are compatible. The previous campaign's **202** figure counts false findings, not 202 independently verified repositories; historical campaign results remain separate in [VERIFICATION.md](VERIFICATION.md).
 
 ## Confirmed defects, in priority order
 
-All four are **P1** for a guard used as a strict dependency-policy gate. The conditions are specific; these are not claims that ordinary aligned builds fail.
+ADV-001 through ADV-004 are **P1** for a guard used as a strict dependency-policy gate. The conditions are specific; these are not claims that ordinary aligned builds fail.
 
 | ID | Trigger and root cause | Before fix | Fix and regression |
 | --- | --- | --- | --- |
@@ -21,9 +21,35 @@ ADV-003/004 use deterministic `afterResolve` callbacks to switch repository view
 
 Maven relocation remains explicitly unsupported for a trustworthy comparison. The fix prevents a false pass; it does not guess a version mapping between renamed artifacts. Even an aligned relocation is incomplete analysis, and an exception cannot suppress that diagnostic.
 
+## Follow-up fixes and closed coverage gaps
+
+The follow-up adds **13 distinct tests** using the existing JUnit/TestKit/Python infrastructure. JUnit is now also a test-scoped dependency of the Maven adapter; runtime dependencies are unchanged.
+
+| ID / priority | Root cause and before-fix evidence | Smallest fix / regression |
+| --- | --- | --- |
+| ADV-005 / P1 | Maven's recursive graph walk throws `StackOverflowError` on a 20,000-node chain of real Resolver `DefaultDependencyNode` objects. | Iterative breadth-first traversal. `CheckMojoTest.deepNativeGraphDoesNotOverflowTheJavaStack`; this tests the adapter, not native publication/resolution of 20,000 artifacts. |
+| ADV-006 / P2 | Depth-first visited-node handling labels a shared direct dependency as transitive when first reached through a bridge. | The same breadth-first traversal retains the shortest root path. `sharedDirectNodeKeepsItsShortestRootPath`; cycle/conflict-loser control also passes. |
+| ADV-007 / P1 | Gradle ignores a local unversioned JAR and reports `PASS checked=1` for the remaining aligned module. | Detect file dependencies declared/inherited by the selected configuration; report `UNKNOWN`, fail strict mode. `localFilesCannotBeClaimedAsFullyChecked`. No guessed module identity or local file-content scan. |
+| ADV-008 / P1 | A component metadata rule removes all Boot BOM constraints. Native platform resolution succeeds but the guard reports `PASS checked=0`. | Require baseline managed constraints; report `UNKNOWN`, fail strict mode. `emptiedBomMetadataCannotProduceAnAlignedPass`. Partial BOM rewrites remain outside the baseline contract below. |
+| ADV-009 / P2 | An exact published `prefers`-only constraint selects a valid expected version, but empty `required`/`strict` fields trigger a spurious `UNKNOWN`. | Fall back to native `preferredVersion` when both stronger fields are empty. Exact `1` versus actual `2` is drift with `unknown=0`; non-exact constraints remain unsupported. `exactPreferredOnlyPublishedConstraintIsComparable`. |
+
+Gradle now indexes incoming edges and library components once, replacing per-component full-edge scans. The collection/indexing stage is linear in graph size; native resolution and sorting still have their own costs. No before/after speedup claim is made.
+
+| Previously documented gap | Fresh bounded evidence |
+| --- | --- |
+| Large/deep/shared graphs | Native Gradle resolution of **2,048 managed modules / 2,050 components**, a 128-module chain plus broad fan-out and a shared diamond leaf; exactly one override remains drift and strict mode fails. Maven adapter separately handles 20,000 nodes, cycles and shortest paths. These are tested sizes, not universal ceilings. |
+| Parallel reactors | Native Maven `-T2 --fail-at-end` root + three child modules: aligned, genuine drift and an allowed override. Native trees, all four warning reports, per-module strict policy and the allowed child are asserted. This is per-module execution, not a new aggregate-report feature. |
+| Init scripts / library metadata | An init-script version rule remains drift without changing the baseline. A library metadata rule injecting a higher transitive request also remains real drift. No claim of support for every third-party plugin. |
+| Authenticated repositories / Maven mirrors | Loopback HTTP Basic Auth with dummy credentials: native Maven settings mirror and Gradle repository resolve real frozen metadata; warning/strict policies hold. Gradle denied access after cache refresh is `UNKNOWN` and strict failure. These tests do not exercise corporate proxy/TLS/SSO stacks. |
+| Configuration cache | Both tested Gradle versions safely discard the incompatible configuration-cache entry, execute the check and enforce strict mode. Cache reuse is unsupported. |
+| Additional Maven versions | Complete source install/unit/integration suites run with **3.9.16, 3.10.0 and 4.0.0-rc-7**. The Maven 4 result is preview compatibility for this exact release candidate, not a stable Maven 4 guarantee. Frozen repositories provide checksums; checksum validation was not disabled. |
+| macOS | Hosted CI now includes the complete Maven/Gradle 8.14.3 suites and empty-cache external consumers on `macos-15`; use persisted PR checks for its result. Ubuntu retains both Gradle versions and adds the two Maven compatibility jobs. |
+
+The auth test deliberately permits HTTP only on loopback. Maven snapshot/file repositories bootstrap through native online Resolver mode even with `--offline`; guard invocations then honor offline mode. Gradle's loopback transport test deliberately runs online even with `-PtestOffline=true`. Tool dependencies must already be cached for other offline checks.
+
 ## Additional coverage
 
-The audit adds **15 distinct tests**: five Maven tests and ten Gradle tests. The four defect regressions are included in that count.
+The first pass added **15 distinct tests**: five Maven tests and ten Gradle tests. The follow-up above adds another 13. The four defect regressions are included in that count.
 
 | Case | Verified behavior |
 | --- | --- |
@@ -47,18 +73,18 @@ An initial range probe depended on mutable/cached repository metadata. It was re
 
 ## Verification
 
-Fresh local verification on Windows, JDK 21.0.11 and Maven 3.9.16:
+Fresh local verification on Windows and JDK 21.0.11:
 
 | Check | Result |
 | --- | --- |
-| Maven offline install / shared core | 12 tests passed |
-| Native Maven integration suite | 29 tests passed |
-| Gradle 8.14.3 full forced task rerun | 12 shared core + 35 TestKit tests passed; plugin validation passed |
-| Gradle 9.8.2 full forced task rerun | 12 shared core + 35 TestKit tests passed; plugin validation passed |
-| Empty-cache source install and external consumers | 15 commands passed, covering Maven and both Gradle versions, Groovy and Kotlin DSL |
-| Distinct tests, shared core counted once | **76 passed, zero failures/skips** |
+| Maven 3.9.16 / 3.10.0 / 4.0.0-rc-7 install | 12 core + 3 adapter tests on each |
+| Native Maven integration suite | 31 tests on each Maven version |
+| Gradle 8.14.3 and 9.8.2 full forced reruns | 12 shared core + 43 TestKit tests and plugin validation on each |
+| Distinct tests, shared core counted once | **89**, zero failures/skips in final runs |
+| Clean-cache source install / external Maven, Groovy, Kotlin consumers | 15 checked commands across Maven 3.9.16 and both Gradle versions |
+| Pinned real-project replays | Five Spring Cloud consumers, minimal Boot starter and stable Spring guide: native graph/oracle equality, warning/strict/repeat checks |
 
-The final commit also runs the hosted CI matrix. Its persisted check status is authoritative for Ubuntu; local results above do not imply a hosted result before those checks complete.
+The five Spring Cloud replays retain **792 comparable coordinates**, remove all **202 historical false findings**, and preserve all three genuine Gateway drifts. The minimal starter checks another 21 coordinates; the stable guide checks 75. This is seven selected consumers, not a rerun of all 100 historical candidates or every reactor module. A separate copied Docker cache receives the current plugin; historical evidence, original caches and source checkouts are unchanged. Scripts, native trees, oracle results and logs are retained under ignored `build/gaps-replay/`.
 
 ```sh
 mvn -B -ntp --offline install
@@ -68,22 +94,23 @@ python scripts/verify_maven.py --offline
 python scripts/verify_install.py --gradle /path/to/gradle-8.14.3/bin/gradle --gradle /path/to/gradle-9.8.2/bin/gradle
 ```
 
-Maven snapshot/file fixtures bootstrap through native online Resolver mode even with the script's `--offline` option; guard invocations then honor offline mode. Previously cached tool dependencies are required. The installation smoke check intentionally starts with empty caches and requires network access. Logs and before-fix evidence are retained under ignored `build/adversarial/`; this installer run is retained in `build/install-smoke-fbjy_j6u/`, with external consumers in the separately printed OS temporary directory.
+Repeat the Maven commands with each pinned Maven on `PATH`. Empty-cache installation requires network access. Local evidence lives under ignored `build/adversarial/` and `build/install-smoke-*`; hosted results belong to the exact head shown in the [PR checks](https://github.com/sunJirapath/boot-bom-guard/pull/8/checks). No hosted success is inferred merely from configuring a workflow.
 
-The historical external-repository campaign and six P1–P2 project replays were **not rerun for this adversarial change**. Their pinned results apply to the revisions stated in VERIFICATION.md, not an implied fresh corpus run here.
+Before-fix regressions were retained before production edits. Two fixture problems were corrected without relaxing production policy: a single-line generated POM exceeded Gradle's native parser mark limit, and Maven 4 rejected synthetic repository files without checksums. The POM is now formatted and fixtures publish checksums. A concurrent local Maven source-build collision was rerun serially; CI jobs already have separate checkouts.
 
-## Remaining boundaries
+## Remaining contract boundaries
 
-| Priority | Boundary | Status / practical consequence |
-| --- | --- | --- |
-| P2 | Arbitrary component-metadata rewriting, init scripts and third-party dependency-management plugins | Not exhaustively tested or supported. They can change native metadata/selection beyond these bounded scenarios; no claim that every such build is understood. |
-| P2 | Very large/deep graphs and full enterprise reactors | No load/depth ceiling established. The retained corpus checks selected modules, not every reactor module or an unrestricted scale guarantee. |
-| P2 | Repository proxies, authentication/mirror combinations and concurrent metadata changes | These tests simulate missing repository views deterministically, not every transport/deployment setup. Native resolution failures remain incomplete analysis. |
-| P2 | Maven 4, Gradle 10 and Gradle configuration cache | Outside the documented supported contract. |
-| P2 | Android/Kotlin Multiplatform/native targets and local file libraries | No new support claim. Gradle comparison is for selected external JVM modules; local files have no comparable module identity. |
-| P2 | Application runtime behavior, bytecode/API compatibility and malicious build plugins | Outside a dependency-version policy check. Matching the BOM does not establish runtime compatibility or sandbox build logic. |
+| Boundary | Current contract / practical consequence |
+| --- | --- |
+| Project/settings-wide rewrites of the Boot BOM or imported BOM metadata | A detached configuration shares the project's metadata rules. Total constraint erasure is detected; partial rewrites can change the baseline. Trust native published BOM metadata and do not rewrite it when using this policy gate. Library metadata rules and init-script selection rules have bounded coverage above. Isolating arbitrary BOM rewrites would require a separate resolution environment, not another detached configuration. |
+| Graph/reactor scale | Tested sizes above are regression cases, not unlimited memory/depth guarantees. Maven's own resolver has separate limits; the 20,000-node test covers only the adapter's walk. Reactor results are per module. |
+| Corporate repository infrastructure | Native mirrors/Basic Auth and failure policy are tested; proxies, custom transports, TLS/SSO and concurrently changing remote metadata are not exhaustively covered. |
+| Gradle configuration-cache reuse / Gradle 10 | Safe fallback is tested on 8.14.3/9.8.2. Execution-time native Project access remains incompatible with reuse and is deprecated for removal in Gradle 10. No Gradle 10 support claim. |
+| Android / Kotlin Multiplatform / native targets | Selected external JVM-module comparison only. File dependencies declared/inherited on the selected configuration produce incomplete analysis; arbitrary local binaries cannot be mapped to BOM coordinates. Apply checks per JVM project; this does not audit every transitive project's local files or platform-specific artifact. |
+| Application/runtime compatibility / malicious build logic | Outside version-policy checking. Matching versions does not prove bytecode compatibility, security or application behavior. Running a build executes its own plugins; this guard is not a sandbox. |
+| Publication | Source-install snapshot only; no Maven Central or Plugin Portal release has been made. |
 
-No additional crash was confirmed in the executed probes. The confirmed failures were misleading successful policy reports. Untested boundaries above are risks to validate when needed, not verified defects.
+These explicit limits are not unverified defects claimed to be fixed. The confirmed stack overflow, origin error and policy-report defects are fixed with regressions.
 
 ## Native API references
 

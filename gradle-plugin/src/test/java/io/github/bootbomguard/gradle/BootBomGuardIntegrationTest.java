@@ -80,6 +80,12 @@ class BootBomGuardIntegrationTest {
             Files.writeString(project.resolve("build.gradle"), "\nrepositories { maven { url = uri('full-baseline') } }\n",
                     java.nio.file.StandardOpenOption.APPEND);
         }
+        if (scenario.equals("local-files")) {
+            try (var jar = new java.util.zip.ZipOutputStream(Files.newOutputStream(directory.resolve("unversioned.jar")))) { jar.finish(); }
+        }
+        if (scenario.equals("init-rule")) {
+            Files.writeString(directory.resolve("selection.init.gradle"), "allprojects { configurations.configureEach { resolutionStrategy.eachDependency { if (requested.group == 'org.slf4j' && requested.name == 'slf4j-api') useVersion '2.0.18' } } }\n");
+        }
         List<String> arguments = new ArrayList<>(List.of(scenario.equals("lazy") ? "help" : "bootBomGuard", "--console=plain", "--stacktrace", "-Pscenario=" + scenario));
         if (Boolean.getBoolean("guard.test.offline")) arguments.add("--offline");
         arguments.addAll(List.of(extra));
@@ -292,4 +298,31 @@ class BootBomGuardIntegrationTest {
         assertTrue(out.contains("PASS checked=1 drift=0 unknown=0"), out);
         assertFalse(out.contains("UNKNOWN"), out);
     }
+    @Test void localFilesCannotBeClaimedAsFullyChecked() throws Exception {
+        String warning = run("groovy", "local-files", false);
+        assertTrue(warning.contains("UNKNOWN Local file dependencies have no comparable module identity"), warning);
+        assertFalse(warning.contains("PASS checked="), warning);
+        assertTrue(run("groovy", "local-files", true, "-PfailOnDrift=true").contains("policy failed"));
+    }
+
+    @Test void emptiedBomMetadataCannotProduceAnAlignedPass() throws Exception {
+        String warning = run("groovy", "empty-metadata", false);
+        assertTrue(warning.contains("UNKNOWN Selected Spring Boot BOM has no comparable managed constraints"), warning);
+        assertFalse(warning.contains("PASS checked="), warning);
+        assertTrue(run("groovy", "empty-metadata", true, "-PfailOnDrift=true").contains("policy failed"));
+    }
+
+    @Test void initScriptVersionRuleDoesNotContaminateBaseline() throws Exception {
+        String out = run("groovy", "init-rule", true, "-I", "selection.init.gradle", "-PfailOnDrift=true");
+        assertTrue(out.contains("expected=2.0.17 resolved=2.0.18 classification=UNKNOWN_ORIGIN"), out);
+        assertTrue(out.contains("rule=true"), out);
+    }
+
+    @Test void configurationCacheFallsBackAndStillEnforcesPolicy() throws Exception {
+        String warning = run("groovy", "direct", false, "--configuration-cache");
+        assertTrue(warning.contains("expected=2.0.17 resolved=2.0.18"), warning);
+        assertTrue(warning.contains("Configuration cache entry discarded"), warning);
+        assertTrue(run("groovy", "direct", true, "--configuration-cache", "-PfailOnDrift=true").contains("policy failed"));
+    }
+
 }
