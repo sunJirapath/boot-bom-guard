@@ -1,5 +1,13 @@
 # Verification
 
+## Round 1 P0 regression, 2026-11-14
+
+Removed the literal Maven `failOnDrift` value from the README so the documented CLI property can enable strict mode.
+Added `test_readme_configuration_honours_strict_property`, which copies the README XML, uses the installed checkout's
+plugin version, removes the optional exception and checks unaccepted drift in warning mode (exit 0) and strict mode
+(exit 1 with a policy failure). The native Maven integration inventory is now 32 test methods.
+No builds or test suites were run for this change; historical execution results below do not verify it.
+
 ## Performance and further stress coverage, 2026-10-29
 
 Shared-core optimizations reuse coordinate validation patterns, index expected versions by hash, sort only drift findings, and avoid formatter allocations during report escaping. Public records, exact-version equality, distinct-resolution counting, ordering, exceptions and strict policy retain their previous behavior. [PERFORMANCE.md](PERFORMANCE.md) records reproducible baseline/working-source timing and allocation measurements; native resolution/startup and peak heap are outside that benchmark.

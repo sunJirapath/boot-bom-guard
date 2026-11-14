@@ -82,7 +82,6 @@ Use a Spring Boot parent or import its BOM. Declare the guard under **build/plug
       <artifactId>boot-bom-guard-maven-plugin</artifactId>
       <version>0.1.0</version>
       <configuration>
-        <failOnDrift>false</failOnDrift>
         <exceptions>
           <exception>
             <dependency>org.slf4j:slf4j-api</dependency>
@@ -100,6 +99,9 @@ mvn boot-bom-guard:check
 mvn boot-bom-guard:check -DbootBomGuard.failOnDrift=true
 mvn --offline boot-bom-guard:check
 ```
+
+`failOnDrift` defaults to `false`. Leave it out of `<configuration>` when using the command-line switch;
+a literal POM value overrides that switch.
 
 Alternatively use the full goal coordinate, without prefix lookup:
 `mvn io.github.sunjirapath.bootbomguard:boot-bom-guard-maven-plugin:0.1.0:check`.

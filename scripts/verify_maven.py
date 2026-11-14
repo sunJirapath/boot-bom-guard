@@ -10,6 +10,7 @@ import tempfile
 import threading
 import unittest
 import uuid
+import xml.etree.ElementTree as ET
 import zipfile
 from contextlib import contextmanager
 
@@ -133,6 +134,39 @@ class MavenIntegrationTest(unittest.TestCase):
 
     def test_ci_failure(self):
         self.assertIn("policy failed", self.run_fixture(profile="direct", fail=True, expected_failure=True))
+
+    def test_readme_configuration_honours_strict_property(self):
+        self.assertIsNotNone(MAVEN, "Maven must be on PATH")
+        snippet = (ROOT / "README.md").read_text(encoding="utf-8").split("### Maven\n", 1)[1]
+        snippet = snippet.split("```xml\n", 1)[1].split("```", 1)[0]
+        project = ET.fromstring('<project><modelVersion>4.0.0</modelVersion>'
+                                '<groupId>fixture</groupId><artifactId>readme</artifactId><version>1</version>'
+                                + snippet + '</project>')
+        plugin = project.find("build/plugins/plugin")
+        # Test the installed checkout, independently of the README's release version.
+        plugin.find("version").text = ET.parse(ROOT / "pom.xml").getroot().findtext(
+            "{http://maven.apache.org/POM/4.0.0}version")
+        configuration = plugin.find("configuration")
+        configuration.remove(configuration.find("exceptions"))
+        dependencies = ET.SubElement(project, "dependencies")
+        dependencies.append(ET.fromstring('<dependency><groupId>org.slf4j</groupId>'
+                                         '<artifactId>slf4j-api</artifactId><version>2.0.18</version></dependency>'))
+        with tempfile.TemporaryDirectory(prefix="bbg-readme-") as directory:
+            pom = pathlib.Path(directory) / "pom.xml"
+            ET.ElementTree(project).write(pom, encoding="utf-8")
+            for strict in (False, True):
+                with self.subTest(strict=strict):
+                    args = [MAVEN, "-B", "-ntp", "-f", str(pom), "boot-bom-guard:check"]
+                    if OFFLINE:
+                        args.append("--offline")
+                    if strict:
+                        args.append("-DbootBomGuard.failOnDrift=true")
+                    result = subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                            text=True, encoding="utf-8", errors="replace", timeout=180)
+                    self.assertEqual(int(strict), result.returncode, result.stdout)
+                    self.assertIn("DRIFT org.slf4j:slf4j-api", result.stdout)
+                    if strict:
+                        self.assertIn("policy failed", result.stdout)
 
     def test_unknown_fails_ci(self):
         self.assertIn("policy failed", self.run_fixture(fixture="missing", fail=True, expected_failure=True))
