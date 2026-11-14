@@ -148,11 +148,11 @@ class MavenIntegrationTest(unittest.TestCase):
         # Warm only the real baseline so a nonexistent dependency fails deterministically without network access.
         self.run_fixture(fail=True)
         out = self.run_fixture(profile="unresolved", extra=("--offline",))
-        self.assertIn("UNKNOWN Maven model/dependency resolution failed (DependencyResolutionException)", out)
+        self.assertIn("UNKNOWN Maven model/dependency resolution failed: DependencyResolutionException:", out)
         self.assertIn("WARN checked=0 drift=0 unknown=1", out)
         self.assertNotIn("PASS checked=", out)
         failure = self.run_fixture(profile="unresolved", fail=True, expected_failure=True, extra=("--offline",))
-        self.assertIn("UNKNOWN Maven model/dependency resolution failed", failure)
+        self.assertIn("UNKNOWN Maven model/dependency resolution failed: ", failure)
         self.assertIn("policy failed", failure)
 
     def test_duplicate_normalized_exception_is_rejected(self):
@@ -171,7 +171,7 @@ class MavenIntegrationTest(unittest.TestCase):
             flags += (f"-Dsnapshot.version={older}",)
             for strict in (False, True):
                 out = self.run_fixture("snapshot", fail=strict, expected_failure=strict, extra=flags)
-                self.assertIn("UNKNOWN Maven model/dependency resolution failed", out)
+                self.assertIn("UNKNOWN Maven model/dependency resolution failed: ", out)
                 self.assertNotIn("DRIFT ", out)
                 self.assertNotIn("PASS checked=", out)
 

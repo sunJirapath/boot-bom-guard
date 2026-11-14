@@ -2,6 +2,7 @@ package io.github.bootbomguard.gradle;
 
 import io.github.bootbomguard.core.Coordinates;
 import io.github.bootbomguard.core.Guard;
+import io.github.bootbomguard.core.Redact;
 import org.gradle.api.DefaultTask;
 import org.gradle.api.GradleException;
 import org.gradle.api.Project;
@@ -50,9 +51,9 @@ public abstract class BootBomGuardTask extends DefaultTask {
             Guard.Report report;
             try { report = inspect(getProject(), name, exceptions, diagnostics); }
             catch (Exception e) {
-                // Resolver messages may contain repository credentials; do not echo them in reports.
-                diagnostics.add("Gradle dependency resolution failed (" + e.getClass().getSimpleName()
-                        + "); inspect Gradle diagnostics and configured repositories/offline cache.");
+                // Resolver messages may contain repository credentials; redact them before reporting.
+                diagnostics.add("Gradle dependency resolution failed: " + Redact.cause(e)
+                        + "; inspect Gradle diagnostics and configured repositories/offline cache.");
                 report = Guard.compare("unknown", Map.of(), List.of(), exceptions, diagnostics);
             }
             getLogger().lifecycle("configuration=" + Guard.safe(name) + "\n" + report.format());

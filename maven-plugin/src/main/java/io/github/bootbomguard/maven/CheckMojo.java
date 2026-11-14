@@ -2,6 +2,7 @@ package io.github.bootbomguard.maven;
 
 import io.github.bootbomguard.core.Coordinates;
 import io.github.bootbomguard.core.Guard;
+import io.github.bootbomguard.core.Redact;
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.model.InputLocation;
@@ -83,9 +84,9 @@ public final class CheckMojo extends AbstractMojo {
                 }
             }
         } catch (Exception e) {
-            // Resolver messages may contain repository credentials; do not echo them in reports.
-            diagnostics.add("Maven model/dependency resolution failed (" + e.getClass().getSimpleName()
-                    + "); inspect Maven diagnostics and configured repositories/offline cache.");
+            // Resolver messages may contain repository credentials; redact them before reporting.
+            diagnostics.add("Maven model/dependency resolution failed: " + Redact.cause(e)
+                    + "; inspect Maven diagnostics and configured repositories/offline cache.");
         }
         Guard.Report report = Guard.compare(bom, expected, actual, allowed, diagnostics);
         if (report.violation()) getLog().warn(report.format()); else getLog().info(report.format());
