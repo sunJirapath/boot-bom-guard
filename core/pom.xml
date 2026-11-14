@@ -6,4 +6,18 @@
   <url>https://github.com/sunJirapath/boot-bom-guard</url>
   <description>Core comparison logic that reports resolved dependency drift from a Spring Boot BOM</description>
   <dependencies><dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><scope>test</scope></dependency></dependencies>
+  <build>
+    <plugins>
+      <!-- coverage: core/target/site/jacoco/jacoco.xml after `mvn verify` -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.13</version>
+        <executions>
+          <execution><id>prepare-agent</id><goals><goal>prepare-agent</goal></goals></execution>
+          <execution><id>report</id><phase>verify</phase><goals><goal>report</goal></goals></execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
