@@ -38,6 +38,19 @@ class GuardTest {
         assertThrows(IllegalArgumentException.class, () -> Coordinates.parse("*:slf4j-api"));
     }
 
+    @Test void exceptionsParseValidEntriesSortedAndRejectEquivalentDuplicates() {
+        Map<Coordinates, String> parsed = exceptions(Map.of("z:z", "reason z", "a:b:test-jar:tests", "reason tests"));
+        assertEquals(List.of("a:b:test-jar:tests", "z:z"), parsed.keySet().stream().map(Coordinates::toString).toList());
+        assertEquals("reason z", parsed.get(Coordinates.parse("z:z")));
+        assertTrue(exceptions(Map.of()).isEmpty());
+        Map<String, String> duplicate = new LinkedHashMap<>();
+        duplicate.put("g:a", "one");
+        duplicate.put("g:a:jar:", "two");
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> exceptions(duplicate));
+        assertTrue(ex.getMessage().contains("Duplicate exception: g:a"));
+        assertThrows(IllegalArgumentException.class, () -> exceptions(Collections.singletonMap("g:a", null)));
+    }
+
     @Test void formattingIsDeterministicAndEscapesUntrustedControlCharacters() {
         Coordinates other = Coordinates.parse("a:b");
         Resolved first = new Resolved(other, "2", Origin.UNKNOWN_ORIGIN, "rule\nPASS\u001b[0m");
