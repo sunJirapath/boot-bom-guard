@@ -32,6 +32,28 @@ class RedactTest {
         }
     }
 
+    @Test void redactsBasicAuthorizationAndQuotedSecrets() {
+        String cause = Redact.cause(new RuntimeException(
+                "Authorization: Basic dXNlcjpwYXNz password=\"alpha beta\" token='gamma delta' {\"secret\":\"epsilon zeta\"}"));
+        for (String secret : new String[]{"dXNlcjpwYXNz", "alpha", "beta", "gamma", "delta", "epsilon", "zeta"})
+            assertFalse(cause.contains(secret), cause);
+        for (String key : new String[]{"Authorization", "password", "token", "secret"})
+            assertTrue(cause.contains(key + "=***"), cause);
+    }
+
+    @Test void redactsEscapedAndUnterminatedQuotedSecrets() {
+        for (String message : new String[]{
+                "password=\"alpha \\\"beta\\\" gamma\"",
+                "password='alpha \\'beta\\' gamma'",
+                "password=\"alpha beta",
+                "password='alpha beta\\"}) {
+            String cause = Redact.cause(new RuntimeException(message));
+            assertTrue(cause.contains("password=***"), cause);
+            for (String secret : new String[]{"alpha", "beta", "gamma"})
+                assertFalse(cause.contains(secret), cause);
+        }
+    }
+
     @Test void truncatesSanitizedMessagesAtThreeHundredCharacters() {
         String cause = Redact.cause(new IllegalArgumentException("x".repeat(301)));
         String message = cause.substring(cause.indexOf(": ") + 2);

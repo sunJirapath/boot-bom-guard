@@ -21,15 +21,18 @@ optional CI failure · Maven, Gradle Groovy DSL and Gradle Kotlin DSL.
 
 ### Install
 
-Current version: **0.1.0**, available from Maven Central (`io.github.sunjirapath.bootbomguard`). The Gradle
-plugin is not published yet and still builds from this source checkout only.
+This checkout builds **0.1.1-SNAPSHOT** (`io.github.sunjirapath.bootbomguard`). The Maven examples below
+use that source-installed version. To use a released artifact instead, first verify its availability in Maven
+Central and use its version in both the plugin declaration and full goal coordinate. Remote publication is not
+verified by these source-install instructions; a Git tag or release profile alone does not establish it.
+The Gradle examples use a local source composite build; they do not rely on Plugin Portal publication.
 
 **Supported and tested:** JDK 21, Maven 3.9.16 / 3.10.0, Gradle 8.14.3 / 9.8.2, Spring Boot 4. The wrapper pins Gradle
 8.14.3 with a distribution checksum. Maven requires 3.9.16 or newer; unlisted versions are unverified. Maven
 4.0.0-rc-7 also passes the full Maven suite as preview compatibility, without a stable Maven 4 support guarantee.
 See [VERIFICATION.md](VERIFICATION.md) for exact commands and test coverage.
 
-Build and install the Maven plugin and its core dependency from the repository root:
+Build and install the Maven plugin and its core dependency as `0.1.1-SNAPSHOT` from the repository root:
 
 ```sh
 mvn -B -ntp install
@@ -80,7 +83,7 @@ Use a Spring Boot parent or import its BOM. Declare the guard under **build/plug
     <plugin>
       <groupId>io.github.sunjirapath.bootbomguard</groupId>
       <artifactId>boot-bom-guard-maven-plugin</artifactId>
-      <version>0.1.0</version>
+      <version>0.1.1-SNAPSHOT</version>
       <configuration>
         <exceptions>
           <exception>
@@ -104,7 +107,7 @@ mvn --offline boot-bom-guard:check
 a literal POM value overrides that switch.
 
 Alternatively use the full goal coordinate, without prefix lookup:
-`mvn io.github.sunjirapath.bootbomguard:boot-bom-guard-maven-plugin:0.1.0:check`.
+`mvn io.github.sunjirapath.bootbomguard:boot-bom-guard-maven-plugin:0.1.1-SNAPSHOT:check`.
 An execution bound to `verify` is optional; the guard does not run until invoked/bound. Configure the exception only when you intend to accept that dependency's drift.
 
 Maven uses effective dependency-management source locations to identify the BOM, including inherited Boot parents and active profile imports. Shadowed raw imports do not create false ambiguity. A clean, separately built effective Boot BOM supplies the baseline, so a consumer's `slf4j.version` property cannot overwrite the expected version. The selected dependency graph includes direct and transitive project dependencies across Maven scopes, preserving artifact type/classifier; build-plugin dependencies are excluded.
@@ -191,7 +194,7 @@ Gradle's selected Boot platform version is authoritative. Multiple requested ver
 
 The baseline is a separate Gradle configuration containing the exact selected Boot platform plus versionless, non-transitive requests for actual library modules. Gradle resolves the platform's imported constraints. Library transitive requests, source configuration forces and source constraints are excluded from that baseline. Project/settings-wide component metadata rules still apply: do not rewrite the Boot BOM or its imported BOMs when using this policy gate; partial rewrites can change expected versions. A detached configuration is not an independent metadata environment. Versions are module-level in Gradle; Maven's type/classifier management semantics are not imposed on it.
 
-MVP boundaries: native platforms only (including a platform brought in transitively), external JVM modules and exact BOM versions/constraints. Spring's separate `io.spring.dependency-management` DSL without a native Boot platform is unsupported and reports missing BOM. Dependency substitutions report `UNKNOWN`. The isolated baseline disables global composite-build substitutions and must resolve the selected Boot platform and its nested platforms; missing baseline metadata or removal of every managed constraint reports incomplete analysis. Exact preferred-only constraints are supported. Local file dependencies declared/inherited on an inspected configuration report `UNKNOWN` because they have no comparable module identity. Checks apply per JVM project; they do not audit every transitive project’s local files. Arbitrary BOM metadata rewriting remains outside the supported contract. Configuration-cache reuse is unsupported; requesting `--configuration-cache` safely discards the incompatible entry and still executes warning/strict policy on both tested versions. Gradle 10 is unsupported: execution-time native Project access is deprecated for removal in Gradle 10. Configuration remains lazy and no application compilation is required.
+MVP boundaries: native platforms only (including a platform brought in transitively), external JVM modules and exact BOM versions/constraints. Non-exact Boot BOM requests (ranges, dynamic versions or `latest.*`) report `UNKNOWN` even when Gradle selects one concrete version. Required, strict and preferred selectors must each be exact when present. Spring's separate `io.spring.dependency-management` DSL without a native Boot platform is unsupported and reports missing BOM. Dependency substitutions and rule-selected modules report `UNKNOWN`, including version-only substitutions within the same `group:artifact`. Gradle's shared rule-selection signal cannot distinguish substitutions from other selection rules, so even an aligned rule-selected module is conservatively incomplete; native conflict resolution remains supported. The isolated baseline disables global composite-build substitutions and must resolve the selected Boot platform and its nested platforms; missing baseline metadata or removal of every managed constraint reports incomplete analysis. Exact preferred-only constraints are supported. Local file dependencies declared/inherited on an inspected configuration report `UNKNOWN` because they have no comparable module identity. Checks apply per JVM project; they do not audit every transitive project’s local files. Arbitrary BOM metadata rewriting remains outside the supported contract. Configuration-cache reuse is unsupported; requesting `--configuration-cache` safely discards the incompatible entry and still executes warning/strict policy on both tested versions. Gradle 10 is unsupported: execution-time native Project access is deprecated for removal in Gradle 10. Configuration remains lazy and no application compilation is required.
 
 ### Modules
 
@@ -222,7 +225,7 @@ Exceptions use exact `group:artifact` keys (jar, no classifier), or `group:artif
 
 ### Resolution and security
 
-All resolution uses each build tool's configured repositories, mirrors, credentials and offline mode. Running the task may fetch BOM metadata, imported BOMs and dependency metadata; Maven's resolved graph API may also fetch artifacts. The guard makes no separate HTTP requests and adds no repositories to consumer builds. The examples/tests explicitly use Maven Central. Offline mode does not bypass missing caches. Resolver exception text is omitted from guard reports to avoid exposing credentials in repository URLs; use the build tool's own diagnostics to troubleshoot.
+All resolution uses each build tool's configured repositories, mirrors, credentials and offline mode. Running the task may fetch BOM metadata, imported BOMs and dependency metadata; Maven's resolved graph API may also fetch artifacts. The guard makes no separate HTTP requests and adds no repositories to consumer builds. The examples/tests explicitly use Maven Central. Offline mode does not bypass missing caches. Guard reports include sanitized exception summaries, bounded to five causes and 300 characters per message before escaping. URL userinfo and common named secrets are redacted, including Basic/Bearer authorization and quoted values. Custom secret formats may not be recognized; keep them out of exception messages. Use the build tool's own diagnostics to troubleshoot.
 
 ### Build and contribute
 
@@ -245,8 +248,9 @@ python scripts/verify_install.py --gradle /path/to/gradle-8.14.3/bin/gradle --gr
 This downloads dependencies into fresh Maven/Gradle caches, copies the consumer fixtures to an OS temporary directory outside the checkout, and checks aligned, warning, strict-failure and reasoned-exception scenarios. Kotlin DSL covers a strict allowed exception; Groovy DSL and Maven cover all four policies. Logs and caches are retained under ignored `build/install-smoke-*`; the command prints the consumer directory.
 
 The integration suites exercise real Spring Boot 4 dependency resolution and frozen synthetic metadata. A separate Maven adapter unit suite uses native Resolver node objects to test traversal limits without publishing 20,000 artifacts. Gradle uses TestKit's plugin
-classpath; consumer examples use a composite build. The completed verification has 16 core tests, 3 Maven adapter tests, 31 Maven
+classpath; consumer examples use a composite build. The historical verification recorded 16 core tests, 3 Maven adapter tests, 31 Maven
 integration tests and 45 Gradle integration tests (95 distinct); see [VERIFICATION.md](VERIFICATION.md), the [adversarial audit](ADVERSARIAL-AUDIT.md), and [measured core performance](PERFORMANCE.md).
+These historical counts/results predate the review regressions; the Round 2 changes have only been reviewed statically.
 
 After the first resolution, test with cached remote dependencies:
 
@@ -274,7 +278,9 @@ and remaining limitations are in [VERIFICATION.md](VERIFICATION.md).
 
 ### ติดตั้ง
 
-เวอร์ชันปัจจุบัน **0.1.0** ใช้ได้จาก Maven Central (`io.github.sunjirapath.bootbomguard`) ส่วน Gradle plugin ยังไม่ได้เผยแพร่บน Gradle Plugin Portal และต้อง build จาก source
+checkout นี้ build เวอร์ชัน **0.1.1-SNAPSHOT** (`io.github.sunjirapath.bootbomguard`) ตัวอย่าง Maven ใช้เวอร์ชันที่ติดตั้งจาก source นี้
+หากจะใช้ release ต้องตรวจสอบว่ามีใน Maven Central ก่อน แล้วเปลี่ยนเวอร์ชันใน plugin declaration และ full goal ให้ตรงกัน คำแนะนำนี้ไม่ได้ยืนยันสถานะการเผยแพร่
+ตัวอย่าง Gradle ใช้ local composite build จาก source โดยไม่อาศัย Plugin Portal
 ใช้ JDK 21 ทดสอบ Maven 3.9.16 / 3.10.0 และ Gradle 8.14.3 / 9.8.2 แล้ว ส่วน Maven 4.0.0-rc-7 ผ่านชุดทดสอบในฐานะ preview เท่านั้น
 
 รันจากโฟลเดอร์ repository เพื่อติดตั้ง Maven plugin และ core ลง local repository:
@@ -314,6 +320,7 @@ mvn boot-bom-guard:check
 ### ข้อจำกัด
 
 Gradle รองรับ native `platform` และ `enforcedPlatform` โดยแยกความหมายของทั้งสองแบบ ไม่เดาที่มาของ constraint
+คำขอ Boot BOM ต้องเป็นเวอร์ชันเจาะจง ส่วน range, dynamic version, dependency substitution และ module ที่ถูกเลือกด้วย rule จะแสดง `UNKNOWN` และทำให้ strict mode ล้มเหลว แม้เวอร์ชันที่เลือกจะตรงกับ BOM
 เมื่อไม่มีหลักฐานเพียงพอ ยังไม่รองรับ configuration-cache reuse และ Gradle 10 แต่ทดสอบแล้วว่าการขอ configuration cache ยังรันการตรวจและ strict policy โดย discard cache ที่ใช้ไม่ได้ CI ครอบคลุม Ubuntu และเพิ่ม macOS 15 ตาม matrix ข้างต้น
 ห้าม rewrite metadata ของ Boot BOM หรือ BOM ที่ import หากต้องการ baseline ที่เชื่อถือได้ ส่วน local file dependencies บน configuration ที่ตรวจจะแสดง UNKNOWN
 การ resolve อาจดาวน์โหลดข้อมูลผ่าน repository ที่ build tool ตั้งค่าไว้ ใช้ `--offline` ได้เมื่อมี cache ครบแล้ว

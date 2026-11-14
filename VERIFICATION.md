@@ -1,5 +1,15 @@
 # Verification
 
+## Round 2 P1 regressions, 2026-11-14
+
+- F1: source-install Maven examples and the full goal use the checkout's `0.1.1-SNAPSHOT`; publication is not inferred from tags, release scaffolding or historical source-install checks. Added `test_readme_source_install_coordinates_match_checkout`; the Round 1 strict-property test now uses the README version without replacing it.
+- F4: shared redaction handles Basic authorization and quoted secrets, including escapes and unterminated quotes. Added `redactsBasicAuthorizationAndQuotedSecrets` and `redactsEscapedAndUnterminatedQuotedSecrets` for both adapters' shared reporting path.
+- F5: non-exact Boot BOM requests and rule-selected modules produce incomplete analysis. Added `rangeRequestedBomHasExplicitContract` (range, dynamic and latest selectors against frozen local metadata) and `sameModuleVersionSubstitutionCannotPassAnAlignedGraph`; both check warning diagnostics and strict failure. Exact native conflict resolution remains supported. All populated required/strict/preferred selectors are checked for exactness.
+
+No builds or tests were run in Round 2. Expected behavior was traced statically through native graph handling,
+`Guard.Report.violation()` and adapter failure policy. Compilation, native fixture resolution and assertions remain
+unverified. Counts and execution results below are historical and do not verify these changes.
+
 ## Round 1 P0 regression, 2026-11-14
 
 Removed the literal Maven `failOnDrift` value from the README so the documented CLI property can enable strict mode.

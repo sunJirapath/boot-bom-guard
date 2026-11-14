@@ -135,6 +135,21 @@ class MavenIntegrationTest(unittest.TestCase):
     def test_ci_failure(self):
         self.assertIn("policy failed", self.run_fixture(profile="direct", fail=True, expected_failure=True))
 
+    def test_readme_source_install_coordinates_match_checkout(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        snippet = readme.split("### Maven\n", 1)[1].split("```xml\n", 1)[1].split("```", 1)[0]
+        plugin = ET.fromstring('<project>' + snippet + '</project>').find("build/plugins/plugin")
+        namespace = "{http://maven.apache.org/POM/4.0.0}"
+        parent = ET.parse(ROOT / "pom.xml").getroot()
+        adapter = ET.parse(ROOT / "maven-plugin/pom.xml").getroot()
+        group = parent.findtext(namespace + "groupId")
+        version = parent.findtext(namespace + "version")
+        artifact = adapter.findtext(namespace + "artifactId")
+        self.assertEqual(group, plugin.findtext("groupId"))
+        self.assertEqual(artifact, plugin.findtext("artifactId"))
+        self.assertEqual(version, plugin.findtext("version"))
+        self.assertIn(f'`mvn {group}:{artifact}:{version}:check`', readme)
+
     def test_readme_configuration_honours_strict_property(self):
         self.assertIsNotNone(MAVEN, "Maven must be on PATH")
         snippet = (ROOT / "README.md").read_text(encoding="utf-8").split("### Maven\n", 1)[1]
@@ -143,9 +158,6 @@ class MavenIntegrationTest(unittest.TestCase):
                                 '<groupId>fixture</groupId><artifactId>readme</artifactId><version>1</version>'
                                 + snippet + '</project>')
         plugin = project.find("build/plugins/plugin")
-        # Test the installed checkout, independently of the README's release version.
-        plugin.find("version").text = ET.parse(ROOT / "pom.xml").getroot().findtext(
-            "{http://maven.apache.org/POM/4.0.0}version")
         configuration = plugin.find("configuration")
         configuration.remove(configuration.find("exceptions"))
         dependencies = ET.SubElement(project, "dependencies")

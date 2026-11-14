@@ -88,15 +88,19 @@ public abstract class BootBomGuardTask extends DefaultTask {
                 if (!edge.isConstraint() && !platform(resolved)) libraryComponents.add(id);
             }
             if (edge instanceof ResolvedDependencyResult resolved && edge.getRequested() instanceof ModuleComponentSelector selector) {
+                // Fail closed: rule selection also covers same-module version substitutions.
                 if (!(resolved.getSelected().getId() instanceof ModuleComponentIdentifier selected)
-                        || !selector.getGroup().equals(selected.getGroup()) || !selector.getModule().equals(selected.getModule())) {
-                    diagnostics.add("Unsupported dependency substitution: " + selector.getDisplayName()
+                        || !selector.getGroup().equals(selected.getGroup()) || !selector.getModule().equals(selected.getModule())
+                        || resolved.getSelected().getSelectionReason().isSelectedByRule()) {
+                    diagnostics.add("Unsupported dependency substitution or selection rule: " + selector.getDisplayName()
                             + " -> " + resolved.getSelected().getId().getDisplayName() + "; comparison is incomplete.");
                 }
             }
             if (edge.getRequested() instanceof ModuleComponentSelector selector && selector.getGroup().equals("org.springframework.boot")
                     && selector.getModule().equals("spring-boot-dependencies")) {
                 requestedBoms.add(selector.getDisplayName());
+                if (!exact(selector.getVersionConstraint())) diagnostics.add("Unsupported non-exact Spring Boot BOM request: "
+                        + selector.getDisplayName() + "; analysis is incomplete.");
                 if (edge instanceof UnresolvedDependencyResult) diagnostics.add("Unresolved/ambiguous Spring Boot BOM selection: " + selector.getDisplayName());
             }
             if (edge instanceof ResolvedDependencyResult resolved && resolved.getSelected().getId() instanceof ModuleComponentIdentifier id
@@ -159,6 +163,16 @@ public abstract class BootBomGuardTask extends DefaultTask {
         return category != null && Set.of(Category.REGULAR_PLATFORM, Category.ENFORCED_PLATFORM).contains(category.getName());
     }
 
+    private boolean exact(org.gradle.api.artifacts.VersionConstraint constraint) {
+        boolean specified = false;
+        for (String version : List.of(constraint.getRequiredVersion(), constraint.getStrictVersion(), constraint.getPreferredVersion())) {
+            if (version.isEmpty()) continue;
+            specified = true;
+            if (version.matches(".*[+\\[\\](),].*") || version.startsWith("latest.")) return false;
+        }
+        return specified;
+    }
+
     private Map<Coordinates, String> expected(Project project, Configuration source, ModuleComponentIdentifier bom,
                                                List<ResolvedComponentResult> modules, List<String> diagnostics) {
         List<org.gradle.api.artifacts.Dependency> requests = new ArrayList<>();
@@ -195,10 +209,7 @@ public abstract class BootBomGuardTask extends DefaultTask {
                 Coordinates key = new Coordinates(selector.getGroup(), selector.getModule(), "jar", "");
                 if (!requestedKeys.contains(key)) continue;
                 managed.add(key);
-                var constraint = selector.getVersionConstraint();
-                String requested = constraint.getRequiredVersion().isEmpty() ? constraint.getStrictVersion() : constraint.getRequiredVersion();
-                if (requested.isEmpty()) requested = constraint.getPreferredVersion();
-                if (requested.isEmpty() || requested.matches(".*[+\\[\\](),].*") || requested.startsWith("latest.")) {
+                if (!exact(selector.getVersionConstraint())) {
                     diagnostics.add("Unsupported non-exact BOM constraint for " + selector.getGroup() + ":" + selector.getModule());
                 }
             }

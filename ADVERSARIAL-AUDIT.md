@@ -112,7 +112,8 @@ Before-fix regressions were retained before production edits. Two fixture proble
 | Gradle configuration-cache reuse / Gradle 10 | Safe fallback is tested on 8.14.3/9.8.2. Execution-time native Project access remains incompatible with reuse and is deprecated for removal in Gradle 10. No Gradle 10 support claim. |
 | Android / Kotlin Multiplatform / native targets | Selected external JVM-module comparison only. File dependencies declared/inherited on the selected configuration produce incomplete analysis; arbitrary local binaries cannot be mapped to BOM coordinates. Apply checks per JVM project; this does not audit every transitive project's local files or platform-specific artifact. |
 | Application/runtime compatibility / malicious build logic | Outside version-policy checking. Matching versions does not prove bytecode compatibility, security or application behavior. Running a build executes its own plugins; this guard is not a sandbox. |
-| Publication | Source-install snapshot only; no Maven Central or Plugin Portal release has been made. |
+| Boot BOM requests / substitutions | Non-exact Boot BOM selectors and rule-selected modules (including same-module version substitutions) report `UNKNOWN` and fail strict mode. The shared rule-selection signal is handled conservatively even when selected versions align. Native conflict resolution remains supported. Round 2 regressions are statically reviewed, not executed. |
+| Publication | These historical source-install checks do not establish Maven Central or Plugin Portal availability. The checkout builds `0.1.1-SNAPSHOT`; the README examples consume that installed version. Verify publication separately before using a released artifact. |
 
 These explicit limits are not unverified defects claimed to be fixed. The confirmed stack overflow, origin error and policy-report defects are fixed with regressions.
 
