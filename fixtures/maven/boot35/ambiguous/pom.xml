@@ -1,0 +1,9 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <parent><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-parent</artifactId><version>3.5.16</version><relativePath/></parent>
+  <groupId>fixture</groupId><artifactId>ambiguous</artifactId><version>1</version>
+  <repositories><repository><id>guard-snapshot-fixture</id><url>${snapshot.repository}</url><snapshots><enabled>true</enabled></snapshots></repository></repositories>
+  <dependencyManagement><dependencies><dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-dependencies</artifactId><version>${snapshot.bom.version}</version><type>pom</type><scope>import</scope></dependency></dependencies></dependencyManagement>
+  <dependencies><dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId></dependency></dependencies>
+  <build><plugins><plugin><groupId>io.github.sunjirapath.bootbomguard</groupId><artifactId>boot-bom-guard-maven-plugin</artifactId><version>0.1.1-SNAPSHOT</version></plugin></plugins></build>
+</project>

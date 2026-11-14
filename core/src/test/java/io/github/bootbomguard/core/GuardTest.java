@@ -12,10 +12,32 @@ class GuardTest {
     private final Coordinates key = Coordinates.parse("org.slf4j:slf4j-api");
     private final Resolved drift = new Resolved(key, "2.0.18", Origin.DIRECT_OVERRIDE, "declaration");
 
+    @Test void supportedBootMajorsRequireAnExactParseableVersion() {
+        for (String version : List.of("3.5.16", "4.0.0", "4.0.1", "4.1.0", "3.5.16-SNAPSHOT",
+                "4.0.0-RC1", "4.99.0-guard-fixture-abc")) {
+            assertTrue(supportedBootVersion(version), version);
+        }
+        for (String version : List.of("2.7.18", "5.0.0", "", "3", "4.", "3.5", "4.foo", "3.5.x",
+                "3.+", "[3.5.16,4.0)", "latest.release", "${boot.version}", " 3.5.16", "4.0.0\n")) {
+            assertFalse(supportedBootVersion(version), version);
+        }
+        assertFalse(supportedBootVersion(null));
+    }
+
+    @Test void boot35ComparisonPreservesDriftAndIncompleteEvidencePolicy() {
+        assertFalse(compare("3.5.16", Map.of(key, "fixture-baseline"),
+                List.of(new Resolved(key, "fixture-baseline", Origin.UNKNOWN_ORIGIN, "selected")), Map.of(), List.of()).violation());
+        Report drift = compare("3.5.16", Map.of(key, "fixture-baseline"),
+                List.of(new Resolved(key, "fixture-override", Origin.DIRECT_OVERRIDE, "selected")), Map.of(), List.of());
+        assertTrue(drift.violation());
+        assertEquals(1, drift.findings().size());
+        assertTrue(compare("3.5.16", Map.of(), List.of(), Map.of(), List.of("Missing evidence")).violation());
+    }
+
     @Test void classifiesAndAppliesPolicyWithoutCallingDriftIncompatibility() {
         Report warn = compare("4.0.0", Map.of(key, "2.0.17"), List.of(drift), Map.of(), List.of());
         assertTrue(warn.violation());
-        assertEquals(Origin.DIRECT_OVERRIDE, warn.findings().getFirst().origin());
+        assertEquals(Origin.DIRECT_OVERRIDE, warn.findings().get(0).origin());
         assertTrue(warn.format().contains("expected=2.0.17 resolved=2.0.18"));
         Report allowed = compare("4.0.0", Map.of(key, "2.0.17"), List.of(drift), Map.of(key, "Reviewed upgrade"), List.of());
         assertFalse(allowed.violation());
@@ -93,8 +115,8 @@ class GuardTest {
             Report report = compare("4.0.0", Map.of(key, versions[0]),
                     List.of(new Resolved(key, versions[1], Origin.UNKNOWN_ORIGIN, "selected")), Map.of(), List.of());
             assertTrue(report.violation());
-            assertEquals(versions[0], report.findings().getFirst().expected());
-            assertEquals(versions[1], report.findings().getFirst().resolved());
+            assertEquals(versions[0], report.findings().get(0).expected());
+            assertEquals(versions[1], report.findings().get(0).resolved());
         }
     }
 
@@ -123,8 +145,8 @@ class GuardTest {
                         new Resolved(testJar, "2.0.18", Origin.DIRECT_OVERRIDE, "tests")),
                 Map.of(key, "Reviewed"), List.of());
         assertEquals(2, report.findings().size());
-        assertEquals("Reviewed", report.findings().getFirst().reason());
-        assertNull(report.findings().getLast().reason());
+        assertEquals("Reviewed", report.findings().get(0).reason());
+        assertNull(report.findings().get(report.findings().size() - 1).reason());
 
         Map<String, String> aliases = new LinkedHashMap<>();
         aliases.put("g:a", "one");
@@ -153,7 +175,7 @@ class GuardTest {
                 Map.of(key, "Reviewed", deleted, "Removed dependency", unmanaged, "Outside BOM", classifier, "Maven variant"),
                 diagnostics);
         assertTrue(report.violation());
-        assertEquals("Reviewed", report.findings().getFirst().reason());
+        assertEquals("Reviewed", report.findings().get(0).reason());
         for (Coordinates coordinate : List.of(deleted, unmanaged, classifier))
             assertTrue(report.format().contains("UNKNOWN Unmatched exception (no resolved managed coordinate): " + coordinate));
         assertEquals(4, report.diagnostics().size());

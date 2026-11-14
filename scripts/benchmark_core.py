@@ -51,7 +51,7 @@ def main():
                 target.write_text(run("git", "show", baseline + ":" + name) if variant == "baseline"
                                   else (ROOT / name).read_text(encoding="utf-8"), encoding="utf-8")
                 files.append(str(target))
-            run("javac", "--release", "21", "-d", str(classes[variant]), *files,
+            run("javac", "--release", "17", "-d", str(classes[variant]), *files,
                 str(ROOT / "scripts/PerformanceProbe.java"))
         # Alternate order to reduce systematic warm-machine bias; each invocation is a fresh JVM.
         for fork in range(args.forks):

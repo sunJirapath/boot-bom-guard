@@ -99,6 +99,59 @@ class BootBomGuardIntegrationTest {
         assertTrue(out.contains("PASS checked=1 drift=0 unknown=0"), out);
         assertTrue(out.contains("mode=[platform]"), out);
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"groovy", "kotlin"})
+    void boot35PlatformsAlignAndExactStrictOverridesFail(String dsl) throws Exception {
+        for (String scenario : List.of("aligned", "enforced", "framework-jakarta")) {
+            String out = run("boot35/" + dsl, scenario, false, "-PfailOnDrift=true");
+            assertTrue(out.contains("BOM=org.springframework.boot:spring-boot-dependencies:3.5.16"), out);
+            assertTrue(out.contains("PASS checked="), out);
+            assertFalse(out.contains("UNKNOWN "), out);
+            assertFalse(out.contains("DRIFT "), out);
+            if (!scenario.equals("framework-jakarta")) assertTrue(out.contains("checked=1 drift=0 unknown=0"), out);
+            else {
+                var summary = java.util.regex.Pattern.compile("PASS checked=(\\d+) drift=0 unknown=0").matcher(out);
+                assertTrue(summary.find(), out);
+                assertTrue(Integer.parseInt(summary.group(1)) >= 3, out);
+            }
+            if (scenario.equals("enforced")) assertTrue(out.contains("mode=[enforced-platform]"), out);
+        }
+        for (String scenario : List.of("direct", "strict")) {
+            String warning = run("boot35/" + dsl, scenario, false);
+            assertTrue(warning.contains("DRIFT org.slf4j:slf4j-api expected="), warning);
+            assertTrue(warning.contains("resolved=2.0.0"), warning);
+            assertFalse(warning.contains("UNKNOWN "), warning);
+            assertTrue(run("boot35/" + dsl, scenario, true, "-PfailOnDrift=true").contains("policy failed"));
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"groovy", "kotlin"})
+    void boot35IncompleteSelectionsAndStaleExceptionsFailClosed(String dsl) throws Exception {
+        for (String scenario : List.of("ambiguous", "range", "selection-rule", "stale-exception")) {
+            String diagnostic = switch (scenario) {
+                case "ambiguous" -> "Unresolved/ambiguous Spring Boot BOM selection";
+                case "range" -> "Unsupported non-exact Spring Boot BOM request";
+                case "selection-rule" -> "Unsupported dependency substitution or selection rule";
+                default -> "Unmatched exception";
+            };
+            String warning = run("boot35/" + dsl, scenario, false);
+            assertTrue(warning.contains("UNKNOWN " + diagnostic), warning);
+            assertFalse(warning.contains("PASS checked="), warning);
+            String failure = run("boot35/" + dsl, scenario, true, "-PfailOnDrift=true");
+            assertTrue(failure.contains("UNKNOWN " + diagnostic), failure);
+            assertTrue(failure.contains("policy failed"), failure);
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"groovy", "kotlin"})
+    void boot35ReasonedExceptionAllowsOnlyDrift(String dsl) throws Exception {
+        String out = run("boot35/" + dsl, "allowlist", false, "-PfailOnDrift=true");
+        assertTrue(out.contains("ALLOWED org.slf4j:slf4j-api"), out);
+        assertTrue(out.contains("PASS checked=1 drift=1 unknown=0"), out);
+    }
     @Test void explicitOverrideWarns() throws Exception {
         String out = run("groovy", "direct", false);
         assertTrue(out.contains("expected=2.0.17 resolved=2.0.18 classification=DIRECT_OVERRIDE"), out);

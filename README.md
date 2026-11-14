@@ -1,12 +1,12 @@
 # boot-bom-guard — Spring Boot BOM drift checks for Maven and Gradle
 
 [![CI](https://github.com/sunJirapath/boot-bom-guard/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/sunJirapath/boot-bom-guard/actions/workflows/ci.yml)
-[![Java 21](https://img.shields.io/badge/Java-21-blue)](#install)
-[![Spring Boot 4](https://img.shields.io/badge/Spring%20Boot-4-green)](#install)
+[![Java target 17+](https://img.shields.io/badge/Java_target-17%2B-blue)](#install)
+[![Spring Boot fixtures 3.5.16 / 4.0.0 / 4.0.1 / 4.1.0](https://img.shields.io/badge/Spring_Boot_fixtures-3.5.16%20%2F%204.0.0%20%2F%204.0.1%20%2F%204.1.0-green)](#install)
 [![Maven 3.9.16+](https://img.shields.io/badge/Maven-3.9.16%2B-blue)](#maven)
 [![Gradle 8.14.3 / 9.8.2](https://img.shields.io/badge/Gradle-8.14.3%20%2F%209.8.2-blue)](#gradle--groovy-dsl)
 
-Reports dependencies whose resolved versions differ from the selected **Spring Boot 4 BOM**. Native Maven and
+Reports dependencies whose resolved versions differ from the selected **Spring Boot 3.5.x or 4.x BOM**. Native Maven and
 Gradle resolution, one comparison policy, warning-only by default. ตรวจสอบ dependency ที่ใช้เวอร์ชันต่างจาก Spring Boot BOM.
 
 **Features:** expected/resolved versions · direct and transitive drift · intentional exceptions with reasons ·
@@ -27,9 +27,13 @@ Central and use its version in both the plugin declaration and full goal coordin
 verified by these source-install instructions; a Git tag or release profile alone does not establish it.
 The Gradle examples use a local source composite build; they do not rely on Plugin Portal publication.
 
-**Supported and tested:** JDK 21, Maven 3.9.16 / 3.10.0, Gradle 8.14.3 / 9.8.2, Spring Boot 4. The wrapper pins Gradle
-8.14.3 with a distribution checksum. Maven requires 3.9.16 or newer; unlisted versions are unverified. Maven
-4.0.0-rc-7 also passes the full Maven suite as preview compatibility, without a stable Maven 4 support guarantee.
+**Supported and tested:** the plugins target **Java 17+ runtime** and BOM drift checks for **Boot 3.5.x and 4.x**.
+Exact real BOM fixture versions are **3.5.16**, **4.0.0**, **4.0.1**, and **4.1.0** (the last is used only for mixed-source ambiguity).
+The 3.5.16 fixtures and Java 17 changes are **added but not executed** in this round; historical execution evidence covers
+JDK 21, Maven 3.9.16 / 3.10.0 and Gradle 8.14.3 / 9.8.2. No claim is made for Boot **3.0–3.4, 2.x**, other exact
+Boot versions, or application runtime compatibility. Accepting a major version is not evidence for every release in it.
+The wrapper pins Gradle 8.14.3 with a distribution checksum. Maven requires 3.9.16 or newer; unlisted versions are unverified.
+Maven 4.0.0-rc-7 has historical full-suite results as preview compatibility, without a stable Maven 4 support guarantee.
 See [VERIFICATION.md](VERIFICATION.md) for exact commands and test coverage.
 
 Build and install the Maven plugin and its core dependency as `0.1.1-SNAPSHOT` from the repository root:
@@ -246,7 +250,10 @@ All resolution uses each build tool's configured repositories, mirrors, credenti
 
 ### Build and contribute
 
-Requires JDK 21 and Maven 3.9.16+. Python 3 is needed only for the Maven integration assertions.
+Requires JDK 17 and Maven 3.9.16+. Gradle compiles core and the plugin with a Java 17 toolchain and `--release 17`;
+install JDK 17 alongside JDK 21 when running Gradle on 21. Tests use the build JVM's Java major, retaining Java 21
+coverage alongside the new Java 17 CI lane. The build tool's own JVM requirements still apply.
+Python 3 is needed only for the Maven integration assertions.
 
 ```sh
 mvn -B -ntp install
@@ -264,7 +271,15 @@ python scripts/verify_install.py --gradle /path/to/gradle-8.14.3/bin/gradle --gr
 
 This downloads dependencies into fresh Maven/Gradle caches, copies the consumer fixtures to an OS temporary directory outside the checkout, and checks aligned, warning, strict-failure and reasoned-exception scenarios. Kotlin DSL covers a strict allowed exception; Groovy DSL and Maven cover all four policies. Logs and caches are retained under ignored `build/install-smoke-*`; the command prints the consumer directory.
 
-The integration suites exercise real Spring Boot 4 dependency resolution and frozen synthetic metadata. A separate Maven adapter unit suite uses native Resolver node objects to test traversal limits without publishing 20,000 artifacts. Gradle uses TestKit's plugin
+The integration suites contain real Spring Boot 3.5.16 and 4.0.0/4.0.1 BOM resolution cases; Maven also uses 4.1.0 for
+mixed-source ambiguity. Boot 3 fixtures are under `fixtures/maven/boot35` and `fixtures/gradle/boot35`.
+Both Gradle DSLs cover native platform/enforcedPlatform, exact strict overrides, unresolved conflicting BOM requests,
+non-exact BOM requests, rule selection, allowed drift and stale exceptions. The Spring 6/Jakarta case requests
+`spring-core` and `jakarta.servlet-api` without pinning their versions; it checks BOM resolution, not framework/EE runtime behavior.
+Maven covers imported/parent BOMs, direct/managed/transitive overrides and ambiguity, plus frozen synthetic 3.5.16-qualified
+snapshot BOMs. Snapshot alias/timestamp/classifier tests do not exercise public Boot snapshot releases.
+Expected Boot 3 managed versions come from native BOM resolution; assertions do not hardcode unread BOM values.
+These additions have not run. A separate Maven adapter unit suite uses native Resolver node objects to test traversal limits without publishing 20,000 artifacts. Gradle uses TestKit's plugin
 classpath; consumer examples use a composite build. Current source inventory is recorded below and checked by
 `test_readme_test_inventory_matches_sources`; shared core tests are counted once, and parameterized values count separately.
 See [VERIFICATION.md](VERIFICATION.md), the [adversarial audit](ADVERSARIAL-AUDIT.md), and [measured core performance](PERFORMANCE.md) for revision-specific execution evidence.
@@ -272,11 +287,11 @@ The review-round changes have only been reviewed statically; source counts do no
 
 | Suite | Source cases |
 | --- | ---: |
-| Core | 26 |
+| Core | 28 |
 | Maven adapter | 4 |
-| Python Maven integrations | 37 |
-| Gradle integrations | 53 |
-| Total | 120 |
+| Python Maven integrations | 43 |
+| Gradle integrations | 63 |
+| Total | 138 |
 
 The Python suite includes three documentation/CI contract checks. The Spring dependency-management-only
 TestKit regression also needs `io.spring.dependency-management:1.1.7` cached before an offline run.
@@ -292,7 +307,10 @@ The Maven snapshot regressions generate a frozen local file repository and prime
 
 `-PtestOffline=true` also passes `--offline` to the nested TestKit builds. A new machine needs the Gradle
 distribution and dependencies cached first. The [CI workflow](.github/workflows/ci.yml) runs the full Maven and Gradle suites
-on Ubuntu with Java 21, Maven 3.9.16 and a Gradle 8.14.3 / 9.8.2 matrix, plus macOS 15 and Windows Server 2025 with Gradle 8.14.3. Each of these jobs also checks a source install with empty caches and external Maven/Groovy/Kotlin consumers. The Windows job is newly configured and has not been executed as part of this review. Separate Ubuntu jobs run the full Maven suites with 3.10.0 and preview 4.0.0-rc-7. Pull requests run the same checks; the README
+on Ubuntu with Java 21, Maven 3.9.16 and a Gradle 8.14.3 / 9.8.2 matrix, plus macOS 15 and Windows Server 2025 with Gradle 8.14.3.
+A new Ubuntu / Java 17 / Gradle 8.14.3 lane runs the same suites. Java 21 lanes install JDK 17 for compilation.
+Each of these jobs also checks a source install with empty caches and external Maven/Groovy/Kotlin consumers.
+The new Java 17 lane and Windows job have not been executed as part of this review. Separate Ubuntu jobs run the full Maven suites with 3.10.0 and preview 4.0.0-rc-7. Pull requests run the same checks; the README
 status badge follows `main` and shows its result after the workflow is merged and runs there.
 Licensed under the [MIT License](LICENSE). No coverage badge is shown because no coverage service is configured.
 
@@ -301,7 +319,7 @@ and remaining limitations are in [VERIFICATION.md](VERIFICATION.md).
 
 ## ภาษาไทย
 
-ปลั๊กอินสำหรับตรวจสอบ dependency ที่ resolve ได้จริงว่าใช้เวอร์ชันต่างจากที่ **Spring Boot 4 BOM** กำหนดหรือไม่
+ปลั๊กอินสำหรับตรวจสอบ dependency ที่ resolve ได้จริงว่าใช้เวอร์ชันต่างจากที่ **Spring Boot 3.5.x หรือ 4.x BOM** กำหนดหรือไม่
 รองรับ Maven และ Gradle ทั้ง Groovy DSL และ Kotlin DSL โดยใช้ API ของแต่ละ build tool และแสดงเวอร์ชันที่คาดหวัง
 เวอร์ชันที่ใช้จริง พร้อมหลักฐานประกอบ ค่าเริ่มต้นแสดงคำเตือนโดยไม่ทำให้ build ล้มเหลว
 
@@ -310,7 +328,10 @@ and remaining limitations are in [VERIFICATION.md](VERIFICATION.md).
 checkout นี้ build เวอร์ชัน **0.1.1-SNAPSHOT** (`io.github.sunjirapath.bootbomguard`) ตัวอย่าง Maven ใช้เวอร์ชันที่ติดตั้งจาก source นี้
 หากจะใช้ release ต้องตรวจสอบว่ามีใน Maven Central ก่อน แล้วเปลี่ยนเวอร์ชันใน plugin declaration และ full goal ให้ตรงกัน คำแนะนำนี้ไม่ได้ยืนยันสถานะการเผยแพร่
 ตัวอย่าง Gradle ใช้ local composite build จาก source โดยไม่อาศัย Plugin Portal
-ใช้ JDK 21 ทดสอบ Maven 3.9.16 / 3.10.0 และ Gradle 8.14.3 / 9.8.2 แล้ว ส่วน Maven 4.0.0-rc-7 ผ่านชุดทดสอบในฐานะ preview เท่านั้น
+ปลั๊กอินตั้งเป้า runtime **Java 17+** โดยเพิ่ม fixture ของ Boot **3.5.16** ควบคู่กับ **4.0.0 / 4.0.1** และ **4.1.0** (เฉพาะกรณี BOM กำกวม)
+รอบนี้ยังไม่ได้รัน build หรือ test ของ 3.5.16 และ Java 17 จึงยังไม่ยืนยันว่าผ่าน ไม่อ้างรองรับ **3.0–3.4, 2.x**, เวอร์ชันอื่นที่ไม่ได้ทดสอบ หรือความเข้ากันได้ขณะรันแอป
+หลักฐานที่เคยรันใช้ JDK 21, Maven 3.9.16 / 3.10.0 และ Gradle 8.14.3 / 9.8.2 ส่วน Maven 4.0.0-rc-7 เป็น preview เท่านั้น
+เมื่อใช้ Gradle บน JDK 21 ต้องติดตั้ง JDK 17 สำหรับ compile ด้วย โดย CI เพิ่ม lane Java 17 และคง lane Java 21 ไว้
 
 รันจากโฟลเดอร์ repository เพื่อติดตั้ง Maven plugin และ core ลง local repository:
 

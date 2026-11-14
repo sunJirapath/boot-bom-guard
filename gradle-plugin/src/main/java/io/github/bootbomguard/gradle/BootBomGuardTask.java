@@ -119,8 +119,8 @@ public abstract class BootBomGuardTask extends DefaultTask {
         }
         ModuleComponentIdentifier bom = boms.iterator().next();
         String label = bom.getDisplayName() + " mode=" + modes + " requested=" + requestedBoms;
-        if (!bom.getVersion().startsWith("4.")) {
-            diagnostics.add("Unsupported Spring Boot BOM " + bom.getVersion() + "; MVP supports Boot 4.x.");
+        if (!Guard.supportedBootVersion(bom.getVersion())) {
+            diagnostics.add("Unsupported Spring Boot BOM " + bom.getVersion() + "; supported majors are Boot 3.x and 4.x with an exact version.");
             return Guard.compare(label, Map.of(), List.of(), exceptions, diagnostics);
         }
         List<ResolvedComponentResult> modules = graph.getAllComponents().stream()

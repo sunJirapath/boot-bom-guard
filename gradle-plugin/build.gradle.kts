@@ -1,4 +1,6 @@
 plugins { `java-gradle-plugin` }
+java { toolchain.languageVersion.set(JavaLanguageVersion.of(17)) }
+tasks.withType<JavaCompile>().configureEach { options.release.set(17) }
 dependencies { implementation(project(":core")) }
 gradlePlugin {
     plugins {

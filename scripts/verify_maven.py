@@ -23,11 +23,11 @@ if OFFLINE:
 
 
 @contextmanager
-def snapshot_repository(metadata=True, local_copy=False):
+def snapshot_repository(metadata=True, local_copy=False, boot_version="4.99.0"):
     """A file repository resolved by Maven itself; no mutable public snapshots or graph mocks."""
     identity = uuid.uuid4().hex
     group = "guard.fixture.snapshot." + identity
-    bom_version = "4.99.0-guard-fixture-" + identity
+    bom_version = boot_version + "-guard-fixture-" + identity
     latest = "1.0-20261020.120000-2"
     older = "1.0-20261019.120000-1"
     tests = "1.0-20261021.120000-3"
@@ -98,6 +98,66 @@ class MavenIntegrationTest(unittest.TestCase):
 
     def test_aligned(self):
         self.assertIn("PASS checked=1 drift=0 unknown=0", self.run_fixture(fail=True))
+
+    def test_boot35_aligned(self):
+        out = self.run_fixture("boot35/aligned", fail=True)
+        self.assertIn("BOM=org.springframework.boot:spring-boot-dependencies:3.5.16", out)
+        self.assertIn("PASS checked=1 drift=0 unknown=0", out)
+
+    def test_boot35_overrides_warn_and_fail_strict(self):
+        for fixture, profile, origin in (("aligned", "direct", "DIRECT_OVERRIDE"),
+                                         ("aligned", "managed", "MANAGED_OVERRIDE"),
+                                         ("parent", None, "MANAGED_OVERRIDE"),
+                                         ("transitive", None, "MANAGED_OVERRIDE")):
+            for strict in (False, True):
+                with self.subTest(fixture=fixture, profile=profile, strict=strict):
+                    out = self.run_fixture("boot35/" + fixture, profile, fail=strict, expected_failure=strict)
+                    self.assertRegex(out, r"DRIFT org.slf4j:slf4j-api expected=\S+ resolved=2\.0\.0 classification=" + origin)
+                    self.assertNotIn("UNKNOWN ", out)
+                    if fixture == "transitive":
+                        self.assertIn("path=transitive", out)
+                    if strict:
+                        self.assertIn("policy failed", out)
+
+    def test_boot35_allowed_drift_and_stale_exceptions(self):
+        out = self.run_fixture("boot35/aligned", "allowlist", fail=True)
+        self.assertIn("ALLOWED org.slf4j:slf4j-api", out)
+        self.assertIn("PASS checked=1 drift=1 unknown=0", out)
+        for strict in (False, True):
+            out = self.run_fixture("boot35/aligned", "unmatched-exception", fail=strict, expected_failure=strict)
+            self.assertIn("UNKNOWN Unmatched exception", out)
+            self.assertNotIn("PASS checked=", out)
+
+    def test_boot35_ambiguous_effective_sources_fail_closed(self):
+        with snapshot_repository(boot_version="3.5.16") as (flags, _):
+            for strict in (False, True):
+                out = self.run_fixture("boot35/ambiguous", fail=strict, expected_failure=strict,
+                                       extra=tuple(flag for flag in flags if flag != "--offline"))
+                self.assertIn("UNKNOWN Ambiguous Spring Boot BOM versions:", out)
+                self.assertNotIn("PASS checked=", out)
+
+    def test_boot35_snapshot_identities_and_missing_metadata(self):
+        for metadata, local_copy in ((True, False), (True, True), (False, True)):
+            with snapshot_repository(metadata=metadata, local_copy=local_copy, boot_version="3.5.16") as (flags, older):
+                if not metadata:
+                    flags += (f"-Dsnapshot.version={older}",)
+                for strict in (False, True):
+                    with self.subTest(metadata=metadata, local_copy=local_copy, strict=strict):
+                        out = self.run_fixture("boot35/snapshot", fail=strict,
+                                               expected_failure=strict and not metadata, extra=flags)
+                        if metadata:
+                            self.assertIn("PASS checked=3 drift=0 unknown=0", out)
+                        else:
+                            self.assertIn("UNKNOWN Maven model/dependency resolution failed:", out)
+                            self.assertNotIn("PASS checked=", out)
+
+    def test_boot35_older_snapshot_timestamp_is_drift(self):
+        with snapshot_repository(boot_version="3.5.16") as (flags, older):
+            for strict in (False, True):
+                out = self.run_fixture("boot35/snapshot", fail=strict, expected_failure=strict,
+                                       extra=flags + (f"-Dsnapshot.version={older}",))
+                self.assertRegex(out, r"DRIFT \S+:direct expected=\S+ resolved=" + re.escape(older))
+                self.assertNotIn("UNKNOWN ", out)
 
     def test_explicit_override_warning(self):
         out = self.run_fixture(profile="direct")

@@ -20,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GradleBoundaryIntegrationTest {
     @TempDir Path directory;
+    private String bootVersion = "4.0.0-boundary";
 
     private static String dependency(String name, String version) {
         return "<dependency><groupId>guard.boundary</groupId><artifactId>" + name + "</artifactId><version>" + version + "</version></dependency>";
@@ -48,12 +49,27 @@ class GradleBoundaryIntegrationTest {
                     graph.allDependencies.findAll { it instanceof org.gradle.api.artifacts.result.UnresolvedDependencyResult }.each { def cause = it.failure; while (cause != null) { println 'NATIVE_ERROR=' + cause.message; cause = cause.cause } }
                 } }
                 %s
-                """.formatted(repository, declarations, extra));
+                """.formatted(repository, declarations, extra).replace("4.0.0-boundary", bootVersion));
     }
 
     private void platform(String management) throws IOException {
-        publish("org.springframework.boot", "spring-boot-dependencies", "4.0.0-boundary",
+        publish("org.springframework.boot", "spring-boot-dependencies", bootVersion,
                 "<packaging>pom</packaging><dependencyManagement><dependencies>" + management + "</dependencies></dependencyManagement>");
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"2.7.18", "5.0.0", "4.invalid", "3.5.x"})
+    void unsupportedBomVersionsWarnAndFailStrictPolicy(String version) throws Exception {
+        bootVersion = version;
+        platform(dependency("library", "1"));
+        publish("guard.boundary", "library", "1", "");
+        consumer("implementation 'guard.boundary:library:1'", "", "url = uri('repository')");
+        String warning = run(false, false);
+        assertTrue(warning.contains("UNKNOWN Unsupported Spring Boot BOM " + version), warning);
+        assertFalse(warning.contains("PASS checked="), warning);
+        String failure = run(true, false, "-Pstrict");
+        assertTrue(failure.contains("UNKNOWN Unsupported Spring Boot BOM " + version), failure);
+        assertTrue(failure.contains("policy failed"), failure);
     }
 
     private String run(boolean failure, boolean localHttp, String... flags) {
