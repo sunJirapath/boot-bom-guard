@@ -3,6 +3,7 @@ import base64
 import hashlib
 import http.server
 import pathlib
+import re
 import shutil
 import subprocess
 import sys
@@ -150,6 +151,39 @@ class MavenIntegrationTest(unittest.TestCase):
         self.assertEqual(version, plugin.findtext("version"))
         self.assertIn(f'`mvn {group}:{artifact}:{version}:check`', readme)
 
+    def test_readme_documents_text_only_ci_contract(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn("No JSON, SARIF, JUnit XML or report file is emitted.", readme)
+        for row in (
+                "| Aligned or allowed drift (`PASS`) | 0 | 0 |",
+                "| Unaccepted drift (`WARN` / `DRIFT`) | 0 | 1 |",
+                "| Incomplete analysis or unmatched exception (`WARN` / `UNKNOWN`) | 0 | 1 |",
+                "| Invalid guard configuration | 1 | 1 |"):
+            self.assertIn(row, readme)
+
+    def test_windows_ci_runs_full_suites(self):
+        workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
+        job = workflow.split("\n  windows:\n", 1)[1].split("\n  maven-compatibility:", 1)[0]
+        for fragment in ("runs-on: windows-2025", "shell: pwsh", "-Algorithm SHA512", "-Algorithm SHA256",
+                         "mvn -B -ntp install", "python scripts/verify_maven.py", "gradle --no-daemon check",
+                         "python scripts/verify_install.py --gradle (Get-Command gradle.bat).Source"):
+            self.assertIn(fragment, job)
+
+    def test_readme_test_inventory_matches_sources(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        counts = {}
+        for module, label in (("core", "Core"), ("maven-plugin", "Maven adapter"), ("gradle-plugin", "Gradle integrations")):
+            source = "\n".join(path.read_text(encoding="utf-8") for path in (ROOT / module / "src/test").rglob("*.java"))
+            counts[label] = len(re.findall(r"@Test\b", source))
+            # All current parameterized cases use string ValueSource; fail if a new provider needs counting.
+            values = re.findall(r'@ValueSource\(strings\s*=\s*\{([^}]*)\}\)', source)
+            self.assertEqual(len(re.findall(r"@ParameterizedTest\b", source)), len(values))
+            counts[label] += sum(len(re.findall(r'"[^"\n]*"', value)) for value in values)
+        counts["Python Maven integrations"] = len(re.findall(r"^    def test_", pathlib.Path(__file__).read_text(encoding="utf-8"), re.M))
+        counts["Total"] = sum(counts.values())
+        for label, count in counts.items():
+            self.assertIn(f"| {label} | {count} |", readme)
+
     def test_readme_configuration_honours_strict_property(self):
         self.assertIsNotNone(MAVEN, "Maven must be on PATH")
         snippet = (ROOT / "README.md").read_text(encoding="utf-8").split("### Maven\n", 1)[1]
@@ -204,6 +238,14 @@ class MavenIntegrationTest(unittest.TestCase):
     def test_duplicate_normalized_exception_is_rejected(self):
         self.assertIn("Invalid bootBomGuard exceptions",
                       self.run_fixture(profile="duplicate-exception", expected_failure=True))
+
+    def test_unmatched_exception_warns_and_fails_ci(self):
+        for strict in (False, True):
+            out = self.run_fixture(profile="unmatched-exception", fail=strict, expected_failure=strict)
+            self.assertIn("UNKNOWN Unmatched exception (no resolved managed coordinate): guard.fixture:deleted", out)
+            self.assertNotIn("PASS checked=", out)
+            if strict:
+                self.assertIn("policy failed", out)
 
     def test_timestamped_snapshots_align_in_warning_and_strict_modes(self):
         with snapshot_repository() as (flags, _):

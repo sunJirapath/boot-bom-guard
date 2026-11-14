@@ -159,6 +159,10 @@ Set `failOnDrift = true` in the extension for CI. A consumer can wire it to a Gr
 `failOnDrift = providers.gradleProperty('failOnDrift').map { it.toBoolean() }.getOrElse(false)`.
 The fixture uses this binding; `-PfailOnDrift=true` alone is not a global plugin setting.
 
+The plugin attaches `bootBomGuard` to every `check` task in the same project, including one registered later.
+With strict mode enabled, an existing `./gradlew check` CI job therefore fails on drift or incomplete analysis.
+Projects without a `check` task must invoke `bootBomGuard` explicitly.
+
 ### Gradle — Kotlin DSL
 
 `settings.gradle.kts`:
@@ -221,7 +225,20 @@ These labels describe observed evidence, not a proof of the sole cause or an inc
 
 `PASS` means no unaccepted drift or incomplete-analysis diagnostics for the inspected graph. `WARN` is the default outcome when either exists. `failOnDrift=true` turns that policy result into a failing build. Missing/ambiguous BOMs and resolution failures also fail CI when opted in. Invalid configuration always fails. `checked` counts resolved managed coordinates; unused BOM entries are not drift.
 
-Exceptions use exact `group:artifact` keys (jar, no classifier), or `group:artifact:type:classifier` for Maven variants. Reasons must be nonblank. No wildcards. An exception accepts drift at that coordinate across versions; review/remove it when changing BOMs. It does not suppress incomplete analysis. Allowed findings still show expected/resolved versions, classification and reason. Output is sorted and control characters are escaped.
+Exceptions use exact `group:artifact` keys (jar, no classifier), or `group:artifact:type:classifier` for Maven variants. Reasons must be nonblank. No wildcards. An exception accepts drift at that coordinate across versions; review/remove it when changing BOMs. It does not suppress incomplete analysis. An exception with no resolved managed coordinate produces an `UNKNOWN Unmatched exception` diagnostic and fails strict mode. Matching is checked per inspected graph/configuration; a present, aligned managed dependency still matches. Remove obsolete keys and Maven classifier keys copied into Gradle, or scope the inspected configurations appropriately. Allowed findings still show expected/resolved versions, classification and reason. Output is sorted and control characters are escaped.
+
+Both adapters currently expose text logs only. No JSON, SARIF, JUnit XML or report file is emitted.
+Structured CI reporting is unsupported; use strict mode as the gate. A successful warning-mode build is not evidence of alignment.
+Build exit codes do not distinguish drift, incomplete analysis and invalid configuration; inspect the diagnostic text for that distinction.
+
+| Outcome | Default build exit | Strict build exit |
+| --- | --- | --- |
+| Aligned or allowed drift (`PASS`) | 0 | 0 |
+| Unaccepted drift (`WARN` / `DRIFT`) | 0 | 1 |
+| Incomplete analysis or unmatched exception (`WARN` / `UNKNOWN`) | 0 | 1 |
+| Invalid guard configuration | 1 | 1 |
+
+These codes describe standalone guard invocations when the build tool reaches the guard; other build failures can also fail the command.
 
 ### Resolution and security
 
@@ -248,9 +265,21 @@ python scripts/verify_install.py --gradle /path/to/gradle-8.14.3/bin/gradle --gr
 This downloads dependencies into fresh Maven/Gradle caches, copies the consumer fixtures to an OS temporary directory outside the checkout, and checks aligned, warning, strict-failure and reasoned-exception scenarios. Kotlin DSL covers a strict allowed exception; Groovy DSL and Maven cover all four policies. Logs and caches are retained under ignored `build/install-smoke-*`; the command prints the consumer directory.
 
 The integration suites exercise real Spring Boot 4 dependency resolution and frozen synthetic metadata. A separate Maven adapter unit suite uses native Resolver node objects to test traversal limits without publishing 20,000 artifacts. Gradle uses TestKit's plugin
-classpath; consumer examples use a composite build. The historical verification recorded 16 core tests, 3 Maven adapter tests, 31 Maven
-integration tests and 45 Gradle integration tests (95 distinct); see [VERIFICATION.md](VERIFICATION.md), the [adversarial audit](ADVERSARIAL-AUDIT.md), and [measured core performance](PERFORMANCE.md).
-These historical counts/results predate the review regressions; the Round 2 changes have only been reviewed statically.
+classpath; consumer examples use a composite build. Current source inventory is recorded below and checked by
+`test_readme_test_inventory_matches_sources`; shared core tests are counted once, and parameterized values count separately.
+See [VERIFICATION.md](VERIFICATION.md), the [adversarial audit](ADVERSARIAL-AUDIT.md), and [measured core performance](PERFORMANCE.md) for revision-specific execution evidence.
+The review-round changes have only been reviewed statically; source counts do not establish passing tests.
+
+| Suite | Source cases |
+| --- | ---: |
+| Core | 26 |
+| Maven adapter | 4 |
+| Python Maven integrations | 37 |
+| Gradle integrations | 53 |
+| Total | 120 |
+
+The Python suite includes three documentation/CI contract checks. The Spring dependency-management-only
+TestKit regression also needs `io.spring.dependency-management:1.1.7` cached before an offline run.
 
 After the first resolution, test with cached remote dependencies:
 
@@ -263,7 +292,7 @@ The Maven snapshot regressions generate a frozen local file repository and prime
 
 `-PtestOffline=true` also passes `--offline` to the nested TestKit builds. A new machine needs the Gradle
 distribution and dependencies cached first. The [CI workflow](.github/workflows/ci.yml) runs the full Maven and Gradle suites
-on Ubuntu with Java 21, Maven 3.9.16 and a Gradle 8.14.3 / 9.8.2 matrix, plus macOS 15 with Gradle 8.14.3. Each of these jobs also checks a source install with empty caches and external Maven/Groovy/Kotlin consumers. Separate Ubuntu jobs run the full Maven suites with 3.10.0 and preview 4.0.0-rc-7. Pull requests run the same checks; the README
+on Ubuntu with Java 21, Maven 3.9.16 and a Gradle 8.14.3 / 9.8.2 matrix, plus macOS 15 and Windows Server 2025 with Gradle 8.14.3. Each of these jobs also checks a source install with empty caches and external Maven/Groovy/Kotlin consumers. The Windows job is newly configured and has not been executed as part of this review. Separate Ubuntu jobs run the full Maven suites with 3.10.0 and preview 4.0.0-rc-7. Pull requests run the same checks; the README
 status badge follows `main` and shows its result after the workflow is merged and runs there.
 Licensed under the [MIT License](LICENSE). No coverage badge is shown because no coverage service is configured.
 
@@ -321,7 +350,7 @@ mvn boot-bom-guard:check
 
 Gradle รองรับ native `platform` และ `enforcedPlatform` โดยแยกความหมายของทั้งสองแบบ ไม่เดาที่มาของ constraint
 คำขอ Boot BOM ต้องเป็นเวอร์ชันเจาะจง ส่วน range, dynamic version, dependency substitution และ module ที่ถูกเลือกด้วย rule จะแสดง `UNKNOWN` และทำให้ strict mode ล้มเหลว แม้เวอร์ชันที่เลือกจะตรงกับ BOM
-เมื่อไม่มีหลักฐานเพียงพอ ยังไม่รองรับ configuration-cache reuse และ Gradle 10 แต่ทดสอบแล้วว่าการขอ configuration cache ยังรันการตรวจและ strict policy โดย discard cache ที่ใช้ไม่ได้ CI ครอบคลุม Ubuntu และเพิ่ม macOS 15 ตาม matrix ข้างต้น
+เมื่อไม่มีหลักฐานเพียงพอ ยังไม่รองรับ configuration-cache reuse และ Gradle 10 แต่ทดสอบแล้วว่าการขอ configuration cache ยังรันการตรวจและ strict policy โดย discard cache ที่ใช้ไม่ได้ CI ตั้งค่าไว้สำหรับ Ubuntu, macOS 15 และ Windows Server 2025 ตาม matrix ข้างต้น โดย Windows job ที่เพิ่มในรอบนี้ยังไม่ได้รัน
 ห้าม rewrite metadata ของ Boot BOM หรือ BOM ที่ import หากต้องการ baseline ที่เชื่อถือได้ ส่วน local file dependencies บน configuration ที่ตรวจจะแสดง UNKNOWN
 การ resolve อาจดาวน์โหลดข้อมูลผ่าน repository ที่ build tool ตั้งค่าไว้ ใช้ `--offline` ได้เมื่อมี cache ครบแล้ว
 

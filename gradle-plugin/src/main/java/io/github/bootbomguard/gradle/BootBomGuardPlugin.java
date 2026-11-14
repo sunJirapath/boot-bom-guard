@@ -11,7 +11,7 @@ public final class BootBomGuardPlugin implements Plugin<Project> {
         extension.getFailOnDrift().convention(false);
         extension.getConfigurations().convention(List.of("compileClasspath", "runtimeClasspath", "testCompileClasspath", "testRuntimeClasspath"));
         extension.getExceptions().convention(Map.of());
-        project.getTasks().register("bootBomGuard", BootBomGuardTask.class, task -> {
+        var guard = project.getTasks().register("bootBomGuard", BootBomGuardTask.class, task -> {
             task.setGroup("verification");
             task.setDescription("Reports resolved dependency drift from the selected Spring Boot BOM");
             task.getFailOnDrift().convention(extension.getFailOnDrift());
@@ -20,5 +20,7 @@ public final class BootBomGuardPlugin implements Plugin<Project> {
             // shortcut: native graph access uses Project during execution; add configuration-cache support when needed.
             task.notCompatibleWithConfigurationCache("Uses native configuration resolution at execution time");
         });
+        project.getTasks().matching(task -> task.getName().equals("check"))
+                .configureEach(task -> task.dependsOn(guard));
     }
 }

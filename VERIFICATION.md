@@ -1,5 +1,19 @@
 # Verification
 
+## Round 3 P2/P3 fixes, 2026-11-14 (static review only)
+
+- F3: `bootBomGuard` is a dependency of same-project `check` tasks, regardless of registration order. Added `checkRunsGuardAndEnforcesStrictPolicyInEitherPluginOrder` (two plugin orders, aligned success and strict drift failure).
+- F6/T4: shared comparison emits an unmatched-exception diagnostic when no resolved managed coordinate matches a key. This is a strict-policy violation per inspected graph; an aligned managed coordinate still matches. Added `reportsUnmatchedExceptions`, `unmatchedExceptionWarnsAndFailsStrictPolicy` and `test_unmatched_exception_warns_and_fails_ci`. The seeded differential test's reference now includes unmatched-exception diagnostics.
+- F7 (documentation only): README specifies the text-only output limitation and warning/strict exit contract; no structured report format was added. Added `test_readme_documents_text_only_ci_contract`; a `FINDING:` comment remains at the text formatter.
+- F8: configured Windows Server 2025 / JDK 21 / Maven 3.9.16 / Gradle 8.14.3 CI, including full suites and clean-cache external-consumer smoke checks. Added `test_windows_ci_runs_full_suites` to preserve that wiring; it does not prove a hosted run passed.
+- T5/T6: added `springDependencyManagementOnlyIsUnknown` using the actual Spring dependency-management plugin and frozen BOM metadata, plus `boot3WarnsAndFailsStrictPolicyWithoutResolving` using Maven model source locations. Both cover warning diagnostics and strict failure. T1-T3 regressions from Rounds 1/2 were retained.
+- F9: README now separates current source inventory from historical execution counts. Added `test_readme_test_inventory_matches_sources` to count plain Java tests, string-parameterized cases and Python tests; shared core is counted once.
+
+No git commands, builds, test suites, compilation or native resolution were run in Round 3. Expected values were
+derived from the code paths. The new tests and Windows installer remain unexecuted; check Maven model API compilation,
+Spring plugin resolution/Gradle compatibility, and the Windows job first. Structured report consumers remain unsupported.
+The current source inventory is in README; all execution evidence below applies only to the revision/date named there.
+
 ## Round 2 P1 regressions, 2026-11-14
 
 - F1: source-install Maven examples and the full goal use the checkout's `0.1.1-SNAPSHOT`; publication is not inferred from tags, release scaffolding or historical source-install checks. Added `test_readme_source_install_coordinates_match_checkout`; the Round 1 strict-property test now uses the README version without replacing it.
@@ -15,14 +29,14 @@ unverified. Counts and execution results below are historical and do not verify 
 Removed the literal Maven `failOnDrift` value from the README so the documented CLI property can enable strict mode.
 Added `test_readme_configuration_honours_strict_property`, which copies the README XML, uses the installed checkout's
 plugin version, removes the optional exception and checks unaccepted drift in warning mode (exit 0) and strict mode
-(exit 1 with a policy failure). The native Maven integration inventory is now 32 test methods.
+(exit 1 with a policy failure). At the end of Round 1, the native Maven integration inventory contained 32 test methods.
 No builds or test suites were run for this change; historical execution results below do not verify it.
 
 ## Performance and further stress coverage, 2026-10-29
 
 Shared-core optimizations reuse coordinate validation patterns, index expected versions by hash, sort only drift findings, and avoid formatter allocations during report escaping. Public records, exact-version equality, distinct-resolution counting, ordering, exceptions and strict policy retain their previous behavior. [PERFORMANCE.md](PERFORMANCE.md) records reproducible baseline/working-source timing and allocation measurements; native resolution/startup and peak heap are outside that benchmark.
 
-The suite now contains **95 distinct tests**: 16 shared core, 3 Maven adapter, 31 native Maven integration and 45 Gradle TestKit. Six additional regressions cover seeded differential policy checks, every UTF-16 code unit, coordinate grammar, colliding hashes, a dense native conflict graph, and separate configurations with different BOMs. Earlier corpus replays below belong to `78ec45c`; that corpus was not replayed for this core-only change.
+This historical pass recorded **95 distinct tests**: 16 shared core, 3 Maven adapter, 31 native Maven integration and 45 Gradle TestKit. These are execution counts from that pass, not the current source inventory. Six additional regressions cover seeded differential policy checks, every UTF-16 code unit, coordinate grammar, colliding hashes, a dense native conflict graph, and separate configurations with different BOMs. Earlier corpus replays below belong to `78ec45c`; that corpus was not replayed for this core-only change.
 
 Fresh Windows/JDK 21.0.11 checks pass: source install/unit suites and all 31 native integrations separately on Maven **3.9.16 / 3.10.0 / 4.0.0-rc-7**, plus forced full `check` and plugin validation on Gradle **8.14.3 / 9.8.2**. All current suites have zero failures/errors/skips. Local logs are under ignored `build/performance/`; the fresh-cache Maven 3.9.16 install also runs all 16 core and 3 adapter unit tests. Hosted results must be checked against the actual PR head, using the [PR checks](https://github.com/sunJirapath/boot-bom-guard/pull/8/checks).
 

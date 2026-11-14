@@ -143,6 +143,26 @@ class GuardTest {
         assertThrows(UnsupportedOperationException.class, () -> report.diagnostics().clear());
     }
 
+    @Test void reportsUnmatchedExceptions() {
+        Coordinates deleted = Coordinates.parse("g:deleted");
+        Coordinates unmanaged = Coordinates.parse("g:unmanaged");
+        Coordinates classifier = Coordinates.parse("org.slf4j:slf4j-api:test-jar:tests");
+        List<String> diagnostics = List.of("Existing diagnostic");
+        Report report = compare("4", Map.of(key, "2.0.17", deleted, "1"),
+                List.of(drift, new Resolved(unmanaged, "1", Origin.UNKNOWN_ORIGIN, "unmanaged")),
+                Map.of(key, "Reviewed", deleted, "Removed dependency", unmanaged, "Outside BOM", classifier, "Maven variant"),
+                diagnostics);
+        assertTrue(report.violation());
+        assertEquals("Reviewed", report.findings().getFirst().reason());
+        for (Coordinates coordinate : List.of(deleted, unmanaged, classifier))
+            assertTrue(report.format().contains("UNKNOWN Unmatched exception (no resolved managed coordinate): " + coordinate));
+        assertEquals(4, report.diagnostics().size());
+        assertEquals(List.of("Existing diagnostic"), diagnostics);
+        assertFalse(compare("4", Map.of(key, "2.0.17"),
+                List.of(new Resolved(key, "2.0.17", Origin.UNKNOWN_ORIGIN, "aligned")),
+                Map.of(key, "Still present"), List.of()).violation());
+    }
+
     @Test void sanitizesBomReasonAndDiagnosticIncludingUnicodeSeparators() {
         String out = compare("4\nBOM\u2028", Map.of(key, "2.0.17"), List.of(drift),
                 Map.of(key, "reason\u2029next"), List.of("diag\nnext")).format();
@@ -179,7 +199,7 @@ class GuardTest {
             }
             Collections.shuffle(actual, random);
             var diagnostics = List.of("z", "a\u2028next", "a\u2028next");
-            // Reference the previous policy independently: deduplicate/sort all resolutions, then filter.
+            // Independently enumerate resolutions and unmatched exceptions for the reference policy.
             List<Resolved> ordered = actual.stream().distinct().sorted(java.util.Comparator.comparing(Resolved::coordinates)
                     .thenComparing(Resolved::version).thenComparing(Resolved::evidence).thenComparing(Resolved::origin)).toList();
             List<Finding> findings = new java.util.ArrayList<>();
@@ -191,7 +211,12 @@ class GuardTest {
                 if (!version.equals(item.version())) findings.add(new Finding(item.coordinates(), version, item.version(),
                         item.origin(), item.evidence(), allowed.get(item.coordinates())));
             }
-            Report reference = new Report("4", findings, diagnostics.stream().distinct().sorted().toList(), checked);
+            var referenceDiagnostics = new java.util.ArrayList<>(diagnostics);
+            for (Coordinates coordinate : allowed.keySet()) {
+                if (ordered.stream().noneMatch(item -> item.coordinates().equals(coordinate) && expected.containsKey(coordinate)))
+                    referenceDiagnostics.add("Unmatched exception (no resolved managed coordinate): " + coordinate);
+            }
+            Report reference = new Report("4", findings, referenceDiagnostics.stream().distinct().sorted().toList(), checked);
             Report result = compare("4", expected, actual, allowed, diagnostics);
             assertEquals(reference, result, "round=" + round);
             assertEquals(reference.format(), result.format(), "round=" + round);

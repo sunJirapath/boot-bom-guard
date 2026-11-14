@@ -57,11 +57,72 @@ class GradleBoundaryIntegrationTest {
     }
 
     private String run(boolean failure, boolean localHttp, String... flags) {
-        var args = new ArrayList<>(List.of("bootBomGuard", "--console=plain", "--stacktrace"));
+        return runTask("bootBomGuard", failure, localHttp, flags);
+    }
+
+    private String runTask(String task, boolean failure, boolean localHttp, String... flags) {
+        var args = new ArrayList<>(List.of(task, "--console=plain", "--stacktrace"));
         if (Boolean.getBoolean("guard.test.offline") && !localHttp) args.add("--offline");
         args.addAll(List.of(flags));
         var runner = GradleRunner.create().withProjectDir(directory.toFile()).withPluginClasspath().withArguments(args);
         return (failure ? runner.buildAndFail() : runner.build()).getOutput();
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"java-first", "guard-first"})
+    void checkRunsGuardAndEnforcesStrictPolicyInEitherPluginOrder(String order) throws Exception {
+        platform(dependency("library", "1"));
+        for (String version : List.of("1", "2")) {
+            publish("guard.boundary", "library", version, "");
+            Path jar = directory.resolve("repository/guard/boundary/library/" + version + "/library-" + version + ".jar");
+            try (var zip = new java.util.zip.ZipOutputStream(Files.newOutputStream(jar))) { zip.finish(); }
+        }
+        consumer("implementation 'guard.boundary:library:1'", "", "url = uri('repository')");
+        Path build = directory.resolve("build.gradle");
+        if (order.equals("guard-first"))
+            Files.writeString(build, Files.readString(build).replace("id 'java'; id 'io.github.sunjirapath.bootbomguard'",
+                    "id 'io.github.sunjirapath.bootbomguard'; id 'java'"));
+        String aligned = runTask("check", false, false, "-Pstrict");
+        assertTrue(aligned.contains("> Task :bootBomGuard"), aligned);
+        assertTrue(aligned.contains("PASS checked=1 drift=0 unknown=0"), aligned);
+        Files.writeString(build, Files.readString(build).replace("guard.boundary:library:1", "guard.boundary:library:2"));
+        String failure = runTask("check", true, false, "-Pstrict");
+        assertTrue(failure.contains("DRIFT guard.boundary:library expected=1 resolved=2"), failure);
+        assertTrue(failure.contains("policy failed"), failure);
+    }
+
+    @Test void unmatchedExceptionWarnsAndFailsStrictPolicy() throws Exception {
+        platform(dependency("library", "1"));
+        publish("guard.boundary", "library", "1", "");
+        consumer("implementation 'guard.boundary:library:1'",
+                "bootBomGuard { exceptions.put('guard.boundary:deleted', 'Old exemption') }", "url = uri('repository')");
+        String warning = run(false, false);
+        assertTrue(warning.contains("UNKNOWN Unmatched exception (no resolved managed coordinate): guard.boundary:deleted"), warning);
+        assertFalse(warning.contains("PASS checked="), warning);
+        String failure = run(true, false, "-Pstrict");
+        assertTrue(failure.contains("Unmatched exception"), failure);
+        assertTrue(failure.contains("policy failed"), failure);
+    }
+
+    @Test void springDependencyManagementOnlyIsUnknown() throws Exception {
+        platform(dependency("library", "1"));
+        publish("guard.boundary", "library", "1", "");
+        consumer("implementation 'guard.boundary:library'", """
+                dependencyManagement {
+                    imports { mavenBom 'org.springframework.boot:spring-boot-dependencies:4.0.0-boundary' }
+                }
+                """, "url = uri('repository')");
+        Path build = directory.resolve("build.gradle");
+        Files.writeString(build, Files.readString(build)
+                .replace("id 'java';", "id 'java'; id 'io.spring.dependency-management' version '1.1.7';")
+                .replace("implementation platform('org.springframework.boot:spring-boot-dependencies:4.0.0-boundary')", ""));
+        String warning = run(false, false);
+        assertTrue(warning.contains("NATIVE_UNRESOLVED_COUNT=0"), warning);
+        assertTrue(warning.contains("UNKNOWN Missing Spring Boot BOM"), warning);
+        assertFalse(warning.contains("PASS checked="), warning);
+        String failure = run(true, false, "-Pstrict");
+        assertTrue(failure.contains("UNKNOWN Missing Spring Boot BOM"), failure);
+        assertTrue(failure.contains("policy failed"), failure);
     }
 
     @Test void broadDeepDiamondGraphRetainsOneRealOverride() throws Exception {
