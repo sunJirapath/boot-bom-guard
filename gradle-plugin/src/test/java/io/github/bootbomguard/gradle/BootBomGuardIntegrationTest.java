@@ -207,11 +207,11 @@ class BootBomGuardIntegrationTest {
 
     @Test void resolutionExceptionsAreSanitizedAndFailCi() throws Exception {
         String warning = run("groovy", "resolution-error", false);
-        assertTrue(warning.contains("UNKNOWN Gradle dependency resolution failed"), warning);
+        assertTrue(warning.contains("UNKNOWN Gradle dependency resolution failed: "), warning);
         assertTrue(warning.contains("WARN checked=0 drift=0 unknown=1"), warning);
         assertFalse(warning.contains("fixture-secret"), warning);
         String failure = run("groovy", "resolution-error", true, "-PfailOnDrift=true");
-        assertTrue(failure.contains("UNKNOWN Gradle dependency resolution failed"), failure);
+        assertTrue(failure.contains("UNKNOWN Gradle dependency resolution failed: "), failure);
         assertTrue(failure.contains("policy failed"), failure);
         assertFalse(failure.contains("fixture-secret"), failure);
     }
