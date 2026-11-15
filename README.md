@@ -282,7 +282,7 @@ Expected Boot 3 managed versions come from native BOM resolution; assertions do 
 These additions have not run. A separate Maven adapter unit suite uses native Resolver node objects to test traversal limits without publishing 20,000 artifacts. Gradle uses TestKit's plugin
 classpath; consumer examples use a composite build. Current source inventory is recorded below and checked by
 `test_readme_test_inventory_matches_sources`; shared core tests are counted once, and parameterized values count separately.
-See [VERIFICATION.md](VERIFICATION.md), the [adversarial audit](ADVERSARIAL-AUDIT.md), and [measured core performance](PERFORMANCE.md) for revision-specific execution evidence.
+See [VERIFICATION.md](VERIFICATION.md) for revision-specific execution evidence.
 The review-round changes have only been reviewed statically; source counts do not establish passing tests.
 
 | Suite | Source cases |
