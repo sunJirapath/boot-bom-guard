@@ -1,5 +1,60 @@
 # Verification
 
+## Security and opt-in real projects, 2026-11-15 (not executed)
+
+Security regressions cover shared report-field credential redaction; encoded, uppercase, IPv6 and schemeless URLs;
+XML/Authorization secrets; workflow commands, ANSI and newline injection; coordinate traversal/look-alikes;
+oversized coordinates/quoted secrets/repeated secret-key prefixes and Boot qualifier paths; large exception maps; null-first duplicate
+Maven exceptions; malformed allowlist types that previously normalized to JAR; and malformed native POM/module JSON resolution. Existing native graph, missing BOM, rule-selection,
+file-dependency, unresolved BOM and verbose-conflict-loser tests remain in place. No tests or build commands were run.
+
+The Python 3.9+ opt-in runner reads `$REAL_PROJECTS_DIR/MANIFEST.json` at test time. Missing environment/project entries are
+explicit unittest skips. It recognizes the five requested project names and seven Maven/Gradle combinations;
+versions, paths, SHAs and build availability come from the manifest, with no fixed project file counts.
+Manifest SHAs are recorded provenance, not independently verified checkout identities.
+
+Prepare installed Maven/Gradle executables and prewarmed dependencies/plugins (including this checkout's Maven
+plugin and Gradle composite build requirements) separately. The runner always passes `--offline`, copies caches
+including the SLF4J 2.0.0 mutation artifact and each manifest project's complete dependency metadata/artifacts
+into temporary directories, and never downloads a distribution or runs project wrappers. Missing cached artifacts
+fail the test with an incomplete/missing-report diagnostic; they are not silently skipped.
+
+```powershell
+$env:REAL_PROJECTS_DIR = 'E:/rv/_real'
+python scripts/verify_real_projects.py
+# Optional installed tools and read-only cache sources:
+python scripts/verify_real_projects.py --maven C:/tools/maven/bin/mvn.cmd --gradle C:/tools/gradle/bin/gradle.bat --maven-cache C:/cache/m2 --gradle-cache C:/cache/gradle
+# Harness-only tests: no native builds or real-project opt-in needed.
+python -m unittest discover -s scripts -p test_verify_real_projects.py -v
+```
+
+Each project and the guard composite source are copied by bytes into a fresh OS temporary directory; links,
+junctions, escaping/cyclic module paths, secret/key filenames and generated directories are rejected/excluded.
+Original project fingerprints are compared after execution. Maven checks discovered modules individually with
+`-N`, preserving module attribution without invoking packaging lifecycles. Gradle adds the README composite plugin
+and replaces the copied build's `io.spring.dependency-management` plugin declaration with a same-version native
+Boot platform, checking `runtimeClasspath`. This avoids that plugin's selection rules, which the guard treats as
+incomplete analysis. Thus Gradle tests exercise the explicitly adapted native-platform consumer, not the original
+dependency-management-only build (which remains unsupported).
+
+Assertions cover documented warning/strict exits, repeated deterministic console reports, per-module attribution,
+the SLF4J 2.0.0 override's coordinate/non-equal pristine expected version/exact resolved version, unchanged unrelated
+findings, complete restoration after override removal, and Boot 2.x UNKNOWN plus strict failure. Existing drift is
+not assumed absent. A planted credential URL is tested through a forced offline Maven resolution error or a Gradle
+resolution callback exception; a redaction marker is required so an unused URL cannot satisfy the probe. Known
+repository credentials/tokens found in copied build configuration must not appear in any captured output.
+
+The plugin emits console text only, with no report-file API. The runner asserts complete reports and writes its
+own nonempty `.report.txt`/log captures inside the temporary output directory, after checking for secret leaks.
+It compares report blocks, not nondeterministic native timing/progress logs. Module evidence paths are checked;
+the current adapter evidence strings contain no source-file/line references. Temporary evidence is cleaned up.
+
+These 7 opt-in cases and 12 harness tests were authored but **none were run**. Exact managed versions/golden totals,
+native callback/diagnostic depth, cache portability, native XML/JSON parser limits and compile/runtime compatibility
+remain unverified. Cache copies may be large. Build scripts execute native code: directory settings and fingerprints
+do not constitute an OS sandbox or prove that arbitrary upstream build code cannot write/connect elsewhere.
+This script does not enable network access; run pinned projects under the intended external offline sandbox.
+
 ## Boot 3 P0, 2026-11-15 (static review only)
 
 Supported scope is BOM drift analysis for Boot 3.5.x and 4.x with Java 17+ plugin bytecode/runtime target.

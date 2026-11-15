@@ -17,7 +17,7 @@ public record Coordinates(String group, String artifact, String type, String cla
     public static Coordinates parse(String value) {
         String[] parts = Objects.requireNonNull(value).split(":", -1);
         if (parts.length == 2) return new Coordinates(parts[0], parts[1], "jar", "");
-        if (parts.length == 4) return new Coordinates(parts[0], parts[1], parts[2], parts[3]);
+        if (parts.length == 4) return new Coordinates(parts[0], parts[1], token(parts[2]), parts[3]);
         throw new IllegalArgumentException("Dependency must be group:artifact or group:artifact:type:classifier");
     }
 

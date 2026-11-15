@@ -14,7 +14,7 @@ public final class Guard {
     private Guard() {}
 
     public static boolean supportedBootVersion(String version) {
-        return version != null && version.matches("[34]\\.[0-9]+\\.[0-9]+(?:-[A-Za-z0-9]+(?:[.-][A-Za-z0-9]+)*)?");
+        return version != null && version.matches("[34]\\.[0-9]++\\.[0-9]++(?:-[A-Za-z0-9]++(?:[.-][A-Za-z0-9]++)*+)?");
     }
 
     public enum Origin { DIRECT_OVERRIDE, MANAGED_OVERRIDE, TRANSITIVE_DRIFT, UNKNOWN_ORIGIN }
@@ -95,6 +95,7 @@ public final class Guard {
 
     public static String safe(String value) {
         if (value == null) return "unknown";
+        value = Redact.text(value);
         StringBuilder out = null;
         for (int i = 0; i < value.length(); i++) {
             char c = value.charAt(i);

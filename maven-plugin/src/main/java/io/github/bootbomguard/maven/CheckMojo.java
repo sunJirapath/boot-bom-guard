@@ -55,9 +55,10 @@ public final class CheckMojo extends AbstractMojo {
     @Override public void execute() throws MojoExecutionException, MojoFailureException {
         Map<String, String> configured = new LinkedHashMap<>();
         for (ExceptionEntry entry : exceptions) {
-            if (configured.put(entry.dependency, entry.reason) != null) {
+            if (configured.containsKey(entry.dependency)) {
                 throw new MojoExecutionException("Duplicate exception: " + Guard.safe(entry.dependency));
             }
+            configured.put(entry.dependency, entry.reason);
         }
         Map<Coordinates, String> allowed;
         try { allowed = Guard.exceptions(configured); }

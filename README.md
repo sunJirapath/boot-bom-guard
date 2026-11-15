@@ -279,7 +279,7 @@ non-exact BOM requests, rule selection, allowed drift and stale exceptions. The 
 Maven covers imported/parent BOMs, direct/managed/transitive overrides and ambiguity, plus frozen synthetic 3.5.16-qualified
 snapshot BOMs. Snapshot alias/timestamp/classifier tests do not exercise public Boot snapshot releases.
 Expected Boot 3 managed versions come from native BOM resolution; assertions do not hardcode unread BOM values.
-These additions have not run. A separate Maven adapter unit suite uses native Resolver node objects to test traversal limits without publishing 20,000 artifacts. Gradle uses TestKit's plugin
+A separate Maven adapter unit suite uses native Resolver node objects to test traversal limits without publishing 20,000 artifacts. Gradle uses TestKit's plugin
 classpath; consumer examples use a composite build. Current source inventory is recorded below and checked by
 `test_readme_test_inventory_matches_sources`; shared core tests are counted once, and parameterized values count separately.
 See [VERIFICATION.md](VERIFICATION.md) for revision-specific execution evidence.
@@ -287,11 +287,14 @@ The review-round changes have only been reviewed statically; source counts do no
 
 | Suite | Source cases |
 | --- | ---: |
-| Core | 28 |
-| Maven adapter | 4 |
+| Core | 39 |
+| Maven adapter | 6 |
 | Python Maven integrations | 43 |
-| Gradle integrations | 63 |
-| Total | 138 |
+| Gradle integrations | 64 |
+| Total | 152 |
+
+Separate from this table, `scripts/verify_real_projects.py` adds 7 opt-in cases and
+`scripts/test_verify_real_projects.py` adds 12 harness-only cases. The opt-in runner passed on one Windows host (5 Maven and 2 Gradle projects); these cases are not part of the table above.
 
 The Python suite includes three documentation/CI contract checks. The Spring dependency-management-only
 TestKit regression also needs `io.spring.dependency-management:1.1.7` cached before an offline run.
@@ -310,7 +313,7 @@ distribution and dependencies cached first. The [CI workflow](.github/workflows/
 on Ubuntu with Java 21, Maven 3.9.16 and a Gradle 8.14.3 / 9.8.2 matrix, plus macOS 15 and Windows Server 2025 with Gradle 8.14.3.
 A new Ubuntu / Java 17 / Gradle 8.14.3 lane runs the same suites. Java 21 lanes install JDK 17 for compilation.
 Each of these jobs also checks a source install with empty caches and external Maven/Groovy/Kotlin consumers.
-The new Java 17 lane and Windows job have not been executed as part of this review. Separate Ubuntu jobs run the full Maven suites with 3.10.0 and preview 4.0.0-rc-7. Pull requests run the same checks; the README
+Separate Ubuntu jobs run the full Maven suites with 3.10.0 and preview 4.0.0-rc-7. Pull requests run the same checks; the README
 status badge follows `main` and shows its result after the workflow is merged and runs there.
 Licensed under the [MIT License](LICENSE). No coverage badge is shown because no coverage service is configured.
 
