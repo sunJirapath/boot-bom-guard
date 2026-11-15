@@ -13,6 +13,10 @@ import java.util.TreeMap;
 public final class Guard {
     private Guard() {}
 
+    public static boolean supportedBootVersion(String version) {
+        return version != null && version.matches("[34]\\.[0-9]+\\.[0-9]+(?:-[A-Za-z0-9]+(?:[.-][A-Za-z0-9]+)*)?");
+    }
+
     public enum Origin { DIRECT_OVERRIDE, MANAGED_OVERRIDE, TRANSITIVE_DRIFT, UNKNOWN_ORIGIN }
     public record Resolved(Coordinates coordinates, String version, Origin origin, String evidence) {
         public Resolved {

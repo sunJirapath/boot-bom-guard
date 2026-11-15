@@ -9,15 +9,20 @@ permissions:
 
 jobs:
   verify:
-    name: ${{ matrix.os }} / JDK 21 / Maven 3.9.16 / Gradle ${{ matrix.gradle }}
+    name: ${{ matrix.os }} / JDK ${{ matrix.java }} / Maven 3.9.16 / Gradle ${{ matrix.gradle }}
     strategy:
       fail-fast: false
       matrix:
         gradle: ['8.14.3', '9.8.2']
         os: ['ubuntu-24.04']
+        java: ['21']
         include:
           - os: macos-15
             gradle: '8.14.3'
+            java: '21'
+          - os: ubuntu-24.04
+            gradle: '8.14.3'
+            java: '17'
     runs-on: ${{ matrix.os }}
     timeout-minutes: 30
     steps:
@@ -25,7 +30,9 @@ jobs:
       - uses: actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c # v6.0.0
         with:
           distribution: temurin
-          java-version: '21'
+          java-version: |
+            17
+            ${{ matrix.java }}
 
       - name: Install Maven 3.9.16
         run: |
@@ -68,7 +75,9 @@ jobs:
       - uses: actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c # v6.0.0
         with:
           distribution: temurin
-          java-version: '21'
+          java-version: |
+            17
+            21
       - name: Install pinned Maven and Gradle
         shell: pwsh
         run: |

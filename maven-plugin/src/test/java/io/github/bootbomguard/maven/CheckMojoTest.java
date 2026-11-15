@@ -23,36 +23,41 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CheckMojoTest {
-    @Test void boot3WarnsAndFailsStrictPolicyWithoutResolving() throws Exception {
-        var source = new InputSource();
-        source.setModelId("org.springframework.boot:spring-boot-dependencies:3.5.0");
-        var dependency = new org.apache.maven.model.Dependency();
-        dependency.setGroupId("org.slf4j");
-        dependency.setArtifactId("slf4j-api");
-        dependency.setVersion("2.0.17");
-        dependency.setLocation("version", new InputLocation(1, 1, source));
-        var management = new DependencyManagement();
-        management.addDependency(dependency);
-        var project = new MavenProject();
-        project.getModel().setDependencyManagement(management);
-        for (boolean strict : List.of(false, true)) {
-            var mojo = new CheckMojo();
-            var projectField = CheckMojo.class.getDeclaredField("project");
-            projectField.setAccessible(true);
-            projectField.set(mojo, project);
-            var strictField = CheckMojo.class.getDeclaredField("failOnDrift");
-            strictField.setAccessible(true);
-            strictField.setBoolean(mojo, strict);
-            var output = new StringBuilder();
-            mojo.setLog(new SystemStreamLog() {
-                @Override public void warn(CharSequence content) { output.append(content); }
-            });
-            // No session/resolver is injected: unsupported BOMs must be rejected before resolution.
-            if (strict) assertThrows(MojoFailureException.class, mojo::execute);
-            else assertDoesNotThrow(mojo::execute);
-            assertTrue(output.toString().contains("UNKNOWN Unsupported Spring Boot BOM 3.5.0"), output.toString());
-            assertFalse(output.toString().contains("PASS checked="), output.toString());
-            assertFalse(output.toString().contains("resolution failed"), output.toString());
+    @Test void bomGateAcceptsSupportedMajorsAndFailsClosedWithoutResolutionEvidence() throws Exception {
+        for (String version : List.of("3.5.16", "4.0.0", "2.7.18", "5.0.0", "4.invalid", "3.5.x")) {
+            var source = new InputSource();
+            source.setModelId("org.springframework.boot:spring-boot-dependencies:" + version);
+            var dependency = new org.apache.maven.model.Dependency();
+            dependency.setGroupId("org.slf4j");
+            dependency.setArtifactId("slf4j-api");
+            dependency.setVersion("2.0.17");
+            dependency.setLocation("version", new InputLocation(1, 1, source));
+            var management = new DependencyManagement();
+            management.addDependency(dependency);
+            var project = new MavenProject();
+            project.getModel().setDependencyManagement(management);
+            for (boolean strict : List.of(false, true)) {
+                var mojo = new CheckMojo();
+                var projectField = CheckMojo.class.getDeclaredField("project");
+                projectField.setAccessible(true);
+                projectField.set(mojo, project);
+                var strictField = CheckMojo.class.getDeclaredField("failOnDrift");
+                strictField.setAccessible(true);
+                strictField.setBoolean(mojo, strict);
+                var output = new StringBuilder();
+                mojo.setLog(new SystemStreamLog() {
+                    @Override public void warn(CharSequence content) { output.append(content); }
+                });
+                // No resolver is injected: accepted versions must still fail closed on missing evidence.
+                if (strict) assertThrows(MojoFailureException.class, mojo::execute);
+                else assertDoesNotThrow(mojo::execute);
+                String diagnostic = Guard.supportedBootVersion(version)
+                        ? "UNKNOWN Maven model/dependency resolution failed:"
+                        : "UNKNOWN Unsupported Spring Boot BOM " + version;
+                assertTrue(output.toString().contains(diagnostic), output.toString());
+                assertFalse(output.toString().contains("PASS checked="), output.toString());
+                if (!Guard.supportedBootVersion(version)) assertFalse(output.toString().contains("resolution failed"), output.toString());
+            }
         }
     }
 
@@ -79,7 +84,7 @@ class CheckMojoTest {
         }
         var actual = assertDoesNotThrow(() -> collect(root));
         assertEquals(20000, actual.size());
-        assertEquals(Guard.Origin.TRANSITIVE_DRIFT, actual.getLast().origin());
+        assertEquals(Guard.Origin.TRANSITIVE_DRIFT, actual.get(actual.size() - 1).origin());
     }
 
     @Test void sharedDirectNodeKeepsItsShortestRootPath() throws Exception {
@@ -104,6 +109,6 @@ class CheckMojoTest {
         selected.getChildren().add(root);
         var actual = collect(root);
         assertEquals(1, actual.size());
-        assertEquals("selected", actual.getFirst().coordinates().artifact());
+        assertEquals("selected", actual.get(0).coordinates().artifact());
     }
 }

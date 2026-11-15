@@ -4,6 +4,12 @@ The main agent owned contracts, both adapters and integration. Three bounded `gp
 
 ## Shared contract
 
+Both adapters share `Guard.supportedBootVersion` for parseable exact Boot 3/4 version gating. The compatibility scope
+is Boot 3.5.x and 4.x BOM drift analysis, with exact real BOM fixture versions 3.5.16, 4.0.0, 4.0.1 and 4.1.0
+(4.1.0 only for ambiguity). Boot 3.0–3.4 and 2.x are not claimed. Core and both adapters compile for Java 17;
+Gradle tests retain the build JVM's Java major. The Boot 3/Java 17 additions are statically reviewed only;
+see [VERIFICATION.md](VERIFICATION.md) for execution limits. Framework/Jakarta dependency resolution does not prove application runtime compatibility.
+
 Core accepts exact expected versions and selected resolved coordinates, with adapter-produced evidence. It performs equality comparison, applies exact-coordinate exceptions, and formats sorted diagnostics. It has no build-tool imports. Version ordering, mediation, platform semantics and model interpolation belong to adapters/native APIs.
 
 Core uses a per-comparison hash index for exact expected-version lookup and deduplicates resolved entries before counting managed coordinates. Only drift findings are sorted, using the existing coordinate/version/evidence/origin order. Coordinate validation reuses a compiled pattern. Report escaping scans UTF-16 once, allocates only when escaping is needed, and renders control codes directly. [PERFORMANCE.md](PERFORMANCE.md) records bounded measurements; native resolution is outside those timings.

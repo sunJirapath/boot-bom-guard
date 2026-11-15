@@ -1,0 +1,6 @@
+pluginManagement {
+    if (providers.gradleProperty('guardBuild').isPresent()) {
+        includeBuild(providers.gradleProperty('guardBuild').get())
+    }
+}
+rootProject.name = 'guard-fixture'

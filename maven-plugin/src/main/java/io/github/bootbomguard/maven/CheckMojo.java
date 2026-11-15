@@ -74,7 +74,7 @@ public final class CheckMojo extends AbstractMojo {
             else {
                 String version = versions.iterator().next();
                 bom = BOOT + version;
-                if (!version.startsWith("4.")) diagnostics.add("Unsupported Spring Boot BOM " + version + "; MVP supports Boot 4.x.");
+                if (!Guard.supportedBootVersion(version)) diagnostics.add("Unsupported Spring Boot BOM " + version + "; supported majors are Boot 3.x and 4.x with an exact version.");
                 else {
                     expected = expected(version, diagnostics);
                     Map<Coordinates, String> managed = management(project);

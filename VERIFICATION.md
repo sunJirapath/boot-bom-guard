@@ -1,5 +1,34 @@
 # Verification
 
+## Boot 3 P0, 2026-11-15 (static review only)
+
+Supported scope is BOM drift analysis for Boot 3.5.x and 4.x with Java 17+ plugin bytecode/runtime target.
+Exact real BOM fixture versions are 3.5.16, 4.0.0, 4.0.1 and 4.1.0 (4.1.0 only for mixed-source ambiguity).
+Boot 3.0–3.4, 2.x, other exact releases, application runtime compatibility and Jakarta EE conformance are not claimed.
+No build, compilation, Python, Maven, Gradle, Git command or native resolution was run in this round.
+All new tests, Java 17 toolchains/bytecode, Kotlin DSL compilation and hosted CI outcomes remain **NOT VERIFIED**.
+Historical execution evidence below does not verify these changes.
+PowerShell-only static checks parsed all 14 POMs, matched README's 138 source cases, confirmed both shared-gate callers
+and fixture paths, and found no targeted post-Java-17 API/syntax candidates. These checks do not establish compilation or test success.
+
+- `Guard.supportedBootVersion` is the single shared exact-version/major gate used by both adapters. Core tests:
+  `supportedBootMajorsRequireAnExactParseableVersion`, `boot35ComparisonPreservesDriftAndIncompleteEvidencePolicy`.
+  Maven's former Boot-3 rejection regression is replaced by
+  `bomGateAcceptsSupportedMajorsAndFailsClosedWithoutResolutionEvidence`; Gradle adds
+  `unsupportedBomVersionsWarnAndFailStrictPolicy` for 2.7.18, 5.0.0 and malformed synthetic versions. These are negative fixtures, not support claims.
+- Maven `test_boot35_aligned`, `test_boot35_overrides_warn_and_fail_strict`,
+  `test_boot35_allowed_drift_and_stale_exceptions`, `test_boot35_ambiguous_effective_sources_fail_closed`,
+  `test_boot35_snapshot_identities_and_missing_metadata`, `test_boot35_older_snapshot_timestamp_is_drift`
+  use `fixtures/maven/boot35`. Ambiguity combines the real 3.5.16 parent with a frozen synthetic BOM that contributes distinct managed entries.
+  Snapshot tests reuse the frozen file repository with synthetic `3.5.16-guard-fixture-*` BOM versions; they do not test public Boot snapshot artifacts.
+- Gradle `boot35PlatformsAlignAndExactStrictOverridesFail`, `boot35IncompleteSelectionsAndStaleExceptionsFailClosed`,
+  `boot35ReasonedExceptionAllowsOnlyDrift` each run both Groovy and Kotlin fixtures under `fixtures/gradle/boot35`.
+  Aligned requests are versionless; drift uses a fixture-pinned strict SLF4J 2.0.0 request. No unread Boot-managed version is hardcoded.
+  Spring/Jakarta coverage resolves versionless `spring-core` and `jakarta.servlet-api`; it does not start an application or establish EE 10 runtime compliance.
+- Maven release, root Gradle toolchain/release, Gradle plugin build and optional benchmark compilation target Java 17.
+  Java 21 test execution is retained; CI adds Ubuntu / Java 17 / Maven 3.9.16 / Gradle 8.14.3.
+  All previous strict/incomplete-analysis, exception, redaction, baseline and text-only reporting contracts remain in place.
+
 ## Round 3 P2/P3 fixes, 2026-11-14 (static review only)
 
 - F3: `bootBomGuard` is a dependency of same-project `check` tasks, regardless of registration order. Added `checkRunsGuardAndEnforcesStrictPolicyInEitherPluginOrder` (two plugin orders, aligned success and strict drift failure).
