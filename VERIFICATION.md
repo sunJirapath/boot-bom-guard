@@ -63,7 +63,7 @@ No builds or test suites were run for this change; historical execution results 
 
 ## Performance and further stress coverage, 2026-10-29
 
-Shared-core optimizations reuse coordinate validation patterns, index expected versions by hash, sort only drift findings, and avoid formatter allocations during report escaping. Public records, exact-version equality, distinct-resolution counting, ordering, exceptions and strict policy retain their previous behavior. [PERFORMANCE.md](PERFORMANCE.md) records reproducible baseline/working-source timing and allocation measurements; native resolution/startup and peak heap are outside that benchmark.
+Shared-core optimizations reuse coordinate validation patterns, index expected versions by hash, sort only drift findings, and avoid formatter allocations during report escaping. Public records, exact-version equality, distinct-resolution counting, ordering, exceptions and strict policy retain their previous behavior. A since-removed performance report (kept in git history) recorded baseline/working-source timing and allocation measurements; native resolution/startup and peak heap are outside that benchmark.
 
 This historical pass recorded **95 distinct tests**: 16 shared core, 3 Maven adapter, 31 native Maven integration and 45 Gradle TestKit. These are execution counts from that pass, not the current source inventory. Six additional regressions cover seeded differential policy checks, every UTF-16 code unit, coordinate grammar, colliding hashes, a dense native conflict graph, and separate configurations with different BOMs. Earlier corpus replays below belong to `78ec45c`; that corpus was not replayed for this core-only change.
 
@@ -71,7 +71,7 @@ Fresh Windows/JDK 21.0.11 checks pass: source install/unit suites and all 31 nat
 
 ## Earlier coverage-gap closure (78ec45c), 2026-10-29
 
-This follow-up fixes five additional reproduced defects: Maven adapter stack overflow and shared-node origin, Gradle local-file false passes, fully erased BOM-constraint false passes, and exact preferred-only constraints incorrectly reported as unsupported. Incoming Gradle graph edges are indexed once. See [ADVERSARIAL-AUDIT.md](ADVERSARIAL-AUDIT.md) for before/fix/regression evidence and explicit remaining contracts.
+This follow-up fixes five additional reproduced defects: Maven adapter stack overflow and shared-node origin, Gradle local-file false passes, fully erased BOM-constraint false passes, and exact preferred-only constraints incorrectly reported as unsupported. Incoming Gradle graph edges are indexed once. The before/fix/regression evidence lived in a since-removed audit report (kept in git history); the remaining contracts are listed below.
 
 Fresh Windows/JDK 21.0.11 verification: **89 distinct tests** (12 core, 3 Maven adapter, 31 native Maven integration, 43 Gradle TestKit). Full Maven install/unit/integration suites pass separately with **3.9.16, 3.10.0 and 4.0.0-rc-7**; Maven 4 is preview compatibility for that exact release candidate. Gradle **8.14.3 and 9.8.2** each pass full forced `check` reruns, including plugin validation. Tests have zero failures/errors/skips in final runs. New regressions account for 13 tests beyond the previous 76-test pass.
 
@@ -87,7 +87,7 @@ Remaining boundaries are deliberate and documented: shared project/settings BOM 
 
 ## Earlier adversarial pass (067166c), 2026-10-29
 
-The [adversarial audit](ADVERSARIAL-AUDIT.md) records four reproduced false-pass defects, their fixes and the remaining coverage boundaries. It adds native Maven relocation/type/classifier/system/range probes and Gradle composite, incomplete-baseline, rich-constraint, selection-rule, project-substitution and transitive-platform probes.
+The adversarial audit (report since removed, kept in git history) recorded four reproduced false-pass defects, their fixes and the remaining coverage boundaries. It adds native Maven relocation/type/classifier/system/range probes and Gradle composite, incomplete-baseline, rich-constraint, selection-rule, project-substitution and transitive-platform probes.
 
 Fresh Windows/JDK 21.0.11/Maven 3.9.16 checks passed: Maven offline install (12 core tests), **29 Maven integration tests**, and full Gradle forced-task reruns using `check --rerun-tasks -PtestOffline=true` on **8.14.3 and 9.8.2** (12 shared core + **35 TestKit tests** and plugin validation on each). That is **76 distinct tests**, zero failures/skips, with the shared core counted once. Fifteen tests are new in this audit. The previous P1-P2 and campaign sections below remain revision-specific historical evidence.
 
