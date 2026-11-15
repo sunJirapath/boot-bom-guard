@@ -57,6 +57,28 @@ class GradleBoundaryIntegrationTest {
                 "<packaging>pom</packaging><dependencyManagement><dependencies>" + management + "</dependencies></dependencyManagement>");
     }
 
+    @Test void malformedPomAndModuleJsonAttacksNeverPassStrictPolicy() throws Exception {
+        // Kills dropping unresolved edges from diagnostics and allowing an empty comparable graph to pass.
+        platform(dependency("broken-pom", "1") + dependency("broken-module", "1"));
+        publish("guard.boundary", "broken-pom", "1", "");
+        Path pom = directory.resolve("repository/guard/boundary/broken-pom/1/broken-pom-1.pom");
+        Files.writeString(pom, "<project><modelVersion>4.0.0</modelVersion><broken>");
+        publish("guard.boundary", "broken-module", "1", "");
+        Path module = directory.resolve("repository/guard/boundary/broken-module/1/broken-module-1.pom");
+        Files.writeString(module, Files.readString(module).replace("<modelVersion>",
+                "<!-- do_not_remove: published-with-gradle-metadata --><modelVersion>"));
+        Files.writeString(module.resolveSibling("broken-module-1.module"), "{\"formatVersion\":\"1.1\",\"variants\":[");
+        for (String name : List.of("broken-pom", "broken-module")) {
+            consumer("implementation 'guard.boundary:" + name + ":1'", "", "url = uri('repository')");
+            String warning = run(false, false);
+            assertTrue(warning.contains("UNKNOWN Unresolved Gradle dependencies"), warning);
+            assertFalse(warning.contains("PASS checked="), warning);
+            String failure = run(true, false, "-Pstrict");
+            assertTrue(failure.contains("UNKNOWN Unresolved Gradle dependencies"), failure);
+            assertTrue(failure.contains("policy failed"), failure);
+        }
+    }
+
     @ParameterizedTest
     @ValueSource(strings = {"2.7.18", "5.0.0", "4.invalid", "3.5.x"})
     void unsupportedBomVersionsWarnAndFailStrictPolicy(String version) throws Exception {

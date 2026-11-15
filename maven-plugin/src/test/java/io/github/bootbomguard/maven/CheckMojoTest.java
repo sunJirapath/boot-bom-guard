@@ -6,6 +6,7 @@ import org.apache.maven.model.DependencyManagement;
 import org.apache.maven.model.InputLocation;
 import org.apache.maven.model.InputSource;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.SystemStreamLog;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.aether.artifact.DefaultArtifact;
@@ -23,6 +24,60 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CheckMojoTest {
+    @Test void nullFirstReasonDuplicateAllowlistAttackIsRejectedBeforeAnalysis() throws Exception {
+        // Kills using Map.put's nullable return value to detect duplicate configuration entries.
+        var mojo = new CheckMojo();
+        var entries = new ArrayList<CheckMojo.ExceptionEntry>();
+        for (String reason : new String[]{null, "accepted later"}) {
+            var entry = new CheckMojo.ExceptionEntry();
+            var dependency = CheckMojo.ExceptionEntry.class.getDeclaredField("dependency");
+            dependency.setAccessible(true);
+            dependency.set(entry, "g:library");
+            var reasonField = CheckMojo.ExceptionEntry.class.getDeclaredField("reason");
+            reasonField.setAccessible(true);
+            reasonField.set(entry, reason);
+            entries.add(entry);
+        }
+        var field = CheckMojo.class.getDeclaredField("exceptions");
+        field.setAccessible(true);
+        field.set(mojo, entries);
+        var error = assertThrows(MojoExecutionException.class, mojo::execute);
+        assertTrue(error.getMessage().startsWith("Duplicate exception:"));
+    }
+
+    @Test void unsupportedBomCredentialAndWorkflowInjectionAttackIsSanitizedAndFailsClosed() throws Exception {
+        // Kills bypassing the shared formatter in the unsupported-BOM Maven warning sink.
+        String attack = "2.0.3.RELEASE https://u:bomCredential@host/x?token=queryCredential\n::error::forged";
+        var source = new InputSource();
+        source.setModelId("org.springframework.boot:spring-boot-dependencies:" + attack);
+        var dependency = new org.apache.maven.model.Dependency();
+        dependency.setGroupId("g");
+        dependency.setArtifactId("library");
+        dependency.setVersion("1");
+        dependency.setLocation("version", new InputLocation(1, 1, source));
+        var management = new DependencyManagement();
+        management.addDependency(dependency);
+        var project = new MavenProject();
+        project.getModel().setDependencyManagement(management);
+        var mojo = new CheckMojo();
+        var field = CheckMojo.class.getDeclaredField("project");
+        field.setAccessible(true);
+        field.set(mojo, project);
+        field = CheckMojo.class.getDeclaredField("failOnDrift");
+        field.setAccessible(true);
+        field.setBoolean(mojo, true);
+        var output = new StringBuilder();
+        mojo.setLog(new SystemStreamLog() {
+            @Override public void warn(CharSequence content) { output.append(content); }
+        });
+        assertThrows(MojoFailureException.class, mojo::execute);
+        assertTrue(output.toString().contains("UNKNOWN Unsupported Spring Boot BOM 2.0.3.RELEASE"));
+        assertFalse(output.toString().contains("bomCredential"));
+        assertFalse(output.toString().contains("queryCredential"));
+        assertFalse(output.toString().lines().anyMatch(line -> line.startsWith("::error::")));
+        assertFalse(output.toString().contains("PASS checked="));
+    }
+
     @Test void bomGateAcceptsSupportedMajorsAndFailsClosedWithoutResolutionEvidence() throws Exception {
         for (String version : List.of("3.5.16", "4.0.0", "2.7.18", "5.0.0", "4.invalid", "3.5.x")) {
             var source = new InputSource();

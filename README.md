@@ -287,11 +287,14 @@ The review-round changes have only been reviewed statically; source counts do no
 
 | Suite | Source cases |
 | --- | ---: |
-| Core | 28 |
-| Maven adapter | 4 |
+| Core | 35 |
+| Maven adapter | 6 |
 | Python Maven integrations | 43 |
-| Gradle integrations | 63 |
-| Total | 138 |
+| Gradle integrations | 64 |
+| Total | 148 |
+
+Separate from this table, `scripts/verify_real_projects.py` adds 7 opt-in cases and
+`scripts/test_verify_real_projects.py` adds 12 harness-only cases; none have been run.
 
 The Python suite includes three documentation/CI contract checks. The Spring dependency-management-only
 TestKit regression also needs `io.spring.dependency-management:1.1.7` cached before an offline run.

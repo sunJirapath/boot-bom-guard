@@ -2,6 +2,8 @@ package io.github.bootbomguard.core;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class RedactTest {
@@ -94,6 +96,50 @@ class RedactTest {
     @Test void preservesHarmlessMessages() {
         assertEquals("RuntimeException: Could not find artifact g:a:jar:1",
                 Redact.cause(new RuntimeException("Could not find artifact g:a:jar:1")));
+    }
+
+    @Test void preservesSecretLikeCoordinatesWithVersions() {
+        for (String coordinate : new String[]{
+                "org.springframework.boot:spring-boot-starter-oauth2-authorization-server 1.5.0",
+                "org.springframework.security:spring-security-token 2.3.4",
+                "com.example:db-password-provider 4.0.0"})
+            assertEquals(coordinate, Guard.safe(coordinate));
+    }
+
+    @Test void doesNotRedactSecretLikeKeysFollowedBySpaceAndVersion() {
+        for (String diagnostic : new String[]{"token 1.5.0", "password 1.5.0"}) {
+            assertEquals(diagnostic, Guard.safe(diagnostic));
+            assertFalse(Guard.safe(diagnostic).contains("=***"));
+        }
+    }
+
+    @Test void continuesRedactingExplicitSchemesQuotedXmlAndUserInfoSecrets() {
+        String[] cases = {
+                "password=hunter2",
+                "Authorization: Bearer bearerCredential",
+                "Authorization: Basic basicCredential==",
+                "Bearer standaloneCredential",
+                "api_key: apiCredential",
+                "password=\"escaped \\\"credential\\\" value\"",
+                "password=\"unterminated credential",
+                "<password>xmlCredential</password>",
+                "https://user:urlCredential@host/path",
+                "user:bareCredential@host"
+        };
+        String[] credentials = {
+                "hunter2", "bearerCredential", "basicCredential==", "standaloneCredential", "apiCredential",
+                "credential", "credential", "xmlCredential", "urlCredential", "bareCredential"
+        };
+        for (int i = 0; i < cases.length; i++) {
+            String output = Redact.text(cases[i]);
+            assertFalse(output.contains(credentials[i]), output);
+            assertTrue(output.contains("***"), output);
+        }
+    }
+
+    @Test void repeatedBareSecretLikeKeysCompleteWithoutBacktracking() {
+        String input = "token ".repeat(100_000);
+        assertTimeoutPreemptively(Duration.ofSeconds(2), () -> assertEquals(input, Redact.text(input)));
     }
 
     private static final class CyclicException extends Exception {
