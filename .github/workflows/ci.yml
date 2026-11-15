@@ -8,9 +8,9 @@ permissions:
   contents: read
 
 jobs:
-  # Owner-only PR gate: skip PRs not authored by the repo owner or coming from forks.
+  # Owner-only gate: run only when the repo owner triggers it; PRs must also be owner-authored and not from forks.
   verify:
-    if: github.event_name != 'pull_request' || (github.event.pull_request.user.login == github.repository_owner && github.event.pull_request.head.repo.full_name == github.repository)
+    if: github.triggering_actor == github.repository_owner && (github.event_name != 'pull_request' || (github.event.pull_request.user.login == github.repository_owner && github.event.pull_request.head.repo.full_name == github.repository))
     name: ${{ matrix.os }} / JDK ${{ matrix.java }} / Maven 3.9.16 / Gradle ${{ matrix.gradle }}
     strategy:
       fail-fast: false
@@ -69,7 +69,7 @@ jobs:
         run: python3 scripts/verify_install.py --gradle "$(command -v gradle)"
 
   windows:
-    if: github.event_name != 'pull_request' || (github.event.pull_request.user.login == github.repository_owner && github.event.pull_request.head.repo.full_name == github.repository)
+    if: github.triggering_actor == github.repository_owner && (github.event_name != 'pull_request' || (github.event.pull_request.user.login == github.repository_owner && github.event.pull_request.head.repo.full_name == github.repository))
     name: Windows / JDK 21 / Maven 3.9.16 / Gradle 8.14.3
     runs-on: windows-2025
     timeout-minutes: 45
@@ -108,7 +108,7 @@ jobs:
         run: python scripts/verify_install.py --gradle (Get-Command gradle.bat).Source
 
   maven-compatibility:
-    if: github.event_name != 'pull_request' || (github.event.pull_request.user.login == github.repository_owner && github.event.pull_request.head.repo.full_name == github.repository)
+    if: github.triggering_actor == github.repository_owner && (github.event_name != 'pull_request' || (github.event.pull_request.user.login == github.repository_owner && github.event.pull_request.head.repo.full_name == github.repository))
     name: Maven ${{ matrix.maven }} compatibility / JDK 21
     strategy:
       fail-fast: false
