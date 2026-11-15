@@ -7,8 +7,11 @@ import java.util.regex.Pattern;
 
 public final class Redact {
     private static final Pattern URL_USERINFO = Pattern.compile("://[^/@\\s]+@");
+    // Unterminated quoted values consume the rest of the message rather than expose a secret suffix.
     private static final Pattern SECRET = Pattern.compile(
-            "(?i)((?:password|passwd|token|secret|authorization|bearer|api[-_]?key)[\\w-]*)\\s*[=:]?\\s*(?:bearer\\s+)?\\S+");
+            "(?is)((?:password|passwd|token|secret|authorization|bearer|api[-_]?key)[\\w-]*)[\"']?\\s*[=:]?\\s*"
+                    + "(?:(?:basic|bearer)\\s+)?(?:\"(?:\\\\.|[^\"\\\\])*(?:\"|\\\\?\\z)"
+                    + "|'(?:\\\\.|[^'\\\\])*(?:'|\\\\?\\z)|\\S+)");
     private static final Pattern WHITESPACE = Pattern.compile("(?U)\\s+");
 
     private Redact() {}

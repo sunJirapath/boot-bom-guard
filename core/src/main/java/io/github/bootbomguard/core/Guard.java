@@ -29,6 +29,7 @@ public final class Guard {
             return !diagnostics.isEmpty() || findings.stream().anyMatch(f -> f.reason() == null);
         }
 
+        // FINDING: Structured reports require an adapter output contract; this formatter remains text-only (see README).
         public String format() {
             StringBuilder out = new StringBuilder("boot-bom-guard BOM=").append(safe(bom)).append('\n');
             diagnostics.stream().distinct().sorted().forEach(d -> out.append("UNKNOWN ").append(safe(d)).append('\n'));
@@ -53,12 +54,14 @@ public final class Guard {
         expected.forEach((key, version) -> requireText(version, "Expected version for " + key));
         Map<Coordinates, String> versions = new HashMap<>(expected);
         List<Finding> findings = new ArrayList<>();
+        Set<Coordinates> unmatched = new HashSet<>(exceptions.keySet());
         int checked = 0;
         Set<Resolved> seen = new HashSet<>();
         for (Resolved dependency : actual) {
             if (!seen.add(dependency)) continue;
             String version = versions.get(dependency.coordinates());
             if (version == null) continue;
+            unmatched.remove(dependency.coordinates());
             checked++;
             if (!version.equals(dependency.version())) {
                 findings.add(new Finding(dependency.coordinates(), version, dependency.version(), dependency.origin(),
@@ -67,7 +70,9 @@ public final class Guard {
         }
         findings.sort(Comparator.comparing(Finding::coordinates).thenComparing(Finding::resolved)
                 .thenComparing(Finding::evidence).thenComparing(Finding::origin));
-        return new Report(bom, List.copyOf(findings), diagnostics.stream().distinct().sorted().toList(), checked);
+        List<String> allDiagnostics = new ArrayList<>(diagnostics);
+        unmatched.forEach(key -> allDiagnostics.add("Unmatched exception (no resolved managed coordinate): " + key));
+        return new Report(bom, List.copyOf(findings), allDiagnostics.stream().distinct().sorted().toList(), checked);
     }
 
     public static Map<Coordinates, String> exceptions(Map<String, String> values) {
