@@ -287,11 +287,11 @@ The review-round changes have only been reviewed statically; source counts do no
 
 | Suite | Source cases |
 | --- | ---: |
-| Core | 39 |
+| Core | 46 |
 | Maven adapter | 6 |
 | Python Maven integrations | 43 |
 | Gradle integrations | 64 |
-| Total | 152 |
+| Total | 159 |
 
 Separate from this table, `scripts/verify_real_projects.py` adds 7 opt-in cases and
 `scripts/test_verify_real_projects.py` adds 12 harness-only cases. The opt-in runner passed on one Windows host (5 Maven and 2 Gradle projects); these cases are not part of the table above.
